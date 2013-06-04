@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <stdarg.h>
-#include "../include/system.h"
-#include "../include/kernel.h"
-#include "../include/memory.h"
+#include "clSystem/system.h"
+#include "clSystem/kernel.h"
+#include "clSystem/memory.h"
 
 using namespace std;
 

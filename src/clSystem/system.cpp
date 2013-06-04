@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/system.h"
+#include "clSystem/system.h"
 
 
 clSystem::clSystem()

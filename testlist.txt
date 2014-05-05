@@ -1,0 +1,15 @@
+ClPlatform ./unit_test ClPlatform
+Simulation/Test/empty_sim ./run.sh Empty_simulation
+Simulation/Test/declare_memory ./run.sh Declare_memory
+Simulation/Test/copy_integers ./run.sh Copy_integers
+Simulation/Test/simple_aritmetic ./run.sh Simple_aritmetics
+Simulation/Test/vector_operations ./run.sh Vector_operations
+Simulation/Test/material_point ./run.sh Material_Point
+Simulation/Test/performance_tests ./run.sh Performance_Test_#1
+Simulation/Test/constants ./run.sh Int_&_Float_Constants
+Simulation/Test/local_variables ./run.sh Local_Variables
+AutoTest/MaterialPoint ./run.sh MaterialPoint_Offsets&Size
+Simulation/Test/matrix_operations ./run.sh Matrix_oparations
+Simulation/Test/if ./run.sh If_Instruction
+Simulation/Test/while ./run.sh While_Loop
+Simulation/Test/for_loop ./run.sh For_Loop

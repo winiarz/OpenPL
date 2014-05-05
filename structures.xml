@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<STRUCTURES>
+  <STRUCT name="MaterialPoint">
+    <MEMBER name="position" type="Float3" cl_type="float3"/>
+    <MEMBER name="speed" type="Float3" cl_type="float3"/>
+    <MEMBER name="force" type="Float3" cl_type="float3"/>
+    <MEMBER name="mass" type="Float" cl_type="float"/>
+    <MEMBER name="nothing"  type="Float" cl_type="float" size="3"/>
+  </STRUCT>
+</STRUCTURES>

@@ -1,0 +1,10 @@
+char
+uchar
+short
+ushort
+int
+uint
+long
+ulong
+float
+double

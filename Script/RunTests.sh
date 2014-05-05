@@ -39,6 +39,7 @@ function testcase {
   result=$?
   if [ $result == 0 ]; then
     passed=$(( $passed + 1))
+    $runSingleTest "$command clean" $logDirForTestcase $testname $test_number $test_count > /dev/null
   else
     failed=$(( $failed + 1))
   fi

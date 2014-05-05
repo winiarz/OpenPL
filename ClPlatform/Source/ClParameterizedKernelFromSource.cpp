@@ -36,17 +36,18 @@ string ClParameterizedKernelFromSource::getSource(int param)
     std::ostringstream fileText;
     while( !file.eof() )
     {
-        string line;
-        file >> line;
+        char line[1024];
+        file.getline(line, 1024);
+        string lineStr = string(line);
 
-        size_t f=line.find(paramName);;
+        size_t f=lineStr.find(paramName);
         while( f != std::string::npos )
         {
-            line.replace(f, paramName.length(), stringParamValue);
-            f = line.find(paramName);
+            lineStr.replace(f, paramName.length(), stringParamValue);
+            f = lineStr.find(paramName);
         }
 
-        fileText << line;
+        fileText << lineStr << std::endl;
     }
 
     return fileText.str();

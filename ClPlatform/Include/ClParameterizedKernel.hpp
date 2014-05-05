@@ -3,7 +3,7 @@
 
 #include "IClParameterizedKernel.hpp"
 
-class ClParameterizedKernel {
+class ClParameterizedKernel : public IClParameterizedKernel {
 public:
     ClParameterizedKernel(boost::shared_ptr<IClParameter>);
     virtual optional<shared_ptr<IClKernel> > getKernel(int);

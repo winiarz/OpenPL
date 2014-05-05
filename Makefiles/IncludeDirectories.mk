@@ -1,7 +1,7 @@
 
 
 #C++ include directories
-ClPlatformInclude= -I$(ClPlatform)/Include -I$(ClPlatform)/Interface
+ClPlatformInclude= -I$(ClPlatform)/Include -I$(ClPlatform)/Interface -I$(ClPlatform)/Mock
 SimulationCreateInclude= -I$(SimulationCreate)/Include -I $(SimulationCreate)/Include/Types -I $(SimulationCreate)/Include/VecTypes -I $(SimulationCreate)/Include/Structures
 SimulationExecuteInclude= -I$(SimulationExecute)/Include -I $(SimulationExecute)/Include/Types -I  $(SimulationExecute)/Include/VecTypes -I  $(SimulationExecute)/Include/Structures 
 KernelLoaderInclude= -I$(KernelLoader)/Include -I$(KernelLoader)/Interface

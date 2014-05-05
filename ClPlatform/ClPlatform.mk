@@ -16,6 +16,7 @@ ClPlatformTestObjs=  $(ClPlatformObj)/ClPlatformTestSuite.o
 ClPlatformTestObjs+= $(ClPlatformObj)/ClMemoryTestSuite.o
 ClPlatformTestObjs+= $(ClPlatformObj)/ClKernelTestSuite.o
 ClPlatformTestObjs+= $(ClPlatformObj)/ClModuleTest.o
+ClPlatformTestObjs+= $(ClPlatformObj)/ClParameterizedKernelFromSourceTestSuite.o
 
 ClPlatformTestKernels=  $(ClPlatform)/TestData/empty.clbin
 ClPlatformTestKernels+= $(ClPlatform)/TestData/addition.clbin
@@ -36,7 +37,7 @@ $(libClPlatform): $(ClPlatformLibObj)
 
 $(ClPlatform)/TestPlatform: $(ClPlatformTestObjs) $(ClPlatformLibObj)
 	@echo "\tLD\t"$@
-	@g++ $^ -o $@ $(GTest) $(OpenClLib) $(OpenGL)
+	@g++ $^ -o $@ $(GTest) $(GMock) $(OpenClLib) $(OpenGL)
 
 $(ClPlatformObj)/%.o: $(ClPlatformSource)/%.cpp
 	@echo "\tCXX\t"$*.o

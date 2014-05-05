@@ -18,15 +18,18 @@ boost::optional<boost::shared_ptr<IClKernel> > ClParameterizedKernel::getKernel(
             return none;
 
         string kernelSource = this->getSource(paramValue);
+
         ofstream tempFile("__temp_kernel_source.cl"); // TODO do it without temp file !
         tempFile << kernelSource;
         tempFile.close();
-        compile("__temp_kernel_source.cl",set<string>(), "__temp_kernel_source.clbin"); // TODO do not create binary file
+        set<string> includeDirs;
+        includeDirs.insert(string("."));
+        compile("__temp_kernel_source.cl",includeDirs, "__temp_kernel_source.clbin"); // TODO do not create binary file
 
         boost::shared_ptr<IClKernel> kernel = make_shared<ClKernel>("__temp_kernel_source.clbin",this->getKernelName().c_str());
         if( kernel->isSetUpSuccessfully() )
         {
-            builtKernels.at(paramValue) = kernel;
+            builtKernels[paramValue] = kernel;
             return optional<boost::shared_ptr<IClKernel> >(kernel);
         }
         else

@@ -11,7 +11,7 @@ all: main
 	@echo "\tCXX\t"$@
 	@g++ $^ -o $@ $(AllInclude) $(cpp_flags)
 
-main: mysim.o main.o 
+main: mysim.o main.o
 	@echo "\tLN\t"$@
 	@g++ $^ $(allLibs) -o $@ $(OpenClLib) -lgtest -lgtest_main $(OpenGL)
 

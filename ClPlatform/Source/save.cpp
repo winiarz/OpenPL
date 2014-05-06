@@ -1,42 +1,39 @@
 #include "ClPlatform.hpp"
-#include <iostream>
 #include <fstream>
 #include <sstream>
+#include "logs.hpp"
 
 bool SaveProgramBinary(cl_program program, cl_device_id device, const char* fileName)
 {
     cl_uint numDevices = 0;
-    cl_int errNum;
+    cl_int error;
 
-    // 1 - Query for number of devices attached to program
-    errNum = clGetProgramInfo(program, CL_PROGRAM_NUM_DEVICES, sizeof(cl_uint),
+    error = clGetProgramInfo(program, CL_PROGRAM_NUM_DEVICES, sizeof(cl_uint),
                               &numDevices, NULL);
-    if (errNum != CL_SUCCESS)
+    if (error != CL_SUCCESS)
     {
-        std::cerr << "Error querying for number of devices." << std::endl;
+        ERROR << "Error querying for number of devices, OpenCL error = " << error;
         return false;
     }
 
-    // 2 - Get all of the Device IDs
     cl_device_id *devices = new cl_device_id[numDevices];
-    errNum = clGetProgramInfo(program, CL_PROGRAM_DEVICES,
+    error = clGetProgramInfo(program, CL_PROGRAM_DEVICES,
                               sizeof(cl_device_id) * numDevices,
                               devices, NULL);
-    if (errNum != CL_SUCCESS)
+    if (error != CL_SUCCESS)
     {
-        std::cerr << "Error querying for devices." << std::endl;
+        ERROR << "Error querying for devices, OpenCL error = " << error;
         delete [] devices;
         return false;
     }
 
-    // 3 - Determine the size of each program binary
     size_t *programBinarySizes = new size_t [numDevices];
-    errNum = clGetProgramInfo(program, CL_PROGRAM_BINARY_SIZES,
+    error = clGetProgramInfo(program, CL_PROGRAM_BINARY_SIZES,
                               sizeof(size_t) * numDevices,
                               programBinarySizes, NULL);
-    if (errNum != CL_SUCCESS)
+    if (error != CL_SUCCESS)
     {
-        std::cerr << "Error querying for program binary sizes." << std::endl;
+        ERROR << "Error querying for program binary sizes, OpenCL error = " << error;
         delete [] devices;
         delete [] programBinarySizes;
         return false;
@@ -48,12 +45,11 @@ bool SaveProgramBinary(cl_program program, cl_device_id device, const char* file
         programBinaries[i] = new unsigned char[programBinarySizes[i]];
     }
 
-    // 4 - Get all of the program binaries
-    errNum = clGetProgramInfo(program, CL_PROGRAM_BINARIES, sizeof(unsigned char*) * numDevices,
+    error = clGetProgramInfo(program, CL_PROGRAM_BINARIES, sizeof(unsigned char*) * numDevices,
                               programBinaries, NULL);
-    if (errNum != CL_SUCCESS)
+    if (error != CL_SUCCESS)
     {
-        std::cerr << "Error querying for program binaries" << std::endl;
+        ERROR << "Error querying for program binaries, OpenCL error = " << error;
 
         delete [] devices;
         delete [] programBinarySizes;
@@ -65,11 +61,8 @@ bool SaveProgramBinary(cl_program program, cl_device_id device, const char* file
         return false;
     }
 
-    // 5 - Finally store the binaries for the device requested out to disk for future reading.
     for (cl_uint i = 0; i < numDevices; i++)
     {
-        // Store the binary just for the device requested.  In a scenario where
-        // multiple devices were being used you would save all of the binaries out here.
         if (devices[i] == device)
         {
             FILE *fp = fopen(fileName, "wb");
@@ -79,7 +72,6 @@ bool SaveProgramBinary(cl_program program, cl_device_id device, const char* file
         }
     }
 
-    // Cleanup
     delete [] devices;
     delete [] programBinarySizes;
     for (cl_uint i = 0; i < numDevices; i++)

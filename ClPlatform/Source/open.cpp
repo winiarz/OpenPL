@@ -1,17 +1,18 @@
 #include "ClPlatform.hpp"
-#include <iostream>
+#include <stdio.h>
 #include <fstream>
 #include <sstream>
- 
+#include <logs.hpp>
+
 cl_program CreateProgramFromBinary(cl_context context, cl_device_id device, const char* fileName)
 {
-    FILE *fp = fopen(fileName, "rb");
+    FILE* fp = fopen(fileName, "rb");
     if (fp == NULL)
     {
+        ERROR << "can't open file: " << fileName;
         return NULL;
     }
 
-    // Determine the size of the binary
     size_t binarySize;
     fseek(fp, 0, SEEK_END);
     binarySize = ftell(fp);
@@ -21,7 +22,7 @@ cl_program CreateProgramFromBinary(cl_context context, cl_device_id device, cons
     fread(programBinary, 1, binarySize, fp);
     fclose(fp);
 
-    cl_int errNum = 0;
+    cl_int error = 0;
     cl_program program;
     cl_int binaryStatus;
 
@@ -31,30 +32,29 @@ cl_program CreateProgramFromBinary(cl_context context, cl_device_id device, cons
                                         &binarySize,
                                         (const unsigned char**)&programBinary,
                                         &binaryStatus,
-                                        &errNum);
+                                        &error);
     delete [] programBinary;
-    if (errNum != CL_SUCCESS)
+    if (error != CL_SUCCESS)
     {
-        std::cerr << "Error loading program binary." << std::endl;
+        ERROR << "Error loading program binary " << fileName << " error = " << error;
         return NULL;
     }
 
     if (binaryStatus != CL_SUCCESS)
     {
-        std::cerr << "Invalid binary for device" << std::endl;
+        ERROR << "Invalid binary for device " << fileName;
         return NULL;
     }
 
-    errNum = clBuildProgram(program, 0, NULL, NULL, NULL, NULL);
-    if (errNum != CL_SUCCESS)
+    error= clBuildProgram(program, 0, NULL, NULL, NULL, NULL);
+    if (error != CL_SUCCESS)
     {
-        // Determine the reason for the error
         char buildLog[16384];
         clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG,
                               sizeof(buildLog), buildLog, NULL);
 
-        std::cerr << "Error in program: " << std::endl;
-        std::cerr << buildLog << std::endl;
+        ERROR << "Error in program: " << fileName;
+        ERROR << buildLog;
         clReleaseProgram(program);
         return NULL;
     }
@@ -64,13 +64,13 @@ cl_program CreateProgramFromBinary(cl_context context, cl_device_id device, cons
 
 cl_program CreateProgram(cl_context context, cl_device_id device, const char* fileName)
 {
-  cl_int errNum;
+  cl_int error;
   cl_program program;
   
   std::ifstream kernelFile(fileName, std::ios::in);
   if (!kernelFile.is_open())
   {
-    std::cerr << "Failed to open file for reading: " << fileName << std::endl;
+    ERROR << "Failed to open file for reading: " << fileName;
     return NULL;
   }
   
@@ -79,25 +79,27 @@ cl_program CreateProgram(cl_context context, cl_device_id device, const char* fi
   
   std::string srcStdStr = oss.str();
   const char *srcStr = srcStdStr.c_str();
-  program = clCreateProgramWithSource(context, 1,
-				      (const char**)&srcStr,
-				      NULL, NULL);
-  if (program == NULL)
+  program = clCreateProgramWithSource(context,
+                                      1,
+                                      (const char**)&srcStr,
+                                      NULL,
+                                      &error);
+
+  if ( (program == NULL) || ( error != CL_SUCCESS ) )
   {
-    std::cerr << "Failed to create CL program from source." << std::endl;
+    ERROR << "Failed to create CL program from source, error = " << error;
     return NULL;
   }
   
-  errNum = clBuildProgram(program, 0, NULL, NULL, NULL, NULL);
-  if (errNum != CL_SUCCESS)
+  error= clBuildProgram(program, 0, NULL, NULL, NULL, NULL);
+  if (error != CL_SUCCESS)
   {
-    // Determine the reason for the error
     char buildLog[16384];
     clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG,
 			  sizeof(buildLog), buildLog, NULL);
     
-    std::cerr << "Error in kernel: " << std::endl;
-    std::cerr << buildLog;
+    ERROR << "Error in kernel: ";
+    ERROR << buildLog;
     clReleaseProgram(program);
     return NULL;
   }

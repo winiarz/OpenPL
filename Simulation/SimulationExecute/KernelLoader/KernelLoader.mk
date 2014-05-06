@@ -11,7 +11,7 @@ KernelLoaderClean:
 KernelLoaderTest: $(TestBin)/KernelLoaderGT
 	$(TestBin)/KernelLoaderGT
 
-$(TestBin)/KernelLoaderGT: $(KernelLoaderTestObj) $(libClPlatform)
+$(TestBin)/KernelLoaderGT: $(KernelLoaderTestObj) $(libClPlatform) $(libLogs)
 	@echo "\tLD\tKernelLoaderGT"
 	@g++ $^ $(OpenClLib) $(GMock) $(GTest) -o $@
 

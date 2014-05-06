@@ -9,7 +9,7 @@ CreateKernel* CreateKernel::actualCreateKernel;
 CreateKernel::CreateKernel(const char simulation_name[], const char kernel_name[]) : name(kernel_name), filename( createFileName(simulation_name, kernel_name) )
 {
   includeDirectories.insert( "." );
-  includeDirectories.insert( "/media/DATA/OpenPL/clinclude" ); // TODO remove this hardcoding !!!
+  includeDirectories.insert( "/media/DATA/OpenPL/OpenPL/clinclude" ); // TODO remove this hardcoding !!!
 }
 
 void CreateKernel::start(const char kernel_name[])

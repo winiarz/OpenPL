@@ -1,18 +1,19 @@
 #include "ClMemory.hpp"
+#include "logs.hpp"
 
 uint getSizeOfBuffer(uint p_size, ClMemoryCreation creationType)
 {
   switch( creationType )
   {
     case CL_MEMORY_ALLOC:
-      return p_size;
+        return p_size;
     case CL_MEMORY_USE_GL_BUFFER:
     {
-      GLuint glBuffer = p_size;
-      int bufferSize = 0;
-      glBindBuffer(GL_ARRAY_BUFFER, glBuffer);
-      glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &bufferSize);
-      return bufferSize;
+        GLuint glBuffer = p_size;
+        int bufferSize = 0;
+        glBindBuffer(GL_ARRAY_BUFFER, glBuffer);
+        glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &bufferSize);
+        return bufferSize;
     }
     default:
       return 0;
@@ -34,12 +35,17 @@ ClMemory::ClMemory(uint p_size, ClMemoryCreation creationType) :
     case CL_MEMORY_USE_GL_BUFFER:
     {
       GLuint glBuffer = p_size;
+      DEBUG << "creating ClMemory from OpenGL buffer " << glBuffer;
       memory = clCreateFromGLBuffer(platform.context, CL_MEM_READ_WRITE, glBuffer, NULL);
       break;
     }
   }
   if( (!memory) || (error != CL_SUCCESS) )
-    { setUpSuccessfully=false; return; }
+  {
+      ERROR << "error in memory allocation OpenCL error = " << error;
+      setUpSuccessfully=false;
+      return;
+  }
     
   setUpSuccessfully = true;
 }
@@ -59,7 +65,10 @@ void ClMemory::copyIn(void* data, uint start, uint p_size)
   cl_int error;
   error = clEnqueueWriteBuffer( platform.queue, memory, CL_TRUE, start, p_size, data, 0, NULL, NULL);
   if(error != CL_SUCCESS)
-    throw INTER_DEVICE_COPY_ERROR;
+  {
+      ERROR << "error in copying memory to device, OpenCL error = " << error;
+      throw INTER_DEVICE_COPY_ERROR;
+  }
 }
 
 void ClMemory::copyOut(void* data, uint start, uint p_size)
@@ -67,7 +76,10 @@ void ClMemory::copyOut(void* data, uint start, uint p_size)
   cl_int error;
   error = clEnqueueReadBuffer( platform.queue, memory, CL_TRUE, start, p_size, data, 0, NULL, NULL);
   if(error != CL_SUCCESS)
-    throw INTER_DEVICE_COPY_ERROR;
+  {
+      ERROR << "error in copying memory to device, OpenCL error = " << error;
+      throw INTER_DEVICE_COPY_ERROR;
+  }
 }
 
 uint ClMemory::getSize()

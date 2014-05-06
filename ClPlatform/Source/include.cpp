@@ -3,6 +3,7 @@
 #include <iostream>
 #include <set>
 #include <sstream>
+#include "logs.hpp"
 
 using namespace std;
 void findInclude(const char[],ofstream*,set<string>&);
@@ -28,7 +29,14 @@ void findInclude(const char inputFile[],ofstream* output,set<string>& includeDir
 	}
 	if(!input.is_open())
 	{
-	  (*output) << "Can't find file " << inputFile << "\n";
+        ERROR << "can't find file '" << inputFile << "'";
+        ERROR << "include directiories are:";
+        for(set<string>::iterator i=includeDirectories.begin(); i!= includeDirectories.end(); i++)
+        {
+            ERROR << " ------ " << (*i);
+        }
+
+        (*output) << "Can't find file " << inputFile << "\n";
 	}
 	string line;
 	while(getline(input,line))

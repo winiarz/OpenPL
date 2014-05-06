@@ -11,7 +11,7 @@ all: main
 	@echo "\tCXX\t"$@
 	@g++ $^ -o $@ $(AllInclude) $(cpp_flags)
 
-main: declare_memory.o main.o $(libSimExecute) $(libClPlatform)
+main: declare_memory.o main.o $(allLibs)
 	@echo "\tLN\t"$@
 	@g++ $^ $(allLibs) -o $@ $(OpenClLib) $(OpenGL)
 

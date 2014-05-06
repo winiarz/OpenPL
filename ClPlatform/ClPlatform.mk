@@ -21,7 +21,7 @@ ClPlatformTestObjs+= $(ClPlatformObj)/ClParameterizedKernelFromSourceTestSuite.o
 ClPlatformTestKernels=  $(ClPlatform)/TestData/empty.clbin
 ClPlatformTestKernels+= $(ClPlatform)/TestData/addition.clbin
 
-$(clcc): $(ClPlatformLibObj) $(ClccObj)
+$(clcc): $(ClPlatformLibObj) $(ClccObj) $(libLogs)
 	@echo "\tLD\t"clcc
 	@g++ $^ -o $@ $(OpenClLib) $(OpenGL)
 
@@ -35,17 +35,17 @@ $(libClPlatform): $(ClPlatformLibObj)
 	@echo "\tLD\t"ClPlatform.a
 	@ar rvs $@ $^ 2> /dev/null > /dev/null
 
-$(ClPlatform)/TestPlatform: $(ClPlatformTestObjs) $(ClPlatformLibObj)
+$(ClPlatform)/TestPlatform: $(ClPlatformTestObjs) $(ClPlatformLibObj) $(libLogs)
 	@echo "\tLD\t"$@
 	@g++ $^ -o $@ $(GTest) $(GMock) $(OpenClLib) $(OpenGL)
 
 $(ClPlatformObj)/%.o: $(ClPlatformSource)/%.cpp
 	@echo "\tCXX\t"$*.o
-	@g++ $^ -o $@ $(ClPlatformInclude) $(cpp_flags)
+	@g++ $^ -o $@ $(AllInclude) $(cpp_flags)
 
 $(ClPlatformObj)/%.o: $(ClPlatformTest)/%.cpp
 	@echo "\tCXX\t"$*.o
-	@g++ $^ -o $@ $(ClPlatformInclude) $(cpp_flags)
+	@g++ $^ -o $@ $(AllInclude) $(cpp_flags)
 
 %.clbin: %.cl $(clcc)
 	@echo "\tCLCC\t"$*

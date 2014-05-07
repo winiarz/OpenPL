@@ -1,6 +1,9 @@
 #ifndef STL_HPP
 #define STL_HPP
 
+#include <vector>
+using std::vector;
+
 #include <set>
 using std::set;
 
@@ -20,5 +23,6 @@ using std::out_of_range;
 #include <algorithm>
 #include <iterator>
 #include <sstream>
+#include <limits>
 
 #endif // STL_HPP

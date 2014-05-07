@@ -1,6 +1,7 @@
 
 
 LogsObj=      $(CommonObj)/logs.o
+LogsObj+=     $(CommonObj)/Clock.o
 LogsObj+=     $(CommonObj)/NullStream.o
 
 CommonClean:

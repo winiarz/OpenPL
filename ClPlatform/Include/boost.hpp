@@ -12,5 +12,6 @@ using boost::optional;
 using boost::none;
 
 #include <boost/bind.hpp>
+#include <boost/foreach.hpp>
 
 #endif // BOOST_HPP

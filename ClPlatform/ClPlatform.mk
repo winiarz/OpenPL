@@ -9,6 +9,7 @@ ClPlatformLibObj+=   $(ClPlatformObj)/compile.o
 ClPlatformLibObj+=   $(ClPlatformObj)/include.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClParameterizedKernel.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClParameterizedKernelFromSource.o
+ClPlatformLibObj+=   $(ClPlatformObj)/ClKernelPerformanceComparator.o
 
 ClccObj=             $(ClPlatformObj)/clcc.o
 

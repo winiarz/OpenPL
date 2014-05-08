@@ -16,7 +16,7 @@ public:
     virtual boost::shared_ptr<IClKernel> getBestKernel();
 private:
     IClock& clock;
-    boost::shared_ptr<IClDataGenerator> dataGenerator;
+    optional<boost::shared_ptr<IClDataGenerator> > dataGenerator;
     set<boost::shared_ptr<IClKernel> > remainingKernels;
     uint bestTime;
     boost::shared_ptr<IClKernel> bestKernel;

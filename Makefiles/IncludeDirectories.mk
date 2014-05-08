@@ -6,7 +6,7 @@ SimulationCreateInclude= -I$(SimulationCreate)/Include -I $(SimulationCreate)/In
 SimulationExecuteInclude= -I$(SimulationExecute)/Include -I $(SimulationExecute)/Include/Types -I  $(SimulationExecute)/Include/VecTypes -I  $(SimulationExecute)/Include/Structures 
 KernelLoaderInclude= -I$(KernelLoader)/Include -I$(KernelLoader)/Interface
 SimulationInclude= -I$(Simulation)/Include $(SimulationCreateInclude) $(SimulationExecuteInclude)
-CommonInclude= -I$(Common)/Include -I$(Common)/Interface
+CommonInclude= -I$(Common)/Include -I$(Common)/Interface -I$(Common)/Mock
 
 IncludesForSimulationCreate=-I $(Simulation)/Include $(SimulationCreateInclude) 
 IncludesForSimulationExecute=-I $(Simulation)/Include $(SimulationExecuteInclude) $(ClPlatformInclude)

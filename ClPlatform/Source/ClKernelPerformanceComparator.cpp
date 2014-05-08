@@ -1,8 +1,10 @@
 #include "ClKernelPerformanceComparator.hpp"
+#include "logs.hpp"
 
 ClKernelPerformanceComparator::ClKernelPerformanceComparator(IClock& p_clock) :
     clock(p_clock)
 {
+    dataGenerator = none;
     bestTime = std::numeric_limits<int>::max();
 }
 
@@ -31,22 +33,26 @@ void ClKernelPerformanceComparator::addParametrizedKernel( boost::shared_ptr<ICl
 
 bool ClKernelPerformanceComparator::comparationStep()
 {
-    vector<boost::shared_ptr<ClMemory> > l_randomData = dataGenerator->getData();
-
-    set<boost::shared_ptr<IClKernel> >::iterator testedKernel = remainingKernels.begin();
-    //boost::shared_ptr<IClKernel> testedKernel = remainingKernels.begin();
-
-    uint beginTime = clock.getUsec();
-    //(*testedKernel)(l_randomData);
-
-    uint finishTime = clock.getUsec();
-    uint workTime = finishTime - beginTime;
-    if ( workTime < bestTime ) 
+    if ( dataGenerator) 
     {
-        bestKernel = *testedKernel;
+        vector<boost::shared_ptr<ClMemory> > l_randomData = (*dataGenerator)->getData();
+
+        set<boost::shared_ptr<IClKernel> >::iterator testedKernel = remainingKernels.begin();
+
+        uint beginTime = clock.getUsec();
+        //(*testedKernel)(l_randomData);
+
+        uint finishTime = clock.getUsec();
+        uint workTime = finishTime - beginTime;
+        if ( workTime < bestTime ) 
+        {
+            bestKernel = *testedKernel;
+        }
+
+        remainingKernels.erase(testedKernel);
     }
 
-    remainingKernels.erase(testedKernel);
+    ERROR << "Data generator not yet provided";
 
     return !remainingKernels.empty();
 }

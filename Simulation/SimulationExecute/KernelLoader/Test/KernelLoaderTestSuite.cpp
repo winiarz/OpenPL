@@ -7,7 +7,7 @@
 
 using namespace ::testing;
 
-class KernelLoaderTestSuite : public ::testing::Test {
+class KernelLoaderTestSuite : public Test {
 protected:
   KernelLoader* sut;
   StrictMock<ClKernelFactoryMock>* kernelFactoryMock;

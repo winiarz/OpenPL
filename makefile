@@ -18,3 +18,7 @@ test: ClPlatformTest KernelLoaderTest
 
 clean: ClPlatformClean CommonClean SimCreateClean SimExecuteClean KernelLoaderClean
 	@rm -f lib/*.a
+
+cleanLogs:
+	@rm -Rf logs/*
+	@find . -name debug.txt -exec rm {} \;

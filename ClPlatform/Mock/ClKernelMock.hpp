@@ -2,6 +2,8 @@
 #ifndef __CL_KERNEL_MOCK__
 #define __CL_KERNEL_MOCK__
 
+#include<gtest/gtest.h>
+#include<gmock/gmock.h>
 #include "IClKernel.hpp"
 
 class ClKernelMock : public IClKernel {

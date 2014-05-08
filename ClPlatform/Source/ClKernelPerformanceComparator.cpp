@@ -2,7 +2,8 @@
 #include "logs.hpp"
 
 ClKernelPerformanceComparator::ClKernelPerformanceComparator(IClock& p_clock) :
-    clock(p_clock)
+    clock(p_clock),
+    bestKernel(none)
 {
     dataGenerator = none;
     bestTime = std::numeric_limits<int>::max();
@@ -16,9 +17,13 @@ void ClKernelPerformanceComparator::setDataGenerator( boost::shared_ptr<IClDataG
 void ClKernelPerformanceComparator::addKernel( boost::shared_ptr<IClKernel> newKernel)
 {
     remainingKernels.insert(newKernel);
+    if ( !bestKernel ) 
+    {
+        bestKernel = newKernel;
+    }
 }
 
-void ClKernelPerformanceComparator::addParametrizedKernel( boost::shared_ptr<IClParameterizedKernel> newParametrizedKernel)
+void ClKernelPerformanceComparator::addParameterizedKernel( boost::shared_ptr<IClParameterizedKernel> newParametrizedKernel)
 {
     boost::shared_ptr<set<int> > parameters = newParametrizedKernel->getNotRejectedParameters();
     BOOST_FOREACH( int param, *parameters)
@@ -33,7 +38,7 @@ void ClKernelPerformanceComparator::addParametrizedKernel( boost::shared_ptr<ICl
 
 bool ClKernelPerformanceComparator::comparationStep()
 {
-    if ( dataGenerator) 
+    if ( dataGenerator && !remainingKernels.empty() ) 
     {
         vector<boost::shared_ptr<ClMemory> > l_randomData = (*dataGenerator)->getData();
 
@@ -46,7 +51,10 @@ bool ClKernelPerformanceComparator::comparationStep()
         uint workTime = finishTime - beginTime;
         if ( workTime < bestTime ) 
         {
+            DEBUG << "better kernel found old bestTime = " << bestTime << " new bestTime = " << workTime;
+            bestTime = workTime;
             bestKernel = *testedKernel;
+            
         }
 
         remainingKernels.erase(testedKernel);
@@ -57,7 +65,7 @@ bool ClKernelPerformanceComparator::comparationStep()
     return !remainingKernels.empty();
 }
 
-boost::shared_ptr<IClKernel> ClKernelPerformanceComparator::getBestKernel()
+optional<boost::shared_ptr<IClKernel> > ClKernelPerformanceComparator::getBestKernel()
 {
     return bestKernel;
 }

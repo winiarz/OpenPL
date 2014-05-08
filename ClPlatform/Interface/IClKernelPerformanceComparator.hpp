@@ -12,8 +12,8 @@ public:
     virtual bool comparationStep()=0;
     virtual void setDataGenerator( boost::shared_ptr<IClDataGenerator>)=0;
     virtual void addKernel( boost::shared_ptr<IClKernel> )=0;
-    virtual void addParametrizedKernel( boost::shared_ptr<IClParameterizedKernel> )=0;
-    virtual boost::shared_ptr<IClKernel> getBestKernel()=0;
+    virtual void addParameterizedKernel( boost::shared_ptr<IClParameterizedKernel> )=0;
+    virtual optional<boost::shared_ptr<IClKernel> > getBestKernel()=0;
 };
 
 #endif

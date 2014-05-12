@@ -36,7 +36,7 @@ TEST_F(ClModuleTestSuite, addition_kernel)
       B[i] = i/10;
       C[i] = 0;
   }
-  ClKernel addition( "TestData/addition.clbin", "addition");
+  ClKernel addition( "ClPlatform/TestData/addition.clbin", "addition");
   ASSERT_FALSE( !addition );
   
   int hundred=100;
@@ -68,7 +68,7 @@ TEST_F(ClModuleTestSuite, multithread_addition_kernel)
       B[i] = i/10;
       C[i] = 0;
   }
-  ClKernel addition( "TestData/addition.clbin", "addition");
+  ClKernel addition( "ClPlatform/TestData/addition.clbin", "addition");
   ASSERT_FALSE( !addition );
   
   int hundred=100;

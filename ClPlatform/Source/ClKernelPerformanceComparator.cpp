@@ -60,7 +60,10 @@ bool ClKernelPerformanceComparator::comparationStep()
         remainingKernels.erase(testedKernel);
     }
 
-    ERROR << "Data generator not yet provided";
+    if ( !dataGenerator ) 
+    {
+        ERROR << "Data generator not yet provided";
+    }
 
     return !remainingKernels.empty();
 }

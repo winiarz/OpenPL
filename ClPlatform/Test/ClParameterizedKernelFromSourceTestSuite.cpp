@@ -27,7 +27,7 @@ public:
 ParametrizedKernelPtr ClParameterizedKernelFromSourceTestSuite::prepareSUT()
 {
     return make_shared<ClParameterizedKernelFromSource>(parameterMock,
-                                                        string("TestData/parametrized_kernel.cl"),
+                                                        string("ClPlatform/TestData/parametrized_kernel.cl"),
                                                         string("parameterized_kernel"),
                                                         string("$param$"));
 }

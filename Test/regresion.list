@@ -1,4 +1,4 @@
-ClPlatform ./TestPlatform TestPlatform
+. ClPlatform/TestPlatform TestPlatform
 Bin/Test ./KernelLoaderGT KernelLoaderGT
 Test/empty_sim ./run.sh Empty_Simulation
 Test/declare_memory ./run.sh Declare_Memory

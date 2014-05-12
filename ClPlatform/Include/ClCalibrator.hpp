@@ -7,7 +7,6 @@
 class ClCalibrator : public IClCalibrator {
 public:
     ClCalibrator();
-    virtual void setCalibrationEnabled(bool);
     virtual void addPerformanceComparator(boost::shared_ptr<IClKernelPerformanceComparator>);
     virtual bool isCalibrationFinished();
     virtual bool calibrate();

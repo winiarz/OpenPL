@@ -7,11 +7,6 @@ ClCalibrator::ClCalibrator() :
 
 }
 
-void ClCalibrator::setCalibrationEnabled(bool)
-{
-
-}
-
 void ClCalibrator::addPerformanceComparator(boost::shared_ptr<IClKernelPerformanceComparator> newComparator)
 {
     comparatorsSet.insert(newComparator);

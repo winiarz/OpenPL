@@ -4,7 +4,11 @@
 #include "ClKernelFromBinaryLoader.hpp"
 #include "logs.hpp"
 
-ClKernel::ClKernel( const char fileName[], const char kernelName[] ) : platform(ClPlatform::getPlatform())
+ClKernel::ClKernel( const char fileName[], const char p_kernelName[] ) :
+    platform(ClPlatform::getPlatform()),
+    kernel(0),
+    loaded(false),
+    kernelName(p_kernelName)
 {
     setUpSuccessfully = false;
     try
@@ -25,7 +29,7 @@ ClKernel::ClKernel( const char fileName[], const char kernelName[] ) : platform(
         return;
     }
   
-    createKernel(kernelName);
+    //createKernel();
 
     localSize = 0;
     globalSize = 0;
@@ -41,10 +45,10 @@ ClKernel::ClKernel( cl_program p_program ) :
     setUpSuccessfully = false;
 }
 
-void ClKernel::createKernel(const char kernelName[])
+void ClKernel::createKernel()
 {
     cl_int error;
-    kernel = clCreateKernel( program, kernelName, &error );
+    kernel = clCreateKernel( program, kernelName.c_str(), &error );
     if( (!kernel) || (error != CL_SUCCESS) )
     {
         ERROR << "error in creating kernel OpenCL error = " << error;
@@ -59,6 +63,8 @@ void ClKernel::createKernel(const char kernelName[])
             throw OPEN_CL_ERROR;
         }
     }
+    else
+        loaded = true;
 }
 
 ClKernel::~ClKernel()
@@ -110,6 +116,11 @@ IClKernel& ClKernel::operator()(uint argumentNb, ...  )
   cl_int error;
   va_list li;
   va_start(li,argumentNb);
+
+  if ( !loaded ) 
+  {
+      createKernel();
+  }
 
   for(uint i=0; i < argumentNb; i++)
   {

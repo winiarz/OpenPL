@@ -6,6 +6,7 @@
 #include "ClClasses.hpp"
 #include "ClPlatform.hpp"
 #include "ClMemory.hpp"
+#include "stl.hpp"
 
 class ClKernel : public IClKernel {
 public:
@@ -27,8 +28,10 @@ private:
   size_t localSize;
 
   bool setUpSuccessfully;
+  bool loaded;
+  std::string kernelName;
 
-  void createKernel(const char kernelName[]);
+  void createKernel();
 };
 
 #endif

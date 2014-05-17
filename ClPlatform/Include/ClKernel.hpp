@@ -10,11 +10,13 @@
 class ClKernel : public IClKernel {
 public:
   ClKernel( const char[], const char[]);
+  ClKernel( cl_program );
   bool isLoaded();
   bool isSetUpSuccessfully();
   bool operator!();
   IClKernel& operator[](uint);
   IClKernel& operator()(uint, ... );
+  virtual cl_program getProgram();
   ~ClKernel();
 private:
   const ClPlatform& platform;
@@ -25,6 +27,8 @@ private:
   size_t localSize;
 
   bool setUpSuccessfully;
+
+  void createKernel(const char kernelName[]);
 };
 
 #endif

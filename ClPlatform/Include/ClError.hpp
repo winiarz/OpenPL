@@ -3,6 +3,8 @@
 #define __CL_ERROR__
 
 enum ClError {
+    UNDEFINED,
+    OPEN_CL_ERROR,
     NO_PLATFORM,
     NO_DEVICE,
     KERNEL_SIZE_NOT_SET,
@@ -11,7 +13,8 @@ enum ClError {
     INTER_DEVICE_COPY_ERROR,
     OUT_OF_RESOURCES,
     FILE_READ_ERROR,
-    CL_INCORRECT_KERNEL_FILE
+    FILE_WRITE_ERROR,
+    INCORRECT_KERNEL_FILE
 };
 
 #endif

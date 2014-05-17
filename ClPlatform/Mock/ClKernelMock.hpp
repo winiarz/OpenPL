@@ -30,6 +30,8 @@ public:
   {
     return *this;
   }
+
+  MOCK_METHOD0(getProgram, cl_program());
 };
 
 

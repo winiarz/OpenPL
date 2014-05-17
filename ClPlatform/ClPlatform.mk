@@ -12,6 +12,7 @@ ClPlatformLibObj+=   $(ClPlatformObj)/ClParameterizedKernelFromSource.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClKernelPerformanceComparator.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClCalibrator.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClKernelFromBinaryLoader.o
+ClPlatformLibObj+=   $(ClPlatformObj)/ClKernelSaver.o
 
 ClccObj=             $(ClPlatformObj)/clcc.o
 

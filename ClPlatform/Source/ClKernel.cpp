@@ -1,41 +1,72 @@
 #include <stdarg.h>
 #include "ClKernel.hpp"
 #include "ClMemory.hpp"
+#include "ClKernelFromBinaryLoader.hpp"
 #include "logs.hpp"
 
 ClKernel::ClKernel( const char fileName[], const char kernelName[] ) : platform(ClPlatform::getPlatform())
 {
-  program = CreateProgramFromBinary( platform.getContext(), platform.getDevice(), fileName );
-  if( !program )
-  {
-      ERROR << "Error in creating program from file: " << fileName;
-      setUpSuccessfully = false;
-      return;
-  }
-  
-  cl_int error;
-  kernel = clCreateKernel( program, kernelName, &error );
-  if( (!kernel) || (error != CL_SUCCESS) )
+    setUpSuccessfully = false;
+    try
     {
-      ERROR << "error in creating kernel OpenCL error = " << error;
-      setUpSuccessfully = false;
-      if( error == CL_OUT_OF_RESOURCES )
-      {
-          delete this;
-          throw OUT_OF_RESOURCES;
-      }
-      return;
+        boost::shared_ptr<IClKernel> tempKernel = ClKernelFromBinaryLoader().loadKernel(fileName);
+        program = tempKernel->getProgram();
+    }
+    catch ( ClError error ) 
+    {
+        ERROR << "Error while loading kernel " << kernelName << " from file " << fileName;
+        return;
     }
 
-  localSize = 0;
-  globalSize = 0;
+    if( !program )
+    {
+        ERROR << "Error in creating program from file: " << fileName;
+        setUpSuccessfully = false;
+        return;
+    }
+  
+    createKernel(kernelName);
 
-  setUpSuccessfully = true;
+    localSize = 0;
+    globalSize = 0;
+
+    setUpSuccessfully = true;
+}
+
+ClKernel::ClKernel( cl_program p_program ) :
+    platform(ClPlatform::getPlatform()),
+    program(p_program),
+    kernel(0)
+{
+    setUpSuccessfully = false;
+}
+
+void ClKernel::createKernel(const char kernelName[])
+{
+    cl_int error;
+    kernel = clCreateKernel( program, kernelName, &error );
+    if( (!kernel) || (error != CL_SUCCESS) )
+    {
+        ERROR << "error in creating kernel OpenCL error = " << error;
+        setUpSuccessfully = false;
+        delete this;
+        if( error == CL_OUT_OF_RESOURCES )
+        {
+            throw OUT_OF_RESOURCES;
+        }
+        else
+        {
+            throw OPEN_CL_ERROR;
+        }
+    }
 }
 
 ClKernel::~ClKernel()
 {
-  clReleaseKernel(kernel);
+    if ( kernel ) 
+    {
+      clReleaseKernel(kernel);
+    }
 }
 
 bool ClKernel::isLoaded()
@@ -105,5 +136,10 @@ IClKernel& ClKernel::operator()(uint argumentNb, ...  )
   platform.execute();
   
   return *this;
+}
+
+cl_program ClKernel::getProgram()
+{
+    return program;
 }
 

@@ -8,8 +8,6 @@ using namespace std;
 
 #include "ClPlatform.hpp"
 #include "clcc.hpp"
- 
-
 
 int main(int argc,char* argv[])
 {
@@ -60,13 +58,4 @@ int main(int argc,char* argv[])
     }
   } 
   return compile(input_file, includeDirectories,output_file);
-  
-  findInclude(input_file,input_file2,includeDirectories);
-  
-  cl_program program = CreateProgram(platform.getContext(),platform.getDevice(), input_file2);
-  if( !program )
-    return 1;
-  SaveProgramBinary(program,platform.getDevice(),output_file);
-  remove(input_file2);
-  return 0;
 }

@@ -3,7 +3,7 @@
 
 std::ostream& debug(int lineNb, std::string filename)
 {
-    static std::ofstream debugFile("debug.txt",std::ofstream::out);
+    static std::ofstream debugFile(debugFileName,std::ofstream::out);
       
     debugFile << std::endl << filename << ":" << lineNb << " ";
     

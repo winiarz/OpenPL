@@ -3,6 +3,7 @@
 #include "ClPlatform.hpp"
 #include "ClError.hpp"
 #include "logs.hpp"
+#include "ClKernel.hpp"
 
 const int MAX_BUILD_LOG_SIZE = 16384;
 
@@ -26,7 +27,7 @@ size_t ClKernelFromBinaryLoader::readBinarySize( FILE* file, std::string& filena
     if ( readSize < 1 ) 
     {
         ERROR << "Kernel file " << filename << " is too short";
-        throw CL_INCORRECT_KERNEL_FILE;
+        throw INCORRECT_KERNEL_FILE;
     }
 
     return binarySize;
@@ -41,7 +42,7 @@ unsigned char* ClKernelFromBinaryLoader::readBinary( FILE* file, size_t binarySi
     {
         delete [] binary;
         ERROR << "Kernel file " << filename << " is too short, expected read size = " << binarySize << " actual = " << readSize;
-        throw CL_INCORRECT_KERNEL_FILE;
+        throw INCORRECT_KERNEL_FILE;
     }
 
     return binary;
@@ -55,7 +56,7 @@ boost::shared_ptr<IClKernel> ClKernelFromBinaryLoader::loadKernel(std::string fi
     unsigned char * binary = readBinary( file, binarySize, filename );
 
     ClPlatform& platform = ClPlatform::getPlatform();
-
+    
     cl_context context = platform.getContext();
     cl_device_id device = platform.getDevice();
 
@@ -76,10 +77,11 @@ boost::shared_ptr<IClKernel> ClKernelFromBinaryLoader::loadKernel(std::string fi
     if ( (error != CL_SUCCESS) || (binaryStatus != CL_SUCCESS) ) 
     {
         ERROR << "Error program binary " << filename << " is incorrect!, error = " << error;
-        throw CL_INCORRECT_KERNEL_FILE;
+        throw INCORRECT_KERNEL_FILE;
     }
 
     error = clBuildProgram(program, 0, NULL, NULL, NULL, NULL);
+
     if (error != CL_SUCCESS)
     {
         char buildLog[MAX_BUILD_LOG_SIZE];
@@ -89,9 +91,9 @@ boost::shared_ptr<IClKernel> ClKernelFromBinaryLoader::loadKernel(std::string fi
         ERROR << "Error in program: " << filename;
         ERROR << buildLog;
         clReleaseProgram(program);
-        throw CL_INCORRECT_KERNEL_FILE;
+        throw INCORRECT_KERNEL_FILE;
     }
 
-    return boost::shared_ptr<IClKernel>();
+    return boost::make_shared<ClKernel>(program);
 }
 

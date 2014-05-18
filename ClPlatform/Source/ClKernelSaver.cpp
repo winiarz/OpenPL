@@ -142,6 +142,6 @@ void ClKernelSaver::saveKernel( boost::shared_ptr<IClKernel> kernel, std::string
     size_t deviceIdx = getDeviceIdx( deviceCount, devices );
     saveBinaryToFile( binarySizes[deviceIdx], programBinaries[deviceIdx], filename );
     deleteProgramBinaries( deviceCount, programBinaries );
-    DEBUG << "Succewssfully saved kernel to file " << filename;
+    DEBUG << "Successfully saved kernel to file " << filename;
 }
 

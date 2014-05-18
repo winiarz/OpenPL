@@ -5,14 +5,19 @@
 
 typedef unsigned int uint;
 
+class IClKernelCallStats;
+
 class IClKernel {
 public:
   virtual bool isLoaded()=0;
+  virtual void load()=0;
+  virtual void unload()=0;
   virtual bool isSetUpSuccessfully()=0;
   virtual bool operator!()=0;
   virtual IClKernel& operator[](uint n)=0;
   virtual IClKernel& operator()(uint, ... )=0;
   virtual cl_program getProgram()=0;
+  virtual IClKernelCallStats& getStats()=0;
   
   virtual ~IClKernel(){}
 };

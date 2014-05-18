@@ -6,6 +6,7 @@
 #include "ClClasses.hpp"
 #include "ClPlatform.hpp"
 #include "ClMemory.hpp"
+#include "ClKernelCallStats.hpp"
 #include "stl.hpp"
 
 class ClKernel : public IClKernel {
@@ -18,9 +19,12 @@ public:
   IClKernel& operator[](uint);
   IClKernel& operator()(uint, ... );
   virtual cl_program getProgram();
+  virtual void load();
+  virtual void unload();
+  virtual IClKernelCallStats& getStats();
   ~ClKernel();
 private:
-  const ClPlatform& platform;
+  ClPlatform& platform;
   cl_program program;
   cl_kernel kernel;
 
@@ -30,8 +34,7 @@ private:
   bool setUpSuccessfully;
   bool loaded;
   std::string kernelName;
-
-  void createKernel();
+  ClKernelCallStats stats;
 };
 
 #endif

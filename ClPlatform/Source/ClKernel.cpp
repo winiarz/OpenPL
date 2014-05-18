@@ -2,13 +2,15 @@
 #include "ClKernel.hpp"
 #include "ClMemory.hpp"
 #include "ClKernelFromBinaryLoader.hpp"
+#include "Clock.hpp"
 #include "logs.hpp"
 
 ClKernel::ClKernel( const char fileName[], const char p_kernelName[] ) :
     platform(ClPlatform::getPlatform()),
     kernel(0),
     loaded(false),
-    kernelName(p_kernelName)
+    kernelName(p_kernelName),
+    stats(boost::make_shared<Clock>(), 0.95f)
 {
     setUpSuccessfully = false;
     try
@@ -28,8 +30,6 @@ ClKernel::ClKernel( const char fileName[], const char p_kernelName[] ) :
         setUpSuccessfully = false;
         return;
     }
-  
-    //createKernel();
 
     localSize = 0;
     globalSize = 0;
@@ -40,12 +40,13 @@ ClKernel::ClKernel( const char fileName[], const char p_kernelName[] ) :
 ClKernel::ClKernel( cl_program p_program ) :
     platform(ClPlatform::getPlatform()),
     program(p_program),
-    kernel(0)
+    kernel(0),
+    stats(boost::make_shared<Clock>(), 0.95f)
 {
     setUpSuccessfully = false;
 }
 
-void ClKernel::createKernel()
+void ClKernel::load()
 {
     cl_int error;
     kernel = clCreateKernel( program, kernelName.c_str(), &error );
@@ -67,12 +68,18 @@ void ClKernel::createKernel()
         loaded = true;
 }
 
-ClKernel::~ClKernel()
+void ClKernel::unload()
 {
     if ( kernel ) 
     {
       clReleaseKernel(kernel);
+      kernel = 0;
     }
+}
+
+ClKernel::~ClKernel()
+{
+    unload();
 }
 
 bool ClKernel::isLoaded()
@@ -119,7 +126,7 @@ IClKernel& ClKernel::operator()(uint argumentNb, ...  )
 
   if ( !loaded ) 
   {
-      createKernel();
+      platform.getKernelManager().loadKernel(this);
   }
 
   for(uint i=0; i < argumentNb; i++)
@@ -146,11 +153,17 @@ IClKernel& ClKernel::operator()(uint argumentNb, ...  )
   }
   platform.execute();
   
+  stats.registerCall();
   return *this;
 }
 
 cl_program ClKernel::getProgram()
 {
     return program;
+}
+
+IClKernelCallStats& ClKernel::getStats()
+{
+    return stats;
 }
 

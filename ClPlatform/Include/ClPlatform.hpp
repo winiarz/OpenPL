@@ -4,6 +4,7 @@
 
 #include <CL/cl.h>
 #include "ClClasses.hpp"
+#include "ClKernelManager.hpp"
 #include "ClError.hpp"
 
 class ClPlatform {
@@ -15,6 +16,7 @@ public:
   void execute() const;
   cl_context getContext() const;
   cl_device_id getDevice() const;
+  IClKernelManager& getKernelManager();
 
   ~ClPlatform();
   cl_uint max_work_group_size;
@@ -26,6 +28,7 @@ private:
   cl_command_queue queue;
 
   bool setUpSuccessfully;
+  ClKernelManager kernelManager;
 };
 
 cl_program CreateProgramFromBinary(cl_context,cl_device_id,const char*);

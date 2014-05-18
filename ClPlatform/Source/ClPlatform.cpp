@@ -85,3 +85,8 @@ ClPlatform::~ClPlatform()
   clReleaseCommandQueue(queue);
   clReleaseContext(context);
 }
+
+IClKernelManager& ClPlatform::getKernelManager()
+{
+    return kernelManager;
+}

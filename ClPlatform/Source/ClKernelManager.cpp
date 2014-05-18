@@ -1,7 +1,8 @@
 #include "ClKernelManager.hpp"
 #include "IClKernelCallStats.hpp"
+#include "ClKernel.hpp"
 
-void ClKernelManager::loadKernel( IClKernel* kernel)
+void ClKernelManager::loadKernel( ClKernel* kernel)
 {
     bool isPossibleToLoad = true;
 

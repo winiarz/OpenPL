@@ -13,7 +13,7 @@ int compile(const char input_file[],set<string>  includeDirectories,const char o
   cl_program program = CreateProgram(platform.getContext(),platform.getDevice(), temporary_file);
   if( !program )
     return 1;
-  boost::shared_ptr<IClKernel> kernel = boost::make_shared<ClKernel>( program );
+  boost::shared_ptr<ClKernel> kernel = boost::make_shared<ClKernel>( program );
   try
   {
       ClKernelSaver().saveKernel( kernel, std::string(output_file) );

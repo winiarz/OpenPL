@@ -2,7 +2,7 @@
 #include "ClKernel.hpp"
 #include "logs.hpp"
 
-cl_int ClKernelSaver::getDeviceCount( boost::shared_ptr<IClKernel> kernel)
+cl_int ClKernelSaver::getDeviceCount( boost::shared_ptr<ClKernel> kernel)
 {
     cl_int error;
     cl_uint deviceCount = 0;
@@ -21,7 +21,7 @@ cl_int ClKernelSaver::getDeviceCount( boost::shared_ptr<IClKernel> kernel)
     return deviceCount;
 }
 
-void ClKernelSaver::getDevices( cl_device_id devices[], boost::shared_ptr<IClKernel> kernel )
+void ClKernelSaver::getDevices( cl_device_id devices[], boost::shared_ptr<ClKernel> kernel )
 {
     cl_int error;
     error = clGetProgramInfo(kernel->getProgram(),
@@ -36,7 +36,7 @@ void ClKernelSaver::getDevices( cl_device_id devices[], boost::shared_ptr<IClKer
     }
 }
 
-void ClKernelSaver::getBinarySizes( size_t binarySizes[], boost::shared_ptr<IClKernel> kernel )
+void ClKernelSaver::getBinarySizes( size_t binarySizes[], boost::shared_ptr<ClKernel> kernel )
 {
     cl_int error;
     size_t sizeOfReturnedParam;
@@ -56,7 +56,7 @@ void ClKernelSaver::getBinarySizes( size_t binarySizes[], boost::shared_ptr<IClK
 void ClKernelSaver::getProgramBinaries( size_t deviceCount,
                                         size_t binarySizes[],
                                         unsigned char *programBinaries[],
-                                        boost::shared_ptr<IClKernel> kernel)
+                                        boost::shared_ptr<ClKernel> kernel)
 {
     cl_int error;
     for (size_t i=0; i<deviceCount; i++) 
@@ -126,7 +126,7 @@ void ClKernelSaver::saveBinaryToFile( size_t binarySize, unsigned char *programB
     fclose(file);
 }
 
-void ClKernelSaver::saveKernel( boost::shared_ptr<IClKernel> kernel, std::string filename )
+void ClKernelSaver::saveKernel( boost::shared_ptr<ClKernel> kernel, std::string filename )
 {
     DEBUG << "Saving kernel to file " << filename;
     cl_uint deviceCount = getDeviceCount(kernel);

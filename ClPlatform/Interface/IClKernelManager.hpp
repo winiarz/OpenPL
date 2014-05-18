@@ -3,12 +3,12 @@
 
 #include "boost.hpp"
 
-class IClKernel;
+class ClKernel;
 
 class IClKernelManager
 {
 public:
-    virtual void loadKernel( IClKernel* kernel) = 0;
+    virtual void loadKernel( ClKernel* kernel) = 0;
 };
 
 #endif

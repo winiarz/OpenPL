@@ -6,7 +6,7 @@
 class ClKernelFromBinaryLoader : public IClKernelFromFileLoader
 {
 public:
-    virtual boost::shared_ptr<IClKernel> loadKernel(std::string filename);
+    virtual boost::shared_ptr<ClKernel> loadKernel(std::string filename);
 private:
     FILE *openFile(std::string& filename);
     size_t readBinarySize( FILE*, std::string& filename );

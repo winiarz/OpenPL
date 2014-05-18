@@ -12,11 +12,11 @@ include $(SimExecute)/SimExecute.mk
 
 compile: $(libClPlatform) $(libLogs) $(libSimCreate) $(libSimExecute)
 
-CompileTest: $(ClPlatform)/TestPlatform $(TestBin)/KernelLoaderGT $(ClPlatformTestKernels)
+CompileTest: $(ClPlatform)/TestPlatform $(ClPlatformTestKernels)
 
-test: ClPlatformTest KernelLoaderTest
+test: ClPlatformTest
 
-clean: ClPlatformClean CommonClean SimCreateClean SimExecuteClean KernelLoaderClean
+clean: ClPlatformClean CommonClean SimCreateClean SimExecuteClean
 	@rm -f lib/*.a
 
 cleanLogs:

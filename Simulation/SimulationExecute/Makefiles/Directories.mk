@@ -8,5 +8,3 @@ SimExecuteScript=          $(SimExecute)/Script
 SimExecuteSource=          $(SimExecute)/Source
 SimExecuteTemplates=       $(SimExecute)/Templates
 
-KernelLoader=              $(SimExecute)/KernelLoader
-include $(KernelLoader)/Makefiles/Directories.mk

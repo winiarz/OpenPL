@@ -7,6 +7,8 @@
 #include "ClKernelManager.hpp"
 #include "ClError.hpp"
 
+class ClKernelManager;
+
 class ClPlatform {
 friend class ClMemory;
 friend class ClKernel;

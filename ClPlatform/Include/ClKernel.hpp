@@ -21,7 +21,7 @@ public:
   virtual cl_program getProgram();
   virtual void load();
   virtual void unload();
-  virtual IClKernelCallStats& getStats();
+  IClKernelCallStats& getStats();
   ~ClKernel();
 private:
   ClPlatform& platform;

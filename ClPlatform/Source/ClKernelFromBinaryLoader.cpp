@@ -48,7 +48,7 @@ unsigned char* ClKernelFromBinaryLoader::readBinary( FILE* file, size_t binarySi
     return binary;
 }
 
-boost::shared_ptr<IClKernel> ClKernelFromBinaryLoader::loadKernel(std::string filename)
+boost::shared_ptr<ClKernel> ClKernelFromBinaryLoader::loadKernel(std::string filename)
 {
     FILE* file = openFile( filename );
 

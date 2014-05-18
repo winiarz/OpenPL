@@ -1,6 +1,4 @@
 
-include $(KernelLoader)/KernelLoader.mk
-
 SimExecuteTypeGen=         $(SimExecuteScript)/seTypes.pl
 
 SimExecuteLibObj=          $(SimExecuteObj)/seSimulationExecute.o
@@ -14,7 +12,7 @@ SimExecuteLibObj+=         $(SimExecuteObj)/seLocalMatrix3x3.o
 .PRECIOUS: $(SimExecuteAutogenIncludes) $(SimExecuteAutogenSources) $(SimExecuteObjFromAutogen)
 
 
-$(libSimExecute): $(SimExecuteLibObj) $(SimExecuteObjFromAutogen) $(libKernelLoader)
+$(libSimExecute): $(SimExecuteLibObj) $(SimExecuteObjFromAutogen)
 	@echo "\tLD\t"SimulationExecute.a
 	@ar rvs $@ $^ 2> /dev/null > /dev/null
 

@@ -7,16 +7,16 @@
 class ClKernelSaver : public IClKernelSaver
 {
 public:
-    virtual void saveKernel( boost::shared_ptr<IClKernel> kernel, std::string filename );
+    virtual void saveKernel( boost::shared_ptr<ClKernel> kernel, std::string filename );
 private:
-    cl_int getDeviceCount( boost::shared_ptr<IClKernel> kernel);
-    void getDevices( cl_device_id devices[], boost::shared_ptr<IClKernel> kernel );
-    void getBinarySizes( size_t binarySizes[], boost::shared_ptr<IClKernel> kernel );
+    cl_int getDeviceCount( boost::shared_ptr<ClKernel> kernel);
+    void getDevices( cl_device_id devices[], boost::shared_ptr<ClKernel> kernel );
+    void getBinarySizes( size_t binarySizes[], boost::shared_ptr<ClKernel> kernel );
 
     void getProgramBinaries( size_t deviceCount,
                              size_t binarySizes[],
                              unsigned char *programBinaries[],
-                             boost::shared_ptr<IClKernel> kernel);
+                             boost::shared_ptr<ClKernel> kernel);
 
     void deleteProgramBinaries( size_t deviceCount, unsigned char *programBinaries[] );
     size_t getDeviceIdx( size_t deviceCount, cl_device_id devices[] );

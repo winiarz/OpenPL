@@ -33,9 +33,7 @@ private:
   ClKernelManager kernelManager;
 };
 
-cl_program CreateProgramFromBinary(cl_context,cl_device_id,const char*);
 cl_program CreateProgram(cl_context,cl_device_id,const char*);
-bool SaveProgramBinary(cl_program,cl_device_id,const char*);
 
 #endif
 

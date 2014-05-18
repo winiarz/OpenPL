@@ -120,41 +120,23 @@ IClKernel& ClKernel::operator[](uint size)
 
 IClKernel& ClKernel::operator()(uint argumentNb, ...  )
 {
-  cl_int error;
-  va_list li;
-  va_start(li,argumentNb);
-
-  if ( !loaded ) 
-  {
-      platform.getKernelManager().loadKernel(this);
-  }
-
-  for(uint i=0; i < argumentNb; i++)
-  {
-    ClMemory* memory = va_arg(li,ClMemory*);
-    error = clSetKernelArg( kernel, i, sizeof(memory->memory), &(memory->memory) );
-    if( error != CL_SUCCESS )
-    {
-        ERROR << "error in setting kernel arg argNb = " << i << "OpenCL error = " << error;
-        throw KERNEL_SET_ARG_ERROR;
-    }
-  }
-  va_end(li);
-  if( (globalSize <= 0) || (localSize <= 0) )
-  {
-      ERROR << "running kernel without setting threads nb first";
-      throw KERNEL_SIZE_NOT_SET; 
-  }
-  error = clEnqueueNDRangeKernel( platform.queue, kernel, 1, NULL,  &globalSize, &localSize, 0, NULL, NULL);
-  if( error != CL_SUCCESS )
-  {
-      ERROR << "error in kernel execution OpenCL error = " << error;
-      throw KERNEL_EXEC_ERROR;
-  }
-  platform.execute();
+    va_list li;
   
-  stats.registerCall();
-  return *this;
+    if ( !loaded ) 
+    {
+        platform.getKernelManager().loadKernel(this);
+    }
+
+    va_start(li,argumentNb);
+    for(uint i=0; i < argumentNb; i++)
+    {
+        ClMemory* memory = va_arg(li,ClMemory*);
+        setKernelArg(i, memory);
+    }
+    va_end(li);
+
+    executeKernel();
+    return *this;
 }
 
 cl_program ClKernel::getProgram()
@@ -165,5 +147,54 @@ cl_program ClKernel::getProgram()
 IClKernelCallStats& ClKernel::getStats()
 {
     return stats;
+}
+
+void ClKernel::setKernelArg(uint idx, ClMemory* arg)
+{
+    cl_int error = clSetKernelArg( kernel, idx, sizeof(arg->memory), &(arg->memory) );
+    if( error != CL_SUCCESS )
+    {
+        ERROR << "error in setting kernel arg argNb = " << idx << "OpenCL error = " << error;
+        throw KERNEL_SET_ARG_ERROR;
+    }
+}
+
+void ClKernel::checkThreadCount()
+{
+    if( (globalSize <= 0) || (localSize <= 0) )
+    {
+        ERROR << "running kernel without setting threads nb first";
+        throw KERNEL_SIZE_NOT_SET; 
+    }
+}
+
+void ClKernel::executeKernel()
+{
+    checkThreadCount();
+    cl_int error = clEnqueueNDRangeKernel( platform.queue, kernel, 1, NULL,  &globalSize, &localSize, 0, NULL, NULL);
+    if( error != CL_SUCCESS )
+    {
+        ERROR << "error in kernel execution OpenCL error = " << error;
+        throw KERNEL_EXEC_ERROR;
+    }
+    platform.execute();
+  
+    stats.registerCall();
+}
+
+IClKernel& ClKernel::operator()(std::vector<ClMemory*> args)
+{
+    if ( !loaded ) 
+    {
+        platform.getKernelManager().loadKernel(this);
+    }
+
+    for ( uint i = 0; i <= args.size(); ++i) 
+    {
+        setKernelArg(i, args.at(i));
+    }
+
+    executeKernel();
+    return *this;
 }
 

@@ -18,6 +18,7 @@ public:
   bool operator!();
   IClKernel& operator[](uint);
   IClKernel& operator()(uint, ... );
+  virtual IClKernel& operator()(std::vector<ClMemory*>);
   virtual cl_program getProgram();
   virtual void load();
   virtual void unload();
@@ -35,6 +36,9 @@ private:
   bool loaded;
   std::string kernelName;
   ClKernelCallStats stats;
+  void setKernelArg(uint, ClMemory*);
+  void checkThreadCount();
+  void executeKernel();
 };
 
 #endif

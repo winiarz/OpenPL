@@ -11,13 +11,13 @@ class ClMemory;
 
 class IClKernel {
 public:
-  virtual bool isSetUpSuccessfully()=0;
-  virtual bool operator!()=0;
-  virtual IClKernel& operator[](uint n)=0;
-  virtual IClKernel& operator()(uint, ... )=0;
-  virtual IClKernel& operator()(std::vector<ClMemory*>)=0;
+    virtual bool isSetUpSuccessfully()=0;
+    virtual bool operator!()=0;
+    virtual IClKernel& operator[](uint n)=0;
+    virtual IClKernel& operator()(uint, ... )=0;
+    virtual IClKernel& operator()(std::vector<ClMemory*>)=0;
   
-  virtual ~IClKernel(){}
+    virtual ~IClKernel(){}
 };
 
 #endif

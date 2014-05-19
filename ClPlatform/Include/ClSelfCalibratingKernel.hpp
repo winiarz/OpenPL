@@ -17,6 +17,7 @@ public:
     virtual IClKernel& operator()(std::vector<ClMemory*>);
       
     virtual ~ClSelfCalibratingKernel();
+    bool calibrate(uint timeLimit);
 private:
     boost::shared_ptr<IClKernelPerformanceComparator> performanceComparator;
 };

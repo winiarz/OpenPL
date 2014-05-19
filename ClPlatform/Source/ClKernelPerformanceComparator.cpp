@@ -45,7 +45,7 @@ bool ClKernelPerformanceComparator::comparationStep()
         set<boost::shared_ptr<IClKernel> >::iterator testedKernel = remainingKernels.begin();
 
         uint beginTime = clock.getUsec();
-        //(*testedKernel)(l_randomData);
+        //(*testedKernel)(l_randomData); TODO - run kernel here
 
         uint finishTime = clock.getUsec();
         uint workTime = finishTime - beginTime;

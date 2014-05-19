@@ -1,5 +1,6 @@
 #include "ClSelfCalibratingKernel.hpp"
 #include "ClError.hpp"
+#include "Clock.hpp"
 #include <stdarg.h>
 
 ClSelfCalibratingKernel::ClSelfCalibratingKernel(boost::shared_ptr<IClKernelPerformanceComparator> p_performanceComparator) :
@@ -61,5 +62,20 @@ IClKernel& ClSelfCalibratingKernel::operator()(std::vector<ClMemory*> args)
 
 ClSelfCalibratingKernel::~ClSelfCalibratingKernel()
 {
+}
+
+bool ClSelfCalibratingKernel::calibrate(uint timeLimit)
+{
+    Clock clock;
+    uint startTime = clock.getUsec();
+    uint currentTime = startTime;
+
+    while ( currentTime < startTime + timeLimit ) 
+    {
+        if( !performanceComparator->comparationStep() )
+            return false;
+    }
+
+    return true;
 }
 

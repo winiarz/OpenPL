@@ -1,7 +1,6 @@
 
-#include <set>
-#include <string>
-using namespace std;
+#include "stl.hpp"
+#include "boost.hpp"
 
-void findInclude(const char[],const char[],set<string>&);
+boost::shared_ptr<std::string> findInclude(const char[],const char[],set<string>&);
 int compile(const char[],set<string>,const char[]);

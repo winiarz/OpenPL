@@ -1,21 +1,18 @@
-#include <fstream>
-#include <string>
-#include <iostream>
-#include <set>
-#include <sstream>
+#include "stl.hpp"
 #include "logs.hpp"
+#include "boost.hpp"
 
 using namespace std;
-void findInclude(const char[],ofstream*,set<string>&);
+void findInclude(const char[],std::stringstream&,set<string>&);
 
-void findInclude(const char inputFile[],const char outputFile[],set<string>& includeDirectories)
+boost::shared_ptr<std::string> findInclude(const char inputFile[],const char outputFile[],set<string>& includeDirectories)
 {
-	ofstream output(outputFile);
-	findInclude(inputFile,&output,includeDirectories);
-	output.close();
+    std::stringstream output;
+	findInclude(inputFile,output,includeDirectories);
+	return boost::make_shared<std::string>(output.str());
 }
 
-void findInclude(const char inputFile[],ofstream* output,set<string>& includeDirectories)
+void findInclude(const char inputFile[],std::stringstream& output,set<string>& includeDirectories)
 {
 	ifstream input;
 	for(set<string>::iterator i=includeDirectories.begin(); i!= includeDirectories.end(); i++)
@@ -36,7 +33,7 @@ void findInclude(const char inputFile[],ofstream* output,set<string>& includeDir
             ERROR << " ------ " << (*i);
         }
 
-        (*output) << "Can't find file " << inputFile << "\n";
+        output << "Can't find file " << inputFile << "\n";
 	}
 	string line;
 	while(getline(input,line))
@@ -58,7 +55,7 @@ void findInclude(const char inputFile[],ofstream* output,set<string>& includeDir
 		}
 		else
 		{
-			(*output) << line << endl;
+			output << line << endl;
 		}
 	}
 	input.close();

@@ -5,11 +5,17 @@
 #include "logs.hpp"
 #include "stl.hpp"
 
+ClKernelFromSourceLoader::ClKernelFromSourceLoader(std::set<std::string> p_includeDirectories) :
+    includeDirectories(p_includeDirectories)
+{
+}
+
 boost::shared_ptr<ClKernel> ClKernelFromSourceLoader::loadKernel(std::string filename)
 {
     boost::shared_ptr<std::string> source = readFile(filename);
 
-    cl_program program = compileSource( source );
+    boost::shared_ptr<std::string> sourceWithReplacedIncludes = includePreprocessor.replaceIncludes(source, includeDirectories);
+    cl_program program = compileSource( sourceWithReplacedIncludes );
     return boost::make_shared<ClKernel>(program);
 }
 

@@ -33,7 +33,5 @@ private:
   ClKernelManager kernelManager;
 };
 
-cl_program CreateProgram(cl_context,cl_device_id,const char*);
-
 #endif
 

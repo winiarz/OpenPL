@@ -3,7 +3,6 @@ ClPlatformLibObj=    $(ClPlatformObj)/ClPlatform.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClKernel.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClKernelFactory.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClMemory.o
-ClPlatformLibObj+=   $(ClPlatformObj)/open.o
 ClPlatformLibObj+=   $(ClPlatformObj)/compile.o
 ClPlatformLibObj+=   $(ClPlatformObj)/include.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClParameterizedKernel.o

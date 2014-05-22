@@ -74,6 +74,7 @@ bool ClSelfCalibratingKernel::calibrate(uint timeLimit)
     {
         if( !performanceComparator->comparationStep() )
             return false;
+        currentTime = clock.getUsec();
     }
 
     return true;

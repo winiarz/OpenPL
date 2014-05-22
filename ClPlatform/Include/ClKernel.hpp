@@ -23,6 +23,7 @@ public:
   virtual void load();
   virtual void unload();
   IClKernelCallStats& getStats();
+  std::string getKernelName();
   ~ClKernel();
 private:
   ClPlatform& platform;

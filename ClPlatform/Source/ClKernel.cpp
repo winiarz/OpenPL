@@ -48,12 +48,13 @@ ClKernel::ClKernel( cl_program p_program ) :
 
 void ClKernel::load()
 {
+    DEBUG << "trying to load kernel " << kernelName;
     cl_int error;
     kernel = clCreateKernel( program, kernelName.c_str(), &error );
     if( (!kernel) || (error != CL_SUCCESS) )
     {
         ERROR << "error in creating kernel OpenCL error = " << error;
-        setUpSuccessfully = false;
+        loaded = false;
         delete this;
         if( error == CL_OUT_OF_RESOURCES )
         {
@@ -74,6 +75,7 @@ void ClKernel::unload()
     {
       clReleaseKernel(kernel);
       kernel = 0;
+      loaded = false;
     }
 }
 
@@ -84,7 +86,7 @@ ClKernel::~ClKernel()
 
 bool ClKernel::isLoaded()
 {
-  return isSetUpSuccessfully();
+  return loaded;
 }
 
 bool ClKernel::isSetUpSuccessfully()
@@ -180,6 +182,7 @@ void ClKernel::executeKernel()
     platform.execute();
   
     stats.registerCall();
+    DEBUG << "Kernel " << kernelName << "successfully executed!";
 }
 
 IClKernel& ClKernel::operator()(std::vector<ClMemory*> args)
@@ -196,5 +199,10 @@ IClKernel& ClKernel::operator()(std::vector<ClMemory*> args)
 
     executeKernel();
     return *this;
+}
+
+std::string ClKernel::getKernelName()
+{
+    return kernelName;
 }
 

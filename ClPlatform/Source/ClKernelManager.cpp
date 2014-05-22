@@ -1,6 +1,8 @@
 #include "ClKernelManager.hpp"
 #include "IClKernelCallStats.hpp"
 #include "ClKernel.hpp"
+#include "logs.hpp"
+#include "stl.hpp"
 
 void ClKernelManager::loadKernel( ClKernel* kernel)
 {
@@ -11,13 +13,16 @@ void ClKernelManager::loadKernel( ClKernel* kernel)
         try
         {
             kernel->load();
+            DEBUG << "kernel " << kernel->getKernelName() << " loaded successfully!";
             loadedKernels.insert(kernel);
             return;
         }
         catch ( ClError error ) 
         {
+            
             if ( error == OUT_OF_RESOURCES ) 
             {
+                DEBUG << "load kernel throwed OUT_OF_RESOURCES - try to unload one of kernels";
                 unloadOneKernel(isPossibleToLoad);
             }
         }

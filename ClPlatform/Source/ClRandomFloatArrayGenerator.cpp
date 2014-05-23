@@ -24,3 +24,10 @@ vector<boost::shared_ptr<ClMemory> > ClRandomFloatArrayGenerator::getData()
     return result;
 }
 
+void ClRandomFloatArrayGenerator::saveToFile( FILE* file)
+{
+    char prefix = 'F';
+    fwrite( &prefix, sizeof(char), 1, file);
+    fwrite( &arraySize, sizeof(uint), 1, file);
+}
+

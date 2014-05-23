@@ -27,7 +27,13 @@ vector<boost::shared_ptr<ClMemory> > ClRandomFloatArrayGenerator::getData()
 void ClRandomFloatArrayGenerator::saveToFile( FILE* file)
 {
     char prefix = 'F';
-    fwrite( &prefix, sizeof(char), 1, file);
-    fwrite( &arraySize, sizeof(uint), 1, file);
+
+    size_t writtenBytes = fwrite( &prefix, sizeof(char), 1, file);
+    if ( writtenBytes < sizeof(prefix) )
+        throw FILE_WRITE_ERROR;
+
+    writtenBytes = fwrite( &arraySize, sizeof(uint), 1, file);
+    if ( writtenBytes < sizeof(arraySize) )
+        throw FILE_WRITE_ERROR;
 }
 

@@ -1,4 +1,5 @@
 #include "ClDataGeneratorComposite.hpp"
+#include "ClError.hpp"
 
 ClDataGeneratorComposite::ClDataGeneratorComposite(std::vector<boost::shared_ptr<IClDataGenerator> > p_dataGenerators) :
     dataGenerators(p_dataGenerators)
@@ -23,10 +24,14 @@ vector<boost::shared_ptr<ClMemory> > ClDataGeneratorComposite::getData()
 void ClDataGeneratorComposite::saveToFile( FILE* file )
 {
     char prefix = 'C';
-    fwrite(&prefix, sizeof(char), 1, file);
+    size_t writtenBytes = fwrite(&prefix, sizeof(char), 1, file);
+    if ( writtenBytes < sizeof(prefix) )
+        throw FILE_WRITE_ERROR;
 
     uint componentsCount = dataGenerators.size();
-    fwrite(&componentsCount, sizeof(uint), 1, file);
+    writtenBytes = fwrite(&componentsCount, sizeof(uint), 1, file);
+    if ( writtenBytes < sizeof(componentsCount) )
+        throw FILE_WRITE_ERROR;
 
     std::vector<boost::shared_ptr<IClDataGenerator> >::iterator i;
     for ( i = dataGenerators.begin(); i != dataGenerators.end(); ++i)

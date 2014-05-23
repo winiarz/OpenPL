@@ -8,7 +8,7 @@ boost::shared_ptr<IClDataGenerator> ClDataGeneratorFromFileReader::read(FILE* fi
 {
     char prefix;
     size_t readBytes = fread(&prefix, sizeof(char), 1, file);
-    if ( readBytes < sizeof(prefix) ) 
+    if ( readBytes < 1 ) 
         throw FILE_READ_ERROR;
 
     switch (prefix) 
@@ -30,7 +30,7 @@ boost::shared_ptr<IClDataGenerator> ClDataGeneratorFromFileReader::readFloatArra
 {
     uint arraySize;
     size_t readBytes = fread( &arraySize, sizeof(uint), 1, file);
-    if ( readBytes < sizeof(arraySize) ) 
+    if ( readBytes < 1 ) 
         throw FILE_READ_ERROR;
 
     return boost::make_shared<ClRandomFloatArrayGenerator>(arraySize);
@@ -40,7 +40,7 @@ boost::shared_ptr<IClDataGenerator> ClDataGeneratorFromFileReader::readComposize
 {
     uint compositesCount;
     size_t readBytes = fread( &compositesCount, sizeof(uint), 1, file);
-    if ( readBytes < sizeof(compositesCount) ) 
+    if ( readBytes < 1 ) 
         throw FILE_READ_ERROR;
 
     std::vector<boost::shared_ptr<IClDataGenerator> > composites;

@@ -25,12 +25,12 @@ void ClDataGeneratorComposite::saveToFile( FILE* file )
 {
     char prefix = 'C';
     size_t writtenBytes = fwrite(&prefix, sizeof(char), 1, file);
-    if ( writtenBytes < sizeof(prefix) )
+    if ( writtenBytes < 1 )
         throw FILE_WRITE_ERROR;
 
     uint componentsCount = dataGenerators.size();
     writtenBytes = fwrite(&componentsCount, sizeof(uint), 1, file);
-    if ( writtenBytes < sizeof(componentsCount) )
+    if ( writtenBytes < 1 )
         throw FILE_WRITE_ERROR;
 
     std::vector<boost::shared_ptr<IClDataGenerator> >::iterator i;

@@ -29,11 +29,11 @@ void ClRandomFloatArrayGenerator::saveToFile( FILE* file)
     char prefix = 'F';
 
     size_t writtenBytes = fwrite( &prefix, sizeof(char), 1, file);
-    if ( writtenBytes < sizeof(prefix) )
+    if ( writtenBytes < 1 )
         throw FILE_WRITE_ERROR;
 
     writtenBytes = fwrite( &arraySize, sizeof(uint), 1, file);
-    if ( writtenBytes < sizeof(arraySize) )
+    if ( writtenBytes < 1 )
         throw FILE_WRITE_ERROR;
 }
 

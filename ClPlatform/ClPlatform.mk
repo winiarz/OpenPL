@@ -27,6 +27,7 @@ ClPlatformTestObjs+= $(ClPlatformObj)/ClModuleTest.o
 ClPlatformTestObjs+= $(ClPlatformObj)/ClParameterizedKernelFromSourceTestSuite.o
 ClPlatformTestObjs+= $(ClPlatformObj)/ClKernelPerformanceComparatorTestSuite.o
 ClPlatformTestObjs+= $(ClPlatformObj)/ClCalibratorTestSuite.o
+ClPlatformTestObjs+= $(ClPlatformObj)/ClDataGeneratorFileReadWriteTestSuite.o
 
 ClPlatformTestKernels=  $(ClPlatform)/TestData/empty.clbin
 ClPlatformTestKernels+= $(ClPlatform)/TestData/addition.clbin

@@ -18,6 +18,7 @@ ClPlatformLibObj+=   $(ClPlatformObj)/ClIncludePreprocessor.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClRandomFloatArrayGenerator.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClDataGeneratorComposite.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClDataGeneratorFromFileReader.o
+ClPlatformLibObj+=   $(ClPlatformObj)/ClSelfCalibratingKernelFromFileReader.o
 ClccObj=             $(ClPlatformObj)/clcc.o
 
 ClPlatformTestObjs=  $(ClPlatformObj)/ClPlatformTestSuite.o

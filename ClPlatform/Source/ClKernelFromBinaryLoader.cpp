@@ -19,21 +19,21 @@ FILE* ClKernelFromBinaryLoader::openFile(std::string& filename)
     return file;
 }
 
-size_t ClKernelFromBinaryLoader::readBinarySize( FILE* file, std::string& filename )
+size_t ClKernelFromBinaryLoader::readBinarySize( FILE* file )
 {
     size_t binarySize;
     size_t readSize = fread( &binarySize, sizeof(binarySize), 1, file);
 
     if ( readSize < 1 ) 
     {
-        ERROR << "Kernel file " << filename << " is too short";
+        ERROR << "Kernel file is too short";
         throw INCORRECT_KERNEL_FILE;
     }
 
     return binarySize;
 }
 
-unsigned char* ClKernelFromBinaryLoader::readBinary( FILE* file, size_t binarySize, std::string& filename )
+unsigned char* ClKernelFromBinaryLoader::readBinary( FILE* file, size_t binarySize )
 {
     unsigned char *binary = new unsigned char[binarySize];
     size_t readSize = fread(binary, 1, binarySize, file);
@@ -41,7 +41,7 @@ unsigned char* ClKernelFromBinaryLoader::readBinary( FILE* file, size_t binarySi
     if ( readSize < binarySize ) 
     {
         delete [] binary;
-        ERROR << "Kernel file " << filename << " is too short, expected read size = " << binarySize << " actual = " << readSize;
+        ERROR << "Kernel file is too short, expected read size = " << binarySize << " actual = " << readSize;
         throw INCORRECT_KERNEL_FILE;
     }
 
@@ -51,9 +51,13 @@ unsigned char* ClKernelFromBinaryLoader::readBinary( FILE* file, size_t binarySi
 boost::shared_ptr<ClKernel> ClKernelFromBinaryLoader::loadKernel(std::string filename)
 {
     FILE* file = openFile( filename );
+		return loadKernel( file );
+}
 
-    size_t binarySize = readBinarySize( file, filename );
-    unsigned char * binary = readBinary( file, binarySize, filename );
+boost::shared_ptr<ClKernel> ClKernelFromBinaryLoader::loadKernel( FILE* file )
+{
+    size_t binarySize = readBinarySize( file );
+    unsigned char * binary = readBinary( file, binarySize );
 
     ClPlatform& platform = ClPlatform::getPlatform();
     
@@ -76,7 +80,7 @@ boost::shared_ptr<ClKernel> ClKernelFromBinaryLoader::loadKernel(std::string fil
 
     if ( (error != CL_SUCCESS) || (binaryStatus != CL_SUCCESS) ) 
     {
-        ERROR << "Error program binary " << filename << " is incorrect!, error = " << error;
+        ERROR << "Error program binary is incorrect!, error = " << error;
         throw INCORRECT_KERNEL_FILE;
     }
 
@@ -88,7 +92,7 @@ boost::shared_ptr<ClKernel> ClKernelFromBinaryLoader::loadKernel(std::string fil
         clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG,
                               sizeof(buildLog), buildLog, NULL);
 
-        ERROR << "Error in program: " << filename;
+        ERROR << "Error in program:";
         ERROR << buildLog;
         clReleaseProgram(program);
         throw INCORRECT_KERNEL_FILE;

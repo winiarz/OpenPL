@@ -18,6 +18,8 @@ public:
       
     virtual ~ClSelfCalibratingKernel();
     bool calibrate(uint timeLimit);
+
+    void saveToFile( std::string filename );
 private:
     boost::shared_ptr<IClKernelPerformanceComparator> performanceComparator;
 };

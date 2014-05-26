@@ -1,4 +1,6 @@
 #include "ClKernelPerformanceComparator.hpp"
+#include "ClKernelSaver.hpp"
+#include "ClError.hpp"
 #include "logs.hpp"
 
 ClKernelPerformanceComparator::ClKernelPerformanceComparator(IClock& p_clock) :
@@ -73,3 +75,27 @@ optional<boost::shared_ptr<IClSingleImplementationKernel> > ClKernelPerformanceC
     return bestKernel;
 }
 
+void ClKernelPerformanceComparator::saveToFile( FILE* file )
+{
+    if ( !dataGenerator ) 
+    {
+        ERROR << "Data generator not yet provided";
+        throw FILE_WRITE_ERROR;
+    }
+
+    (*dataGenerator)->saveToFile( file );
+
+    uint kernelsCount = remainingKernels.size();
+    size_t writtenElems = fwrite( &kernelsCount, sizeof(kernelsCount), 1, file );
+    if ( writtenElems < 1 ) 
+    {
+        throw FILE_WRITE_ERROR;
+    }
+
+    ClKernelSaver kernelSaver;
+
+    for ( set<boost::shared_ptr<IClSingleImplementationKernel> >::iterator i = remainingKernels.begin(); i != remainingKernels.end(); ++i ) 
+    {
+        kernelSaver.saveKernel( (*i), file );
+    }
+}

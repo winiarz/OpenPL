@@ -14,6 +14,7 @@ public:
     virtual void addKernel( boost::shared_ptr<IClSingleImplementationKernel> );
     virtual void addParameterizedKernel( boost::shared_ptr<IClParameterizedKernel> );
     virtual optional<boost::shared_ptr<IClSingleImplementationKernel> > getBestKernel();
+    virtual void saveToFile( FILE* file );
 private:
     IClock& clock;
     optional<boost::shared_ptr<IClDataGenerator> > dataGenerator;

@@ -2,6 +2,7 @@
 #include "IClSingleImplementationKernel.hpp"
 #include "ClError.hpp"
 #include "Clock.hpp"
+#include "logs.hpp"
 #include <stdarg.h>
 
 ClSelfCalibratingKernel::ClSelfCalibratingKernel(boost::shared_ptr<IClKernelPerformanceComparator> p_performanceComparator) :
@@ -79,5 +80,27 @@ bool ClSelfCalibratingKernel::calibrate(uint timeLimit)
     }
 
     return true;
+}
+
+void ClSelfCalibratingKernel::saveToFile( std::string filename )
+{
+    FILE* file = fopen( filename.c_str(), "wb" );
+    if ( file == NULL ) 
+    {
+        ERROR << "can't open file " << filename << " to write";
+        throw FILE_WRITE_ERROR;
+    }
+
+    char prefix = 'S';
+
+    size_t writtenElems = fwrite( &prefix, sizeof(prefix), 1, file);
+    if ( writtenElems < 1 ) 
+    {
+        throw FILE_WRITE_ERROR;
+    }
+
+    performanceComparator->saveToFile( file );
+
+    fclose(file);
 }
 

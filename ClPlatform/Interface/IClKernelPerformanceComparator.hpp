@@ -14,6 +14,7 @@ public:
     virtual void addKernel( boost::shared_ptr<IClSingleImplementationKernel> )=0;
     virtual void addParameterizedKernel( boost::shared_ptr<IClParameterizedKernel> )=0;
     virtual optional<boost::shared_ptr<IClSingleImplementationKernel> > getBestKernel()=0;
+    virtual void saveToFile( FILE* file ) = 0;
 };
 
 #endif

@@ -101,26 +101,19 @@ size_t ClKernelSaver::getDeviceIdx( size_t deviceCount, cl_device_id devices[] )
     throw NO_DEVICE;
 }
 
-void ClKernelSaver::saveBinaryToFile( size_t binarySize, unsigned char *programBinary, std::string filename)
+void ClKernelSaver::saveBinaryToFile( size_t binarySize, unsigned char *programBinary, FILE* file)
 {
-    FILE *file = fopen(filename.c_str(), "wb");
-    if ( file == NULL ) 
-    {
-        ERROR << "Can't open file to write " << filename;
-        throw FILE_WRITE_ERROR;
-    }
-
     size_t writtenElems = fwrite(&binarySize, sizeof(size_t), 1, file);
     if ( writtenElems < 1 ) 
     {
-        ERROR << "Can't write to file " << filename;
+        ERROR << "Can't write to file ";
         throw FILE_WRITE_ERROR;
     }
 
     writtenElems = fwrite(programBinary, sizeof(unsigned char), binarySize, file);
     if ( writtenElems < binarySize ) 
     {
-        ERROR << "Can't write to file " << filename;
+        ERROR << "Can't write to file ";
         throw FILE_WRITE_ERROR;
     }
     fclose(file);
@@ -129,6 +122,27 @@ void ClKernelSaver::saveBinaryToFile( size_t binarySize, unsigned char *programB
 void ClKernelSaver::saveKernel( boost::shared_ptr<IClSingleImplementationKernel> kernel, std::string filename )
 {
     DEBUG << "Saving kernel to file " << filename;
+
+    FILE* file = openFile( filename );
+    saveKernel( kernel, file );
+    
+    DEBUG << "Successfully saved kernel to file " << filename;
+}
+
+FILE* ClKernelSaver::openFile( std::string filename )
+{
+    FILE *file = fopen(filename.c_str(), "wb");
+    if ( file == NULL ) 
+    {
+        ERROR << "Can't open file to write " << filename;
+        throw FILE_WRITE_ERROR;
+    }
+
+    return file;
+}
+
+void ClKernelSaver::saveKernel( boost::shared_ptr<IClSingleImplementationKernel> kernel, FILE* file )
+{
     cl_uint deviceCount = getDeviceCount(kernel);
     cl_device_id devices[deviceCount];
     getDevices( devices, kernel );
@@ -140,8 +154,7 @@ void ClKernelSaver::saveKernel( boost::shared_ptr<IClSingleImplementationKernel>
     getProgramBinaries( deviceCount, binarySizes, programBinaries, kernel );
 
     size_t deviceIdx = getDeviceIdx( deviceCount, devices );
-    saveBinaryToFile( binarySizes[deviceIdx], programBinaries[deviceIdx], filename );
+    saveBinaryToFile( binarySizes[deviceIdx], programBinaries[deviceIdx], file );
     deleteProgramBinaries( deviceCount, programBinaries );
-    DEBUG << "Successfully saved kernel to file " << filename;
 }
 

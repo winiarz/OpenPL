@@ -8,6 +8,7 @@ class ClKernelSaver : public IClKernelSaver
 {
 public:
     virtual void saveKernel( boost::shared_ptr<IClSingleImplementationKernel> kernel, std::string filename );
+    virtual void saveKernel( boost::shared_ptr<IClSingleImplementationKernel> kernel, FILE* file );
 private:
     cl_int getDeviceCount( boost::shared_ptr<IClSingleImplementationKernel> kernel);
     void getDevices( cl_device_id devices[], boost::shared_ptr<IClSingleImplementationKernel> kernel );
@@ -20,7 +21,8 @@ private:
 
     void deleteProgramBinaries( size_t deviceCount, unsigned char *programBinaries[] );
     size_t getDeviceIdx( size_t deviceCount, cl_device_id devices[] );
-    void saveBinaryToFile( size_t binarySize, unsigned char *programBinary, std::string filename);
+    void saveBinaryToFile( size_t binarySize, unsigned char *programBinary, FILE* file);
+    FILE* openFile( std::string );
 };
 
 

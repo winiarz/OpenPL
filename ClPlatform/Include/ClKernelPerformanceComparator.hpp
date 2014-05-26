@@ -11,15 +11,15 @@ public:
     ClKernelPerformanceComparator(IClock&);
     virtual bool comparationStep();
     virtual void setDataGenerator( boost::shared_ptr<IClDataGenerator>);
-    virtual void addKernel( boost::shared_ptr<IClKernel> );
+    virtual void addKernel( boost::shared_ptr<IClSingleImplementationKernel> );
     virtual void addParameterizedKernel( boost::shared_ptr<IClParameterizedKernel> );
-    virtual optional<boost::shared_ptr<IClKernel> > getBestKernel();
+    virtual optional<boost::shared_ptr<IClSingleImplementationKernel> > getBestKernel();
 private:
     IClock& clock;
     optional<boost::shared_ptr<IClDataGenerator> > dataGenerator;
-    set<boost::shared_ptr<IClKernel> > remainingKernels;
+    set<boost::shared_ptr<IClSingleImplementationKernel> > remainingKernels;
     uint bestTime;
-    optional<boost::shared_ptr<IClKernel> > bestKernel;
+    optional<boost::shared_ptr<IClSingleImplementationKernel> > bestKernel;
 };
 
 #endif

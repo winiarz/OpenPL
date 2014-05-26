@@ -14,7 +14,7 @@ void ClKernelPerformanceComparator::setDataGenerator( boost::shared_ptr<IClDataG
     dataGenerator = p_dataGenerator;
 }
 
-void ClKernelPerformanceComparator::addKernel( boost::shared_ptr<IClKernel> newKernel)
+void ClKernelPerformanceComparator::addKernel( boost::shared_ptr<IClSingleImplementationKernel> newKernel)
 {
     remainingKernels.insert(newKernel);
     if ( !bestKernel ) 
@@ -28,7 +28,7 @@ void ClKernelPerformanceComparator::addParameterizedKernel( boost::shared_ptr<IC
     boost::shared_ptr<set<int> > parameters = newParametrizedKernel->getNotRejectedParameters();
     BOOST_FOREACH( int param, *parameters)
     {
-         optional<boost::shared_ptr<IClKernel> > kernel = newParametrizedKernel->getKernel(param);
+         optional<boost::shared_ptr<IClSingleImplementationKernel> > kernel = newParametrizedKernel->getKernel(param);
          if ( kernel ) 
          {
              addKernel(*kernel);
@@ -42,7 +42,7 @@ bool ClKernelPerformanceComparator::comparationStep()
     {
         vector<boost::shared_ptr<ClMemory> > l_randomData = (*dataGenerator)->getData();
 
-        set<boost::shared_ptr<IClKernel> >::iterator testedKernel = remainingKernels.begin();
+        set<boost::shared_ptr<IClSingleImplementationKernel> >::iterator testedKernel = remainingKernels.begin();
 
         uint beginTime = clock.getUsec();
         //(*testedKernel)(l_randomData); TODO - run kernel here
@@ -68,7 +68,7 @@ bool ClKernelPerformanceComparator::comparationStep()
     return !remainingKernels.empty();
 }
 
-optional<boost::shared_ptr<IClKernel> > ClKernelPerformanceComparator::getBestKernel()
+optional<boost::shared_ptr<IClSingleImplementationKernel> > ClKernelPerformanceComparator::getBestKernel()
 {
     return bestKernel;
 }

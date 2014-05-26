@@ -6,8 +6,8 @@
 class ClParameterizedKernel : public IClParameterizedKernel {
 public:
     ClParameterizedKernel(boost::shared_ptr<IClParameter>);
-    virtual optional<shared_ptr<IClKernel> > getKernel(int);
-    virtual void rejectKernel(shared_ptr<IClKernel>);
+    virtual optional<shared_ptr<IClSingleImplementationKernel> > getKernel(int);
+    virtual void rejectKernel(shared_ptr<IClSingleImplementationKernel>);
     virtual boost::shared_ptr<IClParameter> getParameter();
     virtual boost::shared_ptr<set<int> > getNotRejectedParameters();
 
@@ -16,7 +16,7 @@ public:
 private:
     boost::shared_ptr<IClParameter> parameter;
     set<int> rejectedKernels;
-    map<int,boost::shared_ptr<IClKernel> > builtKernels;
+    map<int,boost::shared_ptr<IClSingleImplementationKernel> > builtKernels;
 };
 
 #endif // CLPARAMETERIZEDKERNEL_HPP

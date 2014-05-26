@@ -1,4 +1,5 @@
 #include "ClSelfCalibratingKernel.hpp"
+#include "IClSingleImplementationKernel.hpp"
 #include "ClError.hpp"
 #include "Clock.hpp"
 #include <stdarg.h>
@@ -10,7 +11,7 @@ ClSelfCalibratingKernel::ClSelfCalibratingKernel(boost::shared_ptr<IClKernelPerf
 
 bool ClSelfCalibratingKernel::isSetUpSuccessfully()
 {
-    optional<boost::shared_ptr<IClKernel> > optKernel =  performanceComparator->getBestKernel();
+    optional<boost::shared_ptr<IClSingleImplementationKernel> > optKernel =  performanceComparator->getBestKernel();
     if ( ! optKernel ) 
         return false;
     return (*optKernel)->isSetUpSuccessfully();
@@ -25,7 +26,7 @@ bool ClSelfCalibratingKernel::operator!()
  
 IClKernel& ClSelfCalibratingKernel::operator[](uint n)
 {
-    optional<boost::shared_ptr<IClKernel> > optKernel =  performanceComparator->getBestKernel();
+    optional<boost::shared_ptr<IClSingleImplementationKernel> > optKernel =  performanceComparator->getBestKernel();
     if ( !optKernel ) 
     {
         throw NO_KERNEL_IN_COMPARATOR;
@@ -50,7 +51,7 @@ IClKernel& ClSelfCalibratingKernel::operator()(uint argumentNb, ... )
 
 IClKernel& ClSelfCalibratingKernel::operator()(std::vector<ClMemory*> args)
 {
-    optional<boost::shared_ptr<IClKernel> > optKernel =  performanceComparator->getBestKernel();
+    optional<boost::shared_ptr<IClSingleImplementationKernel> > optKernel =  performanceComparator->getBestKernel();
     if ( !optKernel ) 
     {
         throw NO_KERNEL_IN_COMPARATOR;

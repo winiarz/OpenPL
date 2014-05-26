@@ -1,5 +1,5 @@
 #include "ClKernelPerformanceComparator.hpp"
-#include "ClKernelMock.hpp"
+#include "ClSingleImplementationKernelMock.hpp"
 #include "ClDataGeneratorMock.hpp"
 #include "ClParameterizedKernelMock.hpp"
 #include "ClockMock.hpp"
@@ -13,9 +13,9 @@ class ClKernelPerformanceComparatorTestSuite : public Test {
 public:
     ClKernelPerformanceComparatorTestSuite();
     void setDataGenerator();
-    boost::shared_ptr<ClKernelMock> addKernel();
-    boost::shared_ptr<ClKernelMock> addAndTestKernel(int workTime);
-    boost::shared_ptr<ClKernelMock> expectGetKernel(boost::shared_ptr<ClParameterizedKernelMock> paramKernelMock,
+    boost::shared_ptr<ClSingleImplementationKernelMock> addKernel();
+    boost::shared_ptr<ClSingleImplementationKernelMock> addAndTestKernel(int workTime);
+    boost::shared_ptr<ClSingleImplementationKernelMock> expectGetKernel(boost::shared_ptr<ClParameterizedKernelMock> paramKernelMock,
                                                     int param);
 
     boost::shared_ptr<ClockMock> clockMock;
@@ -30,9 +30,10 @@ ClKernelPerformanceComparatorTestSuite::ClKernelPerformanceComparatorTestSuite()
 {
 }
 
-boost::shared_ptr<ClKernelMock> ClKernelPerformanceComparatorTestSuite::addKernel()
+boost::shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorTestSuite::addKernel()
 {
-    boost::shared_ptr<ClKernelMock> kernelMock = boost::make_shared<ClKernelMock>();
+    boost::shared_ptr<ClSingleImplementationKernelMock> kernelMock
+        = boost::make_shared<ClSingleImplementationKernelMock>();
     sut->addKernel( kernelMock );
     EXPECT_CALL( *kernelMock, Die());
 
@@ -46,9 +47,9 @@ void ClKernelPerformanceComparatorTestSuite::setDataGenerator()
     EXPECT_CALL( *dataGeneratorMock, getData() ).WillRepeatedly(Return(data));
 }
 
-boost::shared_ptr<ClKernelMock> ClKernelPerformanceComparatorTestSuite::addAndTestKernel(int workTime)
+boost::shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorTestSuite::addAndTestKernel(int workTime)
 {
-    boost::shared_ptr<ClKernelMock> kernelMock = addKernel();
+    boost::shared_ptr<ClSingleImplementationKernelMock> kernelMock = addKernel();
 
     EXPECT_CALL( *clockMock, getUsec()).WillOnce(Return(0)).WillOnce(Return(workTime));
     sut->comparationStep();
@@ -56,13 +57,15 @@ boost::shared_ptr<ClKernelMock> ClKernelPerformanceComparatorTestSuite::addAndTe
     return kernelMock;
 }
 
-boost::shared_ptr<ClKernelMock> ClKernelPerformanceComparatorTestSuite::expectGetKernel(boost::shared_ptr<ClParameterizedKernelMock> paramKernelMock,
+boost::shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorTestSuite::expectGetKernel(boost::shared_ptr<ClParameterizedKernelMock> paramKernelMock,
                                                                                         int param)
 {
-    boost::shared_ptr<ClKernelMock> kernelMock = boost::make_shared<ClKernelMock>();
+    boost::shared_ptr<ClSingleImplementationKernelMock> kernelMock
+        = boost::make_shared<ClSingleImplementationKernelMock>();
     EXPECT_CALL( *kernelMock, Die());
 
-    optional<boost::shared_ptr<IClKernel> > optionalKernel = boost::shared_ptr<IClKernel>(kernelMock);
+    optional<boost::shared_ptr<IClSingleImplementationKernel> > optionalKernel
+        = boost::shared_ptr<IClSingleImplementationKernel>(kernelMock);
     EXPECT_CALL( *paramKernelMock, getKernel(param)).WillOnce(Return(optionalKernel));
 
     return kernelMock;
@@ -80,9 +83,9 @@ TEST_F( ClKernelPerformanceComparatorTestSuite, getBestDataWithoutSettingKernel 
 
 TEST_F( ClKernelPerformanceComparatorTestSuite, onlyOneKernelisBestOne )
 {
-    boost::shared_ptr<ClKernelMock> kernelMock = addKernel();
+    boost::shared_ptr<ClSingleImplementationKernelMock> kernelMock = addKernel();
 
-    optional<boost::shared_ptr<IClKernel> > result = sut->getBestKernel();
+    optional<boost::shared_ptr<IClSingleImplementationKernel> > result = sut->getBestKernel();
 
     ASSERT_TRUE( result );
     ASSERT_EQ( *result, kernelMock );
@@ -90,10 +93,10 @@ TEST_F( ClKernelPerformanceComparatorTestSuite, onlyOneKernelisBestOne )
 
 TEST_F( ClKernelPerformanceComparatorTestSuite, firstKernelIsBetterUntilItisTested )
 {
-    boost::shared_ptr<ClKernelMock> firstKernelMock = addKernel();
-    boost::shared_ptr<ClKernelMock> secondKernelMock = addKernel();
+    boost::shared_ptr<ClSingleImplementationKernelMock> firstKernelMock = addKernel();
+    boost::shared_ptr<ClSingleImplementationKernelMock> secondKernelMock = addKernel();
 
-    optional<boost::shared_ptr<IClKernel> > result = sut->getBestKernel();
+    optional<boost::shared_ptr<IClSingleImplementationKernel> > result = sut->getBestKernel();
 
     ASSERT_TRUE( result );
     ASSERT_EQ( *result, firstKernelMock );
@@ -103,10 +106,10 @@ TEST_F( ClKernelPerformanceComparatorTestSuite, kernelWithShorterTimeIsBetter )
 {
     setDataGenerator();
 
-    boost::shared_ptr<ClKernelMock> firstKernelMock = addAndTestKernel(100);
-    boost::shared_ptr<ClKernelMock> secondKernelMock = addAndTestKernel(60);
+    boost::shared_ptr<ClSingleImplementationKernelMock> firstKernelMock = addAndTestKernel(100);
+    boost::shared_ptr<ClSingleImplementationKernelMock> secondKernelMock = addAndTestKernel(60);
 
-    optional<boost::shared_ptr<IClKernel> > result = sut->getBestKernel();
+    optional<boost::shared_ptr<IClSingleImplementationKernel> > result = sut->getBestKernel();
 
     ASSERT_TRUE( result );
     ASSERT_EQ( *result, secondKernelMock );
@@ -121,8 +124,8 @@ TEST_F( ClKernelPerformanceComparatorTestSuite, addParametrizedKernelAddsKernelF
     params->insert(2);
     EXPECT_CALL( *paramKernelMock, getNotRejectedParameters() ).WillOnce(Return(params));
 
-    boost::shared_ptr<ClKernelMock> firstKernel = expectGetKernel( paramKernelMock, 1 );
-    boost::shared_ptr<ClKernelMock> secondKernel = expectGetKernel( paramKernelMock, 2 );
+    boost::shared_ptr<ClSingleImplementationKernelMock> firstKernel = expectGetKernel( paramKernelMock, 1 );
+    boost::shared_ptr<ClSingleImplementationKernelMock> secondKernel = expectGetKernel( paramKernelMock, 2 );
 
     sut->addParameterizedKernel(paramKernelMock);
 }

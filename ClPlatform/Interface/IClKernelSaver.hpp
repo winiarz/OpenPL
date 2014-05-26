@@ -3,12 +3,12 @@
 
 #include "stl.hpp"
 #include "boost.hpp"
-class ClKernel;
+class IClSingleImplementationKernel;
 
 class IClKernelSaver
 {
 public:
-    virtual void saveKernel( boost::shared_ptr<ClKernel> kernel, std::string filename ) = 0;
+    virtual void saveKernel( boost::shared_ptr<IClSingleImplementationKernel> kernel, std::string filename ) = 0;
 };
 
 #endif

@@ -2,14 +2,14 @@
 #ifndef __CL_KERNEL__
 #define __CL_KERNEL__
 
-#include "IClKernel.hpp"
+#include "IClSingleImplementationKernel.hpp"
 #include "ClClasses.hpp"
 #include "ClPlatform.hpp"
 #include "ClMemory.hpp"
 #include "ClKernelCallStats.hpp"
 #include "stl.hpp"
 
-class ClKernel : public IClKernel {
+class ClKernel : public IClSingleImplementationKernel {
 public:
   ClKernel( const char[], const char[]);
   ClKernel( cl_program );

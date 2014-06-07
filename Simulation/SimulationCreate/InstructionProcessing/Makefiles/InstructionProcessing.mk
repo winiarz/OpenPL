@@ -3,6 +3,7 @@ InstructionProcessingObj=     $(InstructionProcessing)/Obj
 InstructionProcessingSource=  $(InstructionProcessing)/Source
 
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/SingleInstruction.o
+InstructionProcessingObjs+=     $(InstructionProcessingObj)/InstructionBlock.o
 
 $(InstructionProcessingObj)/%.o: $(InstructionProcessingSource)/%.cpp
 	@echo "\tCXX\t"$*.o

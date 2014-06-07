@@ -8,7 +8,7 @@ namespace InsPr
     {
     public:
         virtual uint getAlternativesCount() = 0;
-        virtual std::vector<std::string> getAllAlternatives() = 0;
+        virtual std::string getAlternative(uint) = 0;
     };
 }
 

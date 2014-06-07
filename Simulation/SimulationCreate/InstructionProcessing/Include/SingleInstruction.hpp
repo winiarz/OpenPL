@@ -9,7 +9,7 @@ namespace InsPr
     public:
         SimgleInstruction(std::string);
         virtual uint getAlternativesCount();
-        virtual std::vector<std::string> getAllAlternatives();
+        virtual std::string getAlternative(uint);
     private:
         std::string instruction;
     };

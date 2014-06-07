@@ -13,11 +13,12 @@ uint SimgleInstruction::getAlternativesCount()
     return 1u;
 }
 
-std::vector<std::string> SimgleInstruction::getAllAlternatives()
+std::string SimgleInstruction::getAlternative(uint alternativeNb)
 {
-    std::vector<std::string> result;
-    result.push_back(instruction);
-    return result;
+    if ( alternativeNb != 0 ) 
+        return std::string();
+
+    return instruction;
 }
 
 }

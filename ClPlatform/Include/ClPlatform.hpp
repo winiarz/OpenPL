@@ -1,6 +1,4 @@
-
-#ifndef __CL_PLATFORM__
-#define __CL_PLATFORM__
+#pragma once
 
 #include <CL/cl.h>
 #include "ClClasses.hpp"
@@ -32,6 +30,4 @@ private:
   bool setUpSuccessfully;
   ClKernelManager kernelManager;
 };
-
-#endif
 

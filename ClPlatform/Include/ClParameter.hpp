@@ -1,5 +1,4 @@
-#ifndef __CL_PARAMETER_HPP__
-#define __CL_PARAMETER_HPP__
+#pragma once
 
 #include <set>
 
@@ -10,4 +9,3 @@ protected:
     set<int> values;
 };
 
-#endif // CLPARAMETER_HPP

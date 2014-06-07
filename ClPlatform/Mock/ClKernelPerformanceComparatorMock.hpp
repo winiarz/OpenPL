@@ -1,5 +1,4 @@
-#ifndef __CL_KERNEL_COMPARATOR_MOCK__
-#define __CL_KERNEL_COMPARATOR_MOCK__
+#pragma once
 
 #include "IClKernelPerformanceComparator.hpp"
 
@@ -14,7 +13,4 @@ public:
     MOCK_METHOD0( getBestKernel, optional<boost::shared_ptr<IClSingleImplementationKernel> >() );
     MOCK_METHOD1( saveToFile, void( FILE* ) );
 };
-
-
-#endif
 

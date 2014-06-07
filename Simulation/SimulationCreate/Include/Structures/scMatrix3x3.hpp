@@ -1,5 +1,4 @@
-#ifndef __OPL_SC_MATRIX_3X3__
-#define __OPL_SC_MATRIX_3X3__
+#pragma once
 
 #include <string>
 #include "scVariable.hpp"
@@ -22,4 +21,3 @@ namespace OPL
   }
 }
 
-#endif

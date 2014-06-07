@@ -1,5 +1,4 @@
-#ifndef __CL_KERNEL_MANAGER__
-#define __CL_KERNEL_MANAGER__
+#pragma once
 
 #include "IClKernelManager.hpp"
 #include "ClError.hpp"
@@ -18,6 +17,4 @@ private:
 
      void unloadOneKernel(bool& isPossibleToLoad);
 };
-
-#endif
 

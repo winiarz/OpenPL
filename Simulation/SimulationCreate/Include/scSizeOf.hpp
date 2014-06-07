@@ -1,5 +1,4 @@
-#ifndef __OPL_SC_SIZE_OF__
-#define __OPL_SC_SIZE_OF__
+#pragma once
 
 #include "scInt.hpp"
 #include "scVariable.hpp"
@@ -28,4 +27,3 @@ namespace OPL
   }
 }
 
-#endif

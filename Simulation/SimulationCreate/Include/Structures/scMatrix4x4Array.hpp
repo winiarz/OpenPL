@@ -1,5 +1,4 @@
-#ifndef __OPL_SC_MATRIX4X4_ARRAY__
-#define __OPL_SC_MATRIX4X4_ARRAY__
+#pragma once
 
 #include <string>
 #include "scArray.hpp"
@@ -23,4 +22,3 @@ namespace OPL
   }
 }
 
-#endif

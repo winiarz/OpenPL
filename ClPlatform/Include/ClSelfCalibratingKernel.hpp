@@ -1,5 +1,4 @@
-#ifndef __CL_SELF_CALIBRATING_KERNEL__
-#define __CL_SELF_CALIBRATING_KERNEL__
+#pragma once
 
 #include "boost.hpp"
 #include "IClKernel.hpp"
@@ -23,6 +22,4 @@ public:
 private:
     boost::shared_ptr<IClKernelPerformanceComparator> performanceComparator;
 };
-
-#endif
 

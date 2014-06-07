@@ -1,5 +1,4 @@
-#ifndef __CL_KERNEL_FROM_BINARY_LOADER__
-#define __CL_KERNEL_FROM_BINARY_LOADER__
+#pragma once
 
 #include "IClKernelFromFileLoader.hpp"
 
@@ -14,4 +13,3 @@ private:
     unsigned char* readBinary( FILE*, size_t binarySize );
 };
 
-#endif

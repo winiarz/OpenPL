@@ -1,5 +1,4 @@
-#ifndef __NULL_STREAM__
-#define __NULL_STREAM__
+#pragma once
 
 #include <iostream>
 
@@ -9,4 +8,3 @@ public:
   std::ostream& operator<<(const char[]);
 };
 
-#endif

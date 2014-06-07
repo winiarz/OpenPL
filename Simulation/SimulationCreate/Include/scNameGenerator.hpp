@@ -1,5 +1,4 @@
-#ifndef __OPL_SC_NAME_GENERATOR__
-#define __OPL_SC_NAME_GENERATOR__
+#pragma once
 
 #include <string>
 #include <sstream>
@@ -25,4 +24,3 @@ namespace OPL
   }
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef __I_CL_DATA_GENERATOR__
-#define __I_CL_DATA_GENERATOR__
+#pragma once
 
 #include "stl.hpp"
 #include "boost.hpp"
@@ -11,6 +10,4 @@ public:
     virtual vector<boost::shared_ptr<ClMemory> > getData() = 0;
     virtual void saveToFile( FILE* ) = 0;
 };
-
-#endif
 

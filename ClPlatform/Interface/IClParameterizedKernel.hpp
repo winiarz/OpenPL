@@ -1,5 +1,4 @@
-#ifndef ICLPARAMETERIZEDKERNEL_HPP
-#define ICLPARAMETERIZEDKERNEL_HPP
+#pragma once
 
 #include "boost.hpp"
 #include "stl.hpp"
@@ -15,4 +14,3 @@ public:
     virtual boost::shared_ptr<set<int> > getNotRejectedParameters() = 0;
 };
 
-#endif // ICLPARAMETERIZEDKERNEL_HPP

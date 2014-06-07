@@ -1,5 +1,4 @@
-#ifndef __CL_INCLUDE_PREPROCESSOR__
-#define __CL_INCLUDE_PREPROCESSOR__
+#pragma once
 
 #include "IClIncludePreprocessor.hpp"
 
@@ -14,6 +13,4 @@ private:
     boost::shared_ptr<std::string> readFile(std::string& filename);
     std::string getIncludeFilePath(std::string&, std::set<std::string>&);
 };
-
-#endif
 

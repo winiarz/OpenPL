@@ -1,5 +1,4 @@
-#ifndef __OPL_SC_$TYPENAME_ARRAY__
-#define __OPL_SC_$TYPENAME_ARRAY__
+#pragma once
 
 #include <sstream>
 #include "scClasses.hpp"
@@ -21,4 +20,4 @@ namespace OPL
     };
   }
 }
-#endif
+

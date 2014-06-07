@@ -1,6 +1,4 @@
-
-#ifndef __OPL_SC_VARIABLE__
-#define __OPL_SC_VARIABLE__
+#pragma once
 
 #include "scClasses.hpp"
 #include "scCreateKernel.hpp"
@@ -31,4 +29,3 @@ namespace OPL
   }
 }
 
-#endif

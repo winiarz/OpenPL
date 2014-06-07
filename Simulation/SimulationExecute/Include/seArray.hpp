@@ -1,6 +1,4 @@
-
-#ifndef __OPL_SE_TABLE__
-#define __OPL_SE_TABLE__
+#pragma once
 
 typedef unsigned char uchar;
 
@@ -13,4 +11,3 @@ namespace OPL
   }
 }
 
-#endif

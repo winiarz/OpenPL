@@ -1,6 +1,4 @@
-#ifndef __CL_DATA_GENERATOR_COMPOSITE__
-#define __CL_DATA_GENERATOR_COMPOSITE__
-
+#pragma once
 
 #include "IClDataGenerator.hpp"
 
@@ -15,4 +13,3 @@ private:
     vector<boost::shared_ptr<IClDataGenerator> > dataGenerators;
 };
 
-#endif

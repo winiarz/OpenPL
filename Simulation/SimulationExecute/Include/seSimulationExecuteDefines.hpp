@@ -1,5 +1,4 @@
-#ifndef __OPL_SE_DEFINES__
-#define __OPL_SE_DEFINES__
+#pragma once
 
 /*#define KERNEL_DEF1( kernel_name, arg1_type ) void kernel_name ( I ## arg1_type&);
 #define KERNEL_IMP1( class_name, kernel_name, arg1_type, arg1_name )\
@@ -31,4 +30,3 @@ void NOT_USED( OPL::SimCreate:: arg1_type,OPL::SimCreate:: arg2_type);\
 };\
 void NOT_USED_ ## class_name ## __ ## kernel_name :: NOT_USED ( OPL::SimCreate:: arg1_type arg1_name,OPL::SimCreate:: arg2_type arg2_name )
 
-#endif

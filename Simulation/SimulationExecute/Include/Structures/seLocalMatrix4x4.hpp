@@ -1,5 +1,4 @@
-#ifndef __OPL_SE_MATRIX_4X4__
-#define __OPL_SE_MATRIX_4X4__
+#pragma once
 
 namespace OPL
 {
@@ -22,4 +21,3 @@ namespace OPL
   }
 }
 
-#endif

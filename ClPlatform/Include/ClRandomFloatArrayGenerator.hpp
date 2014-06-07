@@ -1,5 +1,4 @@
-#ifndef __CL_RANDOM_FLOAT_ARRAY_GENERATOR__
-#define __CL_RANDOM_FLOAT_ARRAY_GENERATOR__
+#pragma once
 
 #include "IClDataGenerator.hpp"
 
@@ -12,6 +11,4 @@ public:
 private:
     const uint arraySize;
 };
-
-#endif
 

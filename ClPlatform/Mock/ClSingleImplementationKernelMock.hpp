@@ -1,6 +1,4 @@
-
-#ifndef __CL_SINGLE_IMPLEMENTATION_KERNEL_MOCK__
-#define __CL_SINGLE_IMPLEMENTATION_KERNEL_MOCK__
+#pragma once
 
 #include<gtest/gtest.h>
 #include<gmock/gmock.h>
@@ -40,5 +38,3 @@ public:
   MOCK_METHOD0(getStats, IClKernelCallStats&() );
 };
 
-
-#endif

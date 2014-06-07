@@ -1,5 +1,4 @@
-#ifndef __CL_DATA_GENERATOR_FROM_FILE_READER__
-#define __CL_DATA_GENERATOR_FROM_FILE_READER__
+#pragma once
 
 #include "boost.hpp"
 #include "IClDataGeneratorFromFileReader.hpp"
@@ -12,6 +11,4 @@ private:
     boost::shared_ptr<IClDataGenerator> readFloatArrayGenerator(FILE*);
     boost::shared_ptr<IClDataGenerator> readComposizeOfGenerators(FILE*);
 };
-
-#endif
 

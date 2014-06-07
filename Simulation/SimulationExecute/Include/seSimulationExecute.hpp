@@ -1,6 +1,4 @@
-
-#ifndef __OPL_SIMULATION_EXECUTE__
-#define __OPL_SIMULATION_EXECUTE__
+#pragma once
 
 #include <string>
 
@@ -30,4 +28,3 @@ namespace OPL
   }
 }
 
-#endif

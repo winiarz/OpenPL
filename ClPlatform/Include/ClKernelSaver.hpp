@@ -1,5 +1,4 @@
-#ifndef __CL_KERNEL_SAVER__
-#define __CL_KERNEL_SAVER__
+#pragma once
 
 #include <CL/cl.h>
 #include "IClKernelSaver.hpp"
@@ -24,7 +23,4 @@ private:
     void saveBinaryToFile( size_t binarySize, unsigned char *programBinary, FILE* file);
     FILE* openFile( std::string );
 };
-
-
-#endif
 

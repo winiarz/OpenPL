@@ -1,5 +1,4 @@
-#ifndef __I_CLOCK__
-#define __I_CLOCK__
+#pragma once
 
 typedef unsigned int uint;
 
@@ -9,6 +8,4 @@ public:
     virtual uint getMsec()=0;
     virtual uint getSec()=0;
 };
-
-#endif
 

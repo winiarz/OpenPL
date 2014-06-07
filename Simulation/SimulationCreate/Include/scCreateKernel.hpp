@@ -1,5 +1,4 @@
-#ifndef __OPL_SC_CREATE_KERNEL__
-#define __OPL_SC_CREATE_KERNEL__
+#pragma once
 
 #include <fstream>
 #include <string>
@@ -49,4 +48,3 @@ namespace OPL
   }
 }
 
-#endif

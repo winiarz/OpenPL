@@ -1,5 +1,4 @@
-#ifndef __CLOCK__
-#define __CLOCK__
+#pragma once
 
 #include "IClock.hpp"
 
@@ -9,6 +8,4 @@ public:
     virtual uint getMsec();
     virtual uint getSec();
 };
-
-#endif
 

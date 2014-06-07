@@ -1,5 +1,4 @@
-#ifndef __LOGS__
-#define __LOGS__
+#pragma once
 
 #include <string>
 #include <string.h>
@@ -26,6 +25,4 @@ const char debugFileName[] = "debug.txt";
     
 #define ERROR \
     debug(__LINE__,FILENAME)
-
-#endif
 

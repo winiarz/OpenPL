@@ -1,5 +1,4 @@
-#ifndef __I_CL_KERNEL_MANAGER__
-#define __I_CL_KERNEL_MANAGER__
+#pragma once
 
 #include "boost.hpp"
 
@@ -11,4 +10,3 @@ public:
     virtual void loadKernel( ClKernel* kernel) = 0;
 };
 
-#endif

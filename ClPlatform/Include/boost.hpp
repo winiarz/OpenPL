@@ -1,5 +1,4 @@
-#ifndef BOOST_HPP
-#define BOOST_HPP
+#pragma once
 
 #include <boost/shared_ptr.hpp>
 using boost::shared_ptr;
@@ -14,4 +13,3 @@ using boost::none;
 #include <boost/bind.hpp>
 #include <boost/foreach.hpp>
 
-#endif // BOOST_HPP

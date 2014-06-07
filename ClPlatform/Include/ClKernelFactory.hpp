@@ -1,5 +1,4 @@
-#ifndef __CL_KERNEL_FACTORY__
-#define __CL_KERNEL_FACTORY__
+#pragma once
 
 #include "IClKernelFactory.hpp"
 
@@ -9,4 +8,3 @@ public:
   virtual IClKernel* buildClKernel( std::string, std::string );
 };
 
-#endif

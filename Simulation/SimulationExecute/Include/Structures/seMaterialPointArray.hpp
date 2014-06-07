@@ -1,5 +1,4 @@
-#ifndef __OPL_SE_MATERIAL_POINT_ARRAY__
-#define __OPL_SE_MATERIAL_POINT_ARRAY__
+#pragma once
 
 #include "ClTypedMemory.hpp"
 #include "seLocalMaterialPoint.hpp"
@@ -23,4 +22,3 @@ namespace OPL
   }
 }
 
-#endif

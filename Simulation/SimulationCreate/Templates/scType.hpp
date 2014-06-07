@@ -1,5 +1,4 @@
-#ifndef __OPL_SC_$TYPENAME__
-#define __OPL_SC_$TYPENAME__
+#pragma once
 
 #include <string>
 #include <fstream>
@@ -39,4 +38,4 @@ namespace OPL
     };
   }
 }
-#endif
+

@@ -1,5 +1,4 @@
-#ifndef __I_CL_INCLUDE_PREPROCESSOR__
-#define __I_CL_INCLUDE_PREPROCESSOR__
+#pragma once
 
 #include "boost.hpp"
 #include "stl.hpp"
@@ -10,6 +9,4 @@ public:
     virtual boost::shared_ptr<std::string> replaceIncludes( boost::shared_ptr<std::string> source,
                                                             std::set<std::string>& includeDirectories ) = 0;
 };
-
-#endif
 

@@ -1,5 +1,4 @@
-#ifndef __CL_SELF_CALIBRATING_KERNEL_FROM_FILE_READER__
-#define __CL_SELF_CALIBRATING_KERNEL_FROM_FILE_READER__
+#pragma once
 
 #include "IClSelfCalibratingKernelFromFileReader.hpp"
 #include "IClDataGeneratorFromFileReader.hpp"
@@ -20,4 +19,3 @@ private:
 		IClock& clock;
 };
 
-#endif

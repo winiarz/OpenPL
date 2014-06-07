@@ -1,5 +1,4 @@
-#ifndef __CL_KERNEL_CALL_STATS__
-#define __CL_KERNEL_CALL_STATS__
+#pragma once
 
 #include "IClKernelCallStats.hpp"
 #include "IClock.hpp"
@@ -17,6 +16,4 @@ private:
     uint lastCallTime;
     const float forgetParameter;
 };
-
-#endif
 

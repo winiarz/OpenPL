@@ -1,5 +1,4 @@
-#ifndef __I_CL_KERNEL_PERFORMANCE_COMPARATOR__
-#define __I_CL_KERNEL_PERFORMANCE_COMPARATOR__
+#pragma once
 
 #include "boost.hpp"
 #include "IClSingleImplementationKernel.hpp"
@@ -16,6 +15,4 @@ public:
     virtual optional<boost::shared_ptr<IClSingleImplementationKernel> > getBestKernel()=0;
     virtual void saveToFile( FILE* file ) = 0;
 };
-
-#endif
 

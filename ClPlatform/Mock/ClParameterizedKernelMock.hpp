@@ -1,5 +1,4 @@
-#ifndef __CL_PARAMETERIZED_KERNEL_MOCK__
-#define __CL_PARAMETERIZED_KERNEL_MOCK__
+#pragma once
 
 #include<IClParameterizedKernel.hpp>
 #include<gtest/gtest.h>
@@ -12,6 +11,4 @@ public:
     MOCK_METHOD0( getParameter, boost::shared_ptr<IClParameter> () );
     MOCK_METHOD0( getNotRejectedParameters, boost::shared_ptr<set<int> > () );
 };
-
-#endif
 

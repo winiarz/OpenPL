@@ -1,5 +1,4 @@
-#ifndef __I_CL_KERNEL_SAVER__
-#define __I_CL_KERNEL_SAVER__
+#pragma once
 
 #include "stl.hpp"
 #include "boost.hpp"
@@ -12,4 +11,3 @@ public:
     virtual void saveKernel( boost::shared_ptr<IClSingleImplementationKernel> kernel, FILE* file ) = 0;
 };
 
-#endif

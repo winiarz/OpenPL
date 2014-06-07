@@ -1,5 +1,4 @@
-#ifndef __CL_KERNEL_FACOTRY_MOCK__
-#define __CL_KERNEL_FACOTRY_MOCK__
+#pragma once
 
 #include "gmock/gmock.h"
 #include "ClKernelFactory.hpp"
@@ -10,4 +9,3 @@ public:
   MOCK_METHOD2( buildClKernel, IClKernel*( std::string, std::string ) );
 };
 
-#endif

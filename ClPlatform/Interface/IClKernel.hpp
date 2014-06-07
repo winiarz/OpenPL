@@ -1,5 +1,4 @@
-#ifndef __I_CL_KERNEL__
-#define __I_CL_KERNEL__
+#pragma once
 
 #include <CL/cl.h>
 #include <stl.hpp>
@@ -20,4 +19,3 @@ public:
     virtual ~IClKernel(){}
 };
 
-#endif

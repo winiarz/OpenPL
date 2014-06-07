@@ -1,6 +1,4 @@
-
-#ifndef __CL_KERNEL__
-#define __CL_KERNEL__
+#pragma once
 
 #include "IClSingleImplementationKernel.hpp"
 #include "ClClasses.hpp"
@@ -41,6 +39,4 @@ private:
   void checkThreadCount();
   void executeKernel();
 };
-
-#endif
 

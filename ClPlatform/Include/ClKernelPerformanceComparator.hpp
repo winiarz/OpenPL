@@ -1,5 +1,4 @@
-#ifndef __CL_KERNEL_PERFORMANCE_COMPARATOR__
-#define __CL_KERNEL_PERFORMANCE_COMPARATOR__
+#pragma once
 
 #include "IClKernelPerformanceComparator.hpp"
 #include "IClDataGenerator.hpp"
@@ -22,6 +21,4 @@ private:
     uint bestTime;
     optional<boost::shared_ptr<IClSingleImplementationKernel> > bestKernel;
 };
-
-#endif
 

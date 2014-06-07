@@ -1,5 +1,4 @@
-#ifndef __OPL_SC_MATERIAL_POINT_ARRAY__
-#define __OPL_SC_MATERIAL_POINT_ARRAY__
+#pragma once
 
 #include <sstream>
 #include "scArray.hpp"
@@ -21,4 +20,3 @@ namespace OPL
   }
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef __CLOCK_MOCK__
-#define __CLOCK_MOCK__
+#pragma once
 
 #include<IClock.hpp>
 #include<gtest/gtest.h>
@@ -12,4 +11,3 @@ public:
     MOCK_METHOD0(getSec,  uint());
 };
 
-#endif

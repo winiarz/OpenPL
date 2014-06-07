@@ -1,5 +1,4 @@
-#ifndef CLPARAMETERIZEDKERNEL_HPP
-#define CLPARAMETERIZEDKERNEL_HPP
+#pragma once
 
 #include "IClParameterizedKernel.hpp"
 
@@ -19,4 +18,3 @@ private:
     map<int,boost::shared_ptr<IClSingleImplementationKernel> > builtKernels;
 };
 
-#endif // CLPARAMETERIZEDKERNEL_HPP

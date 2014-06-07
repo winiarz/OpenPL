@@ -1,5 +1,4 @@
-#ifndef STL_HPP
-#define STL_HPP
+#pragma once
 
 #include <vector>
 using std::vector;
@@ -25,4 +24,3 @@ using std::out_of_range;
 #include <sstream>
 #include <limits>
 
-#endif // STL_HPP

@@ -1,5 +1,4 @@
-#ifndef __I_CL_KERNEL_CALL_STATS__
-#define __I_CL_KERNEL_CALL_STATS__
+#pragma once
 
 class IClKernelCallStats
 {
@@ -8,4 +7,3 @@ public:
     virtual float getScore() = 0;
 };
 
-#endif

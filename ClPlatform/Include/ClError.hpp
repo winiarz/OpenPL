@@ -1,6 +1,4 @@
-
-#ifndef __CL_ERROR__
-#define __CL_ERROR__
+#pragma once
 
 enum ClError {
     UNDEFINED,
@@ -18,6 +16,4 @@ enum ClError {
     INCORRECT_DATA_GENERATOR_FILE,
     NO_KERNEL_IN_COMPARATOR
 };
-
-#endif
 

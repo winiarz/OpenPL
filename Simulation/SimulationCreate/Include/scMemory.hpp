@@ -1,6 +1,4 @@
-
-#ifndef __OPL_SC_MEMORY__
-#define __OPL_SC_MEMORY__
+#pragma once
 
 #include "ClMemory.hpp"
 
@@ -14,4 +12,3 @@ namespace OPL
   }
 }
 
-#endif

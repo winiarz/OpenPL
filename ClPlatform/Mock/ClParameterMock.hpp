@@ -1,5 +1,4 @@
-#ifndef __CL_PARAMETER_MOCK_HPP__
-#define __CL_PARAMETER_MOCK_HPP__
+#pragma once
 
 #include "gmock/gmock.h"
 #include "IClParameter.hpp"
@@ -9,6 +8,4 @@ public:
     MOCK_METHOD1( isCorrect, bool(int) );
     MOCK_METHOD0( getAllPosible, set<int> () );
 };
-
-#endif
 

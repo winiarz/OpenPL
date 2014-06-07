@@ -1,5 +1,4 @@
-#ifndef __I_CL_SINGLE_IMPLEMENTATION_KERNEL__
-#define __I_CL_SINGLE_IMPLEMENTATION_KERNEL__
+#pragma once
 
 #include "IClKernel.hpp"
 
@@ -9,4 +8,3 @@ public:
     virtual cl_program getProgram() = 0;
 };
 
-#endif

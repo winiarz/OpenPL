@@ -1,6 +1,4 @@
-
-#ifndef __OPL_COMMON_DEFINES__
-#define __OPL_COMMON_DEFINES__
+#pragma once
 
 #include <iostream>
 
@@ -104,6 +102,4 @@ public:\
 }_KERNEL_ ## class_name ## _ ## kernel_name;\
 using namespace OPL::SimCreate;\
 void class_name :: __OPL_ ## kernel_name(OPL::SimCreate:: arg1_type arg1_name, OPL::SimCreate:: arg2_type arg2_name)
-
-#endif
 

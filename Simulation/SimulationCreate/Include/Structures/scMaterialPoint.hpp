@@ -1,5 +1,5 @@
-#ifndef __OPL_SC_MATERIALPOINT__
-#define __OPL_SC_MATERIALPOINT__
+#pragma once
+
 #include "scTypes.hpp"
 #include "scVariable.hpp"
 namespace OPL
@@ -20,4 +20,4 @@ namespace OPL
     };
   }
 }
-#endif
+

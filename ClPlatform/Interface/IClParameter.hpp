@@ -1,5 +1,4 @@
-#ifndef ICLPARAMETER_HPP
-#define ICLPARAMETER_HPP
+#pragma once
 
 class IClParameter {
 public:
@@ -7,4 +6,3 @@ public:
     virtual set<int> getAllPosible() = 0;
 };
 
-#endif // ICLPARAMETER_HPP

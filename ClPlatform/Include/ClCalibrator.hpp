@@ -1,5 +1,4 @@
-#ifndef __CL_CALIBRATOR__
-#define __CL_CALIBRATOR__
+#pragma once
 
 #include "stl.hpp"
 #include "IClCalibrator.hpp"
@@ -13,6 +12,4 @@ public:
 private:
     set<boost::shared_ptr<IClKernelPerformanceComparator> > comparatorsSet;
 };
-
-#endif
 

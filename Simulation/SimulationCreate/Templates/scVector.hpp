@@ -1,6 +1,5 @@
 
-#ifndef __OPL_SC_$TYPENAME_$LENGTH__
-#define __OPL_SC_$TYPENAME_$LENGTH__
+#pragma once
 
 #include <string>
 #include <fstream>
@@ -36,4 +35,3 @@ namespace OPL
   }
 }
 
-#endif

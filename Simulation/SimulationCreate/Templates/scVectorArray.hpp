@@ -1,6 +1,5 @@
 
-#ifndef __OPL_SC_$TYPENAME_$LENGTH_ARRAY__
-#define __OPL_SC_$TYPENAME_$LENGTH_ARRAY__
+#pragma once
 
 #include <string>
 #include <fstream>
@@ -22,4 +21,3 @@ namespace OPL
   }
 }
 
-#endif

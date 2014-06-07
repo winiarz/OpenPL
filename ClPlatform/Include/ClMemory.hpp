@@ -1,6 +1,4 @@
-
-#ifndef __CL_MEMORY__
-#define __CL_MEMORY__
+#pragma once
 
 #include "ClPlatform.hpp"
 #include <GL/glew.h>
@@ -28,6 +26,4 @@ private:
   cl_mem memory;
   bool setUpSuccessfully;
 };
-
-#endif
 

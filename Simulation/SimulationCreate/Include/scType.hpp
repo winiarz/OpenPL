@@ -1,6 +1,4 @@
-
-#ifndef __OPL_SC_TYPE__
-#define __OPL_SC_TYPE__
+#pragma once
 
 #include <string>
 
@@ -18,4 +16,3 @@ namespace OPL
   }
 }
 
-#endif

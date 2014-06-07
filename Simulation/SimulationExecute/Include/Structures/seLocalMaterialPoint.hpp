@@ -1,5 +1,4 @@
-#ifndef __OPL_SE_LOCAL_MATERIALPOINT__
-#define __OPL_SE_LOCAL_MATERIALPOINT__
+#pragma once
 #include "seTypes.hpp"
 
 namespace OPL
@@ -17,4 +16,4 @@ namespace OPL
     };
   }
 }
-#endif
+

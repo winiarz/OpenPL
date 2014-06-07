@@ -1,5 +1,4 @@
-#ifndef __OPL_SE_MATRIX_4X4_ARRAY__
-#define __OPL_SE_MATRIX_4X4_ARRAY__
+#pragma once
 
 #include "ClTypedMemory.hpp"
 #include "seLocalMatrix4x4.hpp"
@@ -22,4 +21,3 @@ namespace OPL
   }
 }
 
-#endif

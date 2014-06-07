@@ -1,5 +1,4 @@
-#ifndef __CL_KERNEL_FROM_SOURCE_LOADER__
-#define __CL_KERNEL_FROM_SOURCE_LOADER__
+#pragma once
 
 #include <CL/cl.h>
 #include "IClKernelFromFileLoader.hpp"
@@ -19,4 +18,3 @@ private:
     ClIncludePreprocessor includePreprocessor;
 };
 
-#endif

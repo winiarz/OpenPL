@@ -1,5 +1,4 @@
-#ifndef __OPL_SC_MATRIX_4X4__
-#define __OPL_SC_MATRIX_4X4__
+#pragma once
 
 #include <string>
 #include "scVariable.hpp"
@@ -24,4 +23,3 @@ namespace OPL
   }
 }
 
-#endif

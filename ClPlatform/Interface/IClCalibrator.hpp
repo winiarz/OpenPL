@@ -1,5 +1,4 @@
-#ifndef __I_CL_CALIBRATOR__
-#define __I_CL_CALIBRATOR__
+#pragma once
 
 #include "boost.hpp"
 
@@ -11,6 +10,4 @@ public:
     virtual bool isCalibrationFinished() = 0;
     virtual bool calibrate() = 0;
 };
-
-#endif
 

@@ -1,6 +1,4 @@
-
-#ifndef __CL_TYPED_MEMORY__
-#define __CL_TYPED_MEMORY__
+#pragma once
 
 #include "ClMemory.hpp"
 
@@ -22,7 +20,4 @@ public:
     ClMemory::copyOut(data, sizeof(T)*start, sizeof(T)*size);
   }
 };
-
-
-#endif
 

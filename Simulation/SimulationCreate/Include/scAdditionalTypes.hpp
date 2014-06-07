@@ -1,5 +1,4 @@
-#ifndef __OPL_SC_ADDITIONAL_TYPES__
-#define __OPL_SC_ADDITIONAL_TYPES__
+#pragma once
 
 namespace OPL 
   {
@@ -13,4 +12,3 @@ namespace OPL
 
     }
   }
-#endif

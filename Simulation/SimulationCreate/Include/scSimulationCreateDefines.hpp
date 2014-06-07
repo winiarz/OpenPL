@@ -1,5 +1,4 @@
-#ifndef __OPL_SC_DEFINES__
-#define __OPL_SC_DEFINES__
+#pragma once
 
 #include "scKernelToCreateSet.hpp"
 
@@ -43,4 +42,3 @@ public:\
 }_KERNEL_ ## class_name ## _ ## kernel_name;\
 void class_name :: kernel_name(arg1_type arg1_name, arg2_type arg2_name)
 
-#endif

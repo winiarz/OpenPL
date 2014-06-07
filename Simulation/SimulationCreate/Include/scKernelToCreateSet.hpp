@@ -1,5 +1,4 @@
-#ifndef __KERNEL_TO_CREATE_SET__
-#define __KERNEL_TO_CREATE_SET__
+#pragma once
 
 #include <set>
 #include "scCreateKernel.hpp"
@@ -28,4 +27,3 @@ namespace OPL
   }
 }
 
-#endif

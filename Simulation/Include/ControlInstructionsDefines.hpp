@@ -1,5 +1,4 @@
-#ifndef __CONTROL_INSTRUCTIONS_DEFINES__
-#define __CONTROL_INSTRUCTIONS_DEFINES__
+#pragma once
 
 #define FOR( control_variable, start_value, end_value, loop_command) \
 FOR_PARALLEL( control_variable, start_value, end_value );\
@@ -29,4 +28,3 @@ print_opening_brace();\
 command;\
 print_closing_brace();
 
-#endif

@@ -1,6 +1,3 @@
-
-#ifndef __OPL_SC_SIMULATION_CREATE__
-#define __OPL_SC_SIMULATION_CREATE__
 #pragma once
 
 #include "scVariable.hpp"
@@ -34,4 +31,3 @@ namespace OPL
   }
 }
 
-#endif

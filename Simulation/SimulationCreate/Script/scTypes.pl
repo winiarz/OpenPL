@@ -13,7 +13,7 @@ $includeVecDir = "$BaseDir"."/Include/VecTypes";
 $sourceVecDir = "$BaseDir"."/Source/VecTypes";
 $objVecDir = "$BaseDir"."/obj/VecTypes";
 
-@vector_sizes = ( 2, 3, 4, 8, 16 );
+@vector_sizes = ( 2, 3, 4 );
 
 sub generateTypes {
 open(FILE_IN, $typesListFile);

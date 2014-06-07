@@ -4,7 +4,7 @@
 
 namespace InsPr
 {
-    class SingleInstruction : IInstruction
+    class SingleInstruction : public IInstruction
     {
     public:
         SingleInstruction(std::string);

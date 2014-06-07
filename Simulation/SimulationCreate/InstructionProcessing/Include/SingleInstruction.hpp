@@ -4,10 +4,10 @@
 
 namespace InsPr
 {
-    class SimgleInstruction : IInstruction
+    class SingleInstruction : IInstruction
     {
     public:
-        SimgleInstruction(std::string);
+        SingleInstruction(std::string);
         virtual uint getAlternativesCount();
         virtual std::string getAlternative(uint);
     private:

@@ -1,4 +1,6 @@
+#include "stl.hpp"
 #include "scMatrix3x3.hpp"
+#include "SingleInstruction.hpp"
 using namespace OPL::SimCreate;
 
 Matrix3x3::Matrix3x3() : Variable("float16")
@@ -11,8 +13,11 @@ Matrix3x3::Matrix3x3(string p_name) : Variable(p_name,"float16")
 
 Matrix3x3 Matrix3x3::operator=(Matrix3x3 rValue)
 {
-  file << this->name << " = " << rValue.name << ";\n";
-  return *this;
+    std::ostringstream sstream;
+    sstream << this->name << " = " << rValue.name << ";\n";
+    InsPr::SingleInstruction instruction( sstream.str() );
+    file << instruction.getAlternative(0);
+    return *this;
 }
 
 Matrix3x3 Matrix3x3::operator+(Matrix3x3 added)

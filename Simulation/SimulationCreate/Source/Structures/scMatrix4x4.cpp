@@ -1,4 +1,6 @@
+#include "stl.hpp"
 #include "scMatrix4x4.hpp"
+#include "SingleInstruction.hpp"
 using namespace OPL::SimCreate;
 
 Matrix4x4::Matrix4x4() : Variable("float16")
@@ -11,8 +13,11 @@ Matrix4x4::Matrix4x4(string p_name) : Variable(p_name,"float16")
 
 Matrix4x4 Matrix4x4::operator=(Matrix4x4 rValue)
 {
-  file << this->name << " = " << rValue.name << ";\n";
-  return *this;
+    std::ostringstream sstream;
+    sstream << this->name << " = " << rValue.name << ";\n";
+    InsPr::SingleInstruction instruction( sstream.str() );
+    file << instruction.getAlternative(0);
+    return *this;
 }
 
 Matrix4x4 Matrix4x4::operator+(Matrix4x4 added)

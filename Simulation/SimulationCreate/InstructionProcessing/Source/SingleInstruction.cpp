@@ -3,17 +3,17 @@
 namespace InsPr
 {
 
-SimgleInstruction::SimgleInstruction(std::string p_instruction) :
+SingleInstruction::SingleInstruction(std::string p_instruction) :
     instruction(p_instruction)
 {
 }
 
-uint SimgleInstruction::getAlternativesCount()
+uint SingleInstruction::getAlternativesCount()
 {
     return 1u;
 }
 
-std::string SimgleInstruction::getAlternative(uint alternativeNb)
+std::string SingleInstruction::getAlternative(uint alternativeNb)
 {
     if ( alternativeNb != 0 ) 
         return std::string();

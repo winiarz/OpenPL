@@ -1,4 +1,6 @@
+#include "stl.hpp"
 #include "sc$TypeName$LENGTH.hpp"
+#include "SingleInstruction.hpp"
 
 using namespace OPL::SimCreate;
 using namespace std;
@@ -20,8 +22,11 @@ string $TypeName$LENGTH::getName()
     
 $TypeName$LENGTH $TypeName$LENGTH::operator=($TypeName$LENGTH rValue)
 {
-  file << this->name << " = " << rValue.name << ";\n";
-  return *this;
+    std::ostringstream sstream;
+    sstream << this->name << " = " << rValue.name << ";\n";
+    InsPr::SingleInstruction instruction( sstream.str() );
+    file << instruction.getAlternative(0);
+    return *this;
 }
 
 $TypeName$LENGTH $TypeName$LENGTH::operator+($TypeName$LENGTH added)

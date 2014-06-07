@@ -1,4 +1,6 @@
+#include "stl.hpp"
 #include "scMaterialPoint.hpp"
+#include "SingleInstruction.hpp"
 using namespace OPL::SimCreate;
 using namespace std;
 
@@ -10,8 +12,11 @@ MaterialPoint::MaterialPoint(string p_name)
 
 MaterialPoint MaterialPoint::operator=(MaterialPoint rValue)
 {
-  file << this->name << " = " << rValue.name << ";\n";
-  return *this;
+    std::ostringstream sstream;
+    sstream << this->name << " = " << rValue.name << ";\n";
+    InsPr::SingleInstruction instruction( sstream.str() );
+    file << instruction.getAlternative(0);
+    return *this;
 }
 
 string MaterialPoint::getTypeName()

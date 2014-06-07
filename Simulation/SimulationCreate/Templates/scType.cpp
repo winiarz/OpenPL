@@ -1,4 +1,6 @@
+#include "stl.hpp"
 #include "sc$TypeName.hpp"
+#include "SingleInstruction.hpp"
 
 using namespace std;
 using namespace OPL::SimCreate;
@@ -20,8 +22,11 @@ string $TypeName::getName()
 
 $TypeName $TypeName::operator=($TypeName rValue)
 {
-  file << this->name << " = " << rValue.name << ";\n";
-  return *this;
+    std::ostringstream sstream;
+    sstream << this->name << " = " << rValue.name << ";\n";
+    InsPr::SingleInstruction instruction( sstream.str() );
+    file << instruction.getAlternative(0);
+    return *this;
 }
 
 $TypeName $TypeName::operator+($TypeName added)

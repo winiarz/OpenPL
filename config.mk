@@ -45,11 +45,12 @@ include $(Makefiles)/AutogenSource.mk
 libClPlatform=$(Lib)/ClPlatform.a
 libSimCreate=$(Lib)/SimulationCreate.a
 libSimCreateMain=$(Lib)/SimulationCreateMain.a
+libInstructionProcessing=$(Lib)/InstructionProcessing.a
 libSimExecute=$(Lib)/SimulationExecute.a
 libKernelLoader=$(Lib)/KernelLoader.a
 libLogs=$(ProjectRoot)/lib/Logs.a
 
-allLibs=$(libSimExecute) $(libSimCreate) $(libClPlatform) $(libLogs)
+allLibs=$(libSimExecute) $(libSimCreate) $(libClPlatform) $(libLogs) $(libInstructionProcessing)
 
 #compilers and their flags
 cpp=g++

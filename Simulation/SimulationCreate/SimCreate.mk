@@ -1,8 +1,5 @@
 
-
-SimCreateTypeGen=         $(SimCreateScript)/scTypes.pl
-
-
+SimCreateTypeGen=    $(SimCreateScript)/scTypes.pl
 
 SimCreateLibObj=     $(SimCreateObj)/scSimulationCreate.o
 SimCreateLibObj+=    $(SimCreateObj)/scVariable.o

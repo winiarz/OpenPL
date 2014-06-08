@@ -15,6 +15,7 @@ namespace InsPr
         virtual void startForLoop(boost::shared_ptr<SingleInstruction>,
                                   boost::shared_ptr<SingleInstruction>,
                                   boost::shared_ptr<SingleInstruction> ) = 0;
+        virtual void startWhileLoop(boost::shared_ptr<SingleInstruction>) = 0;
         virtual void finishBlock() = 0;
         virtual boost::shared_ptr<IInstructionBlock> getBlock() = 0;
     };

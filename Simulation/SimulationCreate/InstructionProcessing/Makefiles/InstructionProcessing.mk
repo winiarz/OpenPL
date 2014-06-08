@@ -20,6 +20,9 @@ InstructionProcessingTestObjs+= $(InstructionProcessingObj)/InstructionRecorderT
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/ForLoopTestSuite.o
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/WhileLoopTestSuite.o
 
+InstructionProcessingTest: Bin/Test/InstructionProcessingTS
+	Bin/Test/InstructionProcessingTS
+
 $(InstructionProcessingObj)/%.o: $(InstructionProcessingSource)/%.cpp
 	@echo "\tCXX\t"$*.o
 	@g++ $^ -o $@ $(AllInclude) $(cpp_flags)
@@ -32,6 +35,6 @@ $(libInstructionProcessing): $(InstructionProcessingObjs)
 	@echo "\tLD\t"libInstructionProcessing
 	@ar rvs $@ $^ 2> /dev/null > /dev/null
 
-Bin/InstructionProcessingTS: $(InstructionProcessingTestObjs) $(allLibs)
+Bin/Test/InstructionProcessingTS: $(InstructionProcessingTestObjs) $(allLibs)
 	@echo "\tLD\t"$@
 	@g++ $^ -o $@ $(GTest) $(GMock) $(OpenClLib) $(OpenGL)

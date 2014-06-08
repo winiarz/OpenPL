@@ -1,5 +1,6 @@
 #include "InstructionRecorder.hpp"
 #include "ForLoop.hpp"
+#include "WhileLoop.hpp"
 
 namespace InsPr
 {
@@ -47,6 +48,11 @@ void InstructionRecorder::startForLoop(boost::shared_ptr<SingleInstruction> star
     instructionBlocks.push(boost::make_shared<ForLoop>(startInstruction,
                                                        continueCondition,
                                                        afterCircuitInstruction) );
+}
+
+void InstructionRecorder::startWhileLoop(boost::shared_ptr<SingleInstruction> condition)
+{
+    instructionBlocks.push(boost::make_shared<WhileLoop>(condition) );
 }
 
 }

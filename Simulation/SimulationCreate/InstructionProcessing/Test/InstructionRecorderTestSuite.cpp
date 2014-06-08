@@ -62,3 +62,19 @@ TEST_F( InstructionRecorderTestSuite, recordForLoop )
     std::string expectedBlock("{\ninstruction1;\nfor(int i=0; i < 12; i++)\n{\ninstruction2;\n}\n;\ninstruction3;\n}\n");
     ASSERT_TRUE(sut.getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
 }
+
+TEST_F( InstructionRecorderTestSuite, recordWhileLoop )
+{
+    sut << boost::make_shared<SingleInstruction>(std::string("instruction1"));
+    sut.startWhileLoop(boost::make_shared<SingleInstruction>(std::string("a < b")) );
+
+    sut << boost::make_shared<SingleInstruction>(std::string("instruction2"));
+
+    sut.finishBlock();
+
+    sut << boost::make_shared<SingleInstruction>(std::string("instruction3"));
+
+    std::string expectedBlock("{\ninstruction1;\nwhile( a < b )\n{\ninstruction2;\n}\n;\ninstruction3;\n}\n");
+    ASSERT_TRUE(sut.getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
+}
+

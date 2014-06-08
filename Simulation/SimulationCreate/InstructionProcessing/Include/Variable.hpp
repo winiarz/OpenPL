@@ -3,6 +3,7 @@
 #include "stl.hpp"
 #include "boost.hpp"
 #include "IVariable.hpp"
+#include "Int.hpp"
 
 namespace InsPr
 {
@@ -10,6 +11,8 @@ namespace InsPr
     class GlobalArrayVariable : public IGlobalArrayVariable
     {
     public:
+        static_assert(std::is_base_of<IVariable, T>(), "T must be IVariable!");
+
         GlobalArrayVariable(boost::shared_ptr<IInstructionRecorder> recorder,
                             std::string p_name,
                             uint p_size = 0) :
@@ -28,6 +31,13 @@ namespace InsPr
             std::ostringstream sstream;
             sstream << "__global " << T(recorder).getTypeName() << "*";
             return sstream.str();
+        }
+
+        T operator[](Int& nb)
+        {
+            std::ostringstream sstream;
+            sstream << name << "[" << nb.getName() << "]";
+            return T( recorder, sstream.str() );
         }
     private:
         std::string name;

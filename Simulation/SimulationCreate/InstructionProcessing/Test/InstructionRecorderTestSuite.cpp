@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include "InstructionRecorder.hpp"
 #include "SingleInstruction.hpp"
+#include "Variable.hpp"
 #include "Int.hpp"
 
 using namespace ::testing;
@@ -172,3 +173,26 @@ TEST_F( InstructionRecorderTestSuite, recordDivision)
     ASSERT_TRUE(sut->getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
 }
 
+TEST_F( InstructionRecorderTestSuite, recordGetFromArray)
+{
+    Int number(sut, std::string("number"));
+    GlobalArrayVariable<Int> intArray(sut, std::string("array"));
+    Int index(sut, std::string("index")); 
+
+    number = intArray[index];
+
+    std::string expectedBlock("{\nnumber = array[index];\n}\n");
+    ASSERT_TRUE(sut->getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
+}
+
+TEST_F( InstructionRecorderTestSuite, recordStoreInArray)
+{
+    Int number(sut, std::string("number"));
+    GlobalArrayVariable<Int> intArray(sut, std::string("array"));
+    Int index(sut, std::string("index")); 
+
+    intArray[index] = number;
+
+    std::string expectedBlock("{\narray[index] = number;\n}\n");
+    ASSERT_TRUE(sut->getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
+}

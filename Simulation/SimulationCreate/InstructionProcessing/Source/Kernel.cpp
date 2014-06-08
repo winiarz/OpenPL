@@ -1,5 +1,4 @@
 #include "Kernel.hpp"
-#include "ArrayType.hpp"
 
 namespace InsPr
 {

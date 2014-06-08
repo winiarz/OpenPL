@@ -5,7 +5,6 @@ InstructionProcessingTest=    $(InstructionProcessing)/Test
 
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/SingleInstruction.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/InstructionBlock.o
-InstructionProcessingObjs+=     $(InstructionProcessingObj)/Type.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/Variable.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/Function.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/Kernel.o

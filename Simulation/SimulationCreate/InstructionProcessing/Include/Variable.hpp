@@ -1,15 +1,13 @@
 #pragma once
 
+#include "stl.hpp"
 #include "IVariable.hpp"
-#include "ArrayType.hpp"
 
 namespace InsPr
 {
     template<class T>
     class Variable : public IVariable
     {
-        static_assert(std::is_base_of<IType, T>::value, "T not derived from IType");
-
     public:
         Variable(std::string p_name) :
             name(p_name)

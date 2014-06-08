@@ -16,15 +16,13 @@ namespace InsPr
         virtual std::string getName() = 0;
         virtual std::string getTypeName() = 0;
 
-        IVariable& operator=( IVariable& rvalue)
+        void recordAssigment( IVariable& rvalue)
         {
             std::ostringstream sstream;
             sstream << getName() << " = " << rvalue.getName();
             (*recorder) << boost::make_shared<SingleInstruction>(sstream.str());
-            return *this;
         }
 
-    protected:
         boost::shared_ptr<IInstructionRecorder> recorder;
     };
 

@@ -4,15 +4,24 @@
 
 namespace InsPr
 {
-class NumericVariable : public IVariable
-{
-public:
-    NumericVariable(boost::shared_ptr<IInstructionRecorder> recorder) :
-        IVariable(recorder)
-    {}
+    class NumericVariable : public IVariable
+    {
+    public:
+        NumericVariable(boost::shared_ptr<IInstructionRecorder> recorder) :
+            IVariable(recorder)
+        {}
 
-    virtual std::string getName() = 0;
-    virtual std::string getTypeName() = 0;
-};
+        virtual std::string getName() = 0;
+        virtual std::string getTypeName() = 0;
+    };
+
+    template<class T>
+    T operator+(T& first, T& second)
+    {
+        static_assert(std::is_base_of<NumericVariable, T>(), "T must be NumericVariable!");
+        std::ostringstream sstream;
+        sstream << first.getName() << " + " << second.getName();
+        return T(first.recorder, sstream.str());
+    }
 }
 

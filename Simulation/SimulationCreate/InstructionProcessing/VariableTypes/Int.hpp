@@ -22,6 +22,12 @@ public:
     {
         return std::string("int");
     }
+    
+    Int operator=( Int rvalue )
+    {
+        recordAssigment(rvalue);
+        return *this;
+    }
 private:
     std::string name;
 };

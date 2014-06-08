@@ -29,14 +29,15 @@ TEST_F(KernelTestSuite, no_test)
     args.push_back( boost::make_shared<GlobalArrayVariable<Float>>( std::string("arg2") ) );
 
     auto  block = boost::make_shared<InstructionBlock>();
-    block->addInstruction( boost::make_shared<SingleInstruction>(std::string("a = b + c;")) );
-    block->addInstruction( boost::make_shared<SingleInstruction>(std::string("b = a + c;")) );
+    block->addInstruction( boost::make_shared<SingleInstruction>(std::string("a = b + c")) );
+    block->addInstruction( boost::make_shared<SingleInstruction>(std::string("b = a + c")) );
 
     Kernel sut( std::string("exampleKernel"),
                 args,
                 block );
 
     ASSERT_EQ(1, sut.getAlternativesCount() );
-    std::cout << sut.getAlternative(0);
+    std::string expectedCode("__kenel void exampleKernel(__global float*  arg1, __global float*  arg2)\n{\na = b + c;\nb = a + c;\n}\n");
+    ASSERT_TRUE(sut.getAlternative(0).compare(expectedCode) == 0 );
 }
 

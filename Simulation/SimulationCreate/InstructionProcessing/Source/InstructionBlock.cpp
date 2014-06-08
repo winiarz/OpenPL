@@ -29,7 +29,7 @@ std::string InstructionBlock::getAlternative(uint alternativeNb)
     {
         uint instrAlternativeCount = instruction->getAlternativesCount();
         uint instrAlternativeNb = alternativeNb % instrAlternativeCount;
-        sstream << instruction->getAlternative( instrAlternativeNb ) << std::endl;
+        sstream << instruction->getAlternative( instrAlternativeNb ) << ";" << std::endl;
         alternativeNb /= instrAlternativeCount;
     }
     sstream << "}\n";

@@ -29,8 +29,8 @@ TEST_F(FunctionTestSuite, no_test)
     args.push_back( boost::make_shared<Variable<Int>>( std::string("number")) );
 
     auto  block = boost::make_shared<InstructionBlock>();
-    block->addInstruction( boost::make_shared<SingleInstruction>(std::string("a = b + c;")) );
-    block->addInstruction( boost::make_shared<SingleInstruction>(std::string("b = a + c;")) );
+    block->addInstruction( boost::make_shared<SingleInstruction>(std::string("a = b + c")) );
+    block->addInstruction( boost::make_shared<SingleInstruction>(std::string("b = a + c")) );
     
 
     Function sut(std::string("exampleFunction"),
@@ -38,7 +38,8 @@ TEST_F(FunctionTestSuite, no_test)
                  block );
 
     ASSERT_EQ(1, sut.getAlternativesCount());
-    std::cout << sut.getAlternative(0);
 
+    std::string expectedCode("void exampleFunction(int number, int number)\n{\na = b + c;\nb = a + c;\n}\n");
+    ASSERT_TRUE( sut.getAlternative(0).compare(expectedCode) == 0);
 }
 

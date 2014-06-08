@@ -23,9 +23,11 @@ string $TypeName$LENGTH::getName()
 $TypeName$LENGTH $TypeName$LENGTH::operator=($TypeName$LENGTH rValue)
 {
     std::ostringstream sstream;
-    sstream << this->name << " = " << rValue.name << ";\n";
-    InsPr::SingleInstruction instruction( sstream.str() );
-    file << instruction.getAlternative(0);
+    sstream << this->name << " = " << rValue.name;
+    boost::shared_ptr<InsPr::SingleInstruction> instruction = boost::make_shared<InsPr::SingleInstruction>( sstream.str() );
+    (*recorder) << instruction;
+    sstream << ";\n";
+    file << sstream.str();
     return *this;
 }
 

@@ -1,12 +1,17 @@
 #include "scSimulationCreate.hpp"
+#include "InstructionRecorder.hpp"
 #include "clcc.hpp"
+#include "Kernel.hpp"
 using namespace OPL::SimCreate;
 
 CreateKernel* CreateKernel::actualCreateKernel;
 
 
 
-CreateKernel::CreateKernel(const char simulation_name[], const char kernel_name[]) : name(kernel_name), filename( createFileName(simulation_name, kernel_name) )
+CreateKernel::CreateKernel(const char simulation_name[], const char kernel_name[]) :
+    name(kernel_name),
+    filename( createFileName(simulation_name, kernel_name) ),
+    recorder( boost::make_shared<InsPr::InstructionRecorder>())
 {
   includeDirectories.insert( "." );
   includeDirectories.insert( "/media/DATA/OpenPL/OpenPL/clinclude" ); // TODO remove this hardcoding !!!
@@ -52,6 +57,12 @@ string CreateKernel::createFileName(string simulation_name,string kernel_name)
 void CreateKernel::createSourceFile()
 {
   sourceCode << "}\n";
+
+  std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>> args;
+  InsPr::Kernel kernel(name,
+                       args,
+                       recorder->getBlock() );
+    std::cout << kernel.getAlternative(0);
   
   file.open(filename.c_str(), ios::out );
   for(set<string>::iterator i=includes.begin(); i!= includes.end(); i++)
@@ -75,6 +86,11 @@ CreateKernel* CreateKernel::getCreateKernel()
 ostringstream& CreateKernel::getSourceCode()
 {
   return actualCreateKernel->sourceCode;
+}
+
+boost::shared_ptr<InsPr::IInstructionRecorder> CreateKernel::getRecorder()
+{
+    return actualCreateKernel->recorder;
 }
 
 void CreateKernel::createBinaryFile()

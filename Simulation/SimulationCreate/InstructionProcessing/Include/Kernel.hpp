@@ -11,13 +11,13 @@ namespace InsPr
     public:
         Kernel(std::string,
                std::vector<boost::shared_ptr<IGlobalArrayVariable>>,
-               boost::shared_ptr<InstructionBlock>);
+               boost::shared_ptr<IInstructionBlock>);
         virtual uint getAlternativesCount();
         virtual std::string getAlternative(uint);
     private:
         std::string kernelName;
         std::vector<boost::shared_ptr<IGlobalArrayVariable>> arguments;
-        boost::shared_ptr<InstructionBlock> instructions;
+        boost::shared_ptr<IInstructionBlock> instructions;
     };
 }
 

@@ -6,7 +6,7 @@ namespace InsPr
 
 Kernel::Kernel(std::string p_kernelName,
                std::vector<boost::shared_ptr<IGlobalArrayVariable>> p_arguments,
-               boost::shared_ptr<InstructionBlock> p_instructions) :
+               boost::shared_ptr<IInstructionBlock> p_instructions) :
     kernelName(p_kernelName),
     arguments(p_arguments),
     instructions(p_instructions)

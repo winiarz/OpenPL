@@ -46,3 +46,19 @@ TEST_F(InstructionRecorderTestSuite, blockAfterBlock)
     ASSERT_TRUE(sut.getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
 }
 
+TEST_F( InstructionRecorderTestSuite, recordForLoop )
+{
+    sut << boost::make_shared<SingleInstruction>(std::string("instruction1"));
+    sut.startForLoop(boost::make_shared<SingleInstruction>(std::string("int i=0")),
+                     boost::make_shared<SingleInstruction>(std::string("i < 12")),
+                     boost::make_shared<SingleInstruction>(std::string("i++")) );
+
+    sut << boost::make_shared<SingleInstruction>(std::string("instruction2"));
+
+    sut.finishBlock();
+
+    sut << boost::make_shared<SingleInstruction>(std::string("instruction3"));
+
+    std::string expectedBlock("{\ninstruction1;\nfor(int i=0; i < 12; i++)\n{\ninstruction2;\n}\n;\ninstruction3;\n}\n");
+    ASSERT_TRUE(sut.getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
+}

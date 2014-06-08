@@ -1,4 +1,5 @@
 #include "InstructionRecorder.hpp"
+#include "ForLoop.hpp"
 
 namespace InsPr
 {
@@ -37,6 +38,15 @@ boost::shared_ptr<IInstructionBlock> InstructionRecorder::getBlock()
 {
     finishAllBlocks();
     return instructionBlocks.top();
+}
+
+void InstructionRecorder::startForLoop(boost::shared_ptr<SingleInstruction> startInstruction,
+                                       boost::shared_ptr<SingleInstruction> continueCondition,
+                                       boost::shared_ptr<SingleInstruction> afterCircuitInstruction)
+{
+    instructionBlocks.push(boost::make_shared<ForLoop>(startInstruction,
+                                                       continueCondition,
+                                                       afterCircuitInstruction) );
 }
 
 }

@@ -19,9 +19,8 @@ SimCreateStructuresObj+= $(SimCreateObj)/scMatrix4x4.o
 
 .PRECIOUS: $(SimCreateLibObj) $(SimCreateAutogenIncludes) $(SimCreateAutogenSources) 
 
-SimCreateClean:
-	@rm -f $(SimCreateObj)/*.o
-	@rm -f $(SimCreateAutogenSources) $(SimCreateAutogenIncludes) $(SimCreateObjFromAutogen)
+filesToClean+= $(SimCreateObj)/*.o
+filesToClean+= $(SimCreateAutogenSources) $(SimCreateAutogenIncludes) $(SimCreateObjFromAutogen)
 
 $(libSimCreate): $(SimCreateLibObj) $(SimCreateObjFromAutogen) $(SimCreateStructuresObj)
 	@echo "\tLD\t"SimulationCreate.a

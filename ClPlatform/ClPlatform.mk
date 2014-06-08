@@ -35,15 +35,18 @@ ClPlatformTestObjs+= $(ClPlatformObj)/ClSelfCalibratingKernelTestSuite.o
 ClPlatformTestKernels=  $(ClPlatform)/TestData/empty.clbin
 ClPlatformTestKernels+= $(ClPlatform)/TestData/addition.clbin
 
+filesToClean += $(ClPlatform)/TestPlatform
+filesToClean += $(libClPlatform)
+filesToClean += $(clcc)
+filesToClean += $(ClPlatform)/TestData/*.clbin
+filesToClean += $(ClPlatformObj)/*.o
+
 $(clcc): $(ClPlatformLibObj) $(ClccObj) $(libLogs)
 	@echo "\tLD\t"clcc
 	@g++ $^ -o $@ $(OpenClLib) $(OpenGL)
 
 ClPlatformTest: $(ClPlatform)/TestPlatform $(ClPlatformTestKernels)
 	$(ClPlatform)/TestPlatform
-
-ClPlatformClean:
-	@rm -f $(ClPlatform)/TestPlatform $(ClPlatformObj)/*.o $(libClPlatform) $(clcc) $(ClPlatform)/TestData/*.clbin
 
 $(libClPlatform): $(ClPlatformLibObj)
 	@echo "\tLD\t"ClPlatform.a

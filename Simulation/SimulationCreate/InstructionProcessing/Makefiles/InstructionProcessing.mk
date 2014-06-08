@@ -40,3 +40,7 @@ $(libInstructionProcessing): $(InstructionProcessingObjs)
 Bin/Test/InstructionProcessingTS: $(InstructionProcessingTestObjs) $(allLibs)
 	@echo "\tLD\t"$@
 	@g++ $^ -o $@ $(GTest) $(GMock) $(OpenClLib) $(OpenGL)
+
+filesToClean+=     Bin/Test/InstructionProcessingTS
+filesToClean+=     $(InstructionProcessingObj)/*.o
+filesToClean+=     $(libInstructionProcessing)

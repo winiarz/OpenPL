@@ -10,6 +10,7 @@ include $(Common)/Common.mk
 include $(SimCreate)/SimCreate.mk
 include $(InstructionProcessing)/Makefiles/InstructionProcessing.mk
 include $(SimExecute)/SimExecute.mk
+include SelfCalibratingKernels/SelfCalibratingKernels.mk
 
 compile: $(libClPlatform) $(libLogs) $(libSimCreate) $(libSimExecute) $(libInstructionProcessing)
 
@@ -17,8 +18,8 @@ CompileTest: $(ClPlatform)/TestPlatform $(ClPlatformTestKernels)
 
 test: ClPlatformTest InstructionProcessingTest
 
-clean: ClPlatformClean CommonClean SimCreateClean SimExecuteClean
-	@rm -f lib/*.a
+clean:
+	@rm -f lib/*.a $(filesToClean)
 
 cleanLogs:
 	@rm -Rf logs/*

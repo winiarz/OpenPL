@@ -4,8 +4,8 @@ LogsObj=      $(CommonObj)/logs.o
 LogsObj+=     $(CommonObj)/Clock.o
 LogsObj+=     $(CommonObj)/NullStream.o
 
-CommonClean:
-	@rm -f $(CommonObj)/*.o $(libLogs)
+filesToClean+= $(CommonObj)/*.o
+filesToClean+= $(libLogs)
 
 $(libLogs): $(LogsObj)
 	@echo "\tLD\t"/Logs.a

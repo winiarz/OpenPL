@@ -16,8 +16,7 @@ $(libSimExecute): $(SimExecuteLibObj) $(SimExecuteObjFromAutogen)
 	@echo "\tLD\t"SimulationExecute.a
 	@ar rvs $@ $^ 2> /dev/null > /dev/null
 
-SimExecuteClean:
-	@rm -f $(SimExecuteAutogenIncludes) $(SimExecuteAutogenSources) $(SimExecuteObjFromAutogen) $(SimExecuteObj)/*.o $(libSimExecute)
+filesToClean+= $(SimExecuteAutogenIncludes) $(SimExecuteAutogenSources) $(SimExecuteObjFromAutogen) $(SimExecuteObj)/*.o $(libSimExecute)
 
 #autogen includes
 $(SimExecuteIncludeTypes)/seTypes.hpp: $(SimExecuteScript)/types.txt

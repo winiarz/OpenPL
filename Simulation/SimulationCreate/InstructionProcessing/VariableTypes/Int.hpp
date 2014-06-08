@@ -5,7 +5,9 @@ namespace InsPr
 class Int : public IVariable
 {
 public:
-    Int(std::string p_name = std::string()) :
+    Int(boost::shared_ptr<IInstructionRecorder> p_recorder,
+        std::string p_name = std::string()) :
+        IVariable(p_recorder),
         name(p_name)
     {}
 

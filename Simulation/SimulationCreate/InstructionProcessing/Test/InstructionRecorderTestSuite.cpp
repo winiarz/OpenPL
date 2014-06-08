@@ -78,3 +78,32 @@ TEST_F( InstructionRecorderTestSuite, recordWhileLoop )
     ASSERT_TRUE(sut.getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
 }
 
+TEST_F( InstructionRecorderTestSuite, recordIfWithoutElse)
+{
+    sut << boost::make_shared<SingleInstruction>(std::string("instruction1"));
+    sut.startIf(boost::make_shared<SingleInstruction>(std::string("a < b")) );
+
+    sut << boost::make_shared<SingleInstruction>(std::string("instruction2"));
+
+    sut.finishBlock();
+
+    sut << boost::make_shared<SingleInstruction>(std::string("instruction3"));
+
+    std::string expectedBlock("{\ninstruction1;\nif( a < b )\n{\ninstruction2;\n}\n;\ninstruction3;\n}\n");
+    ASSERT_TRUE(sut.getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
+}
+
+TEST_F( InstructionRecorderTestSuite, recordIfWithElse)
+{
+    sut << boost::make_shared<SingleInstruction>(std::string("instruction1"));
+    sut.startIf(boost::make_shared<SingleInstruction>(std::string("a < b")) );
+
+    sut << boost::make_shared<SingleInstruction>(std::string("instruction2"));
+
+    sut.startElse();
+    sut << boost::make_shared<SingleInstruction>(std::string("instruction3"));
+    sut.finishBlock();
+
+    std::string expectedBlock("{\ninstruction1;\nif( a < b )\n{\ninstruction2;\n}\nelse\n{\ninstruction3;\n}\n;\n}\n");
+    ASSERT_TRUE(sut.getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
+}

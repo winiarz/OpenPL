@@ -12,6 +12,8 @@ namespace InsPr
     public:
         virtual void operator<<(boost::shared_ptr<IInstruction>) = 0;
         virtual void startBlock() = 0;
+        virtual void startIf(boost::shared_ptr<SingleInstruction>) = 0;
+        virtual void startElse() = 0;
         virtual void startForLoop(boost::shared_ptr<SingleInstruction>,
                                   boost::shared_ptr<SingleInstruction>,
                                   boost::shared_ptr<SingleInstruction> ) = 0;

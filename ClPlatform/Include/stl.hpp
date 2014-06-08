@@ -3,6 +3,8 @@
 #include <vector>
 using std::vector;
 
+#include <stack>
+
 #include <set>
 using std::set;
 

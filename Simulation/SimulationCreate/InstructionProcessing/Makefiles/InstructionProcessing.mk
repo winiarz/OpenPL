@@ -9,10 +9,12 @@ InstructionProcessingObjs+=     $(InstructionProcessingObj)/Type.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/Variable.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/Function.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/Kernel.o
+InstructionProcessingObjs+=     $(InstructionProcessingObj)/InstructionRecorder.o
 
 
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/FunctionTestSuite.o
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/KernelTestSuite.o
+InstructionProcessingTestObjs+= $(InstructionProcessingObj)/InstructionRecorderTestSuite.o
 
 $(InstructionProcessingObj)/%.o: $(InstructionProcessingSource)/%.cpp
 	@echo "\tCXX\t"$*.o

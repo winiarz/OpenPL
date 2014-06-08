@@ -130,8 +130,45 @@ TEST_F( InstructionRecorderTestSuite, recordAddition)
     Int number2(sut, std::string("number2")); 
     Int number3(sut, std::string("number3"));
 
-    number1 = (number2 + number3);
+    number1 = number2 + number3;
 
     std::string expectedBlock("{\nnumber1 = number2 + number3;\n}\n");
     ASSERT_TRUE(sut->getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
 }
+
+TEST_F( InstructionRecorderTestSuite, recordSubstraction)
+{
+    Int number1(sut, std::string("number1"));
+    Int number2(sut, std::string("number2")); 
+    Int number3(sut, std::string("number3"));
+
+    number1 = number2 - number3;
+
+    std::string expectedBlock("{\nnumber1 = number2 - number3;\n}\n");
+    ASSERT_TRUE(sut->getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
+}
+
+TEST_F( InstructionRecorderTestSuite, recordMultiplication)
+{
+    Int number1(sut, std::string("number1"));
+    Int number2(sut, std::string("number2")); 
+    Int number3(sut, std::string("number3"));
+
+    number1 = number2 * number3;
+
+    std::string expectedBlock("{\nnumber1 = number2 * number3;\n}\n");
+    ASSERT_TRUE(sut->getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
+}
+
+TEST_F( InstructionRecorderTestSuite, recordDivision)
+{
+    Int number1(sut, std::string("number1"));
+    Int number2(sut, std::string("number2")); 
+    Int number3(sut, std::string("number3"));
+
+    number1 = number2 / number3;
+
+    std::string expectedBlock("{\nnumber1 = number2 / number3;\n}\n");
+    ASSERT_TRUE(sut->getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
+}
+

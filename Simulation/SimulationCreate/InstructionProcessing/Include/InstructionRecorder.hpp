@@ -12,10 +12,10 @@ namespace InsPr
         virtual void operator<<(boost::shared_ptr<IInstruction>);
         virtual void startBlock();
         virtual void finishBlock();
-        virtual boost::shared_ptr<InstructionBlock> getBlock();
+        virtual boost::shared_ptr<IInstructionBlock> getBlock();
     private:
         void finishAllBlocks();
-        std::stack<boost::shared_ptr<InstructionBlock>> instructionBlocks;
+        std::stack<boost::shared_ptr<IInstructionBlock>> instructionBlocks;
     };
 }
 

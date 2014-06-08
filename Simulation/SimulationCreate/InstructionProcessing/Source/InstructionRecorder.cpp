@@ -20,7 +20,7 @@ void InstructionRecorder::startBlock()
 
 void InstructionRecorder::finishBlock()
 {
-    boost::shared_ptr<InstructionBlock> topBlock = instructionBlocks.top();
+    boost::shared_ptr<IInstructionBlock> topBlock = instructionBlocks.top();
     instructionBlocks.pop();
     instructionBlocks.top()->addInstruction(topBlock);
 }
@@ -33,7 +33,7 @@ void InstructionRecorder::finishAllBlocks()
     }
 }
 
-boost::shared_ptr<InstructionBlock> InstructionRecorder::getBlock()
+boost::shared_ptr<IInstructionBlock> InstructionRecorder::getBlock()
 {
     finishAllBlocks();
     return instructionBlocks.top();

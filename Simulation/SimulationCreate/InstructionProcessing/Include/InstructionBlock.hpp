@@ -1,11 +1,11 @@
 #pragma once
 
 #include "boost.hpp"
-#include "IInstruction.hpp"
+#include "IInstructionBlock.hpp"
 
 namespace InsPr
 {
-    class InstructionBlock : public IInstruction
+    class InstructionBlock : public IInstructionBlock
     {
     public:
         virtual uint getAlternativesCount();

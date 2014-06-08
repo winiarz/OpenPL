@@ -11,5 +11,13 @@ namespace InsPr
         virtual boost::shared_ptr<IType> getType() = 0;
         virtual std::string getName() = 0;
     };
+
+    class IArrayVariable : public IVariable
+    {
+    };
+
+    class IGlobalArrayVariable : public IVariable
+    {
+    };
 }
 

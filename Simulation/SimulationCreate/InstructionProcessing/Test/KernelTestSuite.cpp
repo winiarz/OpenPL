@@ -1,4 +1,4 @@
-#include "Function.hpp"
+#include "Kernel.hpp"
 #include "Type.hpp"
 #include "Variable.hpp"
 #include "InstructionBlock.hpp"
@@ -8,37 +8,35 @@
 using namespace ::testing;
 using namespace InsPr;
 
-class FunctionTestSuite : public Test
+class KernelTestSuite : public Test
 {
 
 };
 
-class Int : public IType
+class Float : public IType
 {
 public:
     virtual std::string getTypeName()
     {
-        return std::string("int");
+        return std::string("float");
     }
 };
 
-TEST_F(FunctionTestSuite, no_test)
+TEST_F(KernelTestSuite, no_test)
 {
-    std::vector<boost::shared_ptr<IVariable>> args;
-    args.push_back( boost::make_shared<Variable<Int>>( std::string("number")) );
-    args.push_back( boost::make_shared<Variable<Int>>( std::string("number")) );
+    std::vector<boost::shared_ptr<IGlobalArrayVariable>> args;
+    args.push_back( boost::make_shared<GlobalArrayVariable<Float>>( std::string("arg1") ) );
+    args.push_back( boost::make_shared<GlobalArrayVariable<Float>>( std::string("arg2") ) );
 
     auto  block = boost::make_shared<InstructionBlock>();
     block->addInstruction( boost::make_shared<SingleInstruction>(std::string("a = b + c;")) );
     block->addInstruction( boost::make_shared<SingleInstruction>(std::string("b = a + c;")) );
-    
 
-    Function sut(std::string("exampleFunction"),
-                 args,
-                 block );
+    Kernel sut( std::string("exampleKernel"),
+                args,
+                block );
 
-    ASSERT_EQ(1, sut.getAlternativesCount());
+    ASSERT_EQ(1, sut.getAlternativesCount() );
     std::cout << sut.getAlternative(0);
-
 }
 

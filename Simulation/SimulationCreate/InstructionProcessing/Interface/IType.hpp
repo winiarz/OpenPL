@@ -9,5 +9,9 @@ namespace InsPr
     public:
         virtual std::string getTypeName() = 0;
     };
+
+    class IGlobalArrayType : public IType
+    {
+    };
 }
 

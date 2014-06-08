@@ -28,7 +28,7 @@ std::string Function::getAlternative(uint alternativeNb)
         if ( !isFirst ) 
             sstream << ", ";
         isFirst = false;
-        sstream << argument->getType()->getTypeName() << " " << argument->getName();
+        sstream << argument->getTypeName() << " " << argument->getName();
     }
     sstream << ")\n";
     sstream << instructions->getAlternative(alternativeNb);

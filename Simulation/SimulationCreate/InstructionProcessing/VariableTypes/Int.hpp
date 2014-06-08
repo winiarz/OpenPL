@@ -1,13 +1,15 @@
 #pragma once
 
+#include "NumericVariable.hpp"
+
 namespace InsPr
 {
-class Int : public IVariable
+class Int : public NumericVariable
 {
 public:
     Int(boost::shared_ptr<IInstructionRecorder> p_recorder,
         std::string p_name = std::string()) :
-        IVariable(p_recorder),
+        NumericVariable(p_recorder),
         name(p_name)
     {}
 

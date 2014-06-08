@@ -12,6 +12,7 @@ InstructionProcessingObjs+=     $(InstructionProcessingObj)/Kernel.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/InstructionRecorder.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/ForLoop.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/WhileLoop.o
+InstructionProcessingObjs+=     $(InstructionProcessingObj)/IfInstruction.o
 
 
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/FunctionTestSuite.o
@@ -19,6 +20,7 @@ InstructionProcessingTestObjs+= $(InstructionProcessingObj)/KernelTestSuite.o
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/InstructionRecorderTestSuite.o
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/ForLoopTestSuite.o
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/WhileLoopTestSuite.o
+InstructionProcessingTestObjs+= $(InstructionProcessingObj)/IfInstructionTestSuite.o
 
 InstructionProcessingTest: Bin/Test/InstructionProcessingTS
 	Bin/Test/InstructionProcessingTS

@@ -9,6 +9,8 @@ SimCreateLibObj+=    $(SimCreateObj)/scSimulation.o
 SimCreateLibObj+=    $(SimCreateObj)/scNameGenerator.o
 SimCreateLibObj+=    $(SimCreateObj)/scSizeOf.o
 SimCreateLibObj+=    $(SimCreateObj)/scKernelToCreateSet.o
+SimCreateLibObj+=    $(SimCreateObj)/scSimStepCreator.o
+SimCreateLibObj+=    $(SimCreateObj)/scSingleKernelSimStep.o
 
 SimCreateStructuresObj=  $(SimCreateObj)/scMaterialPointArray.o
 SimCreateStructuresObj+= $(SimCreateObj)/scMaterialPoint.o
@@ -62,3 +64,4 @@ $(SimCreateObj)/%.o: $(SimCreateSource)/%.cpp $(AllAutogenIncludes)
 $(SimCreateObj)/%.o: $(SimCreateSource)/Structures/%.cpp $(AllAutogenIncludes)
 	@echo "\tCXX\t"$*.o
 	@g++ $< -o $@ $(AllInclude) $(cpp_flags)
+

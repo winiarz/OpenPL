@@ -62,6 +62,18 @@ IClKernel& ClSelfCalibratingKernel::operator()(std::vector<ClMemory*> args)
     return *(*optKernel).get();
 }
 
+IClKernel& ClSelfCalibratingKernel::operator()(std::vector<boost::shared_ptr<ClMemory>> args)
+{
+    optional<boost::shared_ptr<IClSingleImplementationKernel> > optKernel =  performanceComparator->getBestKernel();
+    if ( !optKernel ) 
+    {
+        throw NO_KERNEL_IN_COMPARATOR;
+    }
+
+    (*optKernel)->operator()(args);
+    return *(*optKernel).get();
+}
+
 ClSelfCalibratingKernel::~ClSelfCalibratingKernel()
 {
 }

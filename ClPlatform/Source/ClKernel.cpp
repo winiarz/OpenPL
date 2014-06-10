@@ -201,6 +201,22 @@ IClKernel& ClKernel::operator()(std::vector<ClMemory*> args)
     return *this;
 }
 
+IClKernel& ClKernel::operator()(std::vector<boost::shared_ptr<ClMemory>> args)
+{
+    if ( !loaded ) 
+    {
+        platform.getKernelManager().loadKernel(this);
+    }
+
+    for ( uint i = 0; i <= args.size(); ++i) 
+    {
+        setKernelArg(i, args.at(i).get());
+    }
+
+    executeKernel();
+    return *this;
+}
+
 std::string ClKernel::getKernelName()
 {
     return kernelName;

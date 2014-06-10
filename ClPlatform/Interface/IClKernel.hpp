@@ -2,6 +2,7 @@
 
 #include <CL/cl.h>
 #include <stl.hpp>
+#include <boost.hpp>
 
 typedef unsigned int uint;
 
@@ -15,6 +16,7 @@ public:
     virtual IClKernel& operator[](uint n)=0;
     virtual IClKernel& operator()(uint, ... )=0;
     virtual IClKernel& operator()(std::vector<ClMemory*>)=0;
+    virtual IClKernel& operator()(std::vector<boost::shared_ptr<ClMemory>>)=0;
   
     virtual ~IClKernel(){}
 };

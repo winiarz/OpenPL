@@ -17,6 +17,7 @@ public:
   IClKernel& operator[](uint);
   IClKernel& operator()(uint, ... );
   virtual IClKernel& operator()(std::vector<ClMemory*>);
+  virtual IClKernel& operator()(std::vector<boost::shared_ptr<ClMemory>>);
   virtual cl_program getProgram();
   virtual void load();
   virtual void unload();

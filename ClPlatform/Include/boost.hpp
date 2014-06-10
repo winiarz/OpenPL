@@ -12,4 +12,5 @@ using boost::none;
 
 #include <boost/bind.hpp>
 #include <boost/foreach.hpp>
+#include <boost/function.hpp>
 

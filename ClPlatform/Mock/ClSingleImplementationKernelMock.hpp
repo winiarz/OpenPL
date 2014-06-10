@@ -33,6 +33,10 @@ public:
   {
       return *this;
   }
+  virtual IClKernel& operator()(std::vector<boost::shared_ptr<ClMemory>> )
+  {
+      return *this;
+  }
 
   MOCK_METHOD0(getProgram, cl_program());
   MOCK_METHOD0(getStats, IClKernelCallStats&() );

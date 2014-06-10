@@ -11,7 +11,7 @@ all: main
 
 %.o: %.cpp
 	@echo "\tCXX\t"$@
-	@g++ $^ -o $@ $(AllInclude) -c
+	@g++ $^ -o $@ $(AllInclude) $(cpp_flags)
 
 main: vector_operations.o main.o
 	@echo "\tLN\t"$@

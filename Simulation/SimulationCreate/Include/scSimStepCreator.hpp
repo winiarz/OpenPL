@@ -1,7 +1,7 @@
 #pragma once
 
 #include "InstructionBlock.hpp"
-#include "InstructionRecorder.hpp"
+#include "IInstructionRecorder.hpp"
 #include "scISimStepCreator.hpp"
 #include "IVariable.hpp"
 
@@ -13,12 +13,14 @@ namespace SimCreate
 class SimStepCreator : public ISimStepCreator
 {
 public:
-    SimStepCreator(boost::function<boost::shared_ptr<InsPr::InstructionBlock>()>,
-                   std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>>);
+    SimStepCreator(boost::function<void()>,
+                   std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>>,
+                   boost::shared_ptr<InsPr::IInstructionRecorder>);
     virtual boost::shared_ptr<ISimStep> create();
 private:
     std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>> arguments;
-    boost::function<boost::shared_ptr<InsPr::InstructionBlock>()> createInstructionBlock;
+    boost::function<void()> recordInstructionBlock;
+    boost::shared_ptr<InsPr::IInstructionRecorder> recorder;
 };
 
 }

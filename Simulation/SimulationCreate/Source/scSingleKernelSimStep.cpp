@@ -18,13 +18,14 @@ void SingleKernelSimStep::execute(std::vector<boost::shared_ptr<ClMemory>> args)
     {
         std::ofstream file("__temp_source_file.cl"); // TODO - do it without temp file !!!
         file << recordedKernel->getAlternative(0);
+        file.close();
 
         std::set<std::string> includeDirs = {"."};
         ClKernelFromSourceLoader loader(includeDirs);
         compiledKernel = loader.loadKernel("__temp_source_file.cl");
     }
 
-    (*compiledKernel)(args);
+    (*compiledKernel)[1][1](args);
 }
 
 }

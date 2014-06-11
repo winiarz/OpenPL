@@ -41,6 +41,7 @@ ClKernel::ClKernel( cl_program p_program ) :
     platform(ClPlatform::getPlatform()),
     program(p_program),
     kernel(0),
+    kernelName("kernelName"),
     stats(boost::make_shared<Clock>(), 0.95f)
 {
     setUpSuccessfully = false;
@@ -192,7 +193,7 @@ IClKernel& ClKernel::operator()(std::vector<ClMemory*> args)
         platform.getKernelManager().loadKernel(this);
     }
 
-    for ( uint i = 0; i <= args.size(); ++i) 
+    for ( uint i = 0; i < args.size(); ++i) 
     {
         setKernelArg(i, args.at(i));
     }
@@ -208,7 +209,7 @@ IClKernel& ClKernel::operator()(std::vector<boost::shared_ptr<ClMemory>> args)
         platform.getKernelManager().loadKernel(this);
     }
 
-    for ( uint i = 0; i <= args.size(); ++i) 
+    for ( size_t i = 0; i < args.size(); ++i) 
     {
         setKernelArg(i, args.at(i).get());
     }

@@ -21,7 +21,7 @@ uint Kernel::getAlternativesCount()
 std::string Kernel::getAlternative(uint alternativeNb)
 {
     std::ostringstream sstream;
-    sstream << "__kenel void " << kernelName << "(";
+    sstream << "__kernel void " << kernelName << "(";
 
     bool isFirst = true;
     for ( auto argument : arguments) 

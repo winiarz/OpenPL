@@ -1,5 +1,4 @@
 #include "logs.hpp"
-#include "NullStream.hpp"
 
 std::ostream& debug(int lineNb, std::string filename)
 {

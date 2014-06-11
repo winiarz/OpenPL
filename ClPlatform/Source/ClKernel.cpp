@@ -41,10 +41,12 @@ ClKernel::ClKernel( cl_program p_program ) :
     platform(ClPlatform::getPlatform()),
     program(p_program),
     kernel(0),
+    globalSize(0),
+    localSize(0),
+    setUpSuccessfully(false),
     kernelName("kernelName"),
     stats(boost::make_shared<Clock>(), 0.95f)
 {
-    setUpSuccessfully = false;
 }
 
 void ClKernel::load()

@@ -14,11 +14,9 @@ namespace InsPr
         static_assert(std::is_base_of<IVariable, T>(), "T must be IVariable!");
 
         GlobalArrayVariable(boost::shared_ptr<IInstructionRecorder> recorder,
-                            std::string p_name,
-                            uint p_size = 0) :
+                            std::string p_name ) :
             IGlobalArrayVariable(recorder),
-            name(p_name),
-            size(p_size)
+            name(p_name)
         {}
 
         virtual std::string getName()
@@ -33,7 +31,7 @@ namespace InsPr
             return sstream.str();
         }
 
-        T operator[](Int& nb)
+        T operator[](Int nb)
         {
             std::ostringstream sstream;
             sstream << name << "[" << nb.getName() << "]";
@@ -41,7 +39,6 @@ namespace InsPr
         }
     private:
         std::string name;
-        uint size;
     };
 }
 

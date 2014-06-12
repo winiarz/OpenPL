@@ -20,6 +20,7 @@ InstructionProcessingTestObjs+= $(InstructionProcessingObj)/InstructionRecorderT
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/ForLoopTestSuite.o
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/WhileLoopTestSuite.o
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/IfInstructionTestSuite.o
+InstructionProcessingTestObjs+= $(InstructionProcessingObj)/GlobalArrayTestSuite.o
 
 InstructionProcessingTest: Bin/Test/InstructionProcessingTS
 	Bin/Test/InstructionProcessingTS

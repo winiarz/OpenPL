@@ -13,6 +13,15 @@ public:
         name(p_name)
     {}
 
+    Int( int constant ) :
+        NumericVariable(boost::shared_ptr<IInstructionRecorder>())
+    {
+        std::ostringstream stringstream;
+        stringstream << constant;
+        name = stringstream.str();
+    }
+        
+
     virtual std::string getName()
     {
         return name;

@@ -60,4 +60,7 @@ public:
 private:
     std::string name;
 };
+
+Int operator%(Int first, Int second);
+
 }

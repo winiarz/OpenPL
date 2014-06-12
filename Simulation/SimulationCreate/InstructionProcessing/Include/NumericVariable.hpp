@@ -21,7 +21,7 @@ namespace InsPr
     };
 
     template<class T>
-    T operator+(T& first, T& second)
+    T operator+(T first, T second)
     {
         static_assert(std::is_base_of<NumericVariable, T>(), "T must be NumericVariable!");
         std::ostringstream sstream;
@@ -30,7 +30,7 @@ namespace InsPr
     }
 
     template<class T>
-    T operator-(T& first, T& second)
+    T operator-(T first, T second)
     {
         static_assert(std::is_base_of<NumericVariable, T>(), "T must be NumericVariable!");
         std::ostringstream sstream;
@@ -39,7 +39,7 @@ namespace InsPr
     }
 
     template<class T>
-    T operator*(T& first, T& second)
+    T operator*(T first, T second)
     {
         static_assert(std::is_base_of<NumericVariable, T>(), "T must be NumericVariable!");
         std::ostringstream sstream;
@@ -48,7 +48,7 @@ namespace InsPr
     }
 
     template<class T>
-    T operator/(T& first, T& second)
+    T operator/(T first, T second)
     {
         static_assert(std::is_base_of<NumericVariable, T>(), "T must be NumericVariable!");
         std::ostringstream sstream;

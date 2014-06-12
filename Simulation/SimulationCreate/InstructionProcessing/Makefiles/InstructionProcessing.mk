@@ -12,6 +12,7 @@ InstructionProcessingObjs+=     $(InstructionProcessingObj)/InstructionRecorder.
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/ForLoop.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/WhileLoop.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/IfInstruction.o
+InstructionProcessingObjs+=     $(InstructionProcessingObj)/Int.o
 
 
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/FunctionTestSuite.o

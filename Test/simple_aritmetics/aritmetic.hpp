@@ -1,12 +1,13 @@
 
 #include "Simulation.hpp"
+using namespace InsPr;
 
 class MySim : public Simulation {
 public:
-  KERNEL_DEF1( add, IntArray );
-  KERNEL_DEF1( sub, IntArray );
-  KERNEL_DEF1( mult, IntArray );
-  KERNEL_DEF1( div, IntArray );
-  KERNEL_DEF1( mod, IntArray );
+  SIMSTEP_DEF1( add, IntArray );
+  SIMSTEP_DEF1( sub, IntArray );
+  SIMSTEP_DEF1( mult, IntArray );
+  SIMSTEP_DEF1( div, IntArray );
+  SIMSTEP_DEF1( mod, IntArray );
   MEMORY( IntArray, liczby, 10);
 };

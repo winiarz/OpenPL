@@ -18,6 +18,8 @@ namespace SimCreate
     private:
         boost::shared_ptr<InsPr::IKernel> recordedKernel;
         boost::shared_ptr<ClKernel> compiledKernel;
+
+        void loadKernelIfNotLoaded();
     };
 }
 }

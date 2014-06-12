@@ -34,7 +34,7 @@ TEST_F(KernelTestSuite, no_test)
                 block );
 
     ASSERT_EQ(1, sut.getAlternativesCount() );
-    std::string expectedCode("__kenel void exampleKernel(__global int* arg1, __global int* arg2)\n{\na = b + c;\nb = a + c;\n}\n");
+    std::string expectedCode("__kernel void exampleKernel(__global int* arg1, __global int* arg2)\n{\na = b + c;\nb = a + c;\n}\n");
     ASSERT_TRUE(sut.getAlternative(0).compare(expectedCode) == 0 );
 }
 

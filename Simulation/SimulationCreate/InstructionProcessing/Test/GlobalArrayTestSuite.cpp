@@ -14,7 +14,7 @@ class GlobalArrayTestSuite : public Test
 TEST_F( GlobalArrayTestSuite, copyElements )
 {
     auto recorder = boost::make_shared<InstructionRecorder>();
-    IntGlobalArray intArray ( recorder, "intArray" );
+    IntArrayGlobal intArray ( recorder, "intArray" );
     Int index1( recorder, "index1" );
     Int index2( recorder, "index2" );
 
@@ -27,7 +27,7 @@ TEST_F( GlobalArrayTestSuite, copyElements )
 TEST_F( GlobalArrayTestSuite, copyElementsWithConstant )
 {
     auto recorder = boost::make_shared<InstructionRecorder>();
-    IntGlobalArray intArray ( recorder, "intArray" );
+    IntArrayGlobal intArray ( recorder, "intArray" );
     Int index2( recorder, "index2" );
 
     intArray[0] = intArray[index2];
@@ -39,7 +39,7 @@ TEST_F( GlobalArrayTestSuite, copyElementsWithConstant )
 TEST_F( GlobalArrayTestSuite, writeConstantIntoArray )
 {
     auto recorder = boost::make_shared<InstructionRecorder>();
-    IntGlobalArray intArray ( recorder, "intArray" );
+    IntArrayGlobal intArray ( recorder, "intArray" );
 
     intArray[0] = 5;
 
@@ -50,7 +50,7 @@ TEST_F( GlobalArrayTestSuite, writeConstantIntoArray )
 TEST_F( GlobalArrayTestSuite, readFromArray )
 {
     auto recorder = boost::make_shared<InstructionRecorder>();
-    IntGlobalArray intArray ( recorder, "intArray" );
+    IntArrayGlobal intArray ( recorder, "intArray" );
 
     Int number( recorder, "number" );
     number = intArray[0];
@@ -62,7 +62,7 @@ TEST_F( GlobalArrayTestSuite, readFromArray )
 TEST_F( GlobalArrayTestSuite, arrayAsIndexOfArray )
 {
     auto recorder = boost::make_shared<InstructionRecorder>();
-    IntGlobalArray intArray ( recorder, "intArray" );
+    IntArrayGlobal intArray ( recorder, "intArray" );
 
     Int number( recorder, "number" );
     number = intArray[intArray[0]];

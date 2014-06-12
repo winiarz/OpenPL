@@ -4,6 +4,7 @@
 #include "boost.hpp"
 #include "IVariable.hpp"
 #include "Int.hpp"
+#include "scNameGenerator.hpp"
 
 namespace InsPr
 {
@@ -12,6 +13,12 @@ namespace InsPr
     {
     public:
         static_assert(std::is_base_of<IVariable, T>(), "T must be IVariable!");
+
+        GlobalArrayVariable(boost::shared_ptr<IInstructionRecorder> recorder) :
+            IGlobalArrayVariable(recorder),
+            name(OPL::SimCreate::NameGenerator::getNameGenerator().nextName())
+        {}
+
 
         GlobalArrayVariable(boost::shared_ptr<IInstructionRecorder> recorder,
                             std::string p_name ) :

@@ -5,6 +5,6 @@
 
 namespace InsPr
 {
-    typedef GlobalArrayVariable<Int> IntGlobalArray;
+    typedef GlobalArrayVariable<Int> IntArrayGlobal;
 }
 

@@ -7,6 +7,7 @@
 #include "scISimStep.hpp"
 #include "scSimStepCreator.hpp"
 #include "InstructionRecorder.hpp"
+#include "IntGlobalArray.hpp"
 
 using namespace OPL::SimExec;
 using namespace OPL::SimCreate;

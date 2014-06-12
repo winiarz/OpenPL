@@ -24,7 +24,7 @@ std::string Kernel::getAlternative(uint alternativeNb)
     sstream << "__kernel void " << kernelName << "(";
 
     bool isFirst = true;
-    for ( auto argument : arguments) 
+    for ( auto& argument : arguments) 
     {
         if ( !isFirst ) 
             sstream << ", ";

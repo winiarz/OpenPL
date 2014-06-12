@@ -27,7 +27,7 @@ namespace InsPr
         virtual std::string getTypeName()
         {
             std::ostringstream sstream;
-            sstream << "__global " << T(recorder).getTypeName() << "*";
+            sstream << "__global " << T(recorder,std::string("")).getTypeName() << "*";
             return sstream.str();
         }
 

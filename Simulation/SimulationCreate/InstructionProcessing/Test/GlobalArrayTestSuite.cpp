@@ -71,3 +71,15 @@ TEST_F( GlobalArrayTestSuite, arrayAsIndexOfArray )
     ASSERT_TRUE(recorder->getBlock()->getAlternative(0).compare(expectedInstruction) == 0 );
 }
 
+TEST_F( GlobalArrayTestSuite, useLastRecorder )
+{
+    auto recorder = boost::make_shared<InstructionRecorder>();
+    
+    Int onlyToSetRecorder(recorder);
+    Int shouldHaveRecorder("name");
+    shouldHaveRecorder = shouldHaveRecorder;
+
+    std::string expectedInstruction("{\nname = name;\n}\n");
+    ASSERT_TRUE(recorder->getBlock()->getAlternative(0).compare(expectedInstruction) == 0 );
+}
+

@@ -11,6 +11,11 @@ namespace InsPr
             IVariable(recorder)
         {}
 
+        NumericVariable(VariableCreateType type,
+                        boost::shared_ptr<IInstructionRecorder> p_recorder = boost::shared_ptr<IInstructionRecorder>() ) :
+            IVariable(type, p_recorder)
+        {}
+
         virtual std::string getName() = 0;
         virtual std::string getTypeName() = 0;
     };

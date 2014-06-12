@@ -1,12 +1,18 @@
 #pragma once
 
 #include "NumericVariable.hpp"
+#include "scNameGenerator.hpp"
 
 namespace InsPr
 {
 class Int : public NumericVariable
 {
 public:
+    Int() :
+        NumericVariable(CREATE_VARIABLE_WITH_LAST_RECORDER),
+        name(OPL::SimCreate::NameGenerator::getNameGenerator().nextName())
+    {}
+
     Int(boost::shared_ptr<IInstructionRecorder> p_recorder,
         std::string p_name ) :
         NumericVariable(p_recorder),

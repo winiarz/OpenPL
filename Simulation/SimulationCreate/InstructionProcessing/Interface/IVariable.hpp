@@ -33,6 +33,7 @@ namespace InsPr
 
                 if ( lastRecorderLock != NULL ) 
                     delete lastRecorderLock;
+                lastRecorderLock = NULL;
                 break;
             }
             

@@ -4,5 +4,5 @@ using namespace OPL;
 
 class MySim : public Simulation {
 public:
-  KERNEL_DEF0( empty );
+  SIMSTEP_DEF0( empty );
 };

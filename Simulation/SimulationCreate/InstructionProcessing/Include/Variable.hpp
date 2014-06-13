@@ -14,15 +14,14 @@ namespace InsPr
     public:
         static_assert(std::is_base_of<IVariable, T>(), "T must be IVariable!");
 
-        GlobalArrayVariable(boost::shared_ptr<IInstructionRecorder> recorder) :
-            IGlobalArrayVariable(recorder),
+        GlobalArrayVariable() :
+            IGlobalArrayVariable(),
             name(OPL::SimCreate::NameGenerator::getNameGenerator().nextName())
         {}
 
 
-        GlobalArrayVariable(boost::shared_ptr<IInstructionRecorder> recorder,
-                            std::string p_name ) :
-            IGlobalArrayVariable(recorder),
+        GlobalArrayVariable(std::string p_name ) :
+            IGlobalArrayVariable(),
             name(p_name)
         {}
 
@@ -34,7 +33,7 @@ namespace InsPr
         virtual std::string getTypeName()
         {
             std::ostringstream sstream;
-            sstream << "__global " << T(recorder,std::string("")).getTypeName() << "*";
+            sstream << "__global " << T(std::string("")).getTypeName() << "*";
             return sstream.str();
         }
 
@@ -42,7 +41,7 @@ namespace InsPr
         {
             std::ostringstream sstream;
             sstream << name << "[" << nb.getName() << "]";
-            return T( recorder, sstream.str() );
+            return T( sstream.str() );
         }
     private:
         std::string name;

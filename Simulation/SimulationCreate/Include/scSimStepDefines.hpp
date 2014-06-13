@@ -106,7 +106,7 @@ using namespace OPL::SimExec;
     std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>> className :: RECORD_SIMSTEP_NOARG_NAME( simstepName ) () \
     {\
         std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>> arguments; \
-        boost::shared_ptr<InsPr:: arg1Type ## Global> arg_1 = boost::make_shared<InsPr:: arg1Type ## Global> ( SIMSTEP_RECORDER_NAME(simstepName) ); \
+        boost::shared_ptr<InsPr:: arg1Type ## Global> arg_1 = boost::make_shared<InsPr:: arg1Type ## Global> ( ); \
         arguments.push_back( arg_1 ); \
         RECORD_SIMSTEP_NAME(simstepName) ( *arg_1 ); \
         return arguments; \
@@ -142,3 +142,4 @@ using namespace OPL::SimExec;
     SIMSTEP_CREATOR_DEF1( className, simstepName, arg1Type ) \
     RECORD_SIMSTEP_NOARG_IMP1( className, simstepName, arg1Type ) \
     RECORD_SIMSTEP_IMP1( className, simstepName, arg1Type, arg1Name )
+

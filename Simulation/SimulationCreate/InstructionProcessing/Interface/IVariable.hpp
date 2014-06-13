@@ -3,6 +3,7 @@
 #include "boost.hpp"
 #include "IInstructionRecorder.hpp"
 #include "SingleInstruction.hpp"
+#include "IVariable.hpp"
 
 namespace InsPr
 {
@@ -15,29 +16,8 @@ namespace InsPr
     class IVariable
     {
     public:
-        IVariable(boost::shared_ptr<IInstructionRecorder> p_recorder) :
-            recorder(p_recorder)
+        IVariable()
         {}
-
-        IVariable(VariableCreateType type,
-                  boost::shared_ptr<IInstructionRecorder> p_recorder = boost::shared_ptr<IInstructionRecorder>() )
-        {
-            switch ( type )
-            {
-            case SET_LAST_RECORDER_ONLY:
-                lastRecorderLock = new std::unique_lock<std::mutex>(lastRecorderMutex);
-                lastRecorder = p_recorder;
-                break;
-            case CREATE_VARIABLE_WITH_LAST_RECORDER:
-                recorder = lastRecorder;
-
-                if ( lastRecorderLock != NULL ) 
-                    delete lastRecorderLock;
-                lastRecorderLock = NULL;
-                break;
-            }
-            
-        }
 
         virtual std::string getName() = 0;
         virtual std::string getTypeName() = 0;
@@ -49,18 +29,21 @@ namespace InsPr
             (*recorder) << boost::make_shared<SingleInstruction>(sstream.str());
         }
 
-        boost::shared_ptr<IInstructionRecorder> recorder;
-    private:
-        static std::mutex lastRecorderMutex;
-        static std::unique_lock<std::mutex>* lastRecorderLock;
-        static boost::shared_ptr<IInstructionRecorder> lastRecorder;
+        void recordDeclaration()
+        {
+            std::ostringstream sstream;
+            sstream << getTypeName() << " " << getName();
+            (*recorder) << boost::make_shared<SingleInstruction>(sstream.str());
+        }
+
+        static boost::shared_ptr<IInstructionRecorder> recorder;
     };
 
     class IGlobalArrayVariable : public IVariable
     {
     public:
-        IGlobalArrayVariable(boost::shared_ptr<IInstructionRecorder> recorder) :
-            IVariable(recorder)
+        IGlobalArrayVariable() :
+            IVariable()
         {}
     };
 }

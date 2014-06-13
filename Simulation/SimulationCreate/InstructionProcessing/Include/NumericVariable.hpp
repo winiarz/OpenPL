@@ -8,13 +8,8 @@ namespace InsPr
     class NumericVariable : public IVariable
     {
     public:
-        NumericVariable(boost::shared_ptr<IInstructionRecorder> recorder) :
-            IVariable(recorder)
-        {}
-
-        NumericVariable(VariableCreateType type,
-                        boost::shared_ptr<IInstructionRecorder> p_recorder = boost::shared_ptr<IInstructionRecorder>() ) :
-            IVariable(type, p_recorder)
+        NumericVariable() :
+            IVariable()
         {}
 
         virtual std::string getName() = 0;
@@ -33,35 +28,19 @@ namespace InsPr
     {
     public:
     TypedNumericVariable() :
-        NumericVariable(CREATE_VARIABLE_WITH_LAST_RECORDER),
+        NumericVariable(),
         name(OPL::SimCreate::NameGenerator::getNameGenerator().nextName())
-    {}
-
-    TypedNumericVariable(boost::shared_ptr<IInstructionRecorder> p_recorder,
-        std::string p_name ) :
-        NumericVariable(p_recorder),
-        name(p_name)
-    {}
-
-    TypedNumericVariable(boost::shared_ptr<IInstructionRecorder> p_recorder) :
-        NumericVariable(SET_LAST_RECORDER_ONLY, p_recorder)
-    {}
-
-    TypedNumericVariable( int constant ) :
-        NumericVariable(boost::shared_ptr<IInstructionRecorder>())
     {
-        std::ostringstream stringstream;
-        stringstream << constant;
-        name = stringstream.str();
+        recordDeclaration();
     }
-        
-    TypedNumericVariable(std::string p_name) :
-        NumericVariable(CREATE_VARIABLE_WITH_LAST_RECORDER),
+
+    TypedNumericVariable( std::string p_name ) :
+        NumericVariable(),
         name(p_name)
     {}
 
     TypedNumericVariable( const TypedNumericVariable& original ) :
-        NumericVariable(original.recorder),
+        NumericVariable(),
         name(original.name)
     {}
 
@@ -81,7 +60,7 @@ namespace InsPr
         recordAssigment(rvalue);
         return *this;
     }
-    private:
+    protected:
         std::string name;
     };
 
@@ -93,7 +72,7 @@ namespace InsPr
         static_assert(std::is_base_of<NumericVariable, T>(), "T must be NumericVariable!");
         std::ostringstream sstream;
         sstream << first.getName() << " + " << second.getName();
-        return T(first.recorder, sstream.str());
+        return T( sstream.str());
     }
 
     template<class T>
@@ -102,16 +81,17 @@ namespace InsPr
         static_assert(std::is_base_of<NumericVariable, T>(), "T must be NumericVariable!");
         std::ostringstream sstream;
         sstream << first.getName() << " - " << second.getName();
-        return T(first.recorder, sstream.str());
+        return T( sstream.str());
     }
 
-    template<class T>
-    T operator*(T first, T second)
+    template<class T, class S>
+    S operator*(T first, S second)
     {
         static_assert(std::is_base_of<NumericVariable, T>(), "T must be NumericVariable!");
+        static_assert(std::is_base_of<NumericVariable, S>(), "S must be NumericVariable!");
         std::ostringstream sstream;
         sstream << first.getName() << " * " << second.getName();
-        return T(first.recorder, sstream.str());
+        return S( sstream.str());
     }
 
     template<class T>
@@ -120,7 +100,7 @@ namespace InsPr
         static_assert(std::is_base_of<NumericVariable, T>(), "T must be NumericVariable!");
         std::ostringstream sstream;
         sstream << first.getName() << " / " << second.getName();
-        return T(first.recorder, sstream.str());
+        return T( sstream.str());
     }
 }
 

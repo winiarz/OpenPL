@@ -14,8 +14,7 @@ class SimStepCreator : public ISimStepCreator
 {
 public:
     SimStepCreator(boost::function<std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>>()>,
-                   std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>>,
-                   boost::shared_ptr<InsPr::IInstructionRecorder>);
+                   std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>>);
     virtual boost::shared_ptr<ISimStep> create();
 private:
     std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>> arguments;

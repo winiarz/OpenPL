@@ -9,18 +9,16 @@ namespace SimCreate
 {
 
 SimStepCreator::SimStepCreator(boost::function<std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>>()> p_createInstructionBlock,
-                               std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>> p_arguments,
-                               boost::shared_ptr<InsPr::IInstructionRecorder> p_recorder) :
+                               std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>> p_arguments) :
     arguments(p_arguments),
-    recordInstructionBlock(p_createInstructionBlock),
-    recorder(p_recorder)
+    recordInstructionBlock(p_createInstructionBlock)
 {
 
 }
 
 boost::shared_ptr<ISimStep> SimStepCreator::create()
 {
-    InsPr::IVariable::recorder = recorder;
+    recorder = InsPr::IVariable::recorder;
     std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>> args = recordInstructionBlock();
     auto instructionBlock = recorder->getBlock();
     auto kernel = boost::make_shared<InsPr::Kernel>("kernelName",

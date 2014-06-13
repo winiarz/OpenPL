@@ -3,6 +3,6 @@
 
 namespace InsPr
 {
-boost::shared_ptr<IInstructionRecorder> IVariable::recorder;
+boost::shared_ptr<IInstructionRecorder> IVariable::recorder = boost::make_shared<InstructionRecorder>();
 }
 

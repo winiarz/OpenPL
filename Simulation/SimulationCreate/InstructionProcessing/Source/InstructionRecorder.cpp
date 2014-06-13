@@ -39,7 +39,10 @@ void InstructionRecorder::finishAllBlocks()
 boost::shared_ptr<IInstructionBlock> InstructionRecorder::getBlock()
 {
     finishAllBlocks();
-    return instructionBlocks.top();
+    boost::shared_ptr<IInstructionBlock> result = instructionBlocks.top();
+    instructionBlocks = std::stack<boost::shared_ptr<IInstructionBlock>>();
+    startBlock();
+    return result;
 }
 
 void InstructionRecorder::startForLoop(boost::shared_ptr<SingleInstruction> startInstruction,

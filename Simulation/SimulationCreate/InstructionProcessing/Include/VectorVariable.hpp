@@ -8,6 +8,7 @@ namespace InsPr
 enum VectorVariableSize
 {
     VECTOR_VARIABLE_SIZE_2 = 2,
+    VECTOR_VARIABLE_SIZE_3 = 3,
     VECTOR_VARIABLE_SIZE_4 = 4
 };
 
@@ -64,7 +65,14 @@ public:
         std::string name;
 };
 
+typedef VectorVariable<VARIABLE_TYPE_INT, VECTOR_VARIABLE_SIZE_2> Int2;
+typedef VectorVariable<VARIABLE_TYPE_INT, VECTOR_VARIABLE_SIZE_3> Int3;
 typedef VectorVariable<VARIABLE_TYPE_INT, VECTOR_VARIABLE_SIZE_4> Int4;
+
+typedef VectorVariable<VARIABLE_TYPE_FLOAT, VECTOR_VARIABLE_SIZE_2> Float2;
+typedef VectorVariable<VARIABLE_TYPE_FLOAT, VECTOR_VARIABLE_SIZE_3> Float3;
+typedef VectorVariable<VARIABLE_TYPE_FLOAT, VECTOR_VARIABLE_SIZE_4> Float4;
+
 
 }
 

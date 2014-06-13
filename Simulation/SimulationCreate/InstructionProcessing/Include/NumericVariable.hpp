@@ -18,7 +18,8 @@ namespace InsPr
 
     enum NumericVariableTypes
     {
-        VARIABLE_TYPE_INT
+        VARIABLE_TYPE_INT,
+        VARIABLE_TYPE_FLOAT
     };
 
     std::string getNumericTypeName(NumericVariableTypes type);

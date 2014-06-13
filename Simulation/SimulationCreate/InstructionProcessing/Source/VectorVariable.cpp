@@ -9,6 +9,8 @@ uint getVectorVariableSize(VectorVariableSize size)
     {
     case VECTOR_VARIABLE_SIZE_2:
         return 2u;
+    case VECTOR_VARIABLE_SIZE_3:
+        return 3u;
     case VECTOR_VARIABLE_SIZE_4:
         return 4u;
     }

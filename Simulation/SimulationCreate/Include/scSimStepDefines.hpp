@@ -31,6 +31,13 @@ using namespace OPL::SimExec;
 #define SIMSTEP_CREATOR_DEC( simstepName ) \
     static boost::shared_ptr<ISimStepCreator> SIMSTEP_CREATOR_NAME(simstepName) ;
 
+#define SIMSTEP_CREATOR_DEF( className, simstepName ) \
+    boost::shared_ptr<ISimStepCreator> className :: SIMSTEP_CREATOR_NAME(simstepName) = \
+    boost::make_shared<SimStepCreator>( \
+       &className :: RECORD_SIMSTEP_NOARG_NAME(simstepName), \
+       std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>>() ) ;
+
+
 // -------------------- SIM STEP 0 -------------------------
 
 #define RECORD_SIMSTEP_DEC0( simstepName ) \
@@ -51,12 +58,6 @@ using namespace OPL::SimExec;
         return arguments; \
     }
 
-#define SIMSTEP_CREATOR_DEF0( className, simstepName ) \
-    boost::shared_ptr<ISimStepCreator> className :: SIMSTEP_CREATOR_NAME(simstepName) = \
-    boost::make_shared<SimStepCreator>( \
-       &className :: RECORD_SIMSTEP_NOARG_NAME(simstepName), \
-       std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>>() ) ;
-
 #define SIMSTEP_DEF0( simstepName ) \
     void simstepName( ); \
     SIMSTEP_DEC( simstepName ) \
@@ -73,7 +74,7 @@ using namespace OPL::SimExec;
         SIMSTEP_NAME(simstepName)->execute(args); \
     } \
     SIMSTEP_DEF( className, simstepName ) \
-    SIMSTEP_CREATOR_DEF0( className, simstepName ) \
+    SIMSTEP_CREATOR_DEF( className, simstepName ) \
     RECORD_SIMSTEP_NOARG_IMP0( className, simstepName ) \
     RECORD_SIMSTEP_IMP0( className, simstepName )
 
@@ -100,13 +101,6 @@ using namespace OPL::SimExec;
         return arguments; \
     }
 
-#define SIMSTEP_CREATOR_DEF1( className, simstepName, arg1Type ) \
-    boost::shared_ptr<ISimStepCreator> className :: SIMSTEP_CREATOR_NAME(simstepName) = \
-    boost::make_shared<SimStepCreator>( \
-       &className :: RECORD_SIMSTEP_NOARG_NAME(simstepName), \
-       std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>>() ) ;
-
-
 #define SIMSTEP_DEF1( simstepName, arg1Type ) \
     void simstepName( OPL::SimExec:: I ## arg1Type& ); \
     SIMSTEP_DEC( simstepName ) \
@@ -124,7 +118,7 @@ using namespace OPL::SimExec;
         SIMSTEP_NAME(simstepName)->execute(args); \
     } \
     SIMSTEP_DEF( className, simstepName ) \
-    SIMSTEP_CREATOR_DEF1( className, simstepName, arg1Type ) \
+    SIMSTEP_CREATOR_DEF( className, simstepName ) \
     RECORD_SIMSTEP_NOARG_IMP1( className, simstepName, arg1Type ) \
     RECORD_SIMSTEP_IMP1( className, simstepName, arg1Type, arg1Name )
 

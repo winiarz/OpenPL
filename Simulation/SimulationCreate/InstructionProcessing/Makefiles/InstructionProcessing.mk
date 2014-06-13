@@ -13,6 +13,7 @@ InstructionProcessingObjs+=     $(InstructionProcessingObj)/ForLoop.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/WhileLoop.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/IfInstruction.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/Int.o
+InstructionProcessingObjs+=     $(InstructionProcessingObj)/NumericVariable.o
 
 
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/FunctionTestSuite.o

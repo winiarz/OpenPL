@@ -33,4 +33,20 @@ public:
 
 Int operator%(Int first, Int second);
 
+template <NumericVariableTypes type>
+Int operator<( TypedNumericVariable<type> left, TypedNumericVariable<type> right )
+{
+    std::ostringstream sstream;
+    sstream << left.getName() << " < " << right.getName();
+    return Int( sstream.str());
+}
+
+template <NumericVariableTypes type>
+Int operator>( TypedNumericVariable<type> left, TypedNumericVariable<type> right )
+{
+    std::ostringstream sstream;
+    sstream << left.getName() << " > " << right.getName();
+    return Int( sstream.str());
+}
+
 }

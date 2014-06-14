@@ -14,26 +14,36 @@ InstructionRecorder::InstructionRecorder() :
 
 void InstructionRecorder::operator<<(boost::shared_ptr<IInstruction> instruction)
 {
+    if ( shouldCloseBlock ) 
+        closeBlock();
     instructionBlocks.top()->addInstruction(instruction);
 }
 
 void InstructionRecorder::startBlock()
 {
+    if ( shouldCloseBlock ) 
+        closeBlock();
     instructionBlocks.push(boost::make_shared<InstructionBlock>());
 }
 
 void InstructionRecorder::finishBlock()
 {
+    shouldCloseBlock = true;
+}
+
+void InstructionRecorder::closeBlock()
+{
     boost::shared_ptr<IInstructionBlock> topBlock = instructionBlocks.top();
     instructionBlocks.pop();
     instructionBlocks.top()->addInstruction(topBlock);
+    shouldCloseBlock = false;
 }
 
 void InstructionRecorder::finishAllBlocks()
 {
     while (instructionBlocks.size() > 1) 
     {
-        finishBlock();
+        closeBlock();
     }
 }
 
@@ -67,6 +77,7 @@ void InstructionRecorder::startIf(boost::shared_ptr<SingleInstruction> condition
 
 void InstructionRecorder::startElse()
 {
+    shouldCloseBlock = false;
     instructionBlocks.top()->startElse();
 }
 

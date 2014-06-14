@@ -6,11 +6,19 @@ print_opening_brace();\
 loop_command;\
 print_closing_brace();
 
-#define IF( condition, if_command ) \
-IF_INSTRUCTION( condition );\
-print_opening_brace();\
-if_command;\
-print_closing_brace();
+#define IF( condition ) \
+    InsPr::IVariable::recorder->startIf( boost::make_shared<InsPr::SingleInstruction>( InsPr::Int( condition ).getName() ) ); \
+    for( int __CONTROL_TEMP_VARIABLE__ = 2; __CONTROL_TEMP_VARIABLE__ > 0; -- __CONTROL_TEMP_VARIABLE__ ) \
+    if ( __CONTROL_TEMP_VARIABLE__ == 1) \
+        InsPr::IVariable::recorder->finishBlock(); \
+    else
+
+#define ELSE \
+    InsPr::IVariable::recorder->startElse(); \
+    for( int __CONTROL_TEMP_VARIABLE__ = 2; __CONTROL_TEMP_VARIABLE__ > 0; -- __CONTROL_TEMP_VARIABLE__ ) \
+    if ( __CONTROL_TEMP_VARIABLE__ == 1) \
+        InsPr::IVariable::recorder->finishBlock(); \
+    else
 
 #define IF_ELSE( condition, if_command, else_command ) \
 IF_INSTRUCTION( condition );\

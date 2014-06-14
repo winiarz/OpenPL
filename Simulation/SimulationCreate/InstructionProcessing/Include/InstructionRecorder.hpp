@@ -23,9 +23,11 @@ namespace InsPr
         virtual void addInclude(std::string);
         virtual std::vector<std::string> getIncludes();
     private:
+        void closeBlock();
         void finishAllBlocks();
         std::stack<boost::shared_ptr<IInstructionBlock>> instructionBlocks;
         std::vector<std::string> includes;
+        bool shouldCloseBlock = false;
     };
 }
 

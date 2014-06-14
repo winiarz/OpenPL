@@ -106,6 +106,7 @@ TEST_F( InstructionRecorderTestSuite, recordIfWithElse)
     sut->startIf(boost::make_shared<SingleInstruction>(std::string("a < b")) );
 
     (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction2"));
+    sut->finishBlock();
 
     sut->startElse();
     (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction3"));

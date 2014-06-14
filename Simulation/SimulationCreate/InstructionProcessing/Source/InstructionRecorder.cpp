@@ -6,7 +6,8 @@
 namespace InsPr
 {
 InstructionRecorder::InstructionRecorder() :
-    instructionBlocks()
+    instructionBlocks(),
+    includes()
 {
     startBlock();
 }
@@ -67,6 +68,18 @@ void InstructionRecorder::startIf(boost::shared_ptr<SingleInstruction> condition
 void InstructionRecorder::startElse()
 {
     instructionBlocks.top()->startElse();
+}
+
+void InstructionRecorder::addInclude(std::string p_include)
+{
+    includes.push_back( p_include );
+}
+
+std::vector<std::string> InstructionRecorder::getIncludes()
+{
+    std::vector<std::string> result = includes;
+    includes.clear();\
+    return result;
 }
 
 }

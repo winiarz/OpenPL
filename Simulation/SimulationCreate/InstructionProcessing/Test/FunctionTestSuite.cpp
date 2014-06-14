@@ -12,18 +12,15 @@ using namespace InsPr;
 class FunctionTestSuite : public Test
 {
 public:
-    FunctionTestSuite() :
-        recorderMock( boost::make_shared<InstructionRecorderMock>())
+    FunctionTestSuite()
     {}
-
-    boost::shared_ptr<InstructionRecorderMock> recorderMock;
 };
 
 TEST_F(FunctionTestSuite, no_test)
 {
     std::vector<boost::shared_ptr<IVariable>> args;
-    args.push_back( make_shared<Int>( recorderMock, std::string("number")) );
-    args.push_back( make_shared<Int>( recorderMock, std::string("number")) );
+    args.push_back( make_shared<Int>( std::string("number")) );
+    args.push_back( make_shared<Int>( std::string("number")) );
 
     auto  block = boost::make_shared<InstructionBlock>();
     block->addInstruction( boost::make_shared<SingleInstruction>(std::string("a = b + c")) );

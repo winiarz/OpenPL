@@ -22,6 +22,9 @@ namespace InsPr
         MOCK_METHOD1( startWhileLoop, void (boost::shared_ptr<SingleInstruction>) );
         MOCK_METHOD0( finishBlock, void() );
         MOCK_METHOD0( getBlock, boost::shared_ptr<IInstructionBlock>() );
+
+        MOCK_METHOD1( addInclude, void(std::string) );
+        MOCK_METHOD0( getIncludes, std::vector<std::string>() );
     };
 
 }

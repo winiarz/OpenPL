@@ -18,11 +18,16 @@ public:
         TypedNumericVariable<VARIABLE_TYPE_INT>(original.getName())
     {}
 
-    Int(int constant) : TypedNumericVariable<VARIABLE_TYPE_INT>()
+    Int(int constant)
+        : TypedNumericVariable<VARIABLE_TYPE_INT>(getConstantName(constant))
+    {
+    }
+
+    std::string getConstantName(int constant)
     {
         std::ostringstream stringstream;
         stringstream << constant;
-        name = stringstream.str();
+        return stringstream.str();
     }
 };
 
@@ -37,11 +42,15 @@ public:
         TypedNumericVariable<VARIABLE_TYPE_FLOAT>(original.getName())
     {}
 
-    Float(float constant) : TypedNumericVariable<VARIABLE_TYPE_FLOAT>()
+    Float(float constant)
+        : TypedNumericVariable<VARIABLE_TYPE_FLOAT>(getConstantName(constant))
+    {}
+
+    std::string getConstantName(float constant)
     {
         std::ostringstream stringstream;
         stringstream << constant;
-        name = stringstream.str();
+        return stringstream.str();
     }
 };
 

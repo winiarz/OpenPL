@@ -3,6 +3,7 @@
 #include "SingleInstruction.hpp"
 #include "Variable.hpp"
 #include "Int.hpp"
+#include "VectorVariable.hpp"
 
 using namespace ::testing;
 using namespace InsPr;
@@ -14,7 +15,7 @@ public:
         sut(boost::make_shared<InstructionRecorder>())
     {}
 
-    boost::shared_ptr<InstructionRecorder> sut;
+    boost::shared_ptr<IInstructionRecorder> sut;
 };
 
 TEST_F(InstructionRecorderTestSuite, recordSingleBlock)
@@ -116,8 +117,9 @@ TEST_F( InstructionRecorderTestSuite, recordIfWithElse)
 
 TEST_F( InstructionRecorderTestSuite, recordAssignment)
 {
-    Int number1(sut, std::string("number1"));
-    Int number2(sut, std::string("number2")); 
+    sut = IVariable::recorder;
+    Int number1( std::string("number1"));
+    Int number2( std::string("number2")); 
 
     number1 = number2;
 
@@ -127,9 +129,10 @@ TEST_F( InstructionRecorderTestSuite, recordAssignment)
 
 TEST_F( InstructionRecorderTestSuite, recordAddition)
 {
-    Int number1(sut, std::string("number1"));
-    Int number2(sut, std::string("number2")); 
-    Int number3(sut, std::string("number3"));
+    sut = IVariable::recorder;
+    Int number1( std::string("number1"));
+    Int number2( std::string("number2")); 
+    Int number3( std::string("number3"));
 
     number1 = number2 + number3;
 
@@ -139,9 +142,10 @@ TEST_F( InstructionRecorderTestSuite, recordAddition)
 
 TEST_F( InstructionRecorderTestSuite, recordSubstraction)
 {
-    Int number1(sut, std::string("number1"));
-    Int number2(sut, std::string("number2")); 
-    Int number3(sut, std::string("number3"));
+    sut = IVariable::recorder;
+    Int number1( std::string("number1"));
+    Int number2( std::string("number2")); 
+    Int number3( std::string("number3"));
 
     number1 = number2 - number3;
 
@@ -151,9 +155,10 @@ TEST_F( InstructionRecorderTestSuite, recordSubstraction)
 
 TEST_F( InstructionRecorderTestSuite, recordMultiplication)
 {
-    Int number1(sut, std::string("number1"));
-    Int number2(sut, std::string("number2")); 
-    Int number3(sut, std::string("number3"));
+    sut = IVariable::recorder;
+    Int number1( std::string("number1"));
+    Int number2( std::string("number2")); 
+    Int number3( std::string("number3"));
 
     number1 = number2 * number3;
 
@@ -163,9 +168,10 @@ TEST_F( InstructionRecorderTestSuite, recordMultiplication)
 
 TEST_F( InstructionRecorderTestSuite, recordDivision)
 {
-    Int number1(sut, std::string("number1"));
-    Int number2(sut, std::string("number2")); 
-    Int number3(sut, std::string("number3"));
+    sut = IVariable::recorder;
+    Int number1( std::string("number1"));
+    Int number2( std::string("number2")); 
+    Int number3( std::string("number3"));
 
     number1 = number2 / number3;
 
@@ -175,9 +181,10 @@ TEST_F( InstructionRecorderTestSuite, recordDivision)
 
 TEST_F( InstructionRecorderTestSuite, recordGetFromArray)
 {
-    Int number(sut, std::string("number"));
-    GlobalArrayVariable<Int> intArray(sut, std::string("array"));
-    Int index(sut, std::string("index")); 
+    sut = IVariable::recorder;
+    Int number( std::string("number"));
+    GlobalArrayVariable<Int> intArray( std::string("array"));
+    Int index( std::string("index")); 
 
     number = intArray[index];
 
@@ -187,9 +194,10 @@ TEST_F( InstructionRecorderTestSuite, recordGetFromArray)
 
 TEST_F( InstructionRecorderTestSuite, recordStoreInArray)
 {
-    Int number(sut, std::string("number"));
-    GlobalArrayVariable<Int> intArray(sut, std::string("array"));
-    Int index(sut, std::string("index")); 
+    sut = IVariable::recorder;
+    Int number( std::string("number"));
+    GlobalArrayVariable<Int> intArray( std::string("array"));
+    Int index( std::string("index")); 
 
     intArray[index] = number;
 

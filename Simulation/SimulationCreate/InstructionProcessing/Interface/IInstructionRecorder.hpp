@@ -20,6 +20,8 @@ namespace InsPr
         virtual void startWhileLoop(boost::shared_ptr<SingleInstruction>) = 0;
         virtual void finishBlock() = 0;
         virtual boost::shared_ptr<IInstructionBlock> getBlock() = 0;
+        virtual void addInclude(std::string) = 0;
+        virtual std::vector<std::string> getIncludes() = 0;
     };
 }
 

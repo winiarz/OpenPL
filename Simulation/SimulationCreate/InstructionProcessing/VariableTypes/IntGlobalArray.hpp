@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Int.hpp"
+#include "Float.hpp"
 #include "Variable.hpp"
 #include "VectorVariable.hpp"
 

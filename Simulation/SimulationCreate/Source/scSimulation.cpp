@@ -52,18 +52,6 @@ void Simulation::FOR_PARALLEL( Int control_variable, Int start_value, Int end_va
 		control_variable.name << "++ )\n";
 }
 
-void Simulation::IF_INSTRUCTION( Bool condition)
-{
-  ostringstream& code = CreateKernel::getCreateKernel()->getSourceCode();
-  code << "if( " << condition.name << " )\n";
-}
-
-void Simulation::ELSE_INSTRUCTION()
-{
-  ostringstream& code = CreateKernel::getCreateKernel()->getSourceCode();
-  code << "else\n";  
-}
-
 void Simulation::WHILE_INSTRUCTION( Bool condition )
 {
   ostringstream& code = CreateKernel::getCreateKernel()->getSourceCode();

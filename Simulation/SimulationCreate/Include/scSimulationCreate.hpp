@@ -24,9 +24,7 @@ namespace OPL
       static InsPr::Float det(InsPr::MatrixFloat3x3);
       static InsPr::MatrixFloat3x3 invert(InsPr::MatrixFloat3x3);
       static void FOR_PARALLEL( Int, Int, Int );
-      static void IF_INSTRUCTION( Bool );
       static void WHILE_INSTRUCTION( Bool );
-      static void ELSE_INSTRUCTION();
       static void print_opening_brace();
       static void print_closing_brace();
     };

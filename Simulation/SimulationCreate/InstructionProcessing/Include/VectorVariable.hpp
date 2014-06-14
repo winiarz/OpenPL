@@ -73,6 +73,65 @@ typedef VectorVariable<VARIABLE_TYPE_FLOAT, VECTOR_VARIABLE_SIZE_2> Float2;
 typedef VectorVariable<VARIABLE_TYPE_FLOAT, VECTOR_VARIABLE_SIZE_3> Float3;
 typedef VectorVariable<VARIABLE_TYPE_FLOAT, VECTOR_VARIABLE_SIZE_4> Float4;
 
+#include "Int.hpp"
+
+template <NumericVariableTypes type>
+TypedNumericVariable<type> operator*(TypedNumericVariable<type> first, TypedNumericVariable<type> second)
+{
+    std::ostringstream sstream;
+    sstream << first.getName() << " * " << second.getName();
+    return TypedNumericVariable<type>( sstream.str());
+}
+
+template <NumericVariableTypes type, VectorVariableSize size>
+VectorVariable<type,size> operator*(VectorVariable<type,size> first, TypedNumericVariable<type> second)
+{
+    std::ostringstream sstream;
+    sstream << first.getName() << " * " << second.getName();
+    return VectorVariable<type,size>( sstream.str());
+}
+
+template <NumericVariableTypes type, VectorVariableSize size>
+VectorVariable<type,size> operator*(TypedNumericVariable<type> first, VectorVariable<type,size> second)
+{
+    std::ostringstream sstream;
+    sstream << first.getName() << " * " << second.getName();
+    return VectorVariable<type,size>( sstream.str());
+}
+
+template <NumericVariableTypes type, VectorVariableSize size>
+TypedNumericVariable<type> operator*(VectorVariable<type,size> first, VectorVariable<type,size> second)
+{
+    std::ostringstream sstream;
+    sstream << " ( ";
+    for (uint i=0; i<getVectorVariableSize(size); i++) 
+    {
+        sstream << first.getName() << ".s" << i << " * " << second.getName() << ".s" << i ;
+        if ( i < getVectorVariableSize(size)-1 ) 
+        {
+            sstream << " + ";
+        }
+    }
+
+    sstream << " ) ";
+    return TypedNumericVariable<type>( sstream.str());
+}
+
+template <NumericVariableTypes type>
+TypedNumericVariable<type> operator/(TypedNumericVariable<type> first, TypedNumericVariable<type> second)
+{
+    std::ostringstream sstream;
+    sstream << first.getName() << " / " << second.getName();
+    return TypedNumericVariable<type>( sstream.str());
+}
+
+template <NumericVariableTypes type, VectorVariableSize size>
+VectorVariable<type,size> operator/(VectorVariable<type,size> first, TypedNumericVariable<type> second)
+{
+    std::ostringstream sstream;
+    sstream << first.getName() << " / " << second.getName();
+    return VectorVariable<type,size>( sstream.str());
+}
 
 }
 

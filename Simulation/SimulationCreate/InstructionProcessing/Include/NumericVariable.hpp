@@ -84,24 +84,5 @@ namespace InsPr
         sstream << first.getName() << " - " << second.getName();
         return T( sstream.str());
     }
-
-    template<class T, class S>
-    S operator*(T first, S second)
-    {
-        static_assert(std::is_base_of<NumericVariable, T>(), "T must be NumericVariable!");
-        static_assert(std::is_base_of<NumericVariable, S>(), "S must be NumericVariable!");
-        std::ostringstream sstream;
-        sstream << first.getName() << " * " << second.getName();
-        return S( sstream.str());
-    }
-
-    template<class T>
-    T operator/(T first, T second)
-    {
-        static_assert(std::is_base_of<NumericVariable, T>(), "T must be NumericVariable!");
-        std::ostringstream sstream;
-        sstream << first.getName() << " / " << second.getName();
-        return T( sstream.str());
-    }
 }
 

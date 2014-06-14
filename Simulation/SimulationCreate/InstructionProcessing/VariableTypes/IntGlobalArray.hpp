@@ -2,6 +2,7 @@
 
 #include "Int.hpp"
 #include "Variable.hpp"
+#include "VectorVariable.hpp"
 
 namespace InsPr
 {

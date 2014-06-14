@@ -20,6 +20,13 @@ print_closing_brace();
         InsPr::IVariable::recorder->finishBlock(); \
     else
 
+#define WHILE( condition ) \
+    InsPr::IVariable::recorder->startWhileLoop( boost::make_shared<InsPr::SingleInstruction>( InsPr::Int( condition ).getName() ) ); \
+    for( int __CONTROL_TEMP_VARIABLE__ = 2; __CONTROL_TEMP_VARIABLE__ > 0; -- __CONTROL_TEMP_VARIABLE__ ) \
+    if ( __CONTROL_TEMP_VARIABLE__ == 1) \
+        InsPr::IVariable::recorder->finishBlock(); \
+    else
+
 #define IF_ELSE( condition, if_command, else_command ) \
 IF_INSTRUCTION( condition );\
 print_opening_brace();\
@@ -30,9 +37,4 @@ print_opening_brace();\
 else_command;\
 print_closing_brace();
 
-#define WHILE( condition, command ) \
-WHILE_INSTRUCTION( condition );\
-print_opening_brace();\
-command;\
-print_closing_brace();
 

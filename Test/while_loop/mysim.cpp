@@ -1,7 +1,8 @@
 
 #include "mysim.hpp"
 
-KERNEL_IMP1( MySim, while_test, IntArray, numbers)
+SIMSTEP_IMP1( MySim, while_test, IntArray, numbers)
 {
-  WHILE( numbers[0] > numbers[1], numbers[0] = numbers[0] / 2.0 )
+  WHILE( numbers[0] > numbers[1] )
+    numbers[0] = numbers[0] / InsPr::Int(2);
 }

@@ -32,6 +32,7 @@ public:
 };
 
 Int operator%(Int first, Int second);
+Int operator/( Int left, Int right );
 
 template <NumericVariableTypes type>
 Int operator<( TypedNumericVariable<type> left, TypedNumericVariable<type> right )
@@ -48,5 +49,7 @@ Int operator>( TypedNumericVariable<type> left, TypedNumericVariable<type> right
     sstream << left.getName() << " > " << right.getName();
     return Int( sstream.str());
 }
+
+
 
 }

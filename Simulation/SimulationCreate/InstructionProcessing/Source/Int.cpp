@@ -10,5 +10,12 @@ Int operator%(Int first, Int second)
     return Int( sstream.str());
 }
 
+Int operator/( Int left, Int right )
+{
+    std::ostringstream sstream;
+    sstream << left.getName() << " / " << right.getName();
+    return Int( sstream.str());
+}
+
 }
 

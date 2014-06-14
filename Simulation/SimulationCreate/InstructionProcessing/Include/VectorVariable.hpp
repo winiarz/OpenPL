@@ -133,5 +133,9 @@ VectorVariable<type,size> operator/(VectorVariable<type,size> first, TypedNumeri
     return VectorVariable<type,size>( sstream.str());
 }
 
+VectorVariable<VARIABLE_TYPE_FLOAT,VECTOR_VARIABLE_SIZE_3> // TODO: make it a template
+    operator^ (VectorVariable<VARIABLE_TYPE_FLOAT,VECTOR_VARIABLE_SIZE_3> first,
+               VectorVariable<VARIABLE_TYPE_FLOAT,VECTOR_VARIABLE_SIZE_3> second);
+
 }
 

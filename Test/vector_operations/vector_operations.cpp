@@ -15,7 +15,7 @@ SIMSTEP_IMP2( MySim, vec_dot, Float3Array, vectors, FloatArray, result)
    result[0] = InsPr::Float3(vectors[0]) * InsPr::Float3(vectors[1]);
 }
 
-KERNEL_IMP1( MySim, vec_cross, Float3Array, vectors)
+SIMSTEP_IMP1( MySim, vec_cross, Float3Array, vectors)
 {
   vectors[0] = vectors[1] ^ vectors[2];
 }

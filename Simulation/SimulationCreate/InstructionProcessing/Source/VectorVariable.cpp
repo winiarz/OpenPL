@@ -17,5 +17,15 @@ uint getVectorVariableSize(VectorVariableSize size)
     return 0;
 }
 
+VectorVariable<VARIABLE_TYPE_FLOAT,VECTOR_VARIABLE_SIZE_3> // TODO: make it a template
+    operator^ (VectorVariable<VARIABLE_TYPE_FLOAT,VECTOR_VARIABLE_SIZE_3> first,
+               VectorVariable<VARIABLE_TYPE_FLOAT,VECTOR_VARIABLE_SIZE_3> second)
+{
+    IVariable::recorder->addInclude("crossOperation.cl");
+    std::ostringstream sstream;
+    sstream << " floatCrossProduct( " << first.getName() << ", " << second.getName() << ") ";
+    return VectorVariable<VARIABLE_TYPE_FLOAT,VECTOR_VARIABLE_SIZE_3>( sstream.str());
+}
+
 }
 

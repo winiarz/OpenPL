@@ -23,7 +23,8 @@ boost::shared_ptr<ISimStep> SimStepCreator::create()
     auto instructionBlock = recorder->getBlock();
     auto kernel = boost::make_shared<InsPr::Kernel>("kernelName",
                                                     args,
-                                                    instructionBlock);
+                                                    instructionBlock,
+                                                    recorder->getIncludes());
     return boost::make_shared<SingleKernelSimStep>(kernel);
 }
 

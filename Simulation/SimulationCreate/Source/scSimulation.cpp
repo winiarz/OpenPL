@@ -44,14 +44,6 @@ InsPr::MatrixFloat3x3 Simulation::invert(InsPr::MatrixFloat3x3 m)
   return InsPr::MatrixFloat3x3(variableName.str());
 }
 
-void Simulation::FOR_PARALLEL( Int control_variable, Int start_value, Int end_value )
-{
-  ostringstream& code = CreateKernel::getCreateKernel()->getSourceCode();
-  code << "for( " << control_variable.name << " = " << start_value.name << "; " << 
-		control_variable.name << " < " << end_value.name << "; " << 
-		control_variable.name << "++ )\n";
-}
-
 void Simulation::print_opening_brace()
 {
   ostringstream& code = CreateKernel::getCreateKernel()->getSourceCode();

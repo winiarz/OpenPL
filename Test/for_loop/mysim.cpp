@@ -1,12 +1,14 @@
 
 #include "mysim.hpp"
 
-KERNEL_IMP1( MySim, power, IntArray, numbers)
+SIMSTEP_IMP1( MySim, power, IntArray, numbers)
 {
-  Int a = numbers[1];
-  Int n = numbers[2];
-  Int result = 1;
-  Int i;
-  FOR( i,0,n, result = result * a)
+  InsPr::Int a = numbers[1];
+  InsPr::Int n = numbers[2];
+  InsPr::Int result;
+  result = 1;
+  InsPr::Int i;
+  FOR( i = 0, i < n, i = i + 1 )
+    result = result * a;
   numbers[0] = result;
 }

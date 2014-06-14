@@ -32,6 +32,7 @@ public:
 };
 
 Int operator%(Int first, Int second);
+Int operator+( Int left, Int right );
 Int operator/( Int left, Int right );
 
 template <NumericVariableTypes type>

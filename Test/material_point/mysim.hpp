@@ -13,5 +13,4 @@ public:
   KERNEL_DEF1( moving, MaterialPointArray );
   KERNEL_DEF2( apply_force, MaterialPointArray, Float3Array);
   KERNEL_DEF2( dist, MaterialPointArray, FloatArray );
-  KERNEL_DEF2( colision, MaterialPointArray, IntArray );
 };

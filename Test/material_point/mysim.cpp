@@ -26,7 +26,3 @@ KERNEL_IMP2( MySim, dist, MaterialPointArray, points, FloatArray, result)
   result[0] = dist_sq( points[0], points[1]);
 }
 
-KERNEL_IMP2( MySim, colision, MaterialPointArray, points, IntArray, results)
-{
-  
-}

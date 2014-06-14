@@ -8,16 +8,16 @@ namespace OPL
 {
   namespace SimCreate
   {
-    class Matrix3x3 : public Variable {
+    class MatrixFloat3x3 : public Variable {
     public:
-      Matrix3x3();
-      Matrix3x3(string);
-      Matrix3x3 operator=(Matrix3x3);
-      Matrix3x3 operator+(Matrix3x3);
-      Matrix3x3 operator*(Matrix3x3);
+      MatrixFloat3x3();
+      MatrixFloat3x3(string);
+      MatrixFloat3x3 operator=(MatrixFloat3x3);
+      MatrixFloat3x3 operator+(MatrixFloat3x3);
+      MatrixFloat3x3 operator*(MatrixFloat3x3);
     };
     
-    Matrix3x3 operator*(Float,Matrix3x3);
+    MatrixFloat3x3 operator*(Float,MatrixFloat3x3);
   }
 }
 

@@ -24,14 +24,6 @@ public:
     {
         recordDeclaration();
     }
-
-    VectorVariable( int constant ) :
-        NumericVariable()
-    {
-        std::ostringstream stringstream;
-        stringstream << constant;
-        name = stringstream.str();
-    }
         
     VectorVariable(std::string p_name) :
         NumericVariable(),

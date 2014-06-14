@@ -23,7 +23,7 @@ Float Simulation::dist_sq(MaterialPoint m1, MaterialPoint m2)
   return Float (variableName.str() );
 }
 
-Float Simulation::det(Matrix4x4 m)
+Float Simulation::det(MatrixFloat4x4 m)
 {
   m.simulation.addInclude("matrix_determinant.cl");
   ostringstream variableName;
@@ -31,7 +31,14 @@ Float Simulation::det(Matrix4x4 m)
   return Float(variableName.str());
 }
 
-Float Simulation::det(Matrix3x3 m)
+InsPr::Float Simulation::det(InsPr::MatrixFloat4x4 m)
+{
+  ostringstream variableName;
+  variableName << "matrix4x4_determinant(" << m.getName() << ") ";
+  return InsPr::Float(variableName.str());
+}
+
+Float Simulation::det(MatrixFloat3x3 m)
 {
   m.simulation.addInclude("matrix_determinant.cl");
   ostringstream variableName;
@@ -39,12 +46,26 @@ Float Simulation::det(Matrix3x3 m)
   return Float(variableName.str());
 }
 
-Matrix3x3 Simulation::invert(Matrix3x3 m)
+InsPr::Float Simulation::det(InsPr::MatrixFloat3x3 m)
+{
+  ostringstream variableName;
+  variableName << "matrix3x3_determinant(" << m.getName() << ") ";
+  return InsPr::Float(variableName.str());
+}
+
+MatrixFloat3x3 Simulation::invert(MatrixFloat3x3 m)
 {
   m.simulation.addInclude("matrix_invert.cl");
   ostringstream variableName;
   variableName << "invert_matrix3x3(" << m.name << ") ";
-  return Matrix3x3(variableName.str());
+  return MatrixFloat3x3(variableName.str());
+}
+
+InsPr::MatrixFloat3x3 Simulation::invert(InsPr::MatrixFloat3x3 m)
+{
+  ostringstream variableName;
+  variableName << "invertMatrix3x3(" << m.getName() << ") ";
+  return InsPr::MatrixFloat3x3(variableName.str());
 }
 
 void Simulation::FOR_PARALLEL( Int control_variable, Int start_value, Int end_value )

@@ -3,15 +3,15 @@
 #include "SingleInstruction.hpp"
 using namespace OPL::SimCreate;
 
-Matrix3x3::Matrix3x3() : Variable("float16")
+MatrixFloat3x3::MatrixFloat3x3() : Variable("float16")
 {
 }
 
-Matrix3x3::Matrix3x3(string p_name) : Variable(p_name,"float16")
+MatrixFloat3x3::MatrixFloat3x3(string p_name) : Variable(p_name,"float16")
 {
 }
 
-Matrix3x3 Matrix3x3::operator=(Matrix3x3 rValue)
+MatrixFloat3x3 MatrixFloat3x3::operator=(MatrixFloat3x3 rValue)
 {
     std::ostringstream sstream;
     sstream << this->name << " = " << rValue.name << ";\n";
@@ -20,24 +20,24 @@ Matrix3x3 Matrix3x3::operator=(Matrix3x3 rValue)
     return *this;
 }
 
-Matrix3x3 Matrix3x3::operator+(Matrix3x3 added)
+MatrixFloat3x3 MatrixFloat3x3::operator+(MatrixFloat3x3 added)
 {
   ostringstream variableName;
   variableName << " ( " << name << " + " << added.name << " ) ";
-  return Matrix3x3(  variableName.str());
+  return MatrixFloat3x3(  variableName.str());
 }
 
-Matrix3x3 Matrix3x3::operator*(Matrix3x3 added)
+MatrixFloat3x3 MatrixFloat3x3::operator*(MatrixFloat3x3 added)
 {
   simulation.addInclude("matrix_multiply.cl");
   ostringstream variableName;
   variableName << " matrix_multiply3x3( " << name << ", " << added.name << " ) ";
-  return Matrix3x3(  variableName.str());
+  return MatrixFloat3x3(  variableName.str());
 }
 
-Matrix3x3 OPL::SimCreate::operator*(Float scalar,Matrix3x3 matrix)
+MatrixFloat3x3 OPL::SimCreate::operator*(Float scalar,MatrixFloat3x3 matrix)
 {
   ostringstream variableName;
   variableName << " ( " << scalar.name << " * " << matrix.name << " ) ";
-  return Matrix3x3(  variableName.str());
+  return MatrixFloat3x3(  variableName.str());
 }

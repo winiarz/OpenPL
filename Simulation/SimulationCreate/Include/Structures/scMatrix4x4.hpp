@@ -10,16 +10,16 @@ namespace OPL
   {
     using namespace std;
     
-    class Matrix4x4 : public Variable {
+    class MatrixFloat4x4 : public Variable {
     public:
-      Matrix4x4();
-      Matrix4x4(string);
-      Matrix4x4 operator=(Matrix4x4);
-      Matrix4x4 operator+(Matrix4x4);
-      Matrix4x4 operator*(Matrix4x4);
+      MatrixFloat4x4();
+      MatrixFloat4x4(string);
+      MatrixFloat4x4 operator=(MatrixFloat4x4);
+      MatrixFloat4x4 operator+(MatrixFloat4x4);
+      MatrixFloat4x4 operator*(MatrixFloat4x4);
     };
     
-    Matrix4x4 operator*(Float,Matrix4x4);
+    MatrixFloat4x4 operator*(Float,MatrixFloat4x4);
   }
 }
 

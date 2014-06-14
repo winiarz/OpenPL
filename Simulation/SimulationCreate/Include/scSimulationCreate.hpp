@@ -5,6 +5,8 @@
 #include "scStructures.hpp"
 #include "scArray.hpp"
 #include "scSizeOf.hpp"
+#include "Float.hpp"
+#include "MatrixVariable.hpp"
 
 namespace OPL
 {
@@ -18,9 +20,12 @@ namespace OPL
       static void move(MaterialPoint);
       static void move(MaterialPointArray&,int,int);
       static Float dist_sq(MaterialPoint, MaterialPoint);
-      static Float det(Matrix4x4);
-      static Float det(Matrix3x3);
-      static Matrix3x3 invert(Matrix3x3);
+      static Float det(MatrixFloat4x4);
+      static InsPr::Float det(InsPr::MatrixFloat4x4);
+      static Float det(MatrixFloat3x3);
+      static InsPr::Float det(InsPr::MatrixFloat3x3);
+      static MatrixFloat3x3 invert(MatrixFloat3x3);
+      static InsPr::MatrixFloat3x3 invert(InsPr::MatrixFloat3x3);
       static void FOR_PARALLEL( Int, Int, Int );
       static void IF_INSTRUCTION( Bool );
       static void WHILE_INSTRUCTION( Bool );

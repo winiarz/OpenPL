@@ -21,6 +21,10 @@ namespace InsPr
 
         virtual std::string getName() = 0;
         virtual std::string getTypeName() = 0;
+        virtual std::vector<std::string> getRequiredIncludes()
+        {
+            return std::vector<std::string>();
+        }
 
         void recordAssigment( IVariable& rvalue)
         {

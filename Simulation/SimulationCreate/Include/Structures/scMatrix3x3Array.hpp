@@ -9,11 +9,11 @@ namespace OPL
 {
   namespace SimCreate
   {
-    class Matrix3x3Array : public Array {
+    class MatrixFloat3x3Array : public Array {
     public:
-      Matrix3x3Array(string);
+      MatrixFloat3x3Array(string);
       static string getTypeName();
-      Matrix3x3 operator[](Int n);
+      MatrixFloat3x3 operator[](Int n);
     };
   }
 }

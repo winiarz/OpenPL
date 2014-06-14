@@ -7,15 +7,15 @@ namespace OPL
 {
   namespace SimExec
   {
-    class IMatrix4x4Array : public ClTypedMemory<LocalMatrix4x4> {
+    class IMatrixFloat4x4Array : public ClTypedMemory<LocalMatrix4x4> {
     public:
-      IMatrix4x4Array(int);
+      IMatrixFloat4x4Array(int);
     };
     
     template<int n>
-    class Matrix4x4Array : public IMatrix4x4Array {
+    class MatrixFloat4x4Array : public IMatrixFloat4x4Array {
     public:
-      Matrix4x4Array() : IMatrix4x4Array(n) {}
+      MatrixFloat4x4Array() : IMatrixFloat4x4Array(n) {}
       
     };
   }

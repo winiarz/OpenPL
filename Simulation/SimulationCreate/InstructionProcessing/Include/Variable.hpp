@@ -37,6 +37,11 @@ namespace InsPr
             return sstream.str();
         }
 
+        virtual std::vector<std::string> getRequiredIncludes()
+        {
+            return T("").getRequiredIncludes();
+        }
+
         T operator[](Int nb)
         {
             std::ostringstream sstream;

@@ -15,6 +15,7 @@ InstructionProcessingObjs+=     $(InstructionProcessingObj)/IfInstruction.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/Int.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/NumericVariable.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/VectorVariable.o
+InstructionProcessingObjs+=     $(InstructionProcessingObj)/MatrixVariable.o
 
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/FunctionTestSuite.o
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/KernelTestSuite.o

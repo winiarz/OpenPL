@@ -4,6 +4,7 @@
 #include "Float.hpp"
 #include "Variable.hpp"
 #include "VectorVariable.hpp"
+#include "MatrixVariable.hpp"
 
 namespace InsPr
 {
@@ -16,5 +17,8 @@ namespace InsPr
     typedef GlobalArrayVariable<Float2>  Float2ArrayGlobal;
     typedef GlobalArrayVariable<Float3>  Float3ArrayGlobal;
     typedef GlobalArrayVariable<Float4>  Float4ArrayGlobal;
+
+    typedef GlobalArrayVariable<MatrixFloat3x3> MatrixFloat3x3ArrayGlobal;
+    typedef GlobalArrayVariable<MatrixFloat4x4> MatrixFloat4x4ArrayGlobal;
 }
 

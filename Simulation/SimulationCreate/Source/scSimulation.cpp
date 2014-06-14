@@ -23,14 +23,6 @@ Float Simulation::dist_sq(MaterialPoint m1, MaterialPoint m2)
   return Float (variableName.str() );
 }
 
-Float Simulation::det(MatrixFloat4x4 m)
-{
-  m.simulation.addInclude("matrix_determinant.cl");
-  ostringstream variableName;
-  variableName << "matrix_determinant_4x4(" << m.name << ") ";
-  return Float(variableName.str());
-}
-
 InsPr::Float Simulation::det(InsPr::MatrixFloat4x4 m)
 {
   ostringstream variableName;
@@ -38,27 +30,11 @@ InsPr::Float Simulation::det(InsPr::MatrixFloat4x4 m)
   return InsPr::Float(variableName.str());
 }
 
-Float Simulation::det(MatrixFloat3x3 m)
-{
-  m.simulation.addInclude("matrix_determinant.cl");
-  ostringstream variableName;
-  variableName << "matrix_determinant_3x3(" << m.name << ") ";
-  return Float(variableName.str());
-}
-
 InsPr::Float Simulation::det(InsPr::MatrixFloat3x3 m)
 {
   ostringstream variableName;
   variableName << "matrix3x3_determinant(" << m.getName() << ") ";
   return InsPr::Float(variableName.str());
-}
-
-MatrixFloat3x3 Simulation::invert(MatrixFloat3x3 m)
-{
-  m.simulation.addInclude("matrix_invert.cl");
-  ostringstream variableName;
-  variableName << "invert_matrix3x3(" << m.name << ") ";
-  return MatrixFloat3x3(variableName.str());
 }
 
 InsPr::MatrixFloat3x3 Simulation::invert(InsPr::MatrixFloat3x3 m)

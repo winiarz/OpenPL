@@ -20,11 +20,8 @@ namespace OPL
       static void move(MaterialPoint);
       static void move(MaterialPointArray&,int,int);
       static Float dist_sq(MaterialPoint, MaterialPoint);
-      static Float det(MatrixFloat4x4);
       static InsPr::Float det(InsPr::MatrixFloat4x4);
-      static Float det(MatrixFloat3x3);
       static InsPr::Float det(InsPr::MatrixFloat3x3);
-      static MatrixFloat3x3 invert(MatrixFloat3x3);
       static InsPr::MatrixFloat3x3 invert(InsPr::MatrixFloat3x3);
       static void FOR_PARALLEL( Int, Int, Int );
       static void IF_INSTRUCTION( Bool );

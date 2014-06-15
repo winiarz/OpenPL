@@ -40,14 +40,3 @@ InsPr::MatrixFloat3x3 Simulation::invert(InsPr::MatrixFloat3x3 m)
   return InsPr::MatrixFloat3x3(variableName.str());
 }
 
-void Simulation::print_opening_brace()
-{
-  ostringstream& code = CreateKernel::getCreateKernel()->getSourceCode();
-  code << "{\n";
-}
-
-void Simulation::print_closing_brace()
-{
-  ostringstream& code = CreateKernel::getCreateKernel()->getSourceCode();
-  code << "}\n";
-}

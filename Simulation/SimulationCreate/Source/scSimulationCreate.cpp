@@ -2,6 +2,7 @@
 #include "InstructionRecorder.hpp"
 #include "clcc.hpp"
 #include "Kernel.hpp"
+#include "scCreateKernel.hpp"
 using namespace OPL::SimCreate;
 
 CreateKernel* CreateKernel::actualCreateKernel;

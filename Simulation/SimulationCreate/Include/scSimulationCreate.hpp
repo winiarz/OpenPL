@@ -1,6 +1,5 @@
 #pragma once
 
-#include "scVariable.hpp"
 #include "scSizeOf.hpp"
 #include "Float.hpp"
 #include "MatrixVariable.hpp"

@@ -1,8 +1,5 @@
 #pragma once
 
-using namespace OPL::SimCreate;
-using namespace OPL::SimExec;
-
 #include "scSimStepRecordDefines.hpp"
 #include "scSimStepObjectDefines.hpp"
 #include "scSimStepCreatorDefines.hpp"

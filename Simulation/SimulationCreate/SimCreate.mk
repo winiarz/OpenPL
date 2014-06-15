@@ -14,10 +14,6 @@ SimCreateLibObj+=    $(SimCreateObj)/scSingleKernelSimStep.o
 
 SimCreateStructuresObj=  $(SimCreateObj)/scMaterialPointArray.o
 SimCreateStructuresObj+= $(SimCreateObj)/scMaterialPoint.o
-SimCreateStructuresObj+= $(SimCreateObj)/scMatrix3x3Array.o
-SimCreateStructuresObj+= $(SimCreateObj)/scMatrix3x3.o
-SimCreateStructuresObj+= $(SimCreateObj)/scMatrix4x4Array.o
-SimCreateStructuresObj+= $(SimCreateObj)/scMatrix4x4.o
 
 .PRECIOUS: $(SimCreateLibObj) $(SimCreateAutogenIncludes) $(SimCreateAutogenSources) 
 

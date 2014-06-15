@@ -11,34 +11,6 @@
 
 #define MEMORY( type, name, size) OPL::SimExec::type<size> name;
 
-// ----------- KERNEL DEF/IMP 0
-
-#define KERNEL_DEF0( kernel_name ) static void __OPL_ ## kernel_name();\
-                                   void kernel_name();\
-                                   static ClKernel* __OPL_KERNEL_ ## kernel_name;
-                                   
-#define KERNEL_IMP0( class_name, kernel_name) \
-ClKernel* class_name::__OPL_KERNEL_ ## kernel_name = NULL;\
-void class_name :: kernel_name()\
-{\
-  OPL::SimCreate::KernelToCreateSet::getKernelToCreateSet().loadAndRunKernel0( &__OPL_KERNEL_ ## kernel_name, #kernel_name, OPL::SimCreate::CreateKernel::createFileName( #class_name, #kernel_name) );\
-}\
-class KERNEL_CREATOR_ ## class_name ## _ ## kernel_name : public OPL::SimCreate::CreateKernel {\
-public:\
-  KERNEL_CREATOR_ ## class_name ## _ ## kernel_name() : OPL::SimCreate::CreateKernel( #class_name , #kernel_name )\
-  { OPL::SimCreate::KernelToCreateSet::getKernelToCreateSet().addKernel(this); }\
-  int createKernel()\
-  {\
-    start( #kernel_name );  \
-    endOfArgs();  \
-    class_name :: __OPL_ ## kernel_name();\
-    createBinaryFile();\
-    return 0;\
-  }\
-}_KERNEL_ ## class_name ## _ ## kernel_name;\
-using namespace OPL::SimCreate;\
-void class_name :: __OPL_ ## kernel_name()
-
 // ----------- KERNEL DEF/IMP 1
 
 #define KERNEL_DEF1( kernel_name, arg1 ) \

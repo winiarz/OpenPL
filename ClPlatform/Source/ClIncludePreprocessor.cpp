@@ -13,12 +13,17 @@ boost::shared_ptr<std::string> ClIncludePreprocessor::replaceIncludes( boost::sh
     while ( std::getline( sourceStream, line) ) 
     {
         if ( isLineIncludeDirective(line) )
-        {
+        { 
             std::string includeFilename = getIncludeFilename(line);
             std::string includeFilePath = getIncludeFilePath(includeFilename, includeDirectories);
-            boost::shared_ptr<std::string> includeText = readFile(includeFilePath);
-			std::string textWithReplacedIncludes = *replaceIncludes(includeText, includeDirectories);
-            output << textWithReplacedIncludes;
+
+            if ( includedFilePaths.find(includeFilePath) == includedFilePaths.end() )
+            {
+                includedFilePaths.insert(includeFilePath);
+                boost::shared_ptr<std::string> includeText = readFile(includeFilePath);
+                std::string textWithReplacedIncludes = *replaceIncludes(includeText, includeDirectories);
+                output << textWithReplacedIncludes;
+            }
         }
         else
         {

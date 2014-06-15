@@ -2,19 +2,20 @@
 
 #include "scInt.hpp"
 #include "scVariable.hpp"
+#include "Int.hpp"
 
 namespace OPL
 {
   namespace SimCreate
   {
     Int SizeOf(Variable&);
-    
+
     template<typename T>
-    Int SizeOf()
+    InsPr::Int SizeOf()
     {
       ostringstream variableName;
-      variableName << "sizeof (" << T::getTypeName() << " ) ";
-      return Int( variableName.str());
+      variableName << "sizeof (" << T("").getTypeName() << " ) ";
+      return InsPr::Int( variableName.str());
     }
     
     template<typename T>

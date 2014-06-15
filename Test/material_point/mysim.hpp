@@ -8,9 +8,9 @@ public:
   MEMORY( IntArray, numbers, 10);
   MEMORY( Float3Array, forces, 2 );
   MEMORY( FloatArray, result, 1);
-  KERNEL_DEF2( size_of_material_point, MaterialPointArray, IntArray);
-  KERNEL_DEF1( material_point_copy, MaterialPointArray );
-  KERNEL_DEF1( moving, MaterialPointArray );
-  KERNEL_DEF2( apply_force, MaterialPointArray, Float3Array);
-  KERNEL_DEF2( dist, MaterialPointArray, FloatArray );
+  SIMSTEP_DEF2( size_of_material_point, MaterialPointArray, IntArray);
+  SIMSTEP_DEF1( material_point_copy, MaterialPointArray );
+  SIMSTEP_DEF1( moving, MaterialPointArray );
+  SIMSTEP_DEF2( apply_force, MaterialPointArray, Float3Array);
+  SIMSTEP_DEF2( dist, MaterialPointArray, FloatArray );
 };

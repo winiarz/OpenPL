@@ -34,6 +34,7 @@ public:
 Int operator%(Int first, Int second);
 Int operator+( Int left, Int right );
 Int operator/( Int left, Int right );
+Int SizeOf( IVariable& );
 
 template <NumericVariableTypes type>
 Int operator<( TypedNumericVariable<type> left, TypedNumericVariable<type> right )

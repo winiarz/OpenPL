@@ -1,3 +1,4 @@
+#include "material_point.cl"
 
 void material_point_move(__global struct MaterialPoint* p,int first,int last,int step)
 {

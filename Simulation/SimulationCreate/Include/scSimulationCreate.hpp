@@ -2,7 +2,6 @@
 
 #include "scVariable.hpp"
 #include "scTypes.hpp"
-#include "scStructures.hpp"
 #include "scArray.hpp"
 #include "scSizeOf.hpp"
 #include "Float.hpp"
@@ -18,10 +17,7 @@ namespace OPL
     
     class Simulation {
     public:
-      static void move(MaterialPoint);
       static void move(InsPr::MaterialPoint);
-      static void move(MaterialPointArray&,int,int);
-      static Float dist_sq(MaterialPoint, MaterialPoint);
       static InsPr::Float dist_sq(InsPr::MaterialPoint, InsPr::MaterialPoint);
       static InsPr::Float det(InsPr::MatrixFloat4x4);
       static InsPr::Float det(InsPr::MatrixFloat3x3);

@@ -12,15 +12,12 @@ SimCreateLibObj+=    $(SimCreateObj)/scKernelToCreateSet.o
 SimCreateLibObj+=    $(SimCreateObj)/scSimStepCreator.o
 SimCreateLibObj+=    $(SimCreateObj)/scSingleKernelSimStep.o
 
-SimCreateStructuresObj=  $(SimCreateObj)/scMaterialPointArray.o
-SimCreateStructuresObj+= $(SimCreateObj)/scMaterialPoint.o
-
 .PRECIOUS: $(SimCreateLibObj) $(SimCreateAutogenIncludes) $(SimCreateAutogenSources) 
 
 filesToClean+= $(SimCreateObj)/*.o
 filesToClean+= $(SimCreateAutogenSources) $(SimCreateAutogenIncludes) $(SimCreateObjFromAutogen)
 
-$(libSimCreate): $(SimCreateLibObj) $(SimCreateObjFromAutogen) $(SimCreateStructuresObj)
+$(libSimCreate): $(SimCreateLibObj) $(SimCreateObjFromAutogen)
 	@echo "\tLD\t"SimulationCreate.a
 	@ar rvs $@ $^ 2> /dev/null > /dev/null
 

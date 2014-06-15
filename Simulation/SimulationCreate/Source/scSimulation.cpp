@@ -5,31 +5,12 @@
 #include "SingleInstruction.hpp"
 using namespace OPL::SimCreate;
 
-void Simulation::move(MaterialPoint m)
-{
-  m.simulation.addInclude("material_point_move.cl");
-  m.file << "material_point_move ( &" << m.name << ",0,1,1 );\n";
-}
-
 void Simulation::move(InsPr::MaterialPoint m)
 {
   InsPr::IVariable::recorder->addInclude("material_point_move.cl");
   std::ostringstream sstream;
   sstream << "material_point_move ( &" << m.getName() << ",0,1,1 );\n";
   (*InsPr::IVariable::recorder) << boost::make_shared<InsPr::SingleInstruction>(sstream.str());
-}
-
-void Simulation::move(MaterialPointArray& m,int start,int end)
-{
-  m.simulation.addInclude("material_point_move.cl");
-  m.file << "material_point_move ( " << m.name << "," << start << "+get_global_id(0)," << end << "," << " get_global_size(0));\n";
-}
-
-Float Simulation::dist_sq(MaterialPoint m1, MaterialPoint m2)
-{
-  ostringstream variableName;
-  variableName << "material_point_dist_sq(" << m1.name << ", " << m2.name << " ) ";
-  return Float (variableName.str() );
 }
 
 InsPr::Float Simulation::dist_sq(InsPr::MaterialPoint m1, InsPr::MaterialPoint m2)

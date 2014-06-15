@@ -1,6 +1,5 @@
 #include "ClPlatform.hpp"
 #include "scSimulationCreate.hpp"
-#include "scTypes.hpp"
 #include "logs.hpp"
 #include "SingleInstruction.hpp"
 using namespace OPL::SimCreate;

@@ -1,9 +1,10 @@
 #pragma once
 
-#include <string>
+#include "stl.hpp"
+#include "LogStream.hpp"
 #include <string.h>
-#include <fstream>
-#include <iostream>
+
+
 
 #define DEBUG_ENABLED 1
 
@@ -19,10 +20,14 @@ std::ostream& error(int,std::string);
 #define FILENAME (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 
 const char debugFileName[] = "debug.txt";
-#define DEBUG \
+#define DEBUG2 \
     if ( debugEnabled ) \
         debug(__LINE__,FILENAME)
+
+#define DEBUG \
+    if ( debugEnabled ) \
+        LogStream(__LINE__,FILENAME,LOG_LEVEL_DEBUG)
     
 #define ERROR \
-    debug(__LINE__,FILENAME)
+    LogStream(__LINE__,FILENAME,LOG_LEVEL_ERROR)
 

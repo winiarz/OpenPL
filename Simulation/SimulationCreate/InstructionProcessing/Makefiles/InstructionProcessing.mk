@@ -40,7 +40,7 @@ $(libInstructionProcessing): $(InstructionProcessingObjs)
 	@echo "\tLD\t"libInstructionProcessing
 	@ar rvs $@ $^ 2> /dev/null > /dev/null
 
-Bin/Test/InstructionProcessingTS: $(InstructionProcessingTestObjs) $(allLibs) Common/Obj/logs.o
+Bin/Test/InstructionProcessingTS: $(InstructionProcessingTestObjs) $(allLibs) Common/Obj/logs.o Common/Obj/LogStream.o
 	@echo "\tLD\t"$@
 	@g++ $^ -o $@ $(GTest) $(GMock) $(OpenClLib) $(OpenGL)
 

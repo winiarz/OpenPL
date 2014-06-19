@@ -2,6 +2,7 @@
 
 LogsObj=      $(CommonObj)/logs.o
 LogsObj+=     $(CommonObj)/Clock.o
+LogsObj+=     $(CommonObj)/LogStream.o
 
 filesToClean+= $(CommonObj)/*.o
 filesToClean+= $(libLogs)

@@ -6,7 +6,7 @@
 class IClIncludePreprocessor
 {
 public:
-    virtual boost::shared_ptr<std::string> replaceIncludes( boost::shared_ptr<std::string> source,
-                                                            std::set<std::string>& includeDirectories ) = 0;
+    virtual std::shared_ptr<std::string> replaceIncludes( std::shared_ptr<std::string> source,
+                                                          std::set<std::string>& includeDirectories ) = 0;
 };
 

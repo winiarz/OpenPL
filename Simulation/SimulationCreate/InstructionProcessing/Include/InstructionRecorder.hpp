@@ -9,23 +9,23 @@ namespace InsPr
     public:
         InstructionRecorder();
 
-        virtual void operator<<(boost::shared_ptr<IInstruction>);
+        virtual void operator<<(std::shared_ptr<IInstruction>);
         virtual void startBlock();
-        virtual void startIf(boost::shared_ptr<SingleInstruction>);
+        virtual void startIf(std::shared_ptr<SingleInstruction>);
         virtual void startElse();
-        virtual void startForLoop(boost::shared_ptr<SingleInstruction>,
-                                  boost::shared_ptr<SingleInstruction>,
-                                  boost::shared_ptr<SingleInstruction> );
-        virtual void startWhileLoop(boost::shared_ptr<SingleInstruction>);
+        virtual void startForLoop(std::shared_ptr<SingleInstruction>,
+                                  std::shared_ptr<SingleInstruction>,
+                                  std::shared_ptr<SingleInstruction> );
+        virtual void startWhileLoop(std::shared_ptr<SingleInstruction>);
         virtual void finishBlock();
-        virtual boost::shared_ptr<IInstructionBlock> getBlock();
+        virtual std::shared_ptr<IInstructionBlock> getBlock();
 
         virtual void addInclude(std::string);
         virtual std::vector<std::string> getIncludes();
     private:
         void closeBlock();
         void finishAllBlocks();
-        std::stack<boost::shared_ptr<IInstructionBlock>> instructionBlocks;
+        std::stack<std::shared_ptr<IInstructionBlock>> instructionBlocks;
         std::vector<std::string> includes;
         bool shouldCloseBlock = false;
     };

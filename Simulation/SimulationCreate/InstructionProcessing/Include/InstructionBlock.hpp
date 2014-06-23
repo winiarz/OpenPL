@@ -10,9 +10,9 @@ namespace InsPr
     public:
         virtual uint getAlternativesCount();
         virtual std::string getAlternative(uint);
-        virtual void addInstruction(boost::shared_ptr<IInstruction>);
+        virtual void addInstruction(std::shared_ptr<IInstruction>);
     private:
-        std::vector<boost::shared_ptr<IInstruction> > instructions;
+        std::vector<std::shared_ptr<IInstruction> > instructions;
     };
 }
 

@@ -12,7 +12,7 @@ InstructionRecorder::InstructionRecorder() :
     startBlock();
 }
 
-void InstructionRecorder::operator<<(boost::shared_ptr<IInstruction> instruction)
+void InstructionRecorder::operator<<(std::shared_ptr<IInstruction> instruction)
 {
     if ( shouldCloseBlock ) 
         closeBlock();
@@ -23,7 +23,7 @@ void InstructionRecorder::startBlock()
 {
     if ( shouldCloseBlock ) 
         closeBlock();
-    instructionBlocks.push(boost::make_shared<InstructionBlock>());
+    instructionBlocks.push(std::make_shared<InstructionBlock>());
 }
 
 void InstructionRecorder::finishBlock()
@@ -33,7 +33,7 @@ void InstructionRecorder::finishBlock()
 
 void InstructionRecorder::closeBlock()
 {
-    boost::shared_ptr<IInstructionBlock> topBlock = instructionBlocks.top();
+    std::shared_ptr<IInstructionBlock> topBlock = instructionBlocks.top();
     instructionBlocks.pop();
     instructionBlocks.top()->addInstruction(topBlock);
     shouldCloseBlock = false;
@@ -47,32 +47,32 @@ void InstructionRecorder::finishAllBlocks()
     }
 }
 
-boost::shared_ptr<IInstructionBlock> InstructionRecorder::getBlock()
+std::shared_ptr<IInstructionBlock> InstructionRecorder::getBlock()
 {
     finishAllBlocks();
-    boost::shared_ptr<IInstructionBlock> result = instructionBlocks.top();
-    instructionBlocks = std::stack<boost::shared_ptr<IInstructionBlock>>();
+    std::shared_ptr<IInstructionBlock> result = instructionBlocks.top();
+    instructionBlocks = std::stack<std::shared_ptr<IInstructionBlock>>();
     startBlock();
     return result;
 }
 
-void InstructionRecorder::startForLoop(boost::shared_ptr<SingleInstruction> startInstruction,
-                                       boost::shared_ptr<SingleInstruction> continueCondition,
-                                       boost::shared_ptr<SingleInstruction> afterCircuitInstruction)
+void InstructionRecorder::startForLoop(std::shared_ptr<SingleInstruction> startInstruction,
+                                       std::shared_ptr<SingleInstruction> continueCondition,
+                                       std::shared_ptr<SingleInstruction> afterCircuitInstruction)
 {
-    instructionBlocks.push(boost::make_shared<ForLoop>(startInstruction,
+    instructionBlocks.push(std::make_shared<ForLoop>(startInstruction,
                                                        continueCondition,
                                                        afterCircuitInstruction) );
 }
 
-void InstructionRecorder::startWhileLoop(boost::shared_ptr<SingleInstruction> condition)
+void InstructionRecorder::startWhileLoop(std::shared_ptr<SingleInstruction> condition)
 {
-    instructionBlocks.push(boost::make_shared<WhileLoop>(condition) );
+    instructionBlocks.push(std::make_shared<WhileLoop>(condition) );
 }
 
-void InstructionRecorder::startIf(boost::shared_ptr<SingleInstruction> condition)
+void InstructionRecorder::startIf(std::shared_ptr<SingleInstruction> condition)
 {
-    instructionBlocks.push(boost::make_shared<IfInstruction>(condition) );
+    instructionBlocks.push(std::make_shared<IfInstruction>(condition) );
 }
 
 void InstructionRecorder::startElse()
@@ -89,7 +89,7 @@ void InstructionRecorder::addInclude(std::string p_include)
 std::vector<std::string> InstructionRecorder::getIncludes()
 {
     std::vector<std::string> result = includes;
-    includes.clear();\
+    includes.clear();
     return result;
 }
 

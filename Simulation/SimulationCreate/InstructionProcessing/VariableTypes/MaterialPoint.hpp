@@ -40,7 +40,7 @@ public:
     {
         std::ostringstream sstream;
         sstream << getName() << ".force += (float4)(" << force.getName() << ",0)";
-        (*IVariable::recorder) << boost::make_shared<SingleInstruction>(sstream.str());
+        (*IVariable::recorder) << std::make_shared<SingleInstruction>(sstream.str());
         return *this;
     }
 protected:

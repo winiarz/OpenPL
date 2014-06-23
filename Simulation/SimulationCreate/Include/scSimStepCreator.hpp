@@ -13,12 +13,12 @@ namespace SimCreate
 class SimStepCreator : public ISimStepCreator
 {
 public:
-    SimStepCreator(boost::function<std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>>()>,
-                   std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>>);
-    virtual boost::shared_ptr<ISimStep> create();
+    SimStepCreator(boost::function<std::vector<std::shared_ptr<InsPr::IGlobalArrayVariable>>()>,
+                   std::vector<std::shared_ptr<InsPr::IGlobalArrayVariable>>);
+    virtual std::shared_ptr<ISimStep> create();
 private:
-    std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>> arguments;
-    boost::function<std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>>()> recordInstructionBlock;
+    std::vector<std::shared_ptr<InsPr::IGlobalArrayVariable>> arguments;
+    boost::function<std::vector<std::shared_ptr<InsPr::IGlobalArrayVariable>>()> recordInstructionBlock;
     std::shared_ptr<InsPr::IInstructionRecorder> recorder;
 };
 

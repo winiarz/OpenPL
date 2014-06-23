@@ -12,7 +12,7 @@ class ISimStep;
 class ISimStepCreator
 {
 public:
-    virtual boost::shared_ptr<ISimStep> create() = 0;
+    virtual std::shared_ptr<ISimStep> create() = 0;
 };
 
 }

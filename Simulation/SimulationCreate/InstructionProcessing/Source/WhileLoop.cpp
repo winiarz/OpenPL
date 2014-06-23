@@ -2,9 +2,9 @@
 
 namespace InsPr
 {
-WhileLoop::WhileLoop(boost::shared_ptr<SingleInstruction> p_condition) :
+WhileLoop::WhileLoop(std::shared_ptr<SingleInstruction> p_condition) :
     condition(p_condition),
-    instructions(boost::make_shared<InstructionBlock>())
+    instructions(std::make_shared<InstructionBlock>())
 {
 }
 
@@ -23,7 +23,7 @@ std::string WhileLoop::getAlternative(uint alternativeNb)
     return sstream.str();
 }
 
-void WhileLoop::addInstruction(boost::shared_ptr<IInstruction> instruction)
+void WhileLoop::addInstruction(std::shared_ptr<IInstruction> instruction)
 {
     instructions->addInstruction(instruction);
 }

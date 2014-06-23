@@ -20,8 +20,8 @@ public:
 
 TEST_F(InstructionRecorderTestSuite, recordSingleBlock)
 {
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction1"));
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction2"));
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction1"));
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction2"));
     std::string expectedBlock("{\ninstruction1;\ninstruction2;\n}\n");
 
     ASSERT_TRUE(sut->getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
@@ -29,9 +29,9 @@ TEST_F(InstructionRecorderTestSuite, recordSingleBlock)
 
 TEST_F(InstructionRecorderTestSuite, recordBlockInBlock)
 {
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction1"));
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction1"));
     sut->startBlock();
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction2"));
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction2"));
     sut->finishBlock();
 
     std::string expectedBlock("{\ninstruction1;\n{\ninstruction2;\n}\n;\n}\n");
@@ -40,13 +40,13 @@ TEST_F(InstructionRecorderTestSuite, recordBlockInBlock)
 
 TEST_F(InstructionRecorderTestSuite, blockAfterBlock)
 {
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction1"));
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction1"));
     sut->startBlock();
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction2"));
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction2"));
     sut->finishBlock();
 
     sut->startBlock();
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction3"));
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction3"));
     sut->finishBlock();
 
     std::string expectedBlock("{\ninstruction1;\n{\ninstruction2;\n}\n;\n{\ninstruction3;\n}\n;\n}\n");
@@ -55,16 +55,16 @@ TEST_F(InstructionRecorderTestSuite, blockAfterBlock)
 
 TEST_F( InstructionRecorderTestSuite, recordForLoop )
 {
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction1"));
-    sut->startForLoop(boost::make_shared<SingleInstruction>(std::string("int i=0")),
-                     boost::make_shared<SingleInstruction>(std::string("i < 12")),
-                     boost::make_shared<SingleInstruction>(std::string("i++")) );
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction1"));
+    sut->startForLoop(std::make_shared<SingleInstruction>(std::string("int i=0")),
+                     std::make_shared<SingleInstruction>(std::string("i < 12")),
+                     std::make_shared<SingleInstruction>(std::string("i++")) );
 
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction2"));
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction2"));
 
     sut->finishBlock();
 
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction3"));
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction3"));
 
     std::string expectedBlock("{\ninstruction1;\nfor(int i=0; i < 12; i++)\n{\ninstruction2;\n}\n;\ninstruction3;\n}\n");
     ASSERT_TRUE(sut->getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
@@ -72,14 +72,14 @@ TEST_F( InstructionRecorderTestSuite, recordForLoop )
 
 TEST_F( InstructionRecorderTestSuite, recordWhileLoop )
 {
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction1"));
-    sut->startWhileLoop(boost::make_shared<SingleInstruction>(std::string("a < b")) );
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction1"));
+    sut->startWhileLoop(std::make_shared<SingleInstruction>(std::string("a < b")) );
 
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction2"));
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction2"));
 
     sut->finishBlock();
 
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction3"));
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction3"));
 
     std::string expectedBlock("{\ninstruction1;\nwhile( a < b )\n{\ninstruction2;\n}\n;\ninstruction3;\n}\n");
     ASSERT_TRUE(sut->getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
@@ -87,14 +87,14 @@ TEST_F( InstructionRecorderTestSuite, recordWhileLoop )
 
 TEST_F( InstructionRecorderTestSuite, recordIfWithoutElse)
 {
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction1"));
-    sut->startIf(boost::make_shared<SingleInstruction>(std::string("a < b")) );
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction1"));
+    sut->startIf(std::make_shared<SingleInstruction>(std::string("a < b")) );
 
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction2"));
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction2"));
 
     sut->finishBlock();
 
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction3"));
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction3"));
 
     std::string expectedBlock("{\ninstruction1;\nif( a < b )\n{\ninstruction2;\n}\n;\ninstruction3;\n}\n");
     ASSERT_TRUE(sut->getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
@@ -102,14 +102,14 @@ TEST_F( InstructionRecorderTestSuite, recordIfWithoutElse)
 
 TEST_F( InstructionRecorderTestSuite, recordIfWithElse)
 {
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction1"));
-    sut->startIf(boost::make_shared<SingleInstruction>(std::string("a < b")) );
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction1"));
+    sut->startIf(std::make_shared<SingleInstruction>(std::string("a < b")) );
 
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction2"));
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction2"));
     sut->finishBlock();
 
     sut->startElse();
-    (*sut) << boost::make_shared<SingleInstruction>(std::string("instruction3"));
+    (*sut) << std::make_shared<SingleInstruction>(std::string("instruction3"));
     sut->finishBlock();
 
     std::string expectedBlock("{\ninstruction1;\nif( a < b )\n{\ninstruction2;\n}\nelse\n{\ninstruction3;\n}\n;\n}\n");

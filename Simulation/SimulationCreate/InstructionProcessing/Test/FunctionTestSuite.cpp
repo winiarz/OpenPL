@@ -18,13 +18,13 @@ public:
 
 TEST_F(FunctionTestSuite, no_test)
 {
-    std::vector<boost::shared_ptr<IVariable>> args;
-    args.push_back( make_shared<Int>( std::string("number")) );
-    args.push_back( make_shared<Int>( std::string("number")) );
+    std::vector<std::shared_ptr<IVariable>> args;
+    args.push_back( std::make_shared<Int>( std::string("number")) );
+    args.push_back( std::make_shared<Int>( std::string("number")) );
 
     auto  block = std::make_shared<InstructionBlock>();
-    block->addInstruction( boost::make_shared<SingleInstruction>(std::string("a = b + c")) );
-    block->addInstruction( boost::make_shared<SingleInstruction>(std::string("b = a + c")) );
+    block->addInstruction( std::make_shared<SingleInstruction>(std::string("a = b + c")) );
+    block->addInstruction( std::make_shared<SingleInstruction>(std::string("b = a + c")) );
     
 
     Function sut(std::string("exampleFunction"),

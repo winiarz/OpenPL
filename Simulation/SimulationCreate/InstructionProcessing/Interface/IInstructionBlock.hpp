@@ -11,7 +11,7 @@ namespace InsPr
     public:
         virtual void startElse()
         {}
-        virtual void addInstruction(boost::shared_ptr<IInstruction>) = 0;
+        virtual void addInstruction(std::shared_ptr<IInstruction>) = 0;
     };
 }
 

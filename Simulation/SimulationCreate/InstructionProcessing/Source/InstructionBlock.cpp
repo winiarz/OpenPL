@@ -3,7 +3,7 @@
 namespace InsPr
 {
 
-void InstructionBlock::addInstruction(boost::shared_ptr<IInstruction> instruction)
+void InstructionBlock::addInstruction(std::shared_ptr<IInstruction> instruction)
 {
     instructions.push_back(instruction);
 }

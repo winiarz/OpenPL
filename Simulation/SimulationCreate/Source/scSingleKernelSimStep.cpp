@@ -6,7 +6,7 @@ namespace OPL
 namespace SimCreate
 {
 
-SingleKernelSimStep::SingleKernelSimStep(boost::shared_ptr<InsPr::IKernel> p_recordedKernel) :
+SingleKernelSimStep::SingleKernelSimStep(std::shared_ptr<InsPr::IKernel> p_recordedKernel) :
     recordedKernel(p_recordedKernel),
     compiledKernel()
 {

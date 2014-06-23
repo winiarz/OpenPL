@@ -2,10 +2,10 @@
 
 namespace InsPr
 {
-IfInstruction::IfInstruction(boost::shared_ptr<SingleInstruction> p_condition) :
+IfInstruction::IfInstruction(std::shared_ptr<SingleInstruction> p_condition) :
     condition(p_condition),
-    instructionsForTrue(boost::make_shared<InstructionBlock>()),
-    instructionsForFalse(boost::shared_ptr<InstructionBlock>())
+    instructionsForTrue(std::make_shared<InstructionBlock>()),
+    instructionsForFalse(std::shared_ptr<InstructionBlock>())
 {
 }
 
@@ -35,7 +35,7 @@ std::string IfInstruction::getAlternative(uint alternativeNb)
     return sstream.str();
 }
 
-void IfInstruction::addInstruction(boost::shared_ptr<IInstruction> instruction)
+void IfInstruction::addInstruction(std::shared_ptr<IInstruction> instruction)
 {
     if ( instructionsForFalse ) 
         instructionsForFalse->addInstruction(instruction);
@@ -45,7 +45,7 @@ void IfInstruction::addInstruction(boost::shared_ptr<IInstruction> instruction)
 
 void IfInstruction::startElse()
 {
-    instructionsForFalse = boost::make_shared<InstructionBlock>();
+    instructionsForFalse = std::make_shared<InstructionBlock>();
 }
 
 }

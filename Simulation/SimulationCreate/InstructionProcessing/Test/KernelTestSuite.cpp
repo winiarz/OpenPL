@@ -18,13 +18,13 @@ public:
 
 TEST_F(KernelTestSuite, no_test)
 {
-    std::vector<boost::shared_ptr<IGlobalArrayVariable>> args;
-    args.push_back( boost::make_shared<GlobalArrayVariable<Int>>( std::string("arg1") ) );
-    args.push_back( boost::make_shared<GlobalArrayVariable<Int>>( std::string("arg2") ) );
+    std::vector<std::shared_ptr<IGlobalArrayVariable>> args;
+    args.push_back( std::make_shared<GlobalArrayVariable<Int>>( std::string("arg1") ) );
+    args.push_back( std::make_shared<GlobalArrayVariable<Int>>( std::string("arg2") ) );
 
-    auto  block = boost::make_shared<InstructionBlock>();
-    block->addInstruction( boost::make_shared<SingleInstruction>(std::string("a = b + c")) );
-    block->addInstruction( boost::make_shared<SingleInstruction>(std::string("b = a + c")) );
+    auto  block = std::make_shared<InstructionBlock>();
+    block->addInstruction( std::make_shared<SingleInstruction>(std::string("a = b + c")) );
+    block->addInstruction( std::make_shared<SingleInstruction>(std::string("b = a + c")) );
 
     Kernel sut( std::string("exampleKernel"),
                 args,

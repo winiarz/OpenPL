@@ -11,12 +11,12 @@ namespace SimCreate
     class SingleKernelSimStep : public ISimStep
     {
     public:
-        SingleKernelSimStep(boost::shared_ptr<InsPr::IKernel>);
+        SingleKernelSimStep(std::shared_ptr<InsPr::IKernel>);
 
         void execute(std::vector<std::shared_ptr<ClMemory>>);
         void execute(std::vector<ClMemory*>);
     private:
-        boost::shared_ptr<InsPr::IKernel> recordedKernel;
+        std::shared_ptr<InsPr::IKernel> recordedKernel;
         std::shared_ptr<ClKernel> compiledKernel;
 
         void loadKernelIfNotLoaded();

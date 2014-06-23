@@ -10,13 +10,13 @@ ClKernelFromSourceLoader::ClKernelFromSourceLoader(std::set<std::string> p_inclu
 {
 }
 
-boost::shared_ptr<ClKernel> ClKernelFromSourceLoader::loadKernel(std::string filename)
+std::shared_ptr<ClKernel> ClKernelFromSourceLoader::loadKernel(std::string filename)
 {
     boost::shared_ptr<std::string> source = readFile(filename);
 
     boost::shared_ptr<std::string> sourceWithReplacedIncludes = includePreprocessor.replaceIncludes(source, includeDirectories);
     cl_program program = compileSource( sourceWithReplacedIncludes );
-    return boost::make_shared<ClKernel>(program);
+    return std::make_shared<ClKernel>(program);
 }
 
 cl_program ClKernelFromSourceLoader::compileSource(boost::shared_ptr<std::string> source)

@@ -17,7 +17,7 @@ namespace SimCreate
         void execute(std::vector<ClMemory*>);
     private:
         boost::shared_ptr<InsPr::IKernel> recordedKernel;
-        boost::shared_ptr<ClKernel> compiledKernel;
+        std::shared_ptr<ClKernel> compiledKernel;
 
         void loadKernelIfNotLoaded();
     };

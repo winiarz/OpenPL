@@ -44,7 +44,7 @@ TEST_F(ClParameterizedKernelFromSourceTestSuite, returnsNoneWhenParameterIsInval
 
     isParamCorrectExpectations();
 
-    optional<boost::shared_ptr<IClSingleImplementationKernel> > kernel = m_sut->getKernel(invalidParameter);
+    optional<std::shared_ptr<IClSingleImplementationKernel> > kernel = m_sut->getKernel(invalidParameter);
     ASSERT_EQ( none, kernel );
 }
 
@@ -54,7 +54,7 @@ TEST_F(ClParameterizedKernelFromSourceTestSuite, returnsKernelWhenParameterIsVal
 
     isParamCorrectExpectations();
     
-    optional<boost::shared_ptr<IClSingleImplementationKernel> > kernel = m_sut->getKernel(validParameter);
+    optional<std::shared_ptr<IClSingleImplementationKernel> > kernel = m_sut->getKernel(validParameter);
     ASSERT_TRUE( kernel );
 }
 
@@ -64,10 +64,10 @@ TEST_F(ClParameterizedKernelFromSourceTestSuite, returnsNoneWhenKernelIsRejected
 
     isParamCorrectExpectations();
 
-    optional<boost::shared_ptr<IClSingleImplementationKernel> > kernel = m_sut->getKernel(validParameter);
+    optional<std::shared_ptr<IClSingleImplementationKernel> > kernel = m_sut->getKernel(validParameter);
 
     m_sut->rejectKernel(*kernel);
-    optional<boost::shared_ptr<IClSingleImplementationKernel> > kernel2 = m_sut->getKernel(validParameter);
+    optional<std::shared_ptr<IClSingleImplementationKernel> > kernel2 = m_sut->getKernel(validParameter);
 
     ASSERT_EQ( none, kernel2 );
 }

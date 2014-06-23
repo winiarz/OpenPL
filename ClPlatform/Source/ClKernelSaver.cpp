@@ -2,7 +2,7 @@
 #include "ClKernel.hpp"
 #include "logs.hpp"
 
-cl_int ClKernelSaver::getDeviceCount( boost::shared_ptr<IClSingleImplementationKernel> kernel)
+cl_int ClKernelSaver::getDeviceCount( std::shared_ptr<IClSingleImplementationKernel> kernel)
 {
     cl_int error;
     cl_uint deviceCount = 0;
@@ -21,7 +21,7 @@ cl_int ClKernelSaver::getDeviceCount( boost::shared_ptr<IClSingleImplementationK
     return deviceCount;
 }
 
-void ClKernelSaver::getDevices( cl_device_id devices[], boost::shared_ptr<IClSingleImplementationKernel> kernel )
+void ClKernelSaver::getDevices( cl_device_id devices[], std::shared_ptr<IClSingleImplementationKernel> kernel )
 {
     cl_int error;
     error = clGetProgramInfo(kernel->getProgram(),
@@ -36,7 +36,7 @@ void ClKernelSaver::getDevices( cl_device_id devices[], boost::shared_ptr<IClSin
     }
 }
 
-void ClKernelSaver::getBinarySizes( size_t binarySizes[], boost::shared_ptr<IClSingleImplementationKernel> kernel )
+void ClKernelSaver::getBinarySizes( size_t binarySizes[], std::shared_ptr<IClSingleImplementationKernel> kernel )
 {
     cl_int error;
     size_t sizeOfReturnedParam;
@@ -56,7 +56,7 @@ void ClKernelSaver::getBinarySizes( size_t binarySizes[], boost::shared_ptr<IClS
 void ClKernelSaver::getProgramBinaries( size_t deviceCount,
                                         size_t binarySizes[],
                                         unsigned char *programBinaries[],
-                                        boost::shared_ptr<IClSingleImplementationKernel> kernel)
+                                        std::shared_ptr<IClSingleImplementationKernel> kernel)
 {
     cl_int error;
     for (size_t i=0; i<deviceCount; i++) 
@@ -119,7 +119,7 @@ void ClKernelSaver::saveBinaryToFile( size_t binarySize, unsigned char *programB
     fclose(file);
 }
 
-void ClKernelSaver::saveKernel( boost::shared_ptr<IClSingleImplementationKernel> kernel, std::string filename )
+void ClKernelSaver::saveKernel( std::shared_ptr<IClSingleImplementationKernel> kernel, std::string filename )
 {
     DEBUG << "Saving kernel to file " << filename;
 
@@ -141,7 +141,7 @@ FILE* ClKernelSaver::openFile( std::string filename )
     return file;
 }
 
-void ClKernelSaver::saveKernel( boost::shared_ptr<IClSingleImplementationKernel> kernel, FILE* file )
+void ClKernelSaver::saveKernel( std::shared_ptr<IClSingleImplementationKernel> kernel, FILE* file )
 {
     cl_uint deviceCount = getDeviceCount(kernel);
     cl_device_id devices[deviceCount];

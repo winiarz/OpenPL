@@ -8,6 +8,6 @@ class ClKernel;
 class IClKernelFromFileLoader
 {
 public:
-    virtual boost::shared_ptr<ClKernel> loadKernel(std::string filename) = 0;
+    virtual std::shared_ptr<ClKernel> loadKernel(std::string filename) = 0;
 };
 

@@ -12,7 +12,7 @@ int compile(const char input_file[],set<string>  includeDirectories,const char o
   
     try
     {
-        boost::shared_ptr<ClKernel> kernel = 
+        std::shared_ptr<ClKernel> kernel = 
             kernelLoader.loadKernel(std::string(input_file));
 
         ClKernelSaver().saveKernel( kernel, std::string(output_file) );

@@ -8,7 +8,7 @@ class ClKernelFromSourceLoader : public IClKernelFromFileLoader
 {
 public:
     ClKernelFromSourceLoader(std::set<std::string>);
-    virtual boost::shared_ptr<ClKernel> loadKernel(std::string filename);
+    virtual std::shared_ptr<ClKernel> loadKernel(std::string filename);
 private:
     boost::shared_ptr<std::string> readFile(std::string& filename);
     cl_program compileSource(boost::shared_ptr<std::string> source);

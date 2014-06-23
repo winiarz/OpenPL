@@ -16,7 +16,7 @@ void ClKernelPerformanceComparator::setDataGenerator( boost::shared_ptr<IClDataG
     dataGenerator = p_dataGenerator;
 }
 
-void ClKernelPerformanceComparator::addKernel( boost::shared_ptr<IClSingleImplementationKernel> newKernel)
+void ClKernelPerformanceComparator::addKernel( std::shared_ptr<IClSingleImplementationKernel> newKernel)
 {
     remainingKernels.insert(newKernel);
     if ( !bestKernel ) 
@@ -30,7 +30,7 @@ void ClKernelPerformanceComparator::addParameterizedKernel( boost::shared_ptr<IC
     boost::shared_ptr<set<int> > parameters = newParametrizedKernel->getNotRejectedParameters();
     BOOST_FOREACH( int param, *parameters)
     {
-         optional<boost::shared_ptr<IClSingleImplementationKernel> > kernel = newParametrizedKernel->getKernel(param);
+         optional<std::shared_ptr<IClSingleImplementationKernel> > kernel = newParametrizedKernel->getKernel(param);
          if ( kernel ) 
          {
              addKernel(*kernel);
@@ -44,7 +44,7 @@ bool ClKernelPerformanceComparator::comparationStep()
     {
         vector<boost::shared_ptr<ClMemory> > l_randomData = (*dataGenerator)->getData();
 
-        set<boost::shared_ptr<IClSingleImplementationKernel> >::iterator testedKernel = remainingKernels.begin();
+        set<std::shared_ptr<IClSingleImplementationKernel> >::iterator testedKernel = remainingKernels.begin();
 
         uint beginTime = clock.getUsec();
         //(*testedKernel)(l_randomData); TODO - run kernel here
@@ -70,7 +70,7 @@ bool ClKernelPerformanceComparator::comparationStep()
     return !remainingKernels.empty();
 }
 
-optional<boost::shared_ptr<IClSingleImplementationKernel> > ClKernelPerformanceComparator::getBestKernel()
+optional<std::shared_ptr<IClSingleImplementationKernel> > ClKernelPerformanceComparator::getBestKernel()
 {
     return bestKernel;
 }
@@ -94,7 +94,7 @@ void ClKernelPerformanceComparator::saveToFile( FILE* file )
 
     ClKernelSaver kernelSaver;
 
-    for ( set<boost::shared_ptr<IClSingleImplementationKernel> >::iterator i = remainingKernels.begin(); i != remainingKernels.end(); ++i ) 
+    for ( set<std::shared_ptr<IClSingleImplementationKernel> >::iterator i = remainingKernels.begin(); i != remainingKernels.end(); ++i ) 
     {
         kernelSaver.saveKernel( (*i), file );
     }

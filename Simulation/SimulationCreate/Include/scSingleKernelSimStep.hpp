@@ -13,7 +13,7 @@ namespace SimCreate
     public:
         SingleKernelSimStep(boost::shared_ptr<InsPr::IKernel>);
 
-        void execute(std::vector<boost::shared_ptr<ClMemory>>);
+        void execute(std::vector<std::shared_ptr<ClMemory>>);
         void execute(std::vector<ClMemory*>);
     private:
         boost::shared_ptr<InsPr::IKernel> recordedKernel;

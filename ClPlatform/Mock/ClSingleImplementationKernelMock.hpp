@@ -33,7 +33,7 @@ public:
   {
       return *this;
   }
-  virtual IClKernel& operator()(std::vector<boost::shared_ptr<ClMemory>> )
+  virtual IClKernel& operator()(std::vector<std::shared_ptr<ClMemory>> )
   {
       return *this;
   }

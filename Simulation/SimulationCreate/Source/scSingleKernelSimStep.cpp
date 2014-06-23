@@ -26,7 +26,7 @@ void SingleKernelSimStep::loadKernelIfNotLoaded()
     }
 }
 
-void SingleKernelSimStep::execute(std::vector<boost::shared_ptr<ClMemory>> args)
+void SingleKernelSimStep::execute(std::vector<std::shared_ptr<ClMemory>> args)
 {
     loadKernelIfNotLoaded();
 

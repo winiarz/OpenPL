@@ -6,14 +6,14 @@ ClDataGeneratorComposite::ClDataGeneratorComposite(std::vector<boost::shared_ptr
 {
 }
 
-vector<boost::shared_ptr<ClMemory> > ClDataGeneratorComposite::getData()
+vector<std::shared_ptr<ClMemory> > ClDataGeneratorComposite::getData()
 {
-    vector<boost::shared_ptr<ClMemory> > result;
+    vector<std::shared_ptr<ClMemory> > result;
 
     std::vector<boost::shared_ptr<IClDataGenerator> >::iterator i;
     for ( i = dataGenerators.begin(); i != dataGenerators.end(); ++i)
     {
-        vector<boost::shared_ptr<ClMemory> > data = (*i)->getData();
+        vector<std::shared_ptr<ClMemory> > data = (*i)->getData();
 
         result.insert( result.end(), data.begin(), data.end());
     }

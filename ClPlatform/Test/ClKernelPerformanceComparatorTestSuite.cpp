@@ -32,8 +32,7 @@ ClKernelPerformanceComparatorTestSuite::ClKernelPerformanceComparatorTestSuite()
 
 std::shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorTestSuite::addKernel()
 {
-    std::shared_ptr<ClSingleImplementationKernelMock> kernelMock
-        = std::make_shared<ClSingleImplementationKernelMock>();
+    auto kernelMock = std::make_shared<ClSingleImplementationKernelMock>();
     sut->addKernel( kernelMock );
     EXPECT_CALL( *kernelMock, Die());
 
@@ -43,7 +42,7 @@ std::shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorT
 void ClKernelPerformanceComparatorTestSuite::setDataGenerator()
 {
     sut->setDataGenerator(dataGeneratorMock);
-    vector<boost::shared_ptr<ClMemory> > data;
+    vector<std::shared_ptr<ClMemory> > data;
     EXPECT_CALL( *dataGeneratorMock, getData() ).WillRepeatedly(Return(data));
 }
 

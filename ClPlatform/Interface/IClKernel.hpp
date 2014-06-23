@@ -16,7 +16,7 @@ public:
     virtual IClKernel& operator[](uint n)=0;
     virtual IClKernel& operator()(uint, ... )=0;
     virtual IClKernel& operator()(std::vector<ClMemory*>)=0;
-    virtual IClKernel& operator()(std::vector<boost::shared_ptr<ClMemory>>)=0;
+    virtual IClKernel& operator()(std::vector<std::shared_ptr<ClMemory>>)=0;
   
     virtual ~IClKernel(){}
 };

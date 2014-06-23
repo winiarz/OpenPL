@@ -42,7 +42,7 @@ bool ClKernelPerformanceComparator::comparationStep()
 {
     if ( dataGenerator && !remainingKernels.empty() ) 
     {
-        vector<boost::shared_ptr<ClMemory> > l_randomData = (*dataGenerator)->getData();
+        vector<std::shared_ptr<ClMemory> > l_randomData = (*dataGenerator)->getData();
 
         set<std::shared_ptr<IClSingleImplementationKernel> >::iterator testedKernel = remainingKernels.begin();
 

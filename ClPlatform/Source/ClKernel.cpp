@@ -204,7 +204,7 @@ IClKernel& ClKernel::operator()(std::vector<ClMemory*> args)
     return *this;
 }
 
-IClKernel& ClKernel::operator()(std::vector<boost::shared_ptr<ClMemory>> args)
+IClKernel& ClKernel::operator()(std::vector<std::shared_ptr<ClMemory>> args)
 {
     if ( !loaded ) 
     {

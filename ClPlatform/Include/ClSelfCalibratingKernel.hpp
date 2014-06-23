@@ -14,7 +14,7 @@ public:
     virtual IClKernel& operator[](uint n);
     virtual IClKernel& operator()(uint, ... );
     virtual IClKernel& operator()(std::vector<ClMemory*>);
-    virtual IClKernel& operator()(std::vector<boost::shared_ptr<ClMemory>>);
+    virtual IClKernel& operator()(std::vector<std::shared_ptr<ClMemory>>);
       
     virtual ~ClSelfCalibratingKernel();
     bool calibrate(uint timeLimit);

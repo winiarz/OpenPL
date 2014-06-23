@@ -8,7 +8,7 @@ public:
     virtual optional<std::shared_ptr<IClSingleImplementationKernel> > getKernel(int);
     virtual void rejectKernel(std::shared_ptr<IClSingleImplementationKernel>);
     virtual boost::shared_ptr<IClParameter> getParameter();
-    virtual boost::shared_ptr<set<int> > getNotRejectedParameters();
+    virtual std::shared_ptr<set<int> > getNotRejectedParameters();
 
     virtual string getSource(int) = 0;
     virtual string getKernelName() = 0;

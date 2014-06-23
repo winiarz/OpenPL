@@ -67,9 +67,9 @@ boost::shared_ptr<IClParameter> ClParameterizedKernel::getParameter()
     return parameter;
 }
 
-boost::shared_ptr<set<int> > ClParameterizedKernel::getNotRejectedParameters()
+std::shared_ptr<set<int> > ClParameterizedKernel::getNotRejectedParameters()
 {
-    boost::shared_ptr<set<int> > result = make_shared<set<int> >();
+    auto result = std::make_shared<set<int> >();
     set<int> allPosible = parameter->getAllPosible();
     std::set_difference( allPosible.begin(), allPosible.end(),
                          rejectedKernels.begin(), rejectedKernels.end(),

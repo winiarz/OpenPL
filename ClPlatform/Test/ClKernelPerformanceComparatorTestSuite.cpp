@@ -118,7 +118,7 @@ TEST_F( ClKernelPerformanceComparatorTestSuite, addParametrizedKernelAddsKernelF
 {
     boost::shared_ptr<ClParameterizedKernelMock> paramKernelMock = boost::make_shared<ClParameterizedKernelMock>();
 
-    boost::shared_ptr<set<int> > params = make_shared<set<int> >();
+    auto params = std::make_shared<set<int> >();
     params->insert(1);
     params->insert(2);
     EXPECT_CALL( *paramKernelMock, getNotRejectedParameters() ).WillOnce(Return(params));

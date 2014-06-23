@@ -5,7 +5,7 @@
 using ::testing::StrictMock;
 using ::testing::Return;
 
-typedef boost::shared_ptr<ClParameterizedKernel> ParametrizedKernelPtr;
+typedef std::shared_ptr<ClParameterizedKernel> ParametrizedKernelPtr;
 
 class ClParameterizedKernelFromSourceTestSuite : public ::testing::Test {
 public:
@@ -26,10 +26,10 @@ public:
 
 ParametrizedKernelPtr ClParameterizedKernelFromSourceTestSuite::prepareSUT()
 {
-    return make_shared<ClParameterizedKernelFromSource>(parameterMock,
-                                                        string("ClPlatform/TestData/parametrized_kernel.cl"),
-                                                        string("parameterized_kernel"),
-                                                        string("$param$"));
+    return std::make_shared<ClParameterizedKernelFromSource>(parameterMock,
+                                                             string("ClPlatform/TestData/parametrized_kernel.cl"),
+                                                             string("parameterized_kernel"),
+                                                             string("$param$"));
 }
 
 void ClParameterizedKernelFromSourceTestSuite::isParamCorrectExpectations()

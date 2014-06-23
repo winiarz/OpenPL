@@ -9,13 +9,13 @@ public:
     ClCalibratorTestSuite();
     std::shared_ptr<ClKernelPerformanceComparatorMock> performanceComparatorMock1;
     std::shared_ptr<ClKernelPerformanceComparatorMock> performanceComparatorMock2;
-    boost::shared_ptr<ClCalibrator> sut;
+    std::shared_ptr<ClCalibrator> sut;
 };
 
 ClCalibratorTestSuite::ClCalibratorTestSuite() :
     performanceComparatorMock1(std::make_shared<NiceMock<ClKernelPerformanceComparatorMock> >()),
     performanceComparatorMock2(std::make_shared<NiceMock<ClKernelPerformanceComparatorMock> >()),
-    sut(boost::make_shared<ClCalibrator>())
+    sut(std::make_shared<ClCalibrator>())
 {
 }
 

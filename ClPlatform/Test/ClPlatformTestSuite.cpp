@@ -1,4 +1,3 @@
-#include<boost/scoped_ptr.hpp>
 #include<gtest/gtest.h>
 
 #include"ClPlatform.hpp"

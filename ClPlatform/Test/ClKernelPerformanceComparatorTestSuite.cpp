@@ -3,7 +3,6 @@
 #include "ClDataGeneratorMock.hpp"
 #include "ClParameterizedKernelMock.hpp"
 #include "ClockMock.hpp"
-#include "boost.hpp"
 #include<gtest/gtest.h>
 #include<gmock/gmock.h>
 
@@ -18,15 +17,15 @@ public:
     std::shared_ptr<ClSingleImplementationKernelMock> expectGetKernel(std::shared_ptr<ClParameterizedKernelMock> paramKernelMock,
                                                                       int param);
 
-    boost::shared_ptr<ClockMock> clockMock;
+    std::shared_ptr<ClockMock> clockMock;
     std::shared_ptr<ClDataGeneratorMock> dataGeneratorMock;
-    boost::shared_ptr<ClKernelPerformanceComparator> sut;
+    std::shared_ptr<ClKernelPerformanceComparator> sut;
 };
 
 ClKernelPerformanceComparatorTestSuite::ClKernelPerformanceComparatorTestSuite() :
-    clockMock(make_shared<ClockMock>()),
+    clockMock(std::make_shared<ClockMock>()),
     dataGeneratorMock(std::make_shared<ClDataGeneratorMock>()),
-    sut(make_shared<ClKernelPerformanceComparator>(*clockMock))
+    sut(std::make_shared<ClKernelPerformanceComparator>(*clockMock))
 {
 }
 

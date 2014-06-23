@@ -9,7 +9,7 @@ void Simulation::move(InsPr::MaterialPoint m)
   InsPr::IVariable::recorder->addInclude("material_point_move.cl");
   std::ostringstream sstream;
   sstream << "material_point_move ( &" << m.getName() << ",0,1,1 );\n";
-  (*InsPr::IVariable::recorder) << std::make_shared<InsPr::SingleInstruction>(sstream.str());
+  (*InsPr::IVariable::recorder) << make_shared<InsPr::SingleInstruction>(sstream.str());
 }
 
 InsPr::Float Simulation::dist_sq(InsPr::MaterialPoint m1, InsPr::MaterialPoint m2)

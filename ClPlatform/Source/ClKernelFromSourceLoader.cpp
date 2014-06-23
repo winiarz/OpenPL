@@ -10,16 +10,16 @@ ClKernelFromSourceLoader::ClKernelFromSourceLoader(std::set<std::string> p_inclu
 {
 }
 
-std::shared_ptr<ClKernel> ClKernelFromSourceLoader::loadKernel(std::string filename)
+shared_ptr<ClKernel> ClKernelFromSourceLoader::loadKernel(std::string filename)
 {
-    std::shared_ptr<std::string> source = readFile(filename);
+    shared_ptr<std::string> source = readFile(filename);
 
-    std::shared_ptr<std::string> sourceWithReplacedIncludes = includePreprocessor.replaceIncludes(source, includeDirectories);
+    shared_ptr<std::string> sourceWithReplacedIncludes = includePreprocessor.replaceIncludes(source, includeDirectories);
     cl_program program = compileSource( sourceWithReplacedIncludes );
-    return std::make_shared<ClKernel>(program);
+    return make_shared<ClKernel>(program);
 }
 
-cl_program ClKernelFromSourceLoader::compileSource(std::shared_ptr<std::string> source)
+cl_program ClKernelFromSourceLoader::compileSource(shared_ptr<std::string> source)
 {
     ClPlatform& platform = ClPlatform::getPlatform();
 
@@ -59,7 +59,7 @@ cl_program ClKernelFromSourceLoader::compileSource(std::shared_ptr<std::string> 
     return program;
 }
 
-std::shared_ptr<std::string> ClKernelFromSourceLoader::readFile(std::string& filename)
+shared_ptr<std::string> ClKernelFromSourceLoader::readFile(std::string& filename)
 {
     std::ifstream file(filename);
     if ( !file.is_open() ) 
@@ -68,7 +68,7 @@ std::shared_ptr<std::string> ClKernelFromSourceLoader::readFile(std::string& fil
         throw FILE_READ_ERROR;
     }
 
-    auto text = std::make_shared<std::string>();
+    auto text = make_shared<std::string>();
 
     file.seekg(0, std::ios::end);   
     text->reserve(file.tellg());

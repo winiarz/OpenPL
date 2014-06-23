@@ -12,26 +12,26 @@ class ClKernelPerformanceComparatorTestSuite : public Test {
 public:
     ClKernelPerformanceComparatorTestSuite();
     void setDataGenerator();
-    std::shared_ptr<ClSingleImplementationKernelMock> addKernel();
-    std::shared_ptr<ClSingleImplementationKernelMock> addAndTestKernel(int workTime);
-    std::shared_ptr<ClSingleImplementationKernelMock> expectGetKernel(std::shared_ptr<ClParameterizedKernelMock> paramKernelMock,
+    shared_ptr<ClSingleImplementationKernelMock> addKernel();
+    shared_ptr<ClSingleImplementationKernelMock> addAndTestKernel(int workTime);
+    shared_ptr<ClSingleImplementationKernelMock> expectGetKernel(shared_ptr<ClParameterizedKernelMock> paramKernelMock,
                                                                       int param);
 
-    std::shared_ptr<ClockMock> clockMock;
-    std::shared_ptr<ClDataGeneratorMock> dataGeneratorMock;
-    std::shared_ptr<ClKernelPerformanceComparator> sut;
+    shared_ptr<ClockMock> clockMock;
+    shared_ptr<ClDataGeneratorMock> dataGeneratorMock;
+    shared_ptr<ClKernelPerformanceComparator> sut;
 };
 
 ClKernelPerformanceComparatorTestSuite::ClKernelPerformanceComparatorTestSuite() :
-    clockMock(std::make_shared<ClockMock>()),
-    dataGeneratorMock(std::make_shared<ClDataGeneratorMock>()),
-    sut(std::make_shared<ClKernelPerformanceComparator>(*clockMock))
+    clockMock(make_shared<ClockMock>()),
+    dataGeneratorMock(make_shared<ClDataGeneratorMock>()),
+    sut(make_shared<ClKernelPerformanceComparator>(*clockMock))
 {
 }
 
-std::shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorTestSuite::addKernel()
+shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorTestSuite::addKernel()
 {
-    auto kernelMock = std::make_shared<ClSingleImplementationKernelMock>();
+    auto kernelMock = make_shared<ClSingleImplementationKernelMock>();
     sut->addKernel( kernelMock );
     EXPECT_CALL( *kernelMock, Die());
 
@@ -41,13 +41,13 @@ std::shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorT
 void ClKernelPerformanceComparatorTestSuite::setDataGenerator()
 {
     sut->setDataGenerator(dataGeneratorMock);
-    vector<std::shared_ptr<ClMemory> > data;
+    vector<shared_ptr<ClMemory> > data;
     EXPECT_CALL( *dataGeneratorMock, getData() ).WillRepeatedly(Return(data));
 }
 
-std::shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorTestSuite::addAndTestKernel(int workTime)
+shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorTestSuite::addAndTestKernel(int workTime)
 {
-    std::shared_ptr<ClSingleImplementationKernelMock> kernelMock = addKernel();
+    shared_ptr<ClSingleImplementationKernelMock> kernelMock = addKernel();
 
     EXPECT_CALL( *clockMock, getUsec()).WillOnce(Return(0)).WillOnce(Return(workTime));
     sut->comparationStep();
@@ -55,15 +55,15 @@ std::shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorT
     return kernelMock;
 }
 
-std::shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorTestSuite::expectGetKernel(std::shared_ptr<ClParameterizedKernelMock> paramKernelMock,
+shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorTestSuite::expectGetKernel(shared_ptr<ClParameterizedKernelMock> paramKernelMock,
                                                                                         int param)
 {
-    std::shared_ptr<ClSingleImplementationKernelMock> kernelMock
-        = std::make_shared<ClSingleImplementationKernelMock>();
+    shared_ptr<ClSingleImplementationKernelMock> kernelMock
+        = make_shared<ClSingleImplementationKernelMock>();
     EXPECT_CALL( *kernelMock, Die());
 
-    optional<std::shared_ptr<IClSingleImplementationKernel> > optionalKernel
-        = std::shared_ptr<IClSingleImplementationKernel>(kernelMock);
+    optional<shared_ptr<IClSingleImplementationKernel> > optionalKernel
+        = shared_ptr<IClSingleImplementationKernel>(kernelMock);
     EXPECT_CALL( *paramKernelMock, getKernel(param)).WillOnce(Return(optionalKernel));
 
     return kernelMock;
@@ -81,9 +81,9 @@ TEST_F( ClKernelPerformanceComparatorTestSuite, getBestDataWithoutSettingKernel 
 
 TEST_F( ClKernelPerformanceComparatorTestSuite, onlyOneKernelisBestOne )
 {
-    std::shared_ptr<ClSingleImplementationKernelMock> kernelMock = addKernel();
+    shared_ptr<ClSingleImplementationKernelMock> kernelMock = addKernel();
 
-    optional<std::shared_ptr<IClSingleImplementationKernel> > result = sut->getBestKernel();
+    optional<shared_ptr<IClSingleImplementationKernel> > result = sut->getBestKernel();
 
     ASSERT_TRUE( result );
     ASSERT_EQ( *result, kernelMock );
@@ -91,10 +91,10 @@ TEST_F( ClKernelPerformanceComparatorTestSuite, onlyOneKernelisBestOne )
 
 TEST_F( ClKernelPerformanceComparatorTestSuite, firstKernelIsBetterUntilItisTested )
 {
-    std::shared_ptr<ClSingleImplementationKernelMock> firstKernelMock = addKernel();
-    std::shared_ptr<ClSingleImplementationKernelMock> secondKernelMock = addKernel();
+    shared_ptr<ClSingleImplementationKernelMock> firstKernelMock = addKernel();
+    shared_ptr<ClSingleImplementationKernelMock> secondKernelMock = addKernel();
 
-    optional<std::shared_ptr<IClSingleImplementationKernel> > result = sut->getBestKernel();
+    optional<shared_ptr<IClSingleImplementationKernel> > result = sut->getBestKernel();
 
     ASSERT_TRUE( result );
     ASSERT_EQ( *result, firstKernelMock );
@@ -104,10 +104,10 @@ TEST_F( ClKernelPerformanceComparatorTestSuite, kernelWithShorterTimeIsBetter )
 {
     setDataGenerator();
 
-    std::shared_ptr<ClSingleImplementationKernelMock> firstKernelMock = addAndTestKernel(100);
-    std::shared_ptr<ClSingleImplementationKernelMock> secondKernelMock = addAndTestKernel(60);
+    shared_ptr<ClSingleImplementationKernelMock> firstKernelMock = addAndTestKernel(100);
+    shared_ptr<ClSingleImplementationKernelMock> secondKernelMock = addAndTestKernel(60);
 
-    optional<std::shared_ptr<IClSingleImplementationKernel> > result = sut->getBestKernel();
+    optional<shared_ptr<IClSingleImplementationKernel> > result = sut->getBestKernel();
 
     ASSERT_TRUE( result );
     ASSERT_EQ( *result, secondKernelMock );
@@ -115,15 +115,15 @@ TEST_F( ClKernelPerformanceComparatorTestSuite, kernelWithShorterTimeIsBetter )
 
 TEST_F( ClKernelPerformanceComparatorTestSuite, addParametrizedKernelAddsKernelForAllParameters )
 {
-    auto paramKernelMock = std::make_shared<ClParameterizedKernelMock>();
+    auto paramKernelMock = make_shared<ClParameterizedKernelMock>();
 
-    auto params = std::make_shared<set<int> >();
+    auto params = make_shared<set<int> >();
     params->insert(1);
     params->insert(2);
     EXPECT_CALL( *paramKernelMock, getNotRejectedParameters() ).WillOnce(Return(params));
 
-    std::shared_ptr<ClSingleImplementationKernelMock> firstKernel = expectGetKernel( paramKernelMock, 1 );
-    std::shared_ptr<ClSingleImplementationKernelMock> secondKernel = expectGetKernel( paramKernelMock, 2 );
+    shared_ptr<ClSingleImplementationKernelMock> firstKernel = expectGetKernel( paramKernelMock, 1 );
+    shared_ptr<ClSingleImplementationKernelMock> secondKernel = expectGetKernel( paramKernelMock, 2 );
 
     sut->addParameterizedKernel(paramKernelMock);
 }

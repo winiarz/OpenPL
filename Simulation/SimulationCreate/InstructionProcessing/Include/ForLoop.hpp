@@ -8,22 +8,22 @@ namespace InsPr
     class ForLoop : public IInstructionBlock
     {
     public:
-        ForLoop(std::shared_ptr<SingleInstruction>,
-                std::shared_ptr<SingleInstruction>,
-                std::shared_ptr<SingleInstruction> );
+        ForLoop(shared_ptr<SingleInstruction>,
+                shared_ptr<SingleInstruction>,
+                shared_ptr<SingleInstruction> );
 
         virtual uint getAlternativesCount();
         virtual std::string getAlternative(uint);
-        virtual void addInstruction(std::shared_ptr<IInstruction>);
+        virtual void addInstruction(shared_ptr<IInstruction>);
     private:
-        std::string getInstructionAlt(std::shared_ptr<SingleInstruction> instruction,
+        std::string getInstructionAlt(shared_ptr<SingleInstruction> instruction,
                                       uint&);
 
-        std::shared_ptr<SingleInstruction> startInstruction;
-        std::shared_ptr<SingleInstruction> continueCondition;
-        std::shared_ptr<SingleInstruction> afterCircuitInstruction;
+        shared_ptr<SingleInstruction> startInstruction;
+        shared_ptr<SingleInstruction> continueCondition;
+        shared_ptr<SingleInstruction> afterCircuitInstruction;
 
-        std::shared_ptr<InstructionBlock> instructions;
+        shared_ptr<InstructionBlock> instructions;
     };
 }
 

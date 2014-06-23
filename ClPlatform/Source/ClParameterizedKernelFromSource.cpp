@@ -1,6 +1,6 @@
 #include "ClParameterizedKernelFromSource.hpp"
 
-ClParameterizedKernelFromSource::ClParameterizedKernelFromSource(std::shared_ptr<IClParameter> p_parameter,
+ClParameterizedKernelFromSource::ClParameterizedKernelFromSource(shared_ptr<IClParameter> p_parameter,
                                                                  string p_fileName,
                                                                  string p_kernelName,
                                                                  string p_paramName) :

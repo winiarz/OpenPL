@@ -5,11 +5,11 @@
 class ClDataGeneratorComposite : public IClDataGenerator
 {
 public:
-    ClDataGeneratorComposite(std::vector<std::shared_ptr<IClDataGenerator> >);
+    ClDataGeneratorComposite(std::vector<shared_ptr<IClDataGenerator> >);
 
-    virtual vector<std::shared_ptr<ClMemory> > getData();
+    virtual vector<shared_ptr<ClMemory> > getData();
     virtual void saveToFile( FILE* );
 private:
-    vector<std::shared_ptr<IClDataGenerator> > dataGenerators;
+    vector<shared_ptr<IClDataGenerator> > dataGenerators;
 };
 

@@ -5,6 +5,6 @@
 class IClDataGeneratorFromFileReader
 {
 public:
-    virtual std::shared_ptr<IClDataGenerator> read(FILE*) = 0;
+    virtual shared_ptr<IClDataGenerator> read(FILE*) = 0;
 };
 

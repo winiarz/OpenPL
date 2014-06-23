@@ -5,14 +5,14 @@
 #include "logs.hpp"
 #include <stdarg.h>
 
-ClSelfCalibratingKernel::ClSelfCalibratingKernel(std::shared_ptr<IClKernelPerformanceComparator> p_performanceComparator) :
+ClSelfCalibratingKernel::ClSelfCalibratingKernel(shared_ptr<IClKernelPerformanceComparator> p_performanceComparator) :
         performanceComparator(p_performanceComparator)
 {
 }
 
 bool ClSelfCalibratingKernel::isSetUpSuccessfully()
 {
-    optional<std::shared_ptr<IClSingleImplementationKernel> > optKernel =  performanceComparator->getBestKernel();
+    optional<shared_ptr<IClSingleImplementationKernel> > optKernel =  performanceComparator->getBestKernel();
     if ( ! optKernel ) 
         return false;
     return (*optKernel)->isSetUpSuccessfully();
@@ -27,7 +27,7 @@ bool ClSelfCalibratingKernel::operator!()
  
 IClKernel& ClSelfCalibratingKernel::operator[](uint n)
 {
-    optional<std::shared_ptr<IClSingleImplementationKernel> > optKernel =  performanceComparator->getBestKernel();
+    optional<shared_ptr<IClSingleImplementationKernel> > optKernel =  performanceComparator->getBestKernel();
     if ( !optKernel ) 
     {
         throw NO_KERNEL_IN_COMPARATOR;
@@ -52,7 +52,7 @@ IClKernel& ClSelfCalibratingKernel::operator()(uint argumentNb, ... )
 
 IClKernel& ClSelfCalibratingKernel::operator()(std::vector<ClMemory*> args)
 {
-    optional<std::shared_ptr<IClSingleImplementationKernel> > optKernel =  performanceComparator->getBestKernel();
+    optional<shared_ptr<IClSingleImplementationKernel> > optKernel =  performanceComparator->getBestKernel();
     if ( !optKernel ) 
     {
         throw NO_KERNEL_IN_COMPARATOR;
@@ -62,9 +62,9 @@ IClKernel& ClSelfCalibratingKernel::operator()(std::vector<ClMemory*> args)
     return *(*optKernel).get();
 }
 
-IClKernel& ClSelfCalibratingKernel::operator()(std::vector<std::shared_ptr<ClMemory>> args)
+IClKernel& ClSelfCalibratingKernel::operator()(std::vector<shared_ptr<ClMemory>> args)
 {
-    optional<std::shared_ptr<IClSingleImplementationKernel> > optKernel =  performanceComparator->getBestKernel();
+    optional<shared_ptr<IClSingleImplementationKernel> > optKernel =  performanceComparator->getBestKernel();
     if ( !optKernel ) 
     {
         throw NO_KERNEL_IN_COMPARATOR;

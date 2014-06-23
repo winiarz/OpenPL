@@ -4,8 +4,8 @@ namespace InsPr
 {
 
 Function::Function(std::string p_functionName,
-                   std::vector<std::shared_ptr<IVariable>> p_arguments,
-                   std::shared_ptr<InstructionBlock> p_instructions) :
+                   std::vector<shared_ptr<IVariable>> p_arguments,
+                   shared_ptr<InstructionBlock> p_instructions) :
     functionName(p_functionName),
     arguments(p_arguments),
     instructions(p_instructions)

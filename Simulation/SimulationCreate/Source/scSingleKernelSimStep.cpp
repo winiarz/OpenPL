@@ -6,7 +6,7 @@ namespace OPL
 namespace SimCreate
 {
 
-SingleKernelSimStep::SingleKernelSimStep(std::shared_ptr<InsPr::IKernel> p_recordedKernel) :
+SingleKernelSimStep::SingleKernelSimStep(shared_ptr<InsPr::IKernel> p_recordedKernel) :
     recordedKernel(p_recordedKernel),
     compiledKernel()
 {
@@ -26,7 +26,7 @@ void SingleKernelSimStep::loadKernelIfNotLoaded()
     }
 }
 
-void SingleKernelSimStep::execute(std::vector<std::shared_ptr<ClMemory>> args)
+void SingleKernelSimStep::execute(std::vector<shared_ptr<ClMemory>> args)
 {
     loadKernelIfNotLoaded();
 

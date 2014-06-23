@@ -5,14 +5,14 @@
 using ::testing::StrictMock;
 using ::testing::Return;
 
-typedef std::shared_ptr<ClParameterizedKernel> ParametrizedKernelPtr;
+typedef shared_ptr<ClParameterizedKernel> ParametrizedKernelPtr;
 
 class ClParameterizedKernelFromSourceTestSuite : public ::testing::Test {
 public:
     ClParameterizedKernelFromSourceTestSuite() :
         validParameter(123),
         invalidParameter(321),
-        parameterMock(std::make_shared<StrictMock<ClParameterMock> >())
+        parameterMock(make_shared<StrictMock<ClParameterMock> >())
     {
     }
 
@@ -21,12 +21,12 @@ public:
 
     int validParameter;
     int invalidParameter;
-    std::shared_ptr<ClParameterMock> parameterMock;
+    shared_ptr<ClParameterMock> parameterMock;
 };
 
 ParametrizedKernelPtr ClParameterizedKernelFromSourceTestSuite::prepareSUT()
 {
-    return std::make_shared<ClParameterizedKernelFromSource>(parameterMock,
+    return make_shared<ClParameterizedKernelFromSource>(parameterMock,
                                                              string("ClPlatform/TestData/parametrized_kernel.cl"),
                                                              string("parameterized_kernel"),
                                                              string("$param$"));
@@ -44,7 +44,7 @@ TEST_F(ClParameterizedKernelFromSourceTestSuite, returnsNoneWhenParameterIsInval
 
     isParamCorrectExpectations();
 
-    optional<std::shared_ptr<IClSingleImplementationKernel> > kernel = m_sut->getKernel(invalidParameter);
+    optional<shared_ptr<IClSingleImplementationKernel> > kernel = m_sut->getKernel(invalidParameter);
     ASSERT_EQ( none, kernel );
 }
 
@@ -54,7 +54,7 @@ TEST_F(ClParameterizedKernelFromSourceTestSuite, returnsKernelWhenParameterIsVal
 
     isParamCorrectExpectations();
     
-    optional<std::shared_ptr<IClSingleImplementationKernel> > kernel = m_sut->getKernel(validParameter);
+    optional<shared_ptr<IClSingleImplementationKernel> > kernel = m_sut->getKernel(validParameter);
     ASSERT_TRUE( kernel );
 }
 
@@ -64,10 +64,10 @@ TEST_F(ClParameterizedKernelFromSourceTestSuite, returnsNoneWhenKernelIsRejected
 
     isParamCorrectExpectations();
 
-    optional<std::shared_ptr<IClSingleImplementationKernel> > kernel = m_sut->getKernel(validParameter);
+    optional<shared_ptr<IClSingleImplementationKernel> > kernel = m_sut->getKernel(validParameter);
 
     m_sut->rejectKernel(*kernel);
-    optional<std::shared_ptr<IClSingleImplementationKernel> > kernel2 = m_sut->getKernel(validParameter);
+    optional<shared_ptr<IClSingleImplementationKernel> > kernel2 = m_sut->getKernel(validParameter);
 
     ASSERT_EQ( none, kernel2 );
 }

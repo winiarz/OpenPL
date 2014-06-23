@@ -7,7 +7,7 @@ ClCalibrator::ClCalibrator() :
 
 }
 
-void ClCalibrator::addPerformanceComparator(std::shared_ptr<IClKernelPerformanceComparator> newComparator)
+void ClCalibrator::addPerformanceComparator(shared_ptr<IClKernelPerformanceComparator> newComparator)
 {
     comparatorsSet.insert(newComparator);
 }

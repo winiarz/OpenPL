@@ -1,19 +1,19 @@
 #include "ClDataGeneratorComposite.hpp"
 #include "ClError.hpp"
 
-ClDataGeneratorComposite::ClDataGeneratorComposite(std::vector<std::shared_ptr<IClDataGenerator> > p_dataGenerators) :
+ClDataGeneratorComposite::ClDataGeneratorComposite(std::vector<shared_ptr<IClDataGenerator> > p_dataGenerators) :
     dataGenerators(p_dataGenerators)
 {
 }
 
-vector<std::shared_ptr<ClMemory> > ClDataGeneratorComposite::getData()
+vector<shared_ptr<ClMemory> > ClDataGeneratorComposite::getData()
 {
-    vector<std::shared_ptr<ClMemory> > result;
+    vector<shared_ptr<ClMemory> > result;
 
-    std::vector<std::shared_ptr<IClDataGenerator> >::iterator i;
+    std::vector<shared_ptr<IClDataGenerator> >::iterator i;
     for ( i = dataGenerators.begin(); i != dataGenerators.end(); ++i)
     {
-        vector<std::shared_ptr<ClMemory> > data = (*i)->getData();
+        vector<shared_ptr<ClMemory> > data = (*i)->getData();
 
         result.insert( result.end(), data.begin(), data.end());
     }

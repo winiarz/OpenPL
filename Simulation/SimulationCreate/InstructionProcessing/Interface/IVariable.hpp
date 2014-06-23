@@ -30,17 +30,17 @@ namespace InsPr
         {
             std::ostringstream sstream;
             sstream << getName() << " = " << rvalue.getName();
-            (*recorder) << std::make_shared<SingleInstruction>(sstream.str());
+            (*recorder) << make_shared<SingleInstruction>(sstream.str());
         }
 
         void recordDeclaration()
         {
             std::ostringstream sstream;
             sstream << getTypeName() << " " << getName();
-            (*recorder) << std::make_shared<SingleInstruction>(sstream.str());
+            (*recorder) << make_shared<SingleInstruction>(sstream.str());
         }
 
-        static std::shared_ptr<IInstructionRecorder> recorder;
+        static shared_ptr<IInstructionRecorder> recorder;
     };
 
     class IGlobalArrayVariable : public IVariable

@@ -6,6 +6,6 @@
 class IClSelfCalibratingKernelFromFileReader
 {
 public:
-    virtual std::shared_ptr<ClSelfCalibratingKernel> read(std::string filename) = 0;
+    virtual shared_ptr<ClSelfCalibratingKernel> read(std::string filename) = 0;
 };
 

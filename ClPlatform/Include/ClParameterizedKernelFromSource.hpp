@@ -5,7 +5,7 @@
 
 class ClParameterizedKernelFromSource : public ClParameterizedKernel {
 public:
-    ClParameterizedKernelFromSource(std::shared_ptr<IClParameter>,string,string,string);
+    ClParameterizedKernelFromSource(shared_ptr<IClParameter>,string,string,string);
 
     virtual string getSource(int);
     virtual string getKernelName();

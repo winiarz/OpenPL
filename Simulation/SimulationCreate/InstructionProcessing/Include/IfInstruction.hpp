@@ -8,17 +8,17 @@ namespace InsPr
     class IfInstruction : public IInstructionBlock
     {
     public:
-        IfInstruction(std::shared_ptr<SingleInstruction>);
+        IfInstruction(shared_ptr<SingleInstruction>);
 
         virtual uint getAlternativesCount();
         virtual std::string getAlternative(uint);
-        virtual void addInstruction(std::shared_ptr<IInstruction>);
+        virtual void addInstruction(shared_ptr<IInstruction>);
         virtual void startElse();
     private:
-        std::shared_ptr<SingleInstruction> condition;
+        shared_ptr<SingleInstruction> condition;
 
-        std::shared_ptr<InstructionBlock> instructionsForTrue;
-        std::shared_ptr<InstructionBlock> instructionsForFalse;
+        shared_ptr<InstructionBlock> instructionsForTrue;
+        shared_ptr<InstructionBlock> instructionsForFalse;
     };
 }
 

@@ -36,7 +36,7 @@ TEST_F( ClDataGeneratorFileReadWriteTestSuite, writeAndReadFloatArrayGenerator)
     fclose(file);
 
     file = fopen(dataGeneratorFilename.c_str(),"rb");
-    std::shared_ptr<IClDataGenerator> readGenerator;
+    shared_ptr<IClDataGenerator> readGenerator;
     EXPECT_NO_THROW( readGenerator = reader.read(file) );
     fclose(file);
 
@@ -45,10 +45,10 @@ TEST_F( ClDataGeneratorFileReadWriteTestSuite, writeAndReadFloatArrayGenerator)
 
 TEST_F( ClDataGeneratorFileReadWriteTestSuite, writeAndreadCompositeGenerator )
 {
-    std::vector<std::shared_ptr<IClDataGenerator> > generators;
+    std::vector<shared_ptr<IClDataGenerator> > generators;
     for ( int i=0; i < 10; i++ ) 
     {
-        generators.push_back(std::make_shared<ClRandomFloatArrayGenerator>(10+i));
+        generators.push_back(make_shared<ClRandomFloatArrayGenerator>(10+i));
     }
     ClDataGeneratorComposite compositeGenerator(generators);
 
@@ -57,7 +57,7 @@ TEST_F( ClDataGeneratorFileReadWriteTestSuite, writeAndreadCompositeGenerator )
     fclose(file);
 
     file = fopen(dataGeneratorFilename.c_str(),"rb");
-    std::shared_ptr<IClDataGenerator> readGenerator;
+    shared_ptr<IClDataGenerator> readGenerator;
     EXPECT_NO_THROW( readGenerator = reader.read(file) );
     fclose(file);
 

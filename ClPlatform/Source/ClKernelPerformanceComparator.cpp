@@ -11,12 +11,12 @@ ClKernelPerformanceComparator::ClKernelPerformanceComparator(IClock& p_clock) :
     bestTime = std::numeric_limits<int>::max();
 }
 
-void ClKernelPerformanceComparator::setDataGenerator( std::shared_ptr<IClDataGenerator> p_dataGenerator)
+void ClKernelPerformanceComparator::setDataGenerator( shared_ptr<IClDataGenerator> p_dataGenerator)
 {
     dataGenerator = p_dataGenerator;
 }
 
-void ClKernelPerformanceComparator::addKernel( std::shared_ptr<IClSingleImplementationKernel> newKernel)
+void ClKernelPerformanceComparator::addKernel( shared_ptr<IClSingleImplementationKernel> newKernel)
 {
     remainingKernels.insert(newKernel);
     if ( !bestKernel ) 
@@ -25,12 +25,12 @@ void ClKernelPerformanceComparator::addKernel( std::shared_ptr<IClSingleImplemen
     }
 }
 
-void ClKernelPerformanceComparator::addParameterizedKernel( std::shared_ptr<IClParameterizedKernel> newParametrizedKernel)
+void ClKernelPerformanceComparator::addParameterizedKernel( shared_ptr<IClParameterizedKernel> newParametrizedKernel)
 {
-    std::shared_ptr<set<int> > parameters = newParametrizedKernel->getNotRejectedParameters();
+    shared_ptr<set<int> > parameters = newParametrizedKernel->getNotRejectedParameters();
     for( int param : *parameters)
     {
-         optional<std::shared_ptr<IClSingleImplementationKernel> > kernel = newParametrizedKernel->getKernel(param);
+         optional<shared_ptr<IClSingleImplementationKernel> > kernel = newParametrizedKernel->getKernel(param);
          if ( kernel ) 
          {
              addKernel(*kernel);
@@ -42,9 +42,9 @@ bool ClKernelPerformanceComparator::comparationStep()
 {
     if ( dataGenerator && !remainingKernels.empty() ) 
     {
-        vector<std::shared_ptr<ClMemory> > l_randomData = (*dataGenerator)->getData();
+        vector<shared_ptr<ClMemory> > l_randomData = (*dataGenerator)->getData();
 
-        set<std::shared_ptr<IClSingleImplementationKernel> >::iterator testedKernel = remainingKernels.begin();
+        set<shared_ptr<IClSingleImplementationKernel> >::iterator testedKernel = remainingKernels.begin();
 
         uint beginTime = clock.getUsec();
         //(*testedKernel)(l_randomData); TODO - run kernel here
@@ -70,7 +70,7 @@ bool ClKernelPerformanceComparator::comparationStep()
     return !remainingKernels.empty();
 }
 
-optional<std::shared_ptr<IClSingleImplementationKernel> > ClKernelPerformanceComparator::getBestKernel()
+optional<shared_ptr<IClSingleImplementationKernel> > ClKernelPerformanceComparator::getBestKernel()
 {
     return bestKernel;
 }
@@ -94,7 +94,7 @@ void ClKernelPerformanceComparator::saveToFile( FILE* file )
 
     ClKernelSaver kernelSaver;
 
-    for ( set<std::shared_ptr<IClSingleImplementationKernel> >::iterator i = remainingKernels.begin(); i != remainingKernels.end(); ++i ) 
+    for ( set<shared_ptr<IClSingleImplementationKernel> >::iterator i = remainingKernels.begin(); i != remainingKernels.end(); ++i ) 
     {
         kernelSaver.saveKernel( (*i), file );
     }

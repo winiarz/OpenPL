@@ -2,13 +2,13 @@
 
 namespace InsPr
 {
-ForLoop::ForLoop(std::shared_ptr<SingleInstruction> p_startInstruction,
-                 std::shared_ptr<SingleInstruction> p_continueCondition,
-                 std::shared_ptr<SingleInstruction> p_afterCircuitInstruction) :
+ForLoop::ForLoop(shared_ptr<SingleInstruction> p_startInstruction,
+                 shared_ptr<SingleInstruction> p_continueCondition,
+                 shared_ptr<SingleInstruction> p_afterCircuitInstruction) :
     startInstruction(p_startInstruction),
     continueCondition(p_continueCondition),
     afterCircuitInstruction(p_afterCircuitInstruction),
-    instructions(std::make_shared<InstructionBlock>())
+    instructions(make_shared<InstructionBlock>())
 {
 }
 
@@ -20,12 +20,12 @@ uint ForLoop::getAlternativesCount()
            instructions->getAlternativesCount();
 }
 
-void ForLoop::addInstruction(std::shared_ptr<IInstruction> instruction)
+void ForLoop::addInstruction(shared_ptr<IInstruction> instruction)
 {
     instructions->addInstruction(instruction);
 }
 
-std::string ForLoop::getInstructionAlt(std::shared_ptr<SingleInstruction> instruction,
+std::string ForLoop::getInstructionAlt(shared_ptr<SingleInstruction> instruction,
                                        uint& alternativeNb)
 {
     uint altCount = instruction->getAlternativesCount();

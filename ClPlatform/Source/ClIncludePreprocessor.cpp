@@ -2,7 +2,7 @@
 #include "ClError.hpp"
 #include "logs.hpp"
 
-std::shared_ptr<std::string> ClIncludePreprocessor::replaceIncludes( std::shared_ptr<std::string> source,
+shared_ptr<std::string> ClIncludePreprocessor::replaceIncludes( shared_ptr<std::string> source,
                                                                      std::set<std::string>& includeDirectories )
 {
     std::stringstream output;
@@ -20,7 +20,7 @@ std::shared_ptr<std::string> ClIncludePreprocessor::replaceIncludes( std::shared
             if ( includedFilePaths.find(includeFilePath) == includedFilePaths.end() )
             {
                 includedFilePaths.insert(includeFilePath);
-                std::shared_ptr<std::string> includeText = readFile(includeFilePath);
+                shared_ptr<std::string> includeText = readFile(includeFilePath);
                 std::string textWithReplacedIncludes = *replaceIncludes(includeText, includeDirectories);
                 output << textWithReplacedIncludes;
             }
@@ -31,7 +31,7 @@ std::shared_ptr<std::string> ClIncludePreprocessor::replaceIncludes( std::shared
         }
     }
 
-    return std::make_shared<std::string>(output.str());
+    return make_shared<std::string>(output.str());
 }
 
 std::string ClIncludePreprocessor::getIncludeFilePath(std::string& includeFilename, 
@@ -73,7 +73,7 @@ bool ClIncludePreprocessor::isLineIncludeDirective( std::string& line ) // TODO 
     return (line.size()>7)&&(line[0] == '#')&&(line[1]=='i')&&(line[2]=='n')&&(line[3]=='c')&&(line[4]=='l')&&(line[5]=='u')&&(line[6]=='d')&&(line[7]=='e');
 }
 
-std::shared_ptr<std::string> ClIncludePreprocessor::readFile(std::string& filename) // TODO the same code is in class ClKernelFromSourceLoader, remove this COPY-PASTE
+shared_ptr<std::string> ClIncludePreprocessor::readFile(std::string& filename) // TODO the same code is in class ClKernelFromSourceLoader, remove this COPY-PASTE
 {
     std::ifstream file(filename);
     if ( !file.is_open() ) 
@@ -82,7 +82,7 @@ std::shared_ptr<std::string> ClIncludePreprocessor::readFile(std::string& filena
         throw FILE_READ_ERROR;
     }
 
-    auto text = std::make_shared<std::string>();
+    auto text = make_shared<std::string>();
 
     file.seekg(0, std::ios::end);   
     text->reserve(file.tellg());

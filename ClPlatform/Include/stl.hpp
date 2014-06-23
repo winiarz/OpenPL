@@ -27,4 +27,5 @@ using std::out_of_range;
 #include <limits>
 #include <mutex>
 #include <memory>
-
+using std::shared_ptr;
+using std::make_shared;

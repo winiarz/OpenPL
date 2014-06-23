@@ -48,13 +48,13 @@ unsigned char* ClKernelFromBinaryLoader::readBinary( FILE* file, size_t binarySi
     return binary;
 }
 
-std::shared_ptr<ClKernel> ClKernelFromBinaryLoader::loadKernel(std::string filename)
+shared_ptr<ClKernel> ClKernelFromBinaryLoader::loadKernel(std::string filename)
 {
     FILE* file = openFile( filename );
 		return loadKernel( file );
 }
 
-std::shared_ptr<ClKernel> ClKernelFromBinaryLoader::loadKernel( FILE* file )
+shared_ptr<ClKernel> ClKernelFromBinaryLoader::loadKernel( FILE* file )
 {
     size_t binarySize = readBinarySize( file );
     unsigned char * binary = readBinary( file, binarySize );
@@ -98,6 +98,6 @@ std::shared_ptr<ClKernel> ClKernelFromBinaryLoader::loadKernel( FILE* file )
         throw INCORRECT_KERNEL_FILE;
     }
 
-    return std::make_shared<ClKernel>(program);
+    return make_shared<ClKernel>(program);
 }
 

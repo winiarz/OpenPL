@@ -7,7 +7,7 @@ ClRandomFloatArrayGenerator::ClRandomFloatArrayGenerator(uint p_arraySize) :
 {
 }
 
-vector<std::shared_ptr<ClMemory> > ClRandomFloatArrayGenerator::getData()
+vector<shared_ptr<ClMemory> > ClRandomFloatArrayGenerator::getData()
 {
     srand48( time(NULL));
     float generatedArray[arraySize];
@@ -15,11 +15,11 @@ vector<std::shared_ptr<ClMemory> > ClRandomFloatArrayGenerator::getData()
     for (uint i=0; i<arraySize; i++) 
         generatedArray[i] = drand48();
 
-    std::shared_ptr<ClTypedMemory<float> > memory = std::make_shared<ClTypedMemory<float> >(arraySize);
+    shared_ptr<ClTypedMemory<float> > memory = make_shared<ClTypedMemory<float> >(arraySize);
 
     memory->copyIn(generatedArray, 0, arraySize);
 
-    std::vector<std::shared_ptr<ClMemory> > result;
+    std::vector<shared_ptr<ClMemory> > result;
     result.push_back( memory );
     return result;
 }

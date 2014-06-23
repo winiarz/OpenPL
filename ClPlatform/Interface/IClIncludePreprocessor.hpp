@@ -5,7 +5,7 @@
 class IClIncludePreprocessor
 {
 public:
-    virtual std::shared_ptr<std::string> replaceIncludes( std::shared_ptr<std::string> source,
+    virtual shared_ptr<std::string> replaceIncludes( shared_ptr<std::string> source,
                                                           std::set<std::string>& includeDirectories ) = 0;
 };
 

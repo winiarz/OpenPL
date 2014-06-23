@@ -10,12 +10,12 @@ ClKernel::ClKernel( const char fileName[], const char p_kernelName[] ) :
     kernel(0),
     loaded(false),
     kernelName(p_kernelName),
-    stats(std::make_shared<Clock>(), 0.95f)
+    stats(make_shared<Clock>(), 0.95f)
 {
     setUpSuccessfully = false;
     try
     {
-        std::shared_ptr<ClKernel> tempKernel = ClKernelFromBinaryLoader().loadKernel(fileName);
+        shared_ptr<ClKernel> tempKernel = ClKernelFromBinaryLoader().loadKernel(fileName);
         program = tempKernel->getProgram();
     }
     catch ( ClError error ) 
@@ -45,7 +45,7 @@ ClKernel::ClKernel( cl_program p_program ) :
     localSize(0),
     setUpSuccessfully(false),
     kernelName("kernelName"),
-    stats(std::make_shared<Clock>(), 0.95f)
+    stats(make_shared<Clock>(), 0.95f)
 {
 }
 
@@ -204,7 +204,7 @@ IClKernel& ClKernel::operator()(std::vector<ClMemory*> args)
     return *this;
 }
 
-IClKernel& ClKernel::operator()(std::vector<std::shared_ptr<ClMemory>> args)
+IClKernel& ClKernel::operator()(std::vector<shared_ptr<ClMemory>> args)
 {
     if ( !loaded ) 
     {

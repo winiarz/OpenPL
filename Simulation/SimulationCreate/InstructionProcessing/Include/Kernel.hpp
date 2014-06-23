@@ -10,15 +10,15 @@ namespace InsPr
     {
     public:
         Kernel(std::string,
-               std::vector<std::shared_ptr<IGlobalArrayVariable>>,
-               std::shared_ptr<IInstructionBlock>,
+               std::vector<shared_ptr<IGlobalArrayVariable>>,
+               shared_ptr<IInstructionBlock>,
                std::vector<std::string> = std::vector<std::string>() );
         virtual uint getAlternativesCount();
         virtual std::string getAlternative(uint);
     private:
         std::string kernelName;
-        std::vector<std::shared_ptr<IGlobalArrayVariable>> arguments;
-        std::shared_ptr<IInstructionBlock> instructions;
+        std::vector<shared_ptr<IGlobalArrayVariable>> arguments;
+        shared_ptr<IInstructionBlock> instructions;
         std::vector<std::string> includes;
     };
 }

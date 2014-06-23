@@ -62,7 +62,7 @@ void ClParameterizedKernel::rejectKernel(std::shared_ptr<IClSingleImplementation
    }
 }
 
-boost::shared_ptr<IClParameter> ClParameterizedKernel::getParameter()
+std::shared_ptr<IClParameter> ClParameterizedKernel::getParameter()
 {
     return parameter;
 }
@@ -77,7 +77,7 @@ std::shared_ptr<set<int> > ClParameterizedKernel::getNotRejectedParameters()
     return result;
 }
 
-ClParameterizedKernel::ClParameterizedKernel(boost::shared_ptr<IClParameter> p_parameter) :
+ClParameterizedKernel::ClParameterizedKernel(std::shared_ptr<IClParameter> p_parameter) :
     parameter(p_parameter)
 {
 }

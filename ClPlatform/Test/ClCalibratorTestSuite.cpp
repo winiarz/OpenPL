@@ -18,7 +18,7 @@ ClCalibratorTestSuite::ClCalibratorTestSuite() :
     sut(boost::make_shared<ClCalibrator>())
 {
 }
-/*
+
 TEST_F( ClCalibratorTestSuite, calibrationIsFinishedWhenNoComparatorsAdded)
 {
     ASSERT_TRUE( sut->isCalibrationFinished() );
@@ -60,4 +60,4 @@ TEST_F( ClCalibratorTestSuite, calibrationIsNotFinishedIfOnlyComparatorDoesNotFi
     ASSERT_FALSE( sut->calibrate() );
 
     ASSERT_FALSE( sut->isCalibrationFinished() );
-}*/
+}

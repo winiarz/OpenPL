@@ -1,7 +1,5 @@
 #pragma once
 
-#include "boost.hpp"
-
 class IClKernelPerformanceComparator;
 
 class IClCalibrator {

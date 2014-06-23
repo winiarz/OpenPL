@@ -26,4 +26,5 @@ using std::out_of_range;
 #include <sstream>
 #include <limits>
 #include <mutex>
+#include <memory>
 

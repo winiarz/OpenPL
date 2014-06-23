@@ -1,6 +1,5 @@
 #pragma once
 
-#include "boost.hpp"
 #include "IClDataGenerator.hpp"
 
 class IClDataGeneratorFromFileReader

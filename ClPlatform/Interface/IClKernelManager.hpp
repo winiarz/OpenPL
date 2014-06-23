@@ -1,7 +1,5 @@
 #pragma once
 
-#include "boost.hpp"
-
 class ClKernel;
 
 class IClKernelManager

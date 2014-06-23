@@ -28,7 +28,7 @@ void ClKernelPerformanceComparator::addKernel( std::shared_ptr<IClSingleImplemen
 void ClKernelPerformanceComparator::addParameterizedKernel( std::shared_ptr<IClParameterizedKernel> newParametrizedKernel)
 {
     std::shared_ptr<set<int> > parameters = newParametrizedKernel->getNotRejectedParameters();
-    BOOST_FOREACH( int param, *parameters)
+    for( int param : *parameters)
     {
          optional<std::shared_ptr<IClSingleImplementationKernel> > kernel = newParametrizedKernel->getKernel(param);
          if ( kernel ) 

@@ -2,7 +2,6 @@
 
 #include <CL/cl.h>
 #include <stl.hpp>
-#include <boost.hpp>
 
 typedef unsigned int uint;
 

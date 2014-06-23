@@ -12,7 +12,7 @@ public:
     ClParameterizedKernelFromSourceTestSuite() :
         validParameter(123),
         invalidParameter(321),
-        parameterMock(make_shared<StrictMock<ClParameterMock> >())
+        parameterMock(std::make_shared<StrictMock<ClParameterMock> >())
     {
     }
 
@@ -21,7 +21,7 @@ public:
 
     int validParameter;
     int invalidParameter;
-    boost::shared_ptr<ClParameterMock> parameterMock;
+    std::shared_ptr<ClParameterMock> parameterMock;
 };
 
 ParametrizedKernelPtr ClParameterizedKernelFromSourceTestSuite::prepareSUT()

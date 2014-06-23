@@ -1,7 +1,7 @@
 #include "ClDataGeneratorComposite.hpp"
 #include "ClError.hpp"
 
-ClDataGeneratorComposite::ClDataGeneratorComposite(std::vector<boost::shared_ptr<IClDataGenerator> > p_dataGenerators) :
+ClDataGeneratorComposite::ClDataGeneratorComposite(std::vector<std::shared_ptr<IClDataGenerator> > p_dataGenerators) :
     dataGenerators(p_dataGenerators)
 {
 }
@@ -10,7 +10,7 @@ vector<std::shared_ptr<ClMemory> > ClDataGeneratorComposite::getData()
 {
     vector<std::shared_ptr<ClMemory> > result;
 
-    std::vector<boost::shared_ptr<IClDataGenerator> >::iterator i;
+    std::vector<std::shared_ptr<IClDataGenerator> >::iterator i;
     for ( i = dataGenerators.begin(); i != dataGenerators.end(); ++i)
     {
         vector<std::shared_ptr<ClMemory> > data = (*i)->getData();
@@ -33,8 +33,7 @@ void ClDataGeneratorComposite::saveToFile( FILE* file )
     if ( writtenBytes < 1 )
         throw FILE_WRITE_ERROR;
 
-    std::vector<boost::shared_ptr<IClDataGenerator> >::iterator i;
-    for ( i = dataGenerators.begin(); i != dataGenerators.end(); ++i)
+    for ( auto i = dataGenerators.begin(); i != dataGenerators.end(); ++i)
     {
         (*i)->saveToFile(file);
     }

@@ -6,6 +6,6 @@
 class IClDataGeneratorFromFileReader
 {
 public:
-    virtual boost::shared_ptr<IClDataGenerator> read(FILE*) = 0;
+    virtual std::shared_ptr<IClDataGenerator> read(FILE*) = 0;
 };
 

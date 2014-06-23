@@ -11,7 +11,7 @@ ClKernelPerformanceComparator::ClKernelPerformanceComparator(IClock& p_clock) :
     bestTime = std::numeric_limits<int>::max();
 }
 
-void ClKernelPerformanceComparator::setDataGenerator( boost::shared_ptr<IClDataGenerator> p_dataGenerator)
+void ClKernelPerformanceComparator::setDataGenerator( std::shared_ptr<IClDataGenerator> p_dataGenerator)
 {
     dataGenerator = p_dataGenerator;
 }

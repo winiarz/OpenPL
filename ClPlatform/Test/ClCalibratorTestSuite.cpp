@@ -7,14 +7,14 @@ using namespace ::testing;
 class ClCalibratorTestSuite : public Test {
 public:
     ClCalibratorTestSuite();
-    boost::shared_ptr<ClKernelPerformanceComparatorMock> performanceComparatorMock1;
-    boost::shared_ptr<ClKernelPerformanceComparatorMock> performanceComparatorMock2;
+    std::shared_ptr<ClKernelPerformanceComparatorMock> performanceComparatorMock1;
+    std::shared_ptr<ClKernelPerformanceComparatorMock> performanceComparatorMock2;
     boost::shared_ptr<ClCalibrator> sut;
 };
 
 ClCalibratorTestSuite::ClCalibratorTestSuite() :
-    performanceComparatorMock1(make_shared<NiceMock<ClKernelPerformanceComparatorMock> >()),
-    performanceComparatorMock2(make_shared<NiceMock<ClKernelPerformanceComparatorMock> >()),
+    performanceComparatorMock1(std::make_shared<NiceMock<ClKernelPerformanceComparatorMock> >()),
+    performanceComparatorMock2(std::make_shared<NiceMock<ClKernelPerformanceComparatorMock> >()),
     sut(make_shared<ClCalibrator>())
 {
 }

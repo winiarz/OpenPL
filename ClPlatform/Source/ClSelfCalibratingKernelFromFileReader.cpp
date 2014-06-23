@@ -31,7 +31,7 @@ boost::shared_ptr<ClSelfCalibratingKernel> ClSelfCalibratingKernelFromFileReader
 				throw INCORRECT_KERNEL_FILE;
 		}
 
-    boost::shared_ptr<IClDataGenerator> dataGenerator = dataGeneratorReader->read( file );
+    std::shared_ptr<IClDataGenerator> dataGenerator = dataGeneratorReader->read( file );
 
 		uint kernelsCount;
 		readElems = fread( &kernelsCount, sizeof(kernelsCount), 1, file);
@@ -41,7 +41,7 @@ boost::shared_ptr<ClSelfCalibratingKernel> ClSelfCalibratingKernelFromFileReader
     boost::shared_ptr<ClKernelPerformanceComparator> performanceComparator =
 		    boost::make_shared<ClKernelPerformanceComparator>(clock);
 
-	  performanceComparator->setDataGenerator( dataGenerator );
+    performanceComparator->setDataGenerator( dataGenerator );
 
     for( uint i=0; i<kernelsCount; ++i )
 		{

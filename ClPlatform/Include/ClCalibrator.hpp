@@ -6,10 +6,10 @@
 class ClCalibrator : public IClCalibrator {
 public:
     ClCalibrator();
-    virtual void addPerformanceComparator(boost::shared_ptr<IClKernelPerformanceComparator>);
+    virtual void addPerformanceComparator(std::shared_ptr<IClKernelPerformanceComparator>);
     virtual bool isCalibrationFinished();
     virtual bool calibrate();
 private:
-    set<boost::shared_ptr<IClKernelPerformanceComparator> > comparatorsSet;
+    set<std::shared_ptr<IClKernelPerformanceComparator> > comparatorsSet;
 };
 

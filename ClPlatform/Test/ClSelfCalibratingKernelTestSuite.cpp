@@ -34,8 +34,7 @@ TEST_F( ClSelfCalibratingKernelTestSuite, saveAndLoad_selfCalibratingKernel )
     boost::shared_ptr<ClKernelPerformanceComparator> performanceComparator
         = boost::make_shared<ClKernelPerformanceComparator>(clock);
 
-    boost::shared_ptr<IClDataGenerator> dataGenerator =
-        boost::make_shared<ClRandomFloatArrayGenerator>(10);
+    auto dataGenerator = std::make_shared<ClRandomFloatArrayGenerator>(10);
 
     performanceComparator->setDataGenerator( dataGenerator );
 

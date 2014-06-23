@@ -7,7 +7,7 @@ ClCalibrator::ClCalibrator() :
 
 }
 
-void ClCalibrator::addPerformanceComparator(boost::shared_ptr<IClKernelPerformanceComparator> newComparator)
+void ClCalibrator::addPerformanceComparator(std::shared_ptr<IClKernelPerformanceComparator> newComparator)
 {
     comparatorsSet.insert(newComparator);
 }
@@ -24,7 +24,7 @@ bool ClCalibrator::calibrate()
         return true;
     }
 
-    set<boost::shared_ptr<IClKernelPerformanceComparator> >::iterator comparator = comparatorsSet.begin();
+    auto comparator = comparatorsSet.begin();
 
     if ( !(*comparator)->comparationStep() ) 
     {

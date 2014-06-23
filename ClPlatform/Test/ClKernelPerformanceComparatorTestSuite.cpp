@@ -19,13 +19,13 @@ public:
                                                                       int param);
 
     boost::shared_ptr<ClockMock> clockMock;
-    boost::shared_ptr<ClDataGeneratorMock> dataGeneratorMock;
+    std::shared_ptr<ClDataGeneratorMock> dataGeneratorMock;
     boost::shared_ptr<ClKernelPerformanceComparator> sut;
 };
 
 ClKernelPerformanceComparatorTestSuite::ClKernelPerformanceComparatorTestSuite() :
     clockMock(make_shared<ClockMock>()),
-    dataGeneratorMock(make_shared<ClDataGeneratorMock>()),
+    dataGeneratorMock(std::make_shared<ClDataGeneratorMock>()),
     sut(make_shared<ClKernelPerformanceComparator>(*clockMock))
 {
 }

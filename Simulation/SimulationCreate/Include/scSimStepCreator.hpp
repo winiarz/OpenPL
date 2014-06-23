@@ -19,7 +19,7 @@ public:
 private:
     std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>> arguments;
     boost::function<std::vector<boost::shared_ptr<InsPr::IGlobalArrayVariable>>()> recordInstructionBlock;
-    boost::shared_ptr<InsPr::IInstructionRecorder> recorder;
+    std::shared_ptr<InsPr::IInstructionRecorder> recorder;
 };
 
 }

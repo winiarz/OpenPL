@@ -12,10 +12,10 @@ class InstructionRecorderTestSuite : public Test
 {
 public:
     InstructionRecorderTestSuite() :
-        sut(boost::make_shared<InstructionRecorder>())
+        sut(std::make_shared<InstructionRecorder>())
     {}
 
-    boost::shared_ptr<IInstructionRecorder> sut;
+    std::shared_ptr<IInstructionRecorder> sut;
 };
 
 TEST_F(InstructionRecorderTestSuite, recordSingleBlock)

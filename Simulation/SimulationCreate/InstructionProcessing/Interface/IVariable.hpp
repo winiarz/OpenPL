@@ -40,7 +40,7 @@ namespace InsPr
             (*recorder) << boost::make_shared<SingleInstruction>(sstream.str());
         }
 
-        static boost::shared_ptr<IInstructionRecorder> recorder;
+        static std::shared_ptr<IInstructionRecorder> recorder;
     };
 
     class IGlobalArrayVariable : public IVariable

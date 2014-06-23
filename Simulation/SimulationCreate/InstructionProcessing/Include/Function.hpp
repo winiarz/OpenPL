@@ -12,13 +12,13 @@ namespace InsPr
     public:
         Function(std::string,
                  std::vector<shared_ptr<IVariable>>,
-                 boost::shared_ptr<InstructionBlock>);
+                 std::shared_ptr<InstructionBlock>);
         virtual uint getAlternativesCount();
         virtual std::string getAlternative(uint);
     private:
         std::string functionName;
         std::vector<shared_ptr<IVariable>> arguments;
-        boost::shared_ptr<InstructionBlock> instructions;
+        std::shared_ptr<InstructionBlock> instructions;
     };
 }
 

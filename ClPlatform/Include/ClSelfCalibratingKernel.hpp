@@ -7,7 +7,7 @@
 class ClSelfCalibratingKernel : public IClKernel
 {
 public:
-    ClSelfCalibratingKernel(boost::shared_ptr<IClKernelPerformanceComparator> p_performanceComparator);
+    ClSelfCalibratingKernel(std::shared_ptr<IClKernelPerformanceComparator> p_performanceComparator);
 
     virtual bool isSetUpSuccessfully();
     virtual bool operator!();
@@ -21,6 +21,6 @@ public:
 
     void saveToFile( std::string filename );
 private:
-    boost::shared_ptr<IClKernelPerformanceComparator> performanceComparator;
+    std::shared_ptr<IClKernelPerformanceComparator> performanceComparator;
 };
 

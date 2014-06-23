@@ -5,7 +5,7 @@
 #include "logs.hpp"
 #include <stdarg.h>
 
-ClSelfCalibratingKernel::ClSelfCalibratingKernel(boost::shared_ptr<IClKernelPerformanceComparator> p_performanceComparator) :
+ClSelfCalibratingKernel::ClSelfCalibratingKernel(std::shared_ptr<IClKernelPerformanceComparator> p_performanceComparator) :
         performanceComparator(p_performanceComparator)
 {
 }

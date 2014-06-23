@@ -5,12 +5,12 @@
 #include "logs.hpp"
 #include <cstdio>
 
-ClSelfCalibratingKernelFromFileReader::ClSelfCalibratingKernelFromFileReader( boost::shared_ptr<IClDataGeneratorFromFileReader> p_dataGeneratorReader,
-                                                                              boost::shared_ptr<ClKernelFromBinaryLoader> p_kernelLoader,
+ClSelfCalibratingKernelFromFileReader::ClSelfCalibratingKernelFromFileReader( std::shared_ptr<IClDataGeneratorFromFileReader> p_dataGeneratorReader,
+                                                                              std::shared_ptr<ClKernelFromBinaryLoader> p_kernelLoader,
 																																							IClock& p_clock ) :
     dataGeneratorReader( p_dataGeneratorReader ),
-		kernelLoader( p_kernelLoader ),
-		clock( p_clock )
+    kernelLoader( p_kernelLoader ),
+    clock( p_clock )
 {
 }
 
@@ -38,8 +38,7 @@ boost::shared_ptr<ClSelfCalibratingKernel> ClSelfCalibratingKernelFromFileReader
 		if( readElems < 1 )
 				throw FILE_READ_ERROR;
 
-    boost::shared_ptr<ClKernelPerformanceComparator> performanceComparator =
-		    boost::make_shared<ClKernelPerformanceComparator>(clock);
+    auto performanceComparator = std::make_shared<ClKernelPerformanceComparator>(clock);
 
     performanceComparator->setDataGenerator( dataGenerator );
 
@@ -47,6 +46,6 @@ boost::shared_ptr<ClSelfCalibratingKernel> ClSelfCalibratingKernelFromFileReader
 		{
 			  performanceComparator->addKernel( kernelLoader->loadKernel(file) );	
 		}
-		return boost::make_shared<ClSelfCalibratingKernel>( performanceComparator );
+    return boost::make_shared<ClSelfCalibratingKernel>( performanceComparator );
 }
 

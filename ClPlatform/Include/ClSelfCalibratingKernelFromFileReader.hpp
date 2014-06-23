@@ -8,14 +8,14 @@
 class ClSelfCalibratingKernelFromFileReader : public IClSelfCalibratingKernelFromFileReader
 {
 public:
-    ClSelfCalibratingKernelFromFileReader( boost::shared_ptr<IClDataGeneratorFromFileReader>,
-                                           boost::shared_ptr<ClKernelFromBinaryLoader>,
+    ClSelfCalibratingKernelFromFileReader( std::shared_ptr<IClDataGeneratorFromFileReader>,
+                                           std::shared_ptr<ClKernelFromBinaryLoader>,
                                            IClock& );
     virtual boost::shared_ptr<ClSelfCalibratingKernel> read(std::string filename);
 
 private:
-    boost::shared_ptr<IClDataGeneratorFromFileReader> dataGeneratorReader;
-		boost::shared_ptr<ClKernelFromBinaryLoader> kernelLoader;
-		IClock& clock;
+    std::shared_ptr<IClDataGeneratorFromFileReader> dataGeneratorReader;
+    std::shared_ptr<ClKernelFromBinaryLoader> kernelLoader;
+    IClock& clock;
 };
 

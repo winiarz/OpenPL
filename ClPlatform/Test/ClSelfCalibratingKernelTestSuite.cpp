@@ -31,8 +31,7 @@ void ClSelfCalibratingKernelTestSuite::TearDown()
 TEST_F( ClSelfCalibratingKernelTestSuite, saveAndLoad_selfCalibratingKernel )
 {
     Clock clock;
-    boost::shared_ptr<ClKernelPerformanceComparator> performanceComparator
-        = boost::make_shared<ClKernelPerformanceComparator>(clock);
+    auto performanceComparator = std::make_shared<ClKernelPerformanceComparator>(clock);
 
     auto dataGenerator = std::make_shared<ClRandomFloatArrayGenerator>(10);
 
@@ -42,11 +41,9 @@ TEST_F( ClSelfCalibratingKernelTestSuite, saveAndLoad_selfCalibratingKernel )
     
     ASSERT_NO_THROW( sut.saveToFile( kernelFilename ) );
 
-    boost::shared_ptr<IClDataGeneratorFromFileReader> dataGeneratorReader
-        = boost::make_shared<ClDataGeneratorFromFileReader>();
+    auto dataGeneratorReader = std::make_shared<ClDataGeneratorFromFileReader>();
 
-    boost::shared_ptr<ClKernelFromBinaryLoader> kernelLoader
-        = boost::make_shared<ClKernelFromBinaryLoader>();
+    auto kernelLoader = std::make_shared<ClKernelFromBinaryLoader>();
 
     ClSelfCalibratingKernelFromFileReader reader( dataGeneratorReader, kernelLoader, clock );
     ASSERT_NO_THROW( reader.read(kernelFilename) );

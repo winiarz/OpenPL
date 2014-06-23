@@ -15,7 +15,7 @@ public:
     void setDataGenerator();
     std::shared_ptr<ClSingleImplementationKernelMock> addKernel();
     std::shared_ptr<ClSingleImplementationKernelMock> addAndTestKernel(int workTime);
-    std::shared_ptr<ClSingleImplementationKernelMock> expectGetKernel(boost::shared_ptr<ClParameterizedKernelMock> paramKernelMock,
+    std::shared_ptr<ClSingleImplementationKernelMock> expectGetKernel(std::shared_ptr<ClParameterizedKernelMock> paramKernelMock,
                                                                       int param);
 
     boost::shared_ptr<ClockMock> clockMock;
@@ -56,7 +56,7 @@ std::shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorT
     return kernelMock;
 }
 
-std::shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorTestSuite::expectGetKernel(boost::shared_ptr<ClParameterizedKernelMock> paramKernelMock,
+std::shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorTestSuite::expectGetKernel(std::shared_ptr<ClParameterizedKernelMock> paramKernelMock,
                                                                                         int param)
 {
     std::shared_ptr<ClSingleImplementationKernelMock> kernelMock
@@ -116,7 +116,7 @@ TEST_F( ClKernelPerformanceComparatorTestSuite, kernelWithShorterTimeIsBetter )
 
 TEST_F( ClKernelPerformanceComparatorTestSuite, addParametrizedKernelAddsKernelForAllParameters )
 {
-    boost::shared_ptr<ClParameterizedKernelMock> paramKernelMock = boost::make_shared<ClParameterizedKernelMock>();
+    auto paramKernelMock = std::make_shared<ClParameterizedKernelMock>();
 
     auto params = std::make_shared<set<int> >();
     params->insert(1);

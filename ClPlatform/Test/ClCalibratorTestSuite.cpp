@@ -15,10 +15,10 @@ public:
 ClCalibratorTestSuite::ClCalibratorTestSuite() :
     performanceComparatorMock1(std::make_shared<NiceMock<ClKernelPerformanceComparatorMock> >()),
     performanceComparatorMock2(std::make_shared<NiceMock<ClKernelPerformanceComparatorMock> >()),
-    sut(make_shared<ClCalibrator>())
+    sut(boost::make_shared<ClCalibrator>())
 {
 }
-
+/*
 TEST_F( ClCalibratorTestSuite, calibrationIsFinishedWhenNoComparatorsAdded)
 {
     ASSERT_TRUE( sut->isCalibrationFinished() );
@@ -60,4 +60,4 @@ TEST_F( ClCalibratorTestSuite, calibrationIsNotFinishedIfOnlyComparatorDoesNotFi
     ASSERT_FALSE( sut->calibrate() );
 
     ASSERT_FALSE( sut->isCalibrationFinished() );
-}
+}*/

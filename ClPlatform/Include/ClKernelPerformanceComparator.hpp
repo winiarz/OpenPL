@@ -11,7 +11,7 @@ public:
     virtual bool comparationStep();
     virtual void setDataGenerator( std::shared_ptr<IClDataGenerator>);
     virtual void addKernel( std::shared_ptr<IClSingleImplementationKernel> );
-    virtual void addParameterizedKernel( boost::shared_ptr<IClParameterizedKernel> );
+    virtual void addParameterizedKernel( std::shared_ptr<IClParameterizedKernel> );
     virtual optional<std::shared_ptr<IClSingleImplementationKernel> > getBestKernel();
     virtual void saveToFile( FILE* file );
 private:

@@ -10,7 +10,6 @@ include $(Common)/Common.mk
 include $(SimCreate)/SimCreate.mk
 include $(InstructionProcessing)/Makefiles/InstructionProcessing.mk
 include $(SimExecute)/SimExecute.mk
-include SelfCalibratingKernels/SelfCalibratingKernels.mk
 
 compile: $(libClPlatform) $(libLogs) $(libSimCreate) $(libSimExecute) $(libInstructionProcessing)
 

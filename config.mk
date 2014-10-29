@@ -59,7 +59,7 @@ cpp_flags=-c -std=c++11 -Wall -Werror
 clcc=$(Bin)/clcc
 
 #external libraries
-OpenClLib= -lpthread /usr/lib/libOpenCL.so.1
+OpenClLib=/usr/lib/x86_64-linux-gnu/libOpenCL.so.1 -pthread
 GTest=-lgtest -lgtest_main
 GMock=-lgmock -lgmock_main
 OpenGL=-lGL -lGLU -lGLEW 

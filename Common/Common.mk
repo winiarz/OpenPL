@@ -9,8 +9,8 @@ filesToClean+= $(libLogs)
 
 $(libLogs): $(LogsObj)
 	@echo "\tLD\t"/Logs.a
-	@ar rvs $@ $^ 2> /dev/null > /dev/null
+	@mkdir -p $(dir $@) && ar rvs $@ $^ 2> /dev/null > /dev/null
 
 $(CommonObj)/%.o: $(CommonSource)/%.cpp
 	@echo "\tCXX\t"$*.o
-	@$(cpp) $< -o $@ $(AllInclude) $(cpp_flags)
+	@mkdir -p $(dir $@) && $(cpp) $< -o $@ $(AllInclude) $(cpp_flags)

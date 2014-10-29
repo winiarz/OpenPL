@@ -20,7 +20,7 @@ void SingleKernelSimStep::loadKernelIfNotLoaded()
         file << recordedKernel->getAlternative(0);
         file.close();
 
-        std::set<std::string> includeDirs = {".","/media/DATA/OpenPL/OpenPL/clinclude"};
+        std::set<std::string> includeDirs = {".","/home/winiarz/OpenPL/clinclude"};
         ClKernelFromSourceLoader loader(includeDirs);
         compiledKernel = loader.loadKernel("__temp_source_file.cl");
     }

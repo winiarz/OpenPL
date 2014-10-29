@@ -43,27 +43,27 @@ filesToClean += $(ClPlatformObj)/*.o
 
 $(clcc): $(ClPlatformLibObj) $(ClccObj) $(libLogs)
 	@echo "\tLD\t"clcc
-	@g++ $^ -o $@ $(OpenClLib) $(OpenGL)
+	@mkdir -p $(dir $@) && g++ $^ -o $@ $(OpenClLib) $(OpenGL)
 
 ClPlatformTest: $(ClPlatform)/TestPlatform $(ClPlatformTestKernels)
 	$(ClPlatform)/TestPlatform
 
 $(libClPlatform): $(ClPlatformLibObj)
 	@echo "\tLD\t"ClPlatform.a
-	@ar rvs $@ $^ 2> /dev/null > /dev/null
+	@mkdir -p $(dir $@) && ar rvs $@ $^ 2> /dev/null > /dev/null
 
 $(ClPlatform)/TestPlatform: $(ClPlatformTestObjs) $(ClPlatformLibObj) $(libLogs)
 	@echo "\tLD\t"$@
-	@g++ $^ -o $@ $(GTest) $(GMock) $(OpenClLib) $(OpenGL)
+	@mkdir -p $(dir $@) && g++ $^ -o $@ $(GTest) $(GMock) $(OpenClLib) $(OpenGL)
 
 $(ClPlatformObj)/%.o: $(ClPlatformSource)/%.cpp
 	@echo "\tCXX\t"$*.o
-	@g++ $^ -o $@ $(AllInclude) $(cpp_flags)
+	@mkdir -p $(dir $@) &&  g++ $^ -o $@ $(AllInclude) $(cpp_flags)
 
 $(ClPlatformObj)/%.o: $(ClPlatformTest)/%.cpp
 	@echo "\tCXX\t"$*.o
-	@g++ $^ -o $@ $(AllInclude) $(cpp_flags)
+	@mkdir -p $(dir $@) && g++ $^ -o $@ $(AllInclude) $(cpp_flags)
 
 %.clbin: %.cl $(clcc)
 	@echo "\tCLCC\t"$*
-	@$(clcc) $<
+	@mkdir -p $(dir $@) && $(clcc) $<

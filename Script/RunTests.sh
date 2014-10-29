@@ -9,7 +9,7 @@ TestList=Test/regresion.list
 logMainDir=`pwd`/logs
 date=`date "+%H:%M_%d-%b-%Y"`
 logDir="$logMainDir/$date"
-mkdir $logDir
+mkdir -p $logDir
 
 make compile CompileTest -j6 > $logDir/compile 2> $logDir/compile.err
 
@@ -30,7 +30,7 @@ function testcase {
   testname="$3"
 
   logDirForTestcase="$logDir/$testname"
-  mkdir $logDirForTestcase
+  mkdir -p $logDirForTestcase
 
   echo -en "\t$test_number/$test_count $testname\r"
   pushd "$dir" > /dev/null

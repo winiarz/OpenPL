@@ -18,9 +18,9 @@ $(libSimCreate): $(SimCreateLibObj) $(SimCreateObjFromAutogen)
 
 $(SimCreateObj)/%.o: $(SimCreateSource)/%.cpp
 	@echo "\tCXX\t"$*.o
-	@g++ $< -o $@ $(AllInclude) $(cpp_flags)
+	@mkdir -p $(dir $@) && g++ $< -o $@ $(AllInclude) $(cpp_flags)
 
 $(SimCreateObj)/%.o: $(SimCreateSource)/Structures/%.cpp
 	@echo "\tCXX\t"$*.o
-	@g++ $< -o $@ $(AllInclude) $(cpp_flags)
+	@mkdir -p $(dir $@) && g++ $< -o $@ $(AllInclude) $(cpp_flags)
 

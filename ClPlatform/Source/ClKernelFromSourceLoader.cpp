@@ -15,48 +15,8 @@ shared_ptr<ClKernel> ClKernelFromSourceLoader::loadKernel(std::string filename)
     shared_ptr<std::string> source = readFile(filename);
 
     shared_ptr<std::string> sourceWithReplacedIncludes = includePreprocessor.replaceIncludes(source, includeDirectories);
-    cl_program program = compileSource( sourceWithReplacedIncludes );
+    cl_program program = compiler.compile(*sourceWithReplacedIncludes);
     return make_shared<ClKernel>(program);
-}
-
-cl_program ClKernelFromSourceLoader::compileSource(shared_ptr<std::string> source)
-{
-    ClPlatform& platform = ClPlatform::getPlatform();
-
-    cl_int error;
-
-    const char* sourceCString = source->c_str();
-
-    cl_program program = clCreateProgramWithSource(platform.getContext(),
-                                                   1,
-                                                   (const char**)&sourceCString,
-                                                   NULL,
-                                                   &error);
-
-    if ( (program == NULL) || ( error != CL_SUCCESS ) )
-    {
-        ERROR << "Failed to create CL program from source, error = " << error;
-        throw OPEN_CL_ERROR;
-    }
-
-    error = clBuildProgram(program, 0, NULL, NULL, NULL, NULL);
-    if (error != CL_SUCCESS)
-    {
-        char buildLog[MAX_BUILD_LOG_SIZE];
-        clGetProgramBuildInfo(program,
-                              platform.getDevice(),
-                              CL_PROGRAM_BUILD_LOG,
-                              sizeof(buildLog),
-                              buildLog,
-                              NULL);
-    
-        ERROR << "Error in kernel: ";
-        ERROR << buildLog;
-        clReleaseProgram(program);
-        return NULL;
-    }
-  
-    return program;
 }
 
 shared_ptr<std::string> ClKernelFromSourceLoader::readFile(std::string& filename)

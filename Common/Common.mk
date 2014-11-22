@@ -3,6 +3,7 @@
 LogsObj=      $(CommonObj)/logs.o
 LogsObj+=     $(CommonObj)/Clock.o
 LogsObj+=     $(CommonObj)/LogStream.o
+LogsObj+=     $(CommonObj)/OpenPlConfiguration.o
 
 filesToClean+= $(CommonObj)/*.o
 filesToClean+= $(libLogs)

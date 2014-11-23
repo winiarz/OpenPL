@@ -51,7 +51,7 @@ libSimExecute=$(Lib)/SimulationExecute.a
 libKernelLoader=$(Lib)/KernelLoader.a
 libLogs=$(ProjectRoot)/lib/Logs.a
 
-allLibs=$(libSimExecute) $(libSimCreate) $(libClPlatform) $(libLogs) $(libInstructionProcessing)
+allLibs=$(libSimExecute) $(libSimCreate) $(libClPlatform) $(libInstructionProcessing) $(libLogs)
 
 #compilers and their flags
 cpp=g++

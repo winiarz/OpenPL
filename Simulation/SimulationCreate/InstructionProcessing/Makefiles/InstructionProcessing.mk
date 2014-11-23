@@ -30,11 +30,11 @@ InstructionProcessingTest: Bin/Test/InstructionProcessingTS
 
 $(InstructionProcessingObj)/%.o: $(InstructionProcessingSource)/%.cpp
 	@echo "\tCXX\t"$*.o
-	@mkdir -p $(dir $@) && g++ $^ -o $@ $(AllInclude) $(cpp_flags)
+	@mkdir -p $(dir $@) && $(cpp) $^ -o $@ $(AllInclude) $(cpp_flags)
 
 $(InstructionProcessingObj)/%.o: $(InstructionProcessingTest)/%.cpp
 	@echo "\tCXX\t"$*.o
-	@mkdir -p $(dir $@) && g++ $^ -o $@ $(AllInclude) $(cpp_flags)
+	@mkdir -p $(dir $@) && $(cpp) $^ -o $@ $(AllInclude) $(cpp_flags)
 
 $(libInstructionProcessing): $(InstructionProcessingObjs)
 	@echo "\tLD\t"libInstructionProcessing
@@ -42,7 +42,7 @@ $(libInstructionProcessing): $(InstructionProcessingObjs)
 
 Bin/Test/InstructionProcessingTS: $(InstructionProcessingTestObjs) $(allLibs)
 	@echo "\tLD\t"$@
-	@mkdir -p $(dir $@) && g++ $^ -o $@ $(GTest) $(GMock) $(OpenClLib) $(OpenGL)
+	@mkdir -p $(dir $@) && $(cpp) $^ -o $@ $(GTest) $(GMock) $(OpenClLib) $(OpenGL)
 
 filesToClean+=     Bin/Test/InstructionProcessingTS
 filesToClean+=     $(InstructionProcessingObj)/*.o

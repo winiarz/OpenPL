@@ -11,11 +11,11 @@ all: main
 
 %.o: %.cpp
 	@echo "\tCXX\t"$@
-	@g++ $^ -o $@ $(AllInclude) $(cpp_flags)
+	@$(cpp) $^ -o $@ $(AllInclude) $(cpp_flags)
 
 main: mysim.o main.o
 	@echo "\tLN\t"$@
-	@g++ $^ $(allLibs) -o $@ $(OpenClLib) $(OpenGL)
+	@$(cpp) $^ $(allLibs) -o $@ $(OpenClLib) $(OpenGL)
 
 clean:
 	@echo "\tRM\t"

@@ -45,8 +45,8 @@ $(SimExecuteSource)/VecTypes/seLocal%.cpp: $(SimExecuteTemplates)/seLocalVector.
 
 $(SimExecuteObj)/%.o: $(SimExecuteSource)/%.cpp $(SimExecuteAutogenIncludes)
 	@echo "\tCXX\t"$*.o
-	@mkdir -p $(dir $@) && g++ $< -o $@ $(AllInclude) $(cpp_flags)
+	@mkdir -p $(dir $@) && $(cpp) $< -o $@ $(AllInclude) $(cpp_flags)
 
 $(SimExecuteObj)/%.o: $(SimExecuteSource)/Structures/%.cpp $(AllAutogenIncludes)
 	@echo "\tCXX\t"$*.o
-	@mkdir -p $(dir $@) && g++ $< -o $@ $(AllInclude) $(cpp_flags)
+	@mkdir -p $(dir $@) && $(cpp) $< -o $@ $(AllInclude) $(cpp_flags)

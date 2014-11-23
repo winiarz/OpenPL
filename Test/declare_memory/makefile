@@ -9,11 +9,11 @@ all: main
 
 %.o: %.cpp
 	@echo "\tCXX\t"$@
-	@g++ $^ -o $@ $(AllInclude) $(cpp_flags)
+	@$(cpp) $^ -o $@ $(AllInclude) $(cpp_flags)
 
 main: declare_memory.o main.o $(allLibs)
 	@echo "\tLN\t"$@
-	@g++ $^ $(allLibs) -o $@ $(OpenClLib) $(OpenGL)
+	@$(cpp) $^ $(allLibs) -o $@ $(OpenClLib) $(OpenGL)
 
 clean:
 	@echo "\tRM\t"

@@ -5,7 +5,7 @@
 #include "ClKernelFromSourceLoader.hpp"
 #include "ClKernel.hpp"
 
-int compile(const char input_file[],set<string>  includeDirectories,const char output_file[])
+int compile(const char input_file[],vector<string>  includeDirectories,const char output_file[])
 {
     DEBUG << "compiling file: " << input_file;
     ClKernelFromSourceLoader kernelLoader(includeDirectories);

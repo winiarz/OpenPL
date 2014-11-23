@@ -1,6 +1,12 @@
 #include "OpenPlConfiguration.hpp"
 
-std::set<std::string> OpenPlConfiguration::getClIncludeDirs() const
+OpenPlConfiguration::OpenPlConfiguration()
 {
-    return {".","/home/winiarz/OpenPL/clinclude"};
+    clIncludeDirs.push_back(".");
+    clIncludeDirs.push_back("/home/winiarz/OpenPL/clinclude");
+}
+
+std::vector<std::string>& OpenPlConfiguration::getClIncludeDirs()
+{
+    return clIncludeDirs;
 }

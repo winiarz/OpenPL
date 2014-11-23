@@ -32,8 +32,7 @@ int main(int argc,char* argv[])
   strcat(input_file2,".2");
   strcat(output_file,"bin");
   
-  set<string> includeDirectories;
-  includeDirectories.insert(".");
+  vector<string> includeDirectories = {"."};
   
   for(int i=2;i<argc;i++)
   {
@@ -54,7 +53,7 @@ int main(int argc,char* argv[])
 	cout << "No directory after option -I\n";
       }
       i++;
-      includeDirectories.insert(string(argv[i]));;
+      includeDirectories.push_back(string(argv[i]));;
     }
   } 
   return compile(input_file, includeDirectories,output_file);

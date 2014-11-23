@@ -1,11 +1,11 @@
 #pragma once
-#include <set>
+#include <vector>
 #include <string>
 
 class IOpenPlConfiguration
 {
 public:
-   virtual std::set<std::string> getClIncludeDirs() const = 0;
+   virtual std::vector<std::string>& getClIncludeDirs() = 0;
 
     virtual ~IOpenPlConfiguration() {}
 };

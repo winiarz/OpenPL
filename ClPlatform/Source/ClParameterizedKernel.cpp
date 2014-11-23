@@ -23,8 +23,7 @@ boost::optional<shared_ptr<IClSingleImplementationKernel> > ClParameterizedKerne
         ofstream tempFile("__temp_kernel_source.cl"); // TODO do it without temp file !
         tempFile << kernelSource;
         tempFile.close();
-        set<string> includeDirs;
-        includeDirs.insert(string("."));
+        vector<string> includeDirs = {"."};
         compile("__temp_kernel_source.cl",includeDirs, "__temp_kernel_source.clbin"); // TODO do not create binary file
 
         shared_ptr<IClSingleImplementationKernel> kernel

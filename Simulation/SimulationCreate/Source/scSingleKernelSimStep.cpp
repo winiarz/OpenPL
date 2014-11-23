@@ -7,7 +7,7 @@ namespace SimCreate
 {
 
 SingleKernelSimStep::SingleKernelSimStep(shared_ptr<InsPr::IKernel> p_recordedKernel,
-                                         const IOpenPlConfiguration& p_openPlConfiguration) :
+                                         IOpenPlConfiguration& p_openPlConfiguration) :
     recordedKernel(p_recordedKernel),
     compiledKernel(),
     openPlConfiguration(p_openPlConfiguration)

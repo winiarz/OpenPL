@@ -4,5 +4,9 @@
 class OpenPlConfiguration : public IOpenPlConfiguration
 {
 public:
-   virtual std::set<std::string> getClIncludeDirs() const override;
+    OpenPlConfiguration();
+    virtual std::vector<std::string>& getClIncludeDirs() override;
+
+private:
+    std::vector<std::string> clIncludeDirs;
 };

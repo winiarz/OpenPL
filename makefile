@@ -15,7 +15,7 @@ compile: $(libClPlatform) $(libLogs) $(libSimCreate) $(libSimExecute) $(libInstr
 
 CompileTest: $(ClPlatform)/TestPlatform $(ClPlatformTestKernels) Bin/Test/InstructionProcessingTS
 
-test: ClPlatformTest InstructionProcessingTest
+test: ClPlatformTest InstructionProcessingTest CommonTest
 
 clean:
 	@rm -f lib/*.a $(filesToClean)

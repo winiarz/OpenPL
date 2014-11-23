@@ -13,14 +13,14 @@ namespace SimCreate
     {
     public:
         SingleKernelSimStep(shared_ptr<InsPr::IKernel>,
-                            const IOpenPlConfiguration&);
+                            IOpenPlConfiguration&);
 
         void execute(std::vector<shared_ptr<ClMemory>>);
         void execute(std::vector<ClMemory*>);
     private:
         shared_ptr<InsPr::IKernel> recordedKernel;
         shared_ptr<ClKernel> compiledKernel;
-        const IOpenPlConfiguration& openPlConfiguration;
+        IOpenPlConfiguration& openPlConfiguration;
 
         void loadKernelIfNotLoaded();
     };

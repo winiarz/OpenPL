@@ -21,7 +21,7 @@ private:
     std::vector<shared_ptr<InsPr::IGlobalArrayVariable>> arguments;
     boost::function<std::vector<shared_ptr<InsPr::IGlobalArrayVariable>>()> recordInstructionBlock;
     shared_ptr<InsPr::IInstructionRecorder> recorder;
-    const OpenPlConfiguration openPlConfiguration;
+    OpenPlConfiguration openPlConfiguration;
 };
 
 }

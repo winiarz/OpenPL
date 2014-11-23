@@ -3,7 +3,7 @@
 #include "logs.hpp"
 
 shared_ptr<std::string> ClIncludePreprocessor::replaceIncludes( shared_ptr<std::string> source,
-                                                                     std::set<std::string>& includeDirectories )
+                                                                std::vector<std::string>& includeDirectories )
 {
     std::stringstream output;
     std::istringstream sourceStream( *source );
@@ -35,10 +35,10 @@ shared_ptr<std::string> ClIncludePreprocessor::replaceIncludes( shared_ptr<std::
 }
 
 std::string ClIncludePreprocessor::getIncludeFilePath(std::string& includeFilename, 
-                                                      std::set<std::string>& includeDirectories)
+                                                      std::vector<std::string>& includeDirectories)
 {
     ifstream input;
-    for(set<string>::iterator i=includeDirectories.begin(); i!= includeDirectories.end(); i++)
+    for(auto i=includeDirectories.begin(); i!= includeDirectories.end(); i++)
 	{
         std::ostringstream fileNameStream;
         fileNameStream << (*i) << "/" << includeFilename;

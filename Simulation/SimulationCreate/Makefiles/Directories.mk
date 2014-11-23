@@ -1,5 +1,5 @@
 
-SimCreateObj=             $(SimCreate)/obj
+SimCreateObj=             $(Obj)/Simulation/SimulationCreate
 SimCreateInclude=         $(SimCreate)/Include
 SimCreateIncludeTypes)=   $(SimCreateInclude)/Types
 SimCreateScript=          $(SimCreate)/Script

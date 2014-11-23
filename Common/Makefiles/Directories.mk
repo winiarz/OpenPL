@@ -1,3 +1,3 @@
 
-CommonObj=$(Common)/Obj
+CommonObj=$(Obj)/Common
 CommonSource=$(Common)/Source

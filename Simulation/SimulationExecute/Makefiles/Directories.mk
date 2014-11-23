@@ -1,6 +1,6 @@
 
 
-SimExecuteObj=             $(SimExecute)/obj
+SimExecuteObj=             $(Obj)/Simulation/SimulationExecute
 SimExecuteInclude=         $(SimExecute)/Include
 SimExecuteIncludeTypes=    $(SimExecuteInclude)/Types
 SimExecuteIncludeVecTypes= $(SimExecuteInclude)/VecTypes

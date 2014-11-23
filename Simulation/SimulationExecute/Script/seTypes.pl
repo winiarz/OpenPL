@@ -7,11 +7,11 @@ $vecTypesFile="$BaseDir/Script/vec_types.txt";
 
 $includeDir = "$BaseDir/Include/Types";
 $sourceDir = "$BaseDir/Source/Types";
-$objDir = "$BaseDir/obj/Types";
+$objDir = "Obj/Simulation/SimulationExecute/Types";
 
 $includeVecDir = "$BaseDir/Include/VecTypes";
 $sourceVecDir = "$BaseDir/Source/VecTypes";
-$objVecDir = "$BaseDir/obj/VecTypes";
+$objVecDir = "Obj/Simulation/SimulationExecute/VecTypes";
 
 @vector_sizes = ( 2, 3, 4 );
 

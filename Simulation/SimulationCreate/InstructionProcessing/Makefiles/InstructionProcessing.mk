@@ -1,5 +1,5 @@
 
-InstructionProcessingObj=     $(InstructionProcessing)/Obj
+InstructionProcessingObj=     $(Obj)/Simulation/SimulationCreate/InstructionProcessing
 InstructionProcessingSource=  $(InstructionProcessing)/Source
 InstructionProcessingTest=    $(InstructionProcessing)/Test
 
@@ -40,7 +40,7 @@ $(libInstructionProcessing): $(InstructionProcessingObjs)
 	@echo "\tLD\t"libInstructionProcessing
 	@mkdir -p $(dir $@) && ar rvs $@ $^ 2> /dev/null > /dev/null
 
-Bin/Test/InstructionProcessingTS: $(InstructionProcessingTestObjs) $(allLibs) Common/Obj/logs.o Common/Obj/LogStream.o
+Bin/Test/InstructionProcessingTS: $(InstructionProcessingTestObjs) $(allLibs) Obj/Common/logs.o Obj/Common/LogStream.o
 	@echo "\tLD\t"$@
 	@mkdir -p $(dir $@) && g++ $^ -o $@ $(GTest) $(GMock) $(OpenClLib) $(OpenGL)
 

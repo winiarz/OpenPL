@@ -29,6 +29,7 @@ SimulationExecute=$(Simulation)/SimulationExecute
 KernelLoader=$(SimulationExecute)/KernelLoader
 
 #Binary directories
+Obj=$(ProjectRoot)/Obj
 Bin=$(ProjectRoot)/Bin
 TestBin=$(Bin)/Test
 

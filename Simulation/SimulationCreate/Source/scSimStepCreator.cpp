@@ -11,8 +11,7 @@ namespace SimCreate
 SimStepCreator::SimStepCreator(boost::function<std::vector<shared_ptr<InsPr::IGlobalArrayVariable>>()> p_createInstructionBlock,
                                std::vector<shared_ptr<InsPr::IGlobalArrayVariable>> p_arguments) :
     arguments(p_arguments),
-    recordInstructionBlock(p_createInstructionBlock),
-    openPlConfiguration()
+    recordInstructionBlock(p_createInstructionBlock)
 {
 
 }
@@ -30,11 +29,12 @@ shared_ptr<ISimStep> SimStepCreator::create()
         requiredIncludes.insert( requiredIncludes.end(), includesForArg.begin(), includesForArg.end() );
     }
     auto kernel = make_shared<InsPr::Kernel>("kernelName",
-                                                    args,
-                                                    instructionBlock,
-                                                    requiredIncludes);
+                                             args,
+                                             instructionBlock,
+                                             requiredIncludes);
+
     return make_shared<SingleKernelSimStep>(kernel,
-                                            openPlConfiguration);
+                                            configurationProvider.getOpenPlConfiguration());
 }
 
 }

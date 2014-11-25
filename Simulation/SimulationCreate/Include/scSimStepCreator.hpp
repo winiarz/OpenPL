@@ -5,6 +5,7 @@
 #include "scISimStepCreator.hpp"
 #include "IVariable.hpp"
 #include "OpenPlConfiguration.hpp"
+#include "OpenPlConfigurationProvider.hpp"
 
 namespace OPL
 {
@@ -21,7 +22,7 @@ private:
     std::vector<shared_ptr<InsPr::IGlobalArrayVariable>> arguments;
     boost::function<std::vector<shared_ptr<InsPr::IGlobalArrayVariable>>()> recordInstructionBlock;
     shared_ptr<InsPr::IInstructionRecorder> recorder;
-    OpenPlConfiguration openPlConfiguration;
+    OpenPlConfigurationProvider configurationProvider;
 };
 
 }

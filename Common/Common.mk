@@ -6,6 +6,7 @@ LogsObj+=     $(CommonObj)/LogStream.o
 LogsObj+=     $(CommonObj)/OpenPlConfiguration.o
 LogsObj+=     $(CommonObj)/OpenPlConfigurationFileReader.o
 LogsObj+=     $(CommonObj)/ClIncludeDirsParamReader.o
+LogsObj+=     $(CommonObj)/OpenPlConfigurationProvider.o
 
 CommonTestObj=$(CommonObj)/ClIncludeDirsParamReaderTestSuite.o
 

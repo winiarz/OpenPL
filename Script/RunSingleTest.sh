@@ -20,6 +20,7 @@ result=$?
 
 cp *.out $logDir > /dev/null 2> /dev/null
 cp *.err $logDir > /dev/null 2> /dev/null
+cp debug.txt $logDir > /dev/null 2> /dev/null
 
 
 if [ $result == 0 ]; then

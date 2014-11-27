@@ -33,6 +33,7 @@ function testcase {
   mkdir -p $logDirForTestcase
 
   echo -en "\t$test_number/$test_count $testname\r"
+  cp openpl.config $dir 2> /dev/null
   pushd "$dir" > /dev/null
   $runSingleTest $command $logDirForTestcase $testname $test_number $test_count
 

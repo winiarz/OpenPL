@@ -4,6 +4,7 @@
 #include<fstream>
 #include <vector>
 #include <sstream>
+#include "logs.hpp"
 
 OpenPlConfigurationFileReader::OpenPlConfigurationFileReader()
 {
@@ -14,6 +15,7 @@ OpenPlConfigurationFileReader::OpenPlConfigurationFileReader()
 
 std::shared_ptr<IOpenPlConfiguration> OpenPlConfigurationFileReader::createConfigrationFromFile(std::string fileName)
 {
+    DEBUG << "reading OpenPl config file";
     std::ifstream configFile(fileName);
 
     while(!configFile.eof())
@@ -26,6 +28,15 @@ std::shared_ptr<IOpenPlConfiguration> OpenPlConfigurationFileReader::createConfi
 
         std::string paramName;
         sstream >> paramName;
+
+        for(auto& paramReader : paramReaders)
+        {
+            if(paramReader->getName().compare(paramName) == 0)
+            {
+                paramReader->readParam(sstream);
+                break;
+            }
+        }
     }
-    return std::make_shared<OpenPlConfiguration>();
+    return openPlConfiguration;
 }

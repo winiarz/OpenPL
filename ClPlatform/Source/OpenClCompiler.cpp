@@ -16,7 +16,7 @@ cl_program OpenClCompiler::compile(std::string& sourceCode) const
 
     cl_program program = clCreateProgramWithSource(platform.getContext(),
                                                    1,
-                                                   (const char**)&sourceCString,
+                                                   &sourceCString,
                                                    NULL,
                                                    &error);
 

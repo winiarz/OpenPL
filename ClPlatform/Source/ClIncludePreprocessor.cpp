@@ -7,10 +7,10 @@ ClIncludePreprocessor::ClIncludePreprocessor(std::vector<std::string>& p_include
 {
 }
 
-shared_ptr<std::string> ClIncludePreprocessor::replaceIncludes( shared_ptr<std::string> source)
+shared_ptr<std::string> ClIncludePreprocessor::replaceIncludes( std::string& source)
 {
     std::stringstream output;
-    std::istringstream sourceStream( *source );
+    std::istringstream sourceStream( source );
 
     std::string line;
 
@@ -25,7 +25,7 @@ shared_ptr<std::string> ClIncludePreprocessor::replaceIncludes( shared_ptr<std::
             {
                 includedFilePaths.insert(includeFilePath);
                 shared_ptr<std::string> includeText = readFile(includeFilePath);
-                std::string textWithReplacedIncludes = *replaceIncludes(includeText);
+                std::string textWithReplacedIncludes = *replaceIncludes(*includeText);
                 output << textWithReplacedIncludes;
             }
         }

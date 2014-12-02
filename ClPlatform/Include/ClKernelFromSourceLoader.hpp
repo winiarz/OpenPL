@@ -4,6 +4,7 @@
 #include "IClKernelFromFileLoader.hpp"
 #include "ClIncludePreprocessor.hpp"
 #include "OpenClCompiler.hpp"
+#include "OpenClCompilerWithPreprocessor.hpp"
 
 class ClKernelFromSourceLoader : public IClKernelFromFileLoader
 {
@@ -13,7 +14,6 @@ public:
 private:
     shared_ptr<std::string> readFile(std::string& filename);
 
-    ClIncludePreprocessor includePreprocessor;
-    OpenClCompiler compiler;
+    OpenClCompilerWithPreprocessor compilerWithPreprocessor;
 };
 

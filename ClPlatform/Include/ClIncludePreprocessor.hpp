@@ -7,7 +7,7 @@ class ClIncludePreprocessor : public IClIncludePreprocessor
 public:
     ClIncludePreprocessor(std::vector<std::string>&);
 
-    virtual shared_ptr<std::string> replaceIncludes( shared_ptr<std::string> source) override;
+    virtual shared_ptr<std::string> replaceIncludes( std::string& source) override;
 private:
     std::set<std::string> includedFilePaths;
     std::vector<std::string>& includeDirs;

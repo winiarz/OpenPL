@@ -5,7 +5,7 @@
 #include "logs.hpp"
 #include "stl.hpp"
 
-ClKernelFromSourceLoader::ClKernelFromSourceLoader(std::vector<std::string> p_includeDirectories) :
+ClKernelFromSourceLoader::ClKernelFromSourceLoader(std::vector<std::string>& p_includeDirectories) :
     includeDirectories(p_includeDirectories)
 {
 }

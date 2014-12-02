@@ -31,7 +31,7 @@ void SingleKernelSimStep::execute(std::vector<shared_ptr<ClMemory>> args)
 {
     loadKernelIfNotLoaded();
 
-    (*compiledKernel)[1][1](args);
+    (*compiledKernel)[1][1](args); // TODO get optimal number of threads here
 }
 
 void SingleKernelSimStep::execute(std::vector<ClMemory*> args)

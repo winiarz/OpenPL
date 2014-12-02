@@ -2,8 +2,12 @@
 #include "ClError.hpp"
 #include "logs.hpp"
 
-shared_ptr<std::string> ClIncludePreprocessor::replaceIncludes( shared_ptr<std::string> source,
-                                                                std::vector<std::string>& includeDirectories )
+ClIncludePreprocessor::ClIncludePreprocessor(std::vector<std::string>& p_includeDirs) :
+    includeDirs(p_includeDirs)
+{
+}
+
+shared_ptr<std::string> ClIncludePreprocessor::replaceIncludes( shared_ptr<std::string> source)
 {
     std::stringstream output;
     std::istringstream sourceStream( *source );
@@ -15,13 +19,13 @@ shared_ptr<std::string> ClIncludePreprocessor::replaceIncludes( shared_ptr<std::
         if ( isLineIncludeDirective(line) )
         { 
             std::string includeFilename = getIncludeFilename(line);
-            std::string includeFilePath = getIncludeFilePath(includeFilename, includeDirectories);
+            std::string includeFilePath = getIncludeFilePath(includeFilename);
 
             if ( includedFilePaths.find(includeFilePath) == includedFilePaths.end() )
             {
                 includedFilePaths.insert(includeFilePath);
                 shared_ptr<std::string> includeText = readFile(includeFilePath);
-                std::string textWithReplacedIncludes = *replaceIncludes(includeText, includeDirectories);
+                std::string textWithReplacedIncludes = *replaceIncludes(includeText);
                 output << textWithReplacedIncludes;
             }
         }
@@ -34,14 +38,13 @@ shared_ptr<std::string> ClIncludePreprocessor::replaceIncludes( shared_ptr<std::
     return make_shared<std::string>(output.str());
 }
 
-std::string ClIncludePreprocessor::getIncludeFilePath(std::string& includeFilename, 
-                                                      std::vector<std::string>& includeDirectories)
+std::string ClIncludePreprocessor::getIncludeFilePath(std::string& includeFilename)
 {
     ifstream input;
-    for(auto i=includeDirectories.begin(); i!= includeDirectories.end(); i++)
+    for (auto includeDir : includeDirs) 
 	{
         std::ostringstream fileNameStream;
-        fileNameStream << (*i) << "/" << includeFilename;
+        fileNameStream << includeDir << "/" << includeFilename;
         string fileName = fileNameStream.str();
         input.open( fileName.c_str() , std::ios::in);
         if( input.is_open() )

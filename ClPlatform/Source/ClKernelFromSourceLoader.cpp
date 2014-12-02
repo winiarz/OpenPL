@@ -6,7 +6,7 @@
 #include "stl.hpp"
 
 ClKernelFromSourceLoader::ClKernelFromSourceLoader(std::vector<std::string>& p_includeDirectories) :
-    includeDirectories(p_includeDirectories)
+    includePreprocessor(p_includeDirectories)
 {
 }
 
@@ -14,7 +14,7 @@ shared_ptr<ClKernel> ClKernelFromSourceLoader::loadKernel(std::string filename)
 {
     shared_ptr<std::string> source = readFile(filename);
 
-    shared_ptr<std::string> sourceWithReplacedIncludes = includePreprocessor.replaceIncludes(source, includeDirectories);
+    shared_ptr<std::string> sourceWithReplacedIncludes = includePreprocessor.replaceIncludes(source);
     cl_program program = compiler.compile(*sourceWithReplacedIncludes);
     return make_shared<ClKernel>(program);
 }

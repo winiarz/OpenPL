@@ -13,7 +13,6 @@ public:
 private:
     shared_ptr<std::string> readFile(std::string& filename);
 
-    std::vector<std::string>& includeDirectories;
     ClIncludePreprocessor includePreprocessor;
     OpenClCompiler compiler;
 };

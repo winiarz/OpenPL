@@ -1,5 +1,7 @@
 #include "scSingleKernelSimStep.hpp"
-#include "ClKernelFromSourceLoader.hpp"
+#include "OpenClCompilerWithPreprocessor.hpp"
+#include "OpenClCompiler.hpp"
+#include "ClIncludePreprocessor.hpp"
 
 namespace OPL
 {
@@ -18,12 +20,11 @@ void SingleKernelSimStep::loadKernelIfNotLoaded()
 {
     if ( !compiledKernel ) 
     {
-        std::ofstream file("__temp_source_file.cl"); // TODO - do it without temp file !!!
-        file << recordedKernel->getAlternative(0);
-        file.close();
+        OpenClCompilerWithPreprocessor compiler(std::make_shared<OpenClCompiler>(),
+                                                std::make_shared<ClIncludePreprocessor>(openPlConfiguration.getClIncludeDirs()));
 
-        ClKernelFromSourceLoader loader(openPlConfiguration.getClIncludeDirs());
-        compiledKernel = loader.loadKernel("__temp_source_file.cl");
+        std::string sourceCode = recordedKernel->getAlternative(0);
+        compiledKernel = std::make_shared<ClKernel>(compiler.compile(sourceCode));
     }
 }
 

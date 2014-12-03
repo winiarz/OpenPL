@@ -10,7 +10,7 @@
 class ClKernel : public IClSingleImplementationKernel {
 public:
   ClKernel( const char[], const char[]);
-  ClKernel( cl_program );
+  ClKernel( cl_program, std::string p_kernelName = "kernelName" );
   bool isLoaded();
   bool isSetUpSuccessfully();
   bool operator!();
@@ -32,7 +32,6 @@ private:
   size_t globalSize;
   size_t localSize;
 
-  bool setUpSuccessfully;
   bool loaded;
   std::string kernelName;
   ClKernelCallStats stats;

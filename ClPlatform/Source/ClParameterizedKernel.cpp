@@ -1,7 +1,11 @@
 #include "ClParameterizedKernel.hpp"
 #include "ClKernel.hpp"
 #include "IClParameter.hpp"
+#include "OpenClCompilerWithPreprocessor.hpp"
+#include "ClIncludePreprocessor.hpp"
+#include "OpenClCompiler.hpp"
 #include "clcc.hpp"
+#include "logs.hpp"
 
 boost::optional<shared_ptr<IClSingleImplementationKernel> > ClParameterizedKernel::getKernel(int paramValue)
 {
@@ -20,14 +24,13 @@ boost::optional<shared_ptr<IClSingleImplementationKernel> > ClParameterizedKerne
 
         string kernelSource = this->getSource(paramValue);
 
-        ofstream tempFile("__temp_kernel_source.cl"); // TODO do it without temp file !
-        tempFile << kernelSource;
-        tempFile.close();
         vector<string> includeDirs = {"."};
-        compile("__temp_kernel_source.cl",includeDirs, "__temp_kernel_source.clbin"); // TODO do not create binary file
+        OpenClCompilerWithPreprocessor compiler(std::make_shared<OpenClCompiler>(),
+                                                std::make_shared<ClIncludePreprocessor>(includeDirs));
 
-        shared_ptr<IClSingleImplementationKernel> kernel
-            = make_shared<ClKernel>("__temp_kernel_source.clbin",this->getKernelName().c_str());
+        auto program = compiler.compile(kernelSource);
+
+        shared_ptr<IClSingleImplementationKernel> kernel = std::make_shared<ClKernel>(program, this->getKernelName());
 
         if( kernel->isSetUpSuccessfully() )
         {

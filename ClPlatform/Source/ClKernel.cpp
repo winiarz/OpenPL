@@ -12,7 +12,6 @@ ClKernel::ClKernel( const char fileName[], const char p_kernelName[] ) :
     kernelName(p_kernelName),
     stats(make_shared<Clock>(), 0.95f)
 {
-    setUpSuccessfully = false;
     try
     {
         shared_ptr<ClKernel> tempKernel = ClKernelFromBinaryLoader().loadKernel(fileName);
@@ -27,24 +26,22 @@ ClKernel::ClKernel( const char fileName[], const char p_kernelName[] ) :
     if( !program )
     {
         ERROR << "Error in creating program from file: " << fileName;
-        setUpSuccessfully = false;
         return;
     }
 
     localSize = 0;
     globalSize = 0;
 
-    setUpSuccessfully = true;
 }
 
-ClKernel::ClKernel( cl_program p_program ) :
+ClKernel::ClKernel( cl_program p_program, std::string p_kernelName) :
     platform(ClPlatform::getPlatform()),
     program(p_program),
     kernel(0),
     globalSize(0),
     localSize(0),
-    setUpSuccessfully(false),
-    kernelName("kernelName"),
+    loaded(false),
+    kernelName(p_kernelName),
     stats(make_shared<Clock>(), 0.95f)
 {
 }
@@ -94,7 +91,7 @@ bool ClKernel::isLoaded()
 
 bool ClKernel::isSetUpSuccessfully()
 {
-  return setUpSuccessfully;
+    return program != 0;
 }
 
 bool ClKernel::operator!()

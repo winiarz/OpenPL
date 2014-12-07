@@ -15,7 +15,7 @@ include Test/empty_sim/Empty_Simulation.mk
 
 compile: $(libClPlatform) $(libLogs) $(libSimCreate) $(libSimExecute) $(libInstructionProcessing)
 
-CompileTest: $(ClPlatform)/TestPlatform $(ClPlatformTestKernels) Bin/Test/InstructionProcessingTS
+CompileTest: $(ClPlatform)/TestPlatform $(ClPlatformTestKernels) Bin/Test/InstructionProcessingTS Bin/Test/Empty_Simulation
 
 test: ClPlatformTest InstructionProcessingTest CommonTest EmptySimulationTest
 

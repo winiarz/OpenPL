@@ -20,9 +20,6 @@ std::ostream& error(int,std::string);
 #define FILENAME (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 
 const char debugFileName[] = "debug.txt";
-#define DEBUG2 \
-    if ( debugEnabled ) \
-        debug(__LINE__,FILENAME)
 
 #define DEBUG \
     if ( debugEnabled ) \

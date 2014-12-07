@@ -48,7 +48,8 @@ $(clcc): $(ClPlatformLibObj) $(ClccObj) $(libLogs)
 	@mkdir -p $(dir $@) && $(cpp) $^ -o $@ $(OpenClLib) $(OpenGL)
 
 ClPlatformTest: $(ClPlatform)/TestPlatform $(ClPlatformTestKernels)
-	$(ClPlatform)/TestPlatform
+	@echo "\tEXEC\tClPlatformTest"
+	@$(ClPlatform)/TestPlatform > /dev/null
 
 $(libClPlatform): $(ClPlatformLibObj)
 	@echo "\tLD\t"ClPlatform.a

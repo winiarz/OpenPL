@@ -26,7 +26,8 @@ InstructionProcessingTestObjs+= $(InstructionProcessingObj)/IfInstructionTestSui
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/GlobalArrayTestSuite.o
 
 InstructionProcessingTest: Bin/Test/InstructionProcessingTS
-	Bin/Test/InstructionProcessingTS
+	@echo "\tEXEC\tInstructionProcessingTest"
+	@Bin/Test/InstructionProcessingTS > /dev/null
 
 $(InstructionProcessingObj)/%.o: $(InstructionProcessingSource)/%.cpp
 	@echo "\tCXX\t"$*.o

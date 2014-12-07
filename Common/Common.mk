@@ -26,7 +26,8 @@ $(CommonObj)/%.o: $(CommonTestSource)/%.cpp
 	@mkdir -p $(dir $@) && $(cpp) $< -o $@ $(AllInclude) $(cpp_flags)
 
 CommonTest: Bin/Test/CommonTS
-	Bin/Test/CommonTS
+	@echo "\tEXEC\tCommonTest"
+	@Bin/Test/CommonTS > /dev/null
 
 Bin/Test/CommonTS: $(CommonTestObj) $(allLibs)
 	@echo "\tLD\t"$@

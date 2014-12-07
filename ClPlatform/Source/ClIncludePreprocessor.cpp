@@ -71,9 +71,9 @@ std::string ClIncludePreprocessor::getIncludeFilename( std::string& line ) // TO
     return std::string(includeFileName);
 }
 
-bool ClIncludePreprocessor::isLineIncludeDirective( std::string& line ) // TODO - refactor
+bool ClIncludePreprocessor::isLineIncludeDirective( std::string& line )
 {
-    return (line.size()>7)&&(line[0] == '#')&&(line[1]=='i')&&(line[2]=='n')&&(line[3]=='c')&&(line[4]=='l')&&(line[5]=='u')&&(line[6]=='d')&&(line[7]=='e');
+    return line.find("#include") == 0;
 }
 
 shared_ptr<std::string> ClIncludePreprocessor::readFile(std::string& filename) // TODO the same code is in class ClKernelFromSourceLoader, remove this COPY-PASTE

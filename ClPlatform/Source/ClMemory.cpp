@@ -43,16 +43,14 @@ ClMemory::ClMemory(uint p_size, ClMemoryCreation creationType) :
   if( (!memory) || (error != CL_SUCCESS) )
   {
       ERROR << "error in memory allocation OpenCL error = " << OpenClError(error);
-      setUpSuccessfully=false;
       return;
   }
     
-  setUpSuccessfully = true;
 }
 
 bool ClMemory::isSetUpSuccessfully()
 {
-  return setUpSuccessfully;
+    return memory != 0;
 }
 
 bool ClMemory::operator!()

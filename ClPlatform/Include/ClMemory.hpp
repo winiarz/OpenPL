@@ -24,6 +24,5 @@ private:
   const ClPlatform& platform;
   const uint size;
   cl_mem memory;
-  bool setUpSuccessfully;
 };
 

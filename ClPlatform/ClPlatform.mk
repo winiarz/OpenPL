@@ -1,4 +1,7 @@
 
+TestBinaries+=  $(ClPlatform)/TestPlatform
+TestBinaries+=  $(ClPlatformTestKernels)
+
 ClPlatformLibObj=    $(ClPlatformObj)/ClPlatform.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClKernel.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClKernelFactory.o

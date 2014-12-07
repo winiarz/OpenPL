@@ -12,12 +12,13 @@ include $(InstructionProcessing)/Makefiles/InstructionProcessing.mk
 include $(SimExecute)/SimExecute.mk
 
 include Test/empty_sim/Empty_Simulation.mk
+include Test/declare_memory/Declare_Memory.mk
 
 compile: $(libClPlatform) $(libLogs) $(libSimCreate) $(libSimExecute) $(libInstructionProcessing)
 
-CompileTest: $(ClPlatform)/TestPlatform $(ClPlatformTestKernels) Bin/Test/InstructionProcessingTS Bin/Test/Empty_Simulation
+CompileTest: $(TestBinaries)
 
-test: ClPlatformTest InstructionProcessingTest CommonTest EmptySimulationTest
+test: ClPlatformTest InstructionProcessingTest CommonTest EmptySimulationTest DeclareMemoryTest
 
 clean:
 	@rm -f lib/*.a $(filesToClean)

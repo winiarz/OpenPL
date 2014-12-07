@@ -1,4 +1,6 @@
 
+TestBinaries+=  Bin/Test/InstructionProcessingTS
+
 InstructionProcessingObj=     $(Obj)/Simulation/SimulationCreate/InstructionProcessing
 InstructionProcessingSource=  $(InstructionProcessing)/Source
 InstructionProcessingTest=    $(InstructionProcessing)/Test

@@ -1,4 +1,5 @@
 
+TestBinaries+=Bin/Test/CommonTS
 
 LogsObj=      $(CommonObj)/logs.o
 LogsObj+=     $(CommonObj)/Clock.o

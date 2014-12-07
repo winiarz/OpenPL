@@ -1,4 +1,6 @@
 
+TestBinaries+=  Bin/Test/Empty_Simulation
+
 EmptySim_Dir=Test/empty_sim
 EmptySim_ObjDir=Obj/$(EmptySim_Dir)
 
@@ -11,7 +13,7 @@ EmptySimulationTest: Bin/Test/Empty_Simulation
 	@echo "\tEXEC\tEmptySimulationTest"
 	@Bin/Test/Empty_Simulation > /dev/null
 
-Obj/$(EmptySim_Dir)/%.o: $(EmptySim_Dir)/%.cpp $(allLibs)
+$(EmptySim_ObjDir)/%.o: $(EmptySim_Dir)/%.cpp $(allLibs)
 	@echo "\tCXX\t"$*.o
 	@mkdir -p $(dir $@) && $(cpp) $< -o $@ -I $(EmptySim_Dir) $(AllInclude) $(cpp_flags)
 

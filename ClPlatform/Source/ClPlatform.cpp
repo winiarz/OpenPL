@@ -15,7 +15,7 @@ ClPlatform::ClPlatform()
   cl_int error = clGetPlatformIDs( 1, &platform, &platformNb );
   if( (error != CL_SUCCESS) || (platformNb < 1) )
   {
-      ERROR << "clGetPlatformIDs OpenCL error = " << error; 
+      ERROR << "clGetPlatformIDs OpenCL error = " << OpenClError(error);
       setUpSuccessfully=false;
       return;
   }
@@ -24,7 +24,7 @@ ClPlatform::ClPlatform()
   error = clGetDeviceIDs( platform, CL_DEVICE_TYPE_GPU, 1, &device, &deviceNb );
   if( (error != CL_SUCCESS) || (deviceNb < 1) || (!device) )
   {
-      ERROR << "clGetDeviceIDs OpenCL error = " << error;
+      ERROR << "clGetDeviceIDs OpenCL error = " << OpenClError(error);
       setUpSuccessfully=false;
       return;
   }
@@ -32,7 +32,7 @@ ClPlatform::ClPlatform()
   context = clCreateContext(0, 1, &device, NULL, NULL, &error);
   if( (error != CL_SUCCESS) || (!context) )
   {
-      ERROR << "clCreateContext OpenCL error = " << error;
+      ERROR << "clCreateContext OpenCL error = " << OpenClError(error);
       setUpSuccessfully=false;
       return;
   }
@@ -40,7 +40,7 @@ ClPlatform::ClPlatform()
   queue = clCreateCommandQueue(context, device, 0, &error);
   if( (error != CL_SUCCESS) || (!queue) )
   {
-      ERROR << "clCreateCommandQueue OpenCL error = " << error;
+      ERROR << "clCreateCommandQueue OpenCL error = " << OpenClError(error);
       setUpSuccessfully=false;
       return;
   }
@@ -48,7 +48,7 @@ ClPlatform::ClPlatform()
   error = clGetDeviceInfo(device,CL_DEVICE_MAX_WORK_GROUP_SIZE,sizeof(size_t),&max_work_group_size,NULL); // TODO create class DeviceInfo and move it there
   if(error != CL_SUCCESS)
   {
-      ERROR << "clGetDeviceInfo OpenCL error = " << error;
+      ERROR << "clGetDeviceInfo OpenCL error = " << OpenClError(error);
       setUpSuccessfully=false;
       return;
   }
@@ -66,7 +66,7 @@ void ClPlatform::execute() const
   cl_int error = clFinish(queue);
   if ( error != CL_SUCCESS )
   {
-      ERROR << "clFinish error = " << error;
+      ERROR << "clFinish error = " << OpenClError(error);
   }
 }
 

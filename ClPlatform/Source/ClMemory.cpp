@@ -42,7 +42,7 @@ ClMemory::ClMemory(uint p_size, ClMemoryCreation creationType) :
   }
   if( (!memory) || (error != CL_SUCCESS) )
   {
-      ERROR << "error in memory allocation OpenCL error = " << error;
+      ERROR << "error in memory allocation OpenCL error = " << OpenClError(error);
       setUpSuccessfully=false;
       return;
   }
@@ -66,7 +66,7 @@ void ClMemory::copyIn(void* data, uint start, uint p_size)
   error = clEnqueueWriteBuffer( platform.queue, memory, CL_TRUE, start, p_size, data, 0, NULL, NULL);
   if(error != CL_SUCCESS)
   {
-      ERROR << "error in copying memory to device, OpenCL error = " << error;
+      ERROR << "error in copying memory to device, OpenCL error = " << OpenClError(error);
       throw INTER_DEVICE_COPY_ERROR;
   }
 }
@@ -77,7 +77,7 @@ void ClMemory::copyOut(void* data, uint start, uint p_size)
   error = clEnqueueReadBuffer( platform.queue, memory, CL_TRUE, start, p_size, data, 0, NULL, NULL);
   if(error != CL_SUCCESS)
   {
-      ERROR << "error in copying memory to device, OpenCL error = " << error;
+      ERROR << "error in copying memory to device, OpenCL error = " << OpenClError(error);
       throw INTER_DEVICE_COPY_ERROR;
   }
 }

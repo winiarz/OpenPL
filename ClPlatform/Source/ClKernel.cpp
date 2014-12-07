@@ -53,7 +53,7 @@ void ClKernel::load()
     kernel = clCreateKernel( program, kernelName.c_str(), &error );
     if( (!kernel) || (error != CL_SUCCESS) )
     {
-        ERROR << "error in creating kernel OpenCL error = " << error;
+        ERROR << "error in creating kernel OpenCL error = " << OpenClError(error);
         loaded = false;
         delete this;
         if( error == CL_OUT_OF_RESOURCES )
@@ -156,7 +156,7 @@ void ClKernel::setKernelArg(uint idx, ClMemory* arg)
     cl_int error = clSetKernelArg( kernel, idx, sizeof(arg->memory), &(arg->memory) );
     if( error != CL_SUCCESS )
     {
-        ERROR << "error in setting kernel arg argNb = " << idx << "OpenCL error = " << error;
+        ERROR << "error in setting kernel arg argNb = " << idx << "OpenCL error = " << OpenClError(error);
         throw KERNEL_SET_ARG_ERROR;
     }
 }
@@ -176,7 +176,7 @@ void ClKernel::executeKernel()
     cl_int error = clEnqueueNDRangeKernel( platform.queue, kernel, 1, NULL,  &globalSize, &localSize, 0, NULL, NULL);
     if( error != CL_SUCCESS )
     {
-        ERROR << "error in kernel execution OpenCL error = " << error;
+        ERROR << "error in kernel execution OpenCL error = " << OpenClError(error);
         throw KERNEL_EXEC_ERROR;
     }
     platform.execute();

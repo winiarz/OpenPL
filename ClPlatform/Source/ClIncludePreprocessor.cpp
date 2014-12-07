@@ -76,7 +76,7 @@ bool ClIncludePreprocessor::isLineIncludeDirective( std::string& line )
     return line.find("#include") == 0;
 }
 
-shared_ptr<std::string> ClIncludePreprocessor::readFile(std::string& filename) // TODO the same code is in class ClKernelFromSourceLoader, remove this COPY-PASTE
+shared_ptr<std::string> ClIncludePreprocessor::readFile(std::string& filename)
 {
     std::ifstream file(filename);
     if ( !file.is_open() ) 

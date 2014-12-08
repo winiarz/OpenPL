@@ -2,8 +2,8 @@
 . Bin/Test/InstructionProcessingTS InstructionProcessing_UT
 . Bin/Test/Empty_Simulation Empty_Simulation
 . Bin/Test/Declare_Memory Declare_Memory
-Test/copy_integers ./run.sh Copy_Integers
-Test/local_variables ./run.sh Local_Variables
+. Bin/Test/Copy_Integers Copy_Integers
+. Bin/Test/Local_Variables Local_Variables
 Test/simple_aritmetics ./run.sh Simple_Aritmetics
 Test/constants ./run.sh Constants
 Test/if_command ./run.sh If_Command

@@ -18,6 +18,7 @@ include Test/local_variables/Local_Variables.mk
 include Test/simple_aritmetics/SimpleAritmetics.mk
 include Test/constants/Constants.mk
 include Test/if_command/If_Command.mk
+include Test/for_loop/For_Loop.mk
 
 compile: $(libClPlatform) $(libLogs) $(libSimCreate) $(libSimExecute) $(libInstructionProcessing)
 

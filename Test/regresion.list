@@ -8,7 +8,7 @@
 . Bin/Test/Constants Constants
 . Bin/Test/If_Command If_Command
 Test/while_loop ./run.sh While_Loop
-Test/for_loop ./run.sh For_Loop
+. Bin/Test/ForLoop For_Loop
 Test/vector_operations ./run.sh Vector_Operations
 Test/matrix_operations ./run.sh Matrix_Operations
 Test/material_point ./run.sh Material_Point

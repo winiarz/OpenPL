@@ -15,12 +15,13 @@ include Test/empty_sim/Empty_Simulation.mk
 include Test/declare_memory/Declare_Memory.mk
 include Test/copy_integers/Copy_Integers.mk
 include Test/local_variables/Local_Variables.mk
+include Test/simple_aritmetics/SimpleAritmetics.mk
 
 compile: $(libClPlatform) $(libLogs) $(libSimCreate) $(libSimExecute) $(libInstructionProcessing)
 
 CompileTest: $(TestBinaries)
 
-test: ClPlatformTest InstructionProcessingTest CommonTest EmptySimulationTest DeclareMemoryTest CopyIntegersTest LocalVariablesTest
+test: ClPlatformTest InstructionProcessingTest CommonTest EmptySimulationTest DeclareMemoryTest CopyIntegersTest LocalVariablesTest SimpleAritmeticsTest
 
 clean:
 	@rm -f lib/*.a $(filesToClean)

@@ -4,7 +4,7 @@
 . Bin/Test/Declare_Memory Declare_Memory
 . Bin/Test/Copy_Integers Copy_Integers
 . Bin/Test/Local_Variables Local_Variables
-Test/simple_aritmetics ./run.sh Simple_Aritmetics
+. Bin/Test/Simple_Aritmetics Simple_Aritmetics
 Test/constants ./run.sh Constants
 Test/if_command ./run.sh If_Command
 Test/while_loop ./run.sh While_Loop

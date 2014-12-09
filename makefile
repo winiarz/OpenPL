@@ -21,12 +21,13 @@ include Test/if_command/If_Command.mk
 include Test/while_loop/While_Loop.mk
 include Test/for_loop/For_Loop.mk
 include Test/vector_operations/Vector_Operations.mk
+include Test/matrix_operations/Matrix_Operations.mk
 
 compile: $(libClPlatform) $(libLogs) $(libSimCreate) $(libSimExecute) $(libInstructionProcessing)
 
 CompileTest: $(TestBinaries)
 
-test: ClPlatformTest InstructionProcessingTest CommonTest EmptySimulationTest DeclareMemoryTest CopyIntegersTest LocalVariablesTest SimpleAritmeticsTest ConstantsTest IfCommandTest WhileLoopTest ForLoopTest
+test: ClPlatformTest InstructionProcessingTest CommonTest EmptySimulationTest DeclareMemoryTest CopyIntegersTest LocalVariablesTest SimpleAritmeticsTest ConstantsTest IfCommandTest WhileLoopTest ForLoopTest VectorOperationsTest MatrixOperationsTest
 
 clean:
 	@rm -f lib/*.a $(filesToClean)

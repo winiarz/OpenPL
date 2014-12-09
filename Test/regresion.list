@@ -10,5 +10,5 @@
 . Bin/Test/WhileLoop While_Loop
 . Bin/Test/ForLoop For_Loop
 . Bin/Test/VectorOperations Vector_Operations
-Test/matrix_operations ./run.sh Matrix_Operations
+. Bin/Test/MatrixOperations Matrix_Operations
 Test/material_point ./run.sh Material_Point

@@ -18,13 +18,14 @@ include Test/local_variables/Local_Variables.mk
 include Test/simple_aritmetics/SimpleAritmetics.mk
 include Test/constants/Constants.mk
 include Test/if_command/If_Command.mk
+include Test/while_loop/While_Loop.mk
 include Test/for_loop/For_Loop.mk
 
 compile: $(libClPlatform) $(libLogs) $(libSimCreate) $(libSimExecute) $(libInstructionProcessing)
 
 CompileTest: $(TestBinaries)
 
-test: ClPlatformTest InstructionProcessingTest CommonTest EmptySimulationTest DeclareMemoryTest CopyIntegersTest LocalVariablesTest SimpleAritmeticsTest ConstantsTest IfCommandTest
+test: ClPlatformTest InstructionProcessingTest CommonTest EmptySimulationTest DeclareMemoryTest CopyIntegersTest LocalVariablesTest SimpleAritmeticsTest ConstantsTest IfCommandTest WhileLoopTest ForLoopTest
 
 clean:
 	@rm -f lib/*.a $(filesToClean)

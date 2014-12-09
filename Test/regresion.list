@@ -7,7 +7,7 @@
 . Bin/Test/Simple_Aritmetics Simple_Aritmetics
 . Bin/Test/Constants Constants
 . Bin/Test/If_Command If_Command
-Test/while_loop ./run.sh While_Loop
+. Bin/Test/WhileLoop While_Loop
 . Bin/Test/ForLoop For_Loop
 Test/vector_operations ./run.sh Vector_Operations
 Test/matrix_operations ./run.sh Matrix_Operations

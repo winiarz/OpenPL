@@ -9,6 +9,6 @@
 . Bin/Test/If_Command If_Command
 . Bin/Test/WhileLoop While_Loop
 . Bin/Test/ForLoop For_Loop
-Test/vector_operations ./run.sh Vector_Operations
+. Bin/Test/VectorOperations Vector_Operations
 Test/matrix_operations ./run.sh Matrix_Operations
 Test/material_point ./run.sh Material_Point

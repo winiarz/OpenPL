@@ -20,6 +20,7 @@ include Test/constants/Constants.mk
 include Test/if_command/If_Command.mk
 include Test/while_loop/While_Loop.mk
 include Test/for_loop/For_Loop.mk
+include Test/vector_operations/Vector_Operations.mk
 
 compile: $(libClPlatform) $(libLogs) $(libSimCreate) $(libSimExecute) $(libInstructionProcessing)
 

@@ -11,4 +11,4 @@
 . Bin/Test/ForLoop For_Loop
 . Bin/Test/VectorOperations Vector_Operations
 . Bin/Test/MatrixOperations Matrix_Operations
-Test/material_point ./run.sh Material_Point
+. Bin/Test/MaterialPoint Material_Point

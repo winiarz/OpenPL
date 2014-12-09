@@ -22,12 +22,13 @@ include Test/while_loop/While_Loop.mk
 include Test/for_loop/For_Loop.mk
 include Test/vector_operations/Vector_Operations.mk
 include Test/matrix_operations/Matrix_Operations.mk
+include Test/material_point/Material_Point.mk
 
 compile: $(libClPlatform) $(libLogs) $(libSimCreate) $(libSimExecute) $(libInstructionProcessing)
 
 CompileTest: $(TestBinaries)
 
-test: ClPlatformTest InstructionProcessingTest CommonTest EmptySimulationTest DeclareMemoryTest CopyIntegersTest LocalVariablesTest SimpleAritmeticsTest ConstantsTest IfCommandTest WhileLoopTest ForLoopTest VectorOperationsTest MatrixOperationsTest
+test: ClPlatformTest InstructionProcessingTest CommonTest EmptySimulationTest DeclareMemoryTest CopyIntegersTest LocalVariablesTest SimpleAritmeticsTest ConstantsTest IfCommandTest WhileLoopTest ForLoopTest VectorOperationsTest MatrixOperationsTest MaterialPointTest
 
 clean:
 	@rm -f lib/*.a $(filesToClean)

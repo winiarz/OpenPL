@@ -1,5 +1,5 @@
 
-TestBinaries+=  $(ClPlatform)/TestPlatform
+TestBinaries+=  Bin/Test/TestPlatform
 TestBinaries+=  $(ClPlatformTestKernels)
 
 ClPlatformLibObj=    $(ClPlatformObj)/ClPlatform.o
@@ -50,15 +50,15 @@ $(clcc): $(ClPlatformLibObj) $(ClccObj) $(libLogs)
 	@echo "\tLD\t"clcc
 	@mkdir -p $(dir $@) && $(cpp) $^ -o $@ $(OpenClLib) $(OpenGL)
 
-ClPlatformTest: $(ClPlatform)/TestPlatform $(ClPlatformTestKernels)
+ClPlatformTest: Bin/Test/TestPlatform $(ClPlatformTestKernels)
 	@echo "\tEXEC\tClPlatformTest"
-	@$(ClPlatform)/TestPlatform > /dev/null
+	@Bin/Test/TestPlatform > /dev/null
 
 $(libClPlatform): $(ClPlatformLibObj)
 	@echo "\tLD\t"ClPlatform.a
 	@mkdir -p $(dir $@) && ar rvs $@ $^ 2> /dev/null > /dev/null
 
-$(ClPlatform)/TestPlatform: $(ClPlatformTestObjs) $(ClPlatformLibObj) $(libLogs)
+Bin/Test/TestPlatform: $(ClPlatformTestObjs) $(ClPlatformLibObj) $(libLogs)
 	@echo "\tLD\t"$@
 	@mkdir -p $(dir $@) && $(cpp) $^ -o $@ $(GTest) $(GMock) $(OpenClLib) $(OpenGL)
 

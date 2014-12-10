@@ -25,7 +25,7 @@ ClSelfCalibratingKernelTestSuite::ClSelfCalibratingKernelTestSuite() :
 
 void ClSelfCalibratingKernelTestSuite::TearDown()
 {
-    //remove( kernelFilename.c_str() );
+    remove( kernelFilename.c_str() );
 }
 
 TEST_F( ClSelfCalibratingKernelTestSuite, saveAndLoad_selfCalibratingKernel )

@@ -17,7 +17,7 @@ $(MatrixOperations_ObjDir)/%.o: $(MatrixOperations_Dir)/%.cpp $(allLibs)
 	@echo "\tCXX\t"$*.o
 	@mkdir -p $(dir $@) && $(cpp) $< -o $@ -I $(MatrixOperations_Dir) $(AllInclude) $(cpp_flags)
 
-Bin/Test/MatrixOperations: $(MatrixOperations_Obj) $(MatrixOperations_Includes) compile
+Bin/Test/MatrixOperations: $(MatrixOperations_Obj) $(MatrixOperations_Includes) $(allLibs)
 	@echo "\tLD\t"$@
 	@mkdir -p $(dir $@) && $(cpp) $(MatrixOperations_Obj) $(allLibs) -o $@ $(OpenClLib) -lgtest -lgtest_main $(OpenGL) 
 

@@ -17,7 +17,7 @@ $(EmptySim_ObjDir)/%.o: $(EmptySim_Dir)/%.cpp $(allLibs)
 	@echo "\tCXX\t"$*.o
 	@mkdir -p $(dir $@) && $(cpp) $< -o $@ -I $(EmptySim_Dir) $(AllInclude) $(cpp_flags)
 
-Bin/Test/Empty_Simulation: $(EmptySim_Obj) $(EmptySim_Includes) compile
+Bin/Test/Empty_Simulation: $(EmptySim_Obj) $(EmptySim_Includes) $(allLibs)
 	@echo "\tLD\t"$@
 	@mkdir -p $(dir $@) && $(cpp) $(EmptySim_Obj) $(allLibs) -o $@ $(OpenClLib) $(OpenGL)
 

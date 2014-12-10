@@ -17,7 +17,7 @@ $(SimpleAritmetics_ObjDir)/%.o: $(SimpleAritmetics_Dir)/%.cpp $(allLibs)
 	@echo "\tCXX\t"$*.o
 	@mkdir -p $(dir $@) && $(cpp) $< -o $@ -I $(SimpleAritmetics_Dir) $(AllInclude) $(cpp_flags)
 
-Bin/Test/Simple_Aritmetics: $(SimpleAritmetics_Obj) $(SimpleAritmetics_Includes) compile
+Bin/Test/Simple_Aritmetics: $(SimpleAritmetics_Obj) $(SimpleAritmetics_Includes) $(allLibs)
 	@echo "\tLD\t"$@
 	@mkdir -p $(dir $@) && $(cpp) $(SimpleAritmetics_Obj) $(allLibs) -o $@ $(OpenClLib) -lgtest -lgtest_main $(OpenGL) 
 

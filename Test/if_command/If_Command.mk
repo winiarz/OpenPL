@@ -17,7 +17,7 @@ $(If_Command_ObjDir)/%.o: $(If_Command_Dir)/%.cpp $(allLibs)
 	@echo "\tCXX\t"$*.o
 	@mkdir -p $(dir $@) && $(cpp) $< -o $@ -I $(If_Command_Dir) $(AllInclude) $(cpp_flags)
 
-Bin/Test/If_Command: $(If_Command_Obj) $(If_Command_Includes) compile
+Bin/Test/If_Command: $(If_Command_Obj) $(If_Command_Includes) $(allLibs)
 	@echo "\tLD\t"$@
 	@mkdir -p $(dir $@) && $(cpp) $(If_Command_Obj) $(allLibs) -o $@ $(OpenClLib) -lgtest -lgtest_main $(OpenGL) 
 

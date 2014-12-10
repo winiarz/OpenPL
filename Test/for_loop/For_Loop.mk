@@ -17,7 +17,7 @@ $(ForLoop_ObjDir)/%.o: $(ForLoop_Dir)/%.cpp $(allLibs)
 	@echo "\tCXX\t"$*.o
 	@mkdir -p $(dir $@) && $(cpp) $< -o $@ -I $(ForLoop_Dir) $(AllInclude) $(cpp_flags)
 
-Bin/Test/ForLoop: $(ForLoop_Obj) $(ForLoop_Includes) compile
+Bin/Test/ForLoop: $(ForLoop_Obj) $(ForLoop_Includes) $(allLibs)
 	@echo "\tLD\t"$@
 	@mkdir -p $(dir $@) && $(cpp) $(ForLoop_Obj) $(allLibs) -o $@ $(OpenClLib) -lgtest -lgtest_main $(OpenGL) 
 

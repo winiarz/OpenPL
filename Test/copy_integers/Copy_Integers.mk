@@ -17,7 +17,7 @@ $(CopyIntegers_ObjDir)/%.o: $(CopyIntegers_Dir)/%.cpp $(allLibs)
 	@echo "\tCXX\t"$*.o
 	@mkdir -p $(dir $@) && $(cpp) $< -o $@ -I $(CopyIntegers_Dir) $(AllInclude) $(cpp_flags)
 
-Bin/Test/Copy_Integers: $(CopyIntegers_Obj) $(CopyIntegers_Includes) compile
+Bin/Test/Copy_Integers: $(CopyIntegers_Obj) $(CopyIntegers_Includes) $(allLibs)
 	@echo "\tLD\t"$@
 	@mkdir -p $(dir $@) && $(cpp) $(CopyIntegers_Obj) $(allLibs) -o $@ $(OpenClLib) -lgtest -lgtest_main $(OpenGL) 
 

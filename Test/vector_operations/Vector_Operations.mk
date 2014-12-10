@@ -17,7 +17,7 @@ $(VectorOperations_ObjDir)/%.o: $(VectorOperations_Dir)/%.cpp $(allLibs)
 	@echo "\tCXX\t"$*.o
 	@mkdir -p $(dir $@) && $(cpp) $< -o $@ -I $(VectorOperations_Dir) $(AllInclude) $(cpp_flags)
 
-Bin/Test/VectorOperations: $(VectorOperations_Obj) $(VectorOperations_Includes) compile
+Bin/Test/VectorOperations: $(VectorOperations_Obj) $(VectorOperations_Includes) $(allLibs)
 	@echo "\tLD\t"$@
 	@mkdir -p $(dir $@) && $(cpp) $(VectorOperations_Obj) $(allLibs) -o $@ $(OpenClLib) -lgtest -lgtest_main $(OpenGL) 
 

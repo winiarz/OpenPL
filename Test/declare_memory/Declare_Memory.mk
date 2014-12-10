@@ -17,7 +17,7 @@ $(DeclareMemory_ObjDir)/%.o: $(DeclareMemory_Dir)/%.cpp $(allLibs)
 	@echo "\tCXX\t"$*.o
 	@mkdir -p $(dir $@) && $(cpp) $< -o $@ -I $(DeclareMemory_Dir) $(AllInclude) $(cpp_flags)
 
-Bin/Test/Declare_Memory: $(DeclareMemory_Obj) $(DeclareMemory_Includes) compile
+Bin/Test/Declare_Memory: $(DeclareMemory_Obj) $(DeclareMemory_Includes) $(allLibs)
 	@echo "\tLD\t"$@
 	@mkdir -p $(dir $@) && $(cpp) $(DeclareMemory_Obj) $(allLibs) -o $@ $(OpenClLib) $(OpenGL)
 

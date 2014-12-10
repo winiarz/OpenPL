@@ -17,7 +17,7 @@ $(LocalVariables_ObjDir)/%.o: $(LocalVariables_Dir)/%.cpp $(allLibs)
 	@echo "\tCXX\t"$*.o
 	@mkdir -p $(dir $@) && $(cpp) $< -o $@ -I $(LocalVariables_Dir) $(AllInclude) $(cpp_flags)
 
-Bin/Test/Local_Variables: $(LocalVariables_Obj) $(LocalVariables_Includes) compile
+Bin/Test/Local_Variables: $(LocalVariables_Obj) $(LocalVariables_Includes) $(allLibs)
 	@echo "\tLD\t"$@
 	@mkdir -p $(dir $@) && $(cpp) $(LocalVariables_Obj) $(allLibs) -o $@ $(OpenClLib) -lgtest -lgtest_main $(OpenGL) 
 

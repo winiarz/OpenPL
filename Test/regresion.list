@@ -1,14 +1,14 @@
-. Bin/Test/TestPlatform TestPlatform
-. Bin/Test/InstructionProcessingTS InstructionProcessing_UT
-. Bin/Test/Empty_Simulation Empty_Simulation
-. Bin/Test/Declare_Memory Declare_Memory
-. Bin/Test/Copy_Integers Copy_Integers
-. Bin/Test/Local_Variables Local_Variables
-. Bin/Test/Simple_Aritmetics Simple_Aritmetics
-. Bin/Test/Constants Constants
-. Bin/Test/If_Command If_Command
-. Bin/Test/WhileLoop While_Loop
-. Bin/Test/ForLoop For_Loop
-. Bin/Test/VectorOperations Vector_Operations
-. Bin/Test/MatrixOperations Matrix_Operations
-. Bin/Test/MaterialPoint Material_Point
+Bin/Test/TestPlatform TestPlatform
+Bin/Test/InstructionProcessingTS InstructionProcessing_UT
+Bin/Test/Empty_Simulation Empty_Simulation
+Bin/Test/Declare_Memory Declare_Memory
+Bin/Test/Copy_Integers Copy_Integers
+Bin/Test/Local_Variables Local_Variables
+Bin/Test/Simple_Aritmetics Simple_Aritmetics
+Bin/Test/Constants Constants
+Bin/Test/If_Command If_Command
+Bin/Test/WhileLoop While_Loop
+Bin/Test/ForLoop For_Loop
+Bin/Test/VectorOperations Vector_Operations
+Bin/Test/MatrixOperations Matrix_Operations
+Bin/Test/MaterialPoint Material_Point

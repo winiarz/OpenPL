@@ -25,9 +25,9 @@ passed=0
 failed=0
 
 function testcase {
-  dir="$1"
-  command="$2"
-  testname="$3"
+  #dir="$1"
+  command="$1"
+  testname="$2"
 
   logDirForTestcase="$logDir/$testname"
   mkdir -p $logDirForTestcase

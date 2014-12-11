@@ -4,6 +4,7 @@
 #include "Float.hpp"
 #include "MatrixVariable.hpp"
 #include "MaterialPoint.hpp"
+#include "IntGlobalArray.hpp"
 
 namespace OPL
 {
@@ -15,6 +16,8 @@ namespace OPL
     class Simulation {
     public:
       static void move(InsPr::MaterialPoint);
+      static void move(InsPr::MaterialPointArrayGlobal, unsigned int);
+      static void applyForce(InsPr::MaterialPointArrayGlobal, unsigned int, InsPr::Float4);
       static InsPr::Float dist_sq(InsPr::MaterialPoint, InsPr::MaterialPoint);
       static InsPr::Float det(InsPr::MatrixFloat4x4);
       static InsPr::Float det(InsPr::MatrixFloat3x3);

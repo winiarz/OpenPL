@@ -23,6 +23,7 @@ include Test/for_loop/For_Loop.mk
 include Test/vector_operations/Vector_Operations.mk
 include Test/matrix_operations/Matrix_Operations.mk
 include Test/material_point/Material_Point.mk
+include Test/constant_force/Constant_Force.mk
 
 compile: $(libClPlatform) $(libLogs) $(libSimCreate) $(libSimExecute) $(libInstructionProcessing)
 

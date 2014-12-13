@@ -1,7 +1,6 @@
 
 SimExecuteTypeGen=         $(SimExecuteScript)/seTypes.pl
 
-SimExecuteLibObj=          $(SimExecuteObj)/seSimulationExecute.o
 SimExecuteLibObj+=         $(SimExecuteObj)/seMaterialPointArray.o
 SimExecuteLibObj+=         $(SimExecuteObj)/seLocalMaterialPoint.o
 SimExecuteLibObj+=         $(SimExecuteObj)/seMatrix4x4Array.o

@@ -8,6 +8,7 @@ InstructionProcessingTest=    $(InstructionProcessing)/Test
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/SingleInstruction.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/InstructionBlock.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/Variable.o
+InstructionProcessingObjs+=     $(InstructionProcessingObj)/IVariable.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/Function.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/Kernel.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/InstructionRecorder.o

@@ -21,24 +21,11 @@ namespace InsPr
 
         virtual std::string getName() = 0;
         virtual std::string getTypeName() = 0;
-        virtual std::vector<std::string> getRequiredIncludes()
-        {
-            return std::vector<std::string>();
-        }
+        virtual std::vector<std::string> getRequiredIncludes();
 
-        void recordAssigment( IVariable& rvalue)
-        {
-            std::ostringstream sstream;
-            sstream << getName() << " = " << rvalue.getName();
-            (*recorder) << make_shared<SingleInstruction>(sstream.str());
-        }
-
-        void recordDeclaration()
-        {
-            std::ostringstream sstream;
-            sstream << getTypeName() << " " << getName();
-            (*recorder) << make_shared<SingleInstruction>(sstream.str());
-        }
+        void recordAssigment( IVariable& rvalue);
+        virtual std::string getDeclaration();
+        void recordDeclaration();
 
         static shared_ptr<IInstructionRecorder> recorder;
     };

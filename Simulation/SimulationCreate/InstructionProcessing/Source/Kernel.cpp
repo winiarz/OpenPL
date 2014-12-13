@@ -36,7 +36,7 @@ std::string Kernel::getAlternative(uint alternativeNb)
         if ( !isFirst ) 
             sstream << ", ";
         isFirst = false;
-        sstream << argument->getTypeName() << " " << argument->getName();
+        sstream << argument->getDeclaration();
     }
     sstream << ")\n";
 

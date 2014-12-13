@@ -39,18 +39,18 @@ IClKernel& ClSelfCalibratingKernel::operator[](uint n)
 
 IClKernel& ClSelfCalibratingKernel::operator()(uint argumentNb, ... )
 {
-    std::vector<ClMemory*> args(argumentNb);
+    std::vector<IClMemory*> args(argumentNb);
     va_list li;
     va_start(li,argumentNb);
     for(uint i=0; i < argumentNb; i++)
     {
-        args[i] = va_arg(li,ClMemory*);
+        args[i] = va_arg(li,IClMemory*);
     }
     va_end(li);
     return operator()(args);
 }
 
-IClKernel& ClSelfCalibratingKernel::operator()(std::vector<ClMemory*> args)
+IClKernel& ClSelfCalibratingKernel::operator()(std::vector<IClMemory*> args)
 {
     optional<shared_ptr<IClSingleImplementationKernel> > optKernel =  performanceComparator->getBestKernel();
     if ( !optKernel ) 
@@ -62,7 +62,7 @@ IClKernel& ClSelfCalibratingKernel::operator()(std::vector<ClMemory*> args)
     return *(*optKernel).get();
 }
 
-IClKernel& ClSelfCalibratingKernel::operator()(std::vector<shared_ptr<ClMemory>> args)
+IClKernel& ClSelfCalibratingKernel::operator()(std::vector<shared_ptr<IClMemory>> args)
 {
     optional<shared_ptr<IClSingleImplementationKernel> > optKernel =  performanceComparator->getBestKernel();
     if ( !optKernel ) 

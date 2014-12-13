@@ -15,8 +15,8 @@ namespace SimCreate
         SingleKernelSimStep(shared_ptr<InsPr::IKernel>,
                             IOpenPlConfiguration&);
 
-        void execute(std::vector<shared_ptr<ClMemory>>);
-        void execute(std::vector<ClMemory*>);
+        void execute(std::vector<shared_ptr<IClMemory>>);
+        void execute(std::vector<IClMemory*>);
     private:
         shared_ptr<InsPr::IKernel> recordedKernel;
         shared_ptr<ClKernel> compiledKernel;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ClPlatform.hpp"
+#include "IClMemory.hpp"
 #include <GL/glew.h>
 #include <CL/cl_gl.h>
 
@@ -11,8 +12,8 @@ enum ClMemoryCreation {
 
 uint calculateSize(uint, ClMemoryCreation, size_t);
 
-class ClMemory {
-friend class ClKernel;
+class ClMemory : public IClMemory
+{
 public:
   ClMemory(uint, ClMemoryCreation = CL_MEMORY_ALLOC );
   bool operator!();
@@ -20,6 +21,7 @@ public:
   void copyIn (void*,uint,uint);
   void copyOut(void*,uint,uint);
   uint getSize();
+  std::vector<cl_mem> getMemories();
 private:
   const ClPlatform& platform;
   const uint size;

@@ -28,14 +28,14 @@ void SingleKernelSimStep::loadKernelIfNotLoaded()
     }
 }
 
-void SingleKernelSimStep::execute(std::vector<shared_ptr<ClMemory>> args)
+void SingleKernelSimStep::execute(std::vector<shared_ptr<IClMemory>> args)
 {
     loadKernelIfNotLoaded();
 
     (*compiledKernel)[1][1](args); // TODO get optimal number of threads here
 }
 
-void SingleKernelSimStep::execute(std::vector<ClMemory*> args)
+void SingleKernelSimStep::execute(std::vector<IClMemory*> args)
 {
     loadKernelIfNotLoaded();
 

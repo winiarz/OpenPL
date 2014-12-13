@@ -130,10 +130,12 @@ IClKernel& ClKernel::operator()(uint argumentNb, ...  )
     }
 
     va_start(li,argumentNb);
+
+    uint argIdx=0;
     for(uint i=0; i < argumentNb; i++)
     {
         ClMemory* memory = va_arg(li,ClMemory*);
-        setKernelArg(i, memory);
+        setKernelArg(argIdx, memory);
     }
     va_end(li);
 
@@ -151,13 +153,18 @@ IClKernelCallStats& ClKernel::getStats()
     return stats;
 }
 
-void ClKernel::setKernelArg(uint idx, ClMemory* arg)
+void ClKernel::setKernelArg(uint& idx, IClMemory* arg)
 {
-    cl_int error = clSetKernelArg( kernel, idx, sizeof(arg->memory), &(arg->memory) );
-    if( error != CL_SUCCESS )
+    auto memories = arg->getMemories();
+    for (cl_mem memory : memories) 
     {
-        ERROR << "error in setting kernel arg argNb = " << idx << "OpenCL error = " << OpenClError(error);
-        throw KERNEL_SET_ARG_ERROR;
+        cl_int error = clSetKernelArg( kernel, idx, sizeof(memory), &memory );
+        if( error != CL_SUCCESS )
+        {
+            ERROR << "error in setting kernel arg argNb = " << idx << "OpenCL error = " << OpenClError(error);
+            throw KERNEL_SET_ARG_ERROR;
+        }
+        ++idx;
     }
 }
 
@@ -185,32 +192,34 @@ void ClKernel::executeKernel()
     DEBUG << "Kernel " << kernelName << "successfully executed!";
 }
 
-IClKernel& ClKernel::operator()(std::vector<ClMemory*> args)
+IClKernel& ClKernel::operator()(std::vector<IClMemory*> args)
 {
     if ( !loaded ) 
     {
         platform.getKernelManager().loadKernel(this);
     }
 
-    for ( uint i = 0; i < args.size(); ++i) 
+    uint argIdx=0;
+    for (auto arg : args)
     {
-        setKernelArg(i, args.at(i));
+        setKernelArg(argIdx, arg);
     }
 
     executeKernel();
     return *this;
 }
 
-IClKernel& ClKernel::operator()(std::vector<shared_ptr<ClMemory>> args)
+IClKernel& ClKernel::operator()(std::vector<shared_ptr<IClMemory>> args)
 {
     if ( !loaded ) 
     {
         platform.getKernelManager().loadKernel(this);
     }
 
-    for ( size_t i = 0; i < args.size(); ++i) 
+    uint argIdx=0;
+    for (auto arg : args)
     {
-        setKernelArg(i, args.at(i).get());
+        setKernelArg(argIdx, arg.get());
     }
 
     executeKernel();

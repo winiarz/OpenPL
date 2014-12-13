@@ -6,7 +6,7 @@
 typedef unsigned int uint;
 
 class IClKernelCallStats;
-class ClMemory;
+class IClMemory;
 
 class IClKernel {
 public:
@@ -14,8 +14,8 @@ public:
     virtual bool operator!()=0;
     virtual IClKernel& operator[](uint n)=0;
     virtual IClKernel& operator()(uint, ... )=0;
-    virtual IClKernel& operator()(std::vector<ClMemory*>)=0;
-    virtual IClKernel& operator()(std::vector<shared_ptr<ClMemory>>)=0;
+    virtual IClKernel& operator()(std::vector<IClMemory*>)=0;
+    virtual IClKernel& operator()(std::vector<shared_ptr<IClMemory>>)=0;
   
     virtual ~IClKernel(){}
 };

@@ -3,7 +3,7 @@
 #include "IClSingleImplementationKernel.hpp"
 #include "ClClasses.hpp"
 #include "ClPlatform.hpp"
-#include "ClMemory.hpp"
+#include "IClMemory.hpp"
 #include "ClKernelCallStats.hpp"
 #include "stl.hpp"
 
@@ -16,8 +16,8 @@ public:
   bool operator!();
   IClKernel& operator[](uint);
   IClKernel& operator()(uint, ... );
-  virtual IClKernel& operator()(std::vector<ClMemory*>);
-  virtual IClKernel& operator()(std::vector<shared_ptr<ClMemory>>);
+  virtual IClKernel& operator()(std::vector<IClMemory*>);
+  virtual IClKernel& operator()(std::vector<shared_ptr<IClMemory>>);
   virtual cl_program getProgram();
   virtual void load();
   virtual void unload();
@@ -35,7 +35,7 @@ private:
   bool loaded;
   std::string kernelName;
   ClKernelCallStats stats;
-  void setKernelArg(uint, ClMemory*);
+  void setKernelArg(uint&, IClMemory*);
   void checkThreadCount();
   void executeKernel();
 };

@@ -53,6 +53,11 @@ bool ClMemory::isSetUpSuccessfully()
     return memory != 0;
 }
 
+std::vector<cl_mem> ClMemory::getMemories()
+{
+    return std::vector<cl_mem> {memory};
+}
+
 bool ClMemory::operator!()
 {
    return !isSetUpSuccessfully();

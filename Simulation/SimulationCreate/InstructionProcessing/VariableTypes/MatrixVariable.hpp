@@ -70,6 +70,14 @@ public:
         variableName << "matrix" << matrixSize << "x" << matrixSize << "_determinant(" << getName() << ") ";
         return Float(variableName.str());
     }
+
+    MatrixVariable<type,size> invert()
+    {
+        uint matrixSize = getMatrixVariableSize(size);
+        ostringstream variableName;
+        variableName << "invertMatrix" << matrixSize << "x" << matrixSize << "(" << getName() << ") ";
+        return MatrixVariable<type,size>(variableName.str());
+    }
     
     MatrixVariable operator=( MatrixVariable rvalue )
     {

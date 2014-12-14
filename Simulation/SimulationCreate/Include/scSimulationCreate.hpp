@@ -13,7 +13,6 @@ namespace OPL
   {
     class Simulation {
     public:
-      static InsPr::MatrixFloat3x3 invert(InsPr::MatrixFloat3x3);
     };
   }
 }

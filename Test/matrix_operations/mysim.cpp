@@ -38,7 +38,7 @@ SIMSTEP_IMP2( MySim, determinant3x3, MatrixFloat3x3Array, matrices, FloatArray, 
 
 SIMSTEP_IMP1( MySim, invert_3x3, MatrixFloat3x3Array, matrices)
 {
-  matrices[1] = invert(matrices[0]);
+  matrices[1] = matrices[0].invert();
   matrices[2] = matrices[0] * matrices[1];
 }
 

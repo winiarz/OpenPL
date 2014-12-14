@@ -2,6 +2,7 @@
 
 #include "IVariable.hpp"
 #include "VectorVariable.hpp"
+#include "Float.hpp"
 
 namespace InsPr
 {
@@ -19,6 +20,7 @@ public:
     MaterialPoint operator<< ( Float3 force );
     void move();
     void setForce(Float4);
+    Float dist_sq(MaterialPoint);
 protected:
         std::string name;
 };

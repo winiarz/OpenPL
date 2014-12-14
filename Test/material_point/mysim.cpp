@@ -24,6 +24,6 @@ SIMSTEP_IMP2( MySim, apply_force, MaterialPointArray, points, Float3Array, force
 
 SIMSTEP_IMP2( MySim, dist, MaterialPointArray, points, FloatArray, result)
 {
-  result[0] = dist_sq( points[0], points[1]);
+  result[0] = points[0].dist_sq(points[1]);
 }
 

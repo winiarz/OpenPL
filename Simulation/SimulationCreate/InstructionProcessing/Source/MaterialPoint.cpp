@@ -60,4 +60,11 @@ void MaterialPoint::setForce(Float4 force)
     (*IVariable::recorder) << make_shared<SingleInstruction>(sstream.str());
 }
 
+Float MaterialPoint::dist_sq(MaterialPoint secondPoint)
+{
+    ostringstream variableName;
+    variableName << "material_point_dist_sq(" << getName() << ", " << secondPoint.getName() << " ) ";
+    return Float (variableName.str() );
+}
+
 }

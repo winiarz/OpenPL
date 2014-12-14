@@ -22,7 +22,5 @@ namespace InsPr
 
     typedef GlobalArrayVariable<MatrixFloat3x3> MatrixFloat3x3ArrayGlobal;
     typedef GlobalArrayVariable<MatrixFloat4x4> MatrixFloat4x4ArrayGlobal;
-
-    typedef GlobalArrayVariableWithSize<MaterialPoint> MaterialPointArrayGlobal;
 }
 

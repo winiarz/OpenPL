@@ -12,14 +12,6 @@ void Simulation::move(InsPr::MaterialPoint m)
   (*InsPr::IVariable::recorder) << make_shared<InsPr::SingleInstruction>(sstream.str());
 }
 
-void Simulation::move(InsPr::MaterialPointArrayGlobal points, unsigned int pointsNb)
-{
-  InsPr::IVariable::recorder->addInclude("material_point_move.cl");
-  std::ostringstream sstream;
-  sstream << "material_point_move ( " << points.getName() << ",0," << pointsNb << ",1 );\n";
-  (*InsPr::IVariable::recorder) << make_shared<InsPr::SingleInstruction>(sstream.str());
-}
-
 void Simulation::applyForce(InsPr::MaterialPointArrayGlobal points,
                             unsigned int pointsNb,
                             InsPr::Float4 force)

@@ -19,6 +19,7 @@ namespace InsPr
     enum NumericVariableTypes
     {
         VARIABLE_TYPE_INT,
+        VARIABLE_TYPE_UINT,
         VARIABLE_TYPE_FLOAT
     };
 

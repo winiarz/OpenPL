@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Variable.hpp"
+#include "Uint.hpp"
 
 namespace InsPr
 {
@@ -48,9 +49,9 @@ namespace InsPr
             sstream << size.getTypeName() << " " << size.getName();
             return sstream.str();
         }
-    private:
+    protected:
         GlobalArrayVariable<T> array;
-        GlobalArrayVariable<Int> size;
+        GlobalArrayVariable<Uint> size;
     };
 }
 

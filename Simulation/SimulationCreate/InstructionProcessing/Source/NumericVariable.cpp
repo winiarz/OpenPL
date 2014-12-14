@@ -6,10 +6,12 @@ namespace InsPr
 
 std::string getNumericTypeName(NumericVariableTypes type)
 {
-    switch (type) 
+    switch (type)
     {
     case VARIABLE_TYPE_INT:
-        return "int";        
+        return "int";
+    case VARIABLE_TYPE_UINT:
+        return "uint";
     case VARIABLE_TYPE_FLOAT:
         return "float";
     }

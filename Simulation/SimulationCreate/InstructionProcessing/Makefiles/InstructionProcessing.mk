@@ -16,6 +16,7 @@ InstructionProcessingObjs+=     $(InstructionProcessingObj)/ForLoop.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/WhileLoop.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/IfInstruction.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/Int.o
+InstructionProcessingObjs+=     $(InstructionProcessingObj)/Uint.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/NumericVariable.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/VectorVariable.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/MatrixVariable.o

@@ -40,5 +40,6 @@ SIMSTEP_IMP2( ConstantForceSim, applyConstantForceAndMove,
               Float4Array, force)
 {
   applyForce(points, pointsNb, force[0]);
-  move(points, pointsNb);
+
+  points.move();
 }

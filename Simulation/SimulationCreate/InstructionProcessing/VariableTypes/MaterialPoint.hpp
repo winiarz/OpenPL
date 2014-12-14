@@ -18,6 +18,7 @@ public:
     MaterialPoint operator=( MaterialPoint rvalue );
     MaterialPoint operator<< ( Float3 force );
     void move();
+    void setForce(Float4);
 protected:
         std::string name;
 };

@@ -12,7 +12,7 @@ SIMSTEP_IMP2( MySim, size_of_material_point, MaterialPointArray, points, IntArra
 
 SIMSTEP_IMP1( MySim, moving, MaterialPointArray, points)
 {
-    move(points[0]);
+    points[0].move();
 }
 
 SIMSTEP_IMP2( MySim, apply_force, MaterialPointArray, points, Float3Array, forces)

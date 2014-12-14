@@ -16,7 +16,6 @@ namespace OPL
     
     class Simulation {
     public:
-      static void move(InsPr::MaterialPoint);
       static void applyForce(InsPr::MaterialPointArrayGlobal, unsigned int, InsPr::Float4);
       static InsPr::Float dist_sq(InsPr::MaterialPoint, InsPr::MaterialPoint);
       static InsPr::Float det(InsPr::MatrixFloat4x4);

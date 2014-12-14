@@ -43,6 +43,14 @@ public:
         (*IVariable::recorder) << make_shared<SingleInstruction>(sstream.str());
         return *this;
     }
+
+    void move()
+    {
+        InsPr::IVariable::recorder->addInclude("material_point_move.cl");
+        std::ostringstream sstream;
+        sstream << "material_point_move ( &" << getName() << ",0,1,1 );\n";
+        (*IVariable::recorder) << make_shared<SingleInstruction>(sstream.str());
+    }
 protected:
         std::string name;
 };

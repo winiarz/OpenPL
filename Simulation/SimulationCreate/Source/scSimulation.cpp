@@ -4,14 +4,6 @@
 #include "SingleInstruction.hpp"
 using namespace OPL::SimCreate;
 
-void Simulation::move(InsPr::MaterialPoint m)
-{
-  InsPr::IVariable::recorder->addInclude("material_point_move.cl");
-  std::ostringstream sstream;
-  sstream << "material_point_move ( &" << m.getName() << ",0,1,1 );\n";
-  (*InsPr::IVariable::recorder) << make_shared<InsPr::SingleInstruction>(sstream.str());
-}
-
 void Simulation::applyForce(InsPr::MaterialPointArrayGlobal points,
                             unsigned int pointsNb,
                             InsPr::Float4 force)

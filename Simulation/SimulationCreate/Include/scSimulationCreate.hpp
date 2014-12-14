@@ -16,8 +16,6 @@ namespace OPL
     
     class Simulation {
     public:
-      static InsPr::Float det(InsPr::MatrixFloat4x4);
-      static InsPr::Float det(InsPr::MatrixFloat3x3);
       static InsPr::MatrixFloat3x3 invert(InsPr::MatrixFloat3x3);
       static void print_opening_brace();
       static void print_closing_brace();

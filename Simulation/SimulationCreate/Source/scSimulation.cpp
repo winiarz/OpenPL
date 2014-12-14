@@ -4,20 +4,6 @@
 #include "SingleInstruction.hpp"
 using namespace OPL::SimCreate;
 
-InsPr::Float Simulation::det(InsPr::MatrixFloat4x4 m)
-{
-  ostringstream variableName;
-  variableName << "matrix4x4_determinant(" << m.getName() << ") ";
-  return InsPr::Float(variableName.str());
-}
-
-InsPr::Float Simulation::det(InsPr::MatrixFloat3x3 m)
-{
-  ostringstream variableName;
-  variableName << "matrix3x3_determinant(" << m.getName() << ") ";
-  return InsPr::Float(variableName.str());
-}
-
 InsPr::MatrixFloat3x3 Simulation::invert(InsPr::MatrixFloat3x3 m)
 {
   ostringstream variableName;

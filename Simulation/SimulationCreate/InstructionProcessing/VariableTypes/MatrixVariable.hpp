@@ -62,6 +62,14 @@ public:
         }
         return result;
     }
+
+    virtual Float det()
+    {
+        uint matrixSize = getMatrixVariableSize(size);
+        ostringstream variableName;
+        variableName << "matrix" << matrixSize << "x" << matrixSize << "_determinant(" << getName() << ") ";
+        return Float(variableName.str());
+    }
     
     MatrixVariable operator=( MatrixVariable rvalue )
     {

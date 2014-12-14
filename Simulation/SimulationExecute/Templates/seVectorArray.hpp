@@ -3,7 +3,7 @@
 
 #include "seLocal$TypeName$LENGTH.hpp"
 #include "ClPlatform.hpp"
-#include "ClTypedMemory.hpp"
+#include "ClArrayMemory.hpp"
 #include "seArray.hpp"
 #include "seAdditionalTypes.hpp"
 
@@ -14,7 +14,7 @@ namespace OPL
   {
     using namespace std;
 
-    class I$TypeName$LENGTHArray : public ClTypedMemory<Local$TypeName$LENGTH> {
+    class I$TypeName$LENGTHArray : public ClArrayMemory<Local$TypeName$LENGTH> {
     public:
       I$TypeName$LENGTHArray(int);
     };

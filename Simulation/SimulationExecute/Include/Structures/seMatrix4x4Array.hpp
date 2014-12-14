@@ -1,13 +1,13 @@
 #pragma once
 
-#include "ClTypedMemory.hpp"
+#include "ClArrayMemory.hpp"
 #include "seLocalMatrix4x4.hpp"
 
 namespace OPL
 {
   namespace SimExec
   {
-    class IMatrixFloat4x4Array : public ClTypedMemory<LocalMatrix4x4> {
+    class IMatrixFloat4x4Array : public ClArrayMemory<LocalMatrix4x4> {
     public:
       IMatrixFloat4x4Array(int);
     };

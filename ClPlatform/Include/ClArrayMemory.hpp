@@ -3,9 +3,9 @@
 #include "ClMemory.hpp"
 
 template<typename T>
-class ClTypedMemory : public ClMemory {
+class ClArrayMemory : public ClMemory {
 public:
-  ClTypedMemory(uint n,ClMemoryCreation clMemoryCreation = CL_MEMORY_ALLOC ) :
+  ClArrayMemory(uint n,ClMemoryCreation clMemoryCreation = CL_MEMORY_ALLOC ) :
 	ClMemory(calculateSize(n,clMemoryCreation,sizeof(T)), clMemoryCreation)
   {
   }
@@ -19,5 +19,8 @@ public:
   {
     ClMemory::copyOut(data, sizeof(T)*start, sizeof(T)*size);
   }
+
 };
+
+
 

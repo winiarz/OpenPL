@@ -1,5 +1,5 @@
 #include "ClRandomFloatArrayGenerator.hpp"
-#include "ClTypedMemory.hpp"
+#include "ClArrayMemory.hpp"
 #include <cstdlib>
 
 ClRandomFloatArrayGenerator::ClRandomFloatArrayGenerator(uint p_arraySize) :
@@ -15,7 +15,7 @@ vector<shared_ptr<ClMemory> > ClRandomFloatArrayGenerator::getData()
     for (uint i=0; i<arraySize; i++) 
         generatedArray[i] = drand48();
 
-    shared_ptr<ClTypedMemory<float> > memory = make_shared<ClTypedMemory<float> >(arraySize);
+    shared_ptr<ClArrayMemory<float> > memory = make_shared<ClArrayMemory<float> >(arraySize);
 
     memory->copyIn(generatedArray, 0, arraySize);
 

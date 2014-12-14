@@ -2,7 +2,7 @@
 #define __OPL_SE_$TYPENAME_ARRAY__
 
 #include "ClPlatform.hpp"
-#include "ClTypedMemory.hpp"
+#include "ClArrayMemory.hpp"
 #include "seArray.hpp"
 
 namespace OPL
@@ -12,7 +12,7 @@ namespace OPL
   {
     using namespace std;
 
-    class I$TypeNameArray : public ClTypedMemory<$typename> {
+    class I$TypeNameArray : public ClArrayMemory<$typename> {
     public:
       I$TypeNameArray(int);
     };

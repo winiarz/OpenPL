@@ -1,13 +1,13 @@
 #pragma once
 
-#include "ClTypedMemory.hpp"
+#include "ClArrayMemoryWithSize.hpp"
 #include "seLocalMaterialPoint.hpp"
 
 namespace OPL
 {
   namespace SimExec
   {
-    class IMaterialPointArray : public ClTypedMemory<LocalMaterialPoint> {
+    class IMaterialPointArray : public ClArrayMemoryWithSize<LocalMaterialPoint> {
     public:
       IMaterialPointArray(int);
     };

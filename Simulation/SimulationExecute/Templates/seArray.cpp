@@ -5,6 +5,6 @@
 using namespace std;
 using namespace OPL::SimExec;
 
-I$TypeNameArray::I$TypeNameArray(int n) : ClTypedMemory<$typename>(n)
+I$TypeNameArray::I$TypeNameArray(int n) : ClArrayMemory<$typename>(n)
 {
 }

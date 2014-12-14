@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
 #include "ClPlatform.hpp"
-#include "ClTypedMemory.hpp"
+#include "ClArrayMemory.hpp"
 #include "ClKernel.hpp"
 
 #include <iostream>
@@ -19,8 +19,8 @@ ClModuleTestSuite::ClModuleTestSuite() : platform(ClPlatform::getPlatform())
 
 TEST_F(ClModuleTestSuite, addition_kernel)
 {
-  ClTypedMemory<int> a(100), b(100), c(100);
-  ClTypedMemory<int> size(1);
+  ClArrayMemory<int> a(100), b(100), c(100);
+  ClArrayMemory<int> size(1);
   ASSERT_FALSE( !a );
   ASSERT_FALSE( !b );
   ASSERT_FALSE( !c );
@@ -51,8 +51,8 @@ TEST_F(ClModuleTestSuite, addition_kernel)
 
 TEST_F(ClModuleTestSuite, multithread_addition_kernel)
 {
-  ClTypedMemory<int> a(100), b(100), c(100);
-  ClTypedMemory<int> size(1);
+  ClArrayMemory<int> a(100), b(100), c(100);
+  ClArrayMemory<int> size(1);
   ASSERT_FALSE( !a );
   ASSERT_FALSE( !b );
   ASSERT_FALSE( !c );

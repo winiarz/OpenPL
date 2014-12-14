@@ -8,6 +8,7 @@ namespace InsPr
     {
     public:
         void move();
+        void setForce(Float4);
     };
 }
 

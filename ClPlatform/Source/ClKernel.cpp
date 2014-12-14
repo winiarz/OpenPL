@@ -1,6 +1,6 @@
 #include <stdarg.h>
 #include "ClKernel.hpp"
-#include "ClMemory.hpp"
+#include "IClMemory.hpp"
 #include "ClKernelFromBinaryLoader.hpp"
 #include "Clock.hpp"
 #include "logs.hpp"
@@ -134,7 +134,7 @@ IClKernel& ClKernel::operator()(uint argumentNb, ...  )
     uint argIdx=0;
     for(uint i=0; i < argumentNb; i++)
     {
-        ClMemory* memory = va_arg(li,ClMemory*);
+        IClMemory* memory = va_arg(li, IClMemory*);
         setKernelArg(argIdx, memory);
     }
     va_end(li);

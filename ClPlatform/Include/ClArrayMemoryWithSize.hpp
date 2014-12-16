@@ -2,8 +2,11 @@
 
 #include "ClArrayMemory.hpp"
 
+namespace OPL
+{
+
 template<typename T>
-class ClArrayMemoryWithSize : public OPL::IClMemory
+class ClArrayMemoryWithSize : public IClMemory
 {
 public:
     ClArrayMemoryWithSize(uint n) :
@@ -41,4 +44,6 @@ private:
     ClArrayMemory<T> array;
     ClArrayMemory<uint> size;
 };
+
+}
 

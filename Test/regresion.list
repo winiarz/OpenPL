@@ -13,3 +13,4 @@ Bin/Test/VectorOperations Vector_Operations
 Bin/Test/MatrixOperations Matrix_Operations
 Bin/Test/MaterialPoint Material_Point
 Bin/Test/ConstantForce Constant_Force
+Bin/Test/NBody N_Body

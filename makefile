@@ -24,6 +24,7 @@ include Test/vector_operations/Vector_Operations.mk
 include Test/matrix_operations/Matrix_Operations.mk
 include Test/material_point/Material_Point.mk
 include Test/constant_force/Constant_Force.mk
+include Test/N_Body/N_Body.mk
 
 compile: $(libClPlatform) $(libLogs) $(libSimCreate) $(libSimExecute) $(libInstructionProcessing)
 

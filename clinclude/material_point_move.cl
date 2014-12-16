@@ -9,9 +9,9 @@ void material_point_move(__global struct MaterialPoint* p,int first,int last,int
   }
 }
 
-void material_point_apply_force(__global struct MaterialPoint* points, int size, float4 force)
+void material_point_apply_force(__global struct MaterialPoint* points, uint size, float4 force)
 {
-    for(int i=0; i<size; i++)
+    for(uint i=0; i<size; i++)
     {
         points[i].force = force;
     }

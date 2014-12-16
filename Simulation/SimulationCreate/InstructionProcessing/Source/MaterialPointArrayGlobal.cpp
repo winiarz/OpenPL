@@ -19,5 +19,20 @@ void MaterialPointArrayGlobal::setForce(Float4 force)
     (*IVariable::recorder) << make_shared<SingleInstruction>(sstream.str());
 }
 
+void MaterialPointArrayGlobal::clearForce()
+{
+    std::ostringstream sstream;
+    sstream << "material_point_apply_force ( " << array.getName() << ", " << size.getName() << "[0], (float4)0 );\n";
+    (*IVariable::recorder) << make_shared<SingleInstruction>(sstream.str());
+}
+
+void MaterialPointArrayGlobal::applyForcesOfGravity(Float gravityConstant)
+{
+    IVariable::recorder->addInclude("material_point_nbody.cl");
+    std::ostringstream sstream;
+    sstream << "material_point_apply_forces_of_gravity ( " << array.getName() << ", " << size.getName() << "[0], " << gravityConstant.getName() << ");";
+    (*IVariable::recorder) << make_shared<SingleInstruction>(sstream.str());
+}
+
 }
 

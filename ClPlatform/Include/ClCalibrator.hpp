@@ -3,6 +3,9 @@
 #include "stl.hpp"
 #include "IClCalibrator.hpp"
 
+namespace OPL
+{
+
 class ClCalibrator : public IClCalibrator {
 public:
     ClCalibrator();
@@ -12,4 +15,6 @@ public:
 private:
     set<shared_ptr<IClKernelPerformanceComparator> > comparatorsSet;
 };
+
+}
 

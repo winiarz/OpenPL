@@ -1,6 +1,9 @@
 #include "ClCalibrator.hpp"
 #include "IClKernelPerformanceComparator.hpp"
 
+namespace OPL
+{
+
 ClCalibrator::ClCalibrator() :
         comparatorsSet()
 {
@@ -32,5 +35,7 @@ bool ClCalibrator::calibrate()
     }
 
     return isCalibrationFinished();
+}
+
 }
 

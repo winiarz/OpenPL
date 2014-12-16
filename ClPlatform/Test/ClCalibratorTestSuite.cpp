@@ -2,6 +2,9 @@
 #include "ClKernelPerformanceComparatorMock.hpp"
 #include <gtest/gtest.h>
 
+namespace OPL
+{
+
 using namespace ::testing;
 
 class ClCalibratorTestSuite : public Test {
@@ -61,3 +64,6 @@ TEST_F( ClCalibratorTestSuite, calibrationIsNotFinishedIfOnlyComparatorDoesNotFi
 
     ASSERT_FALSE( sut->isCalibrationFinished() );
 }
+
+}
+

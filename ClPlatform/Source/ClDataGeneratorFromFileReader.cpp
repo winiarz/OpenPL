@@ -4,6 +4,9 @@
 #include "ClError.hpp"
 #include "logs.hpp"
 
+namespace OPL
+{
+
 shared_ptr<IClDataGenerator> ClDataGeneratorFromFileReader::read(FILE* file)
 {
     char prefix;
@@ -50,5 +53,7 @@ shared_ptr<IClDataGenerator> ClDataGeneratorFromFileReader::readComposizeOfGener
     }
 
     return make_shared<ClDataGeneratorComposite>(composites);
+}
+
 }
 

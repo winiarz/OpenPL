@@ -33,7 +33,7 @@ TEST_F( ClSelfCalibratingKernelTestSuite, saveAndLoad_selfCalibratingKernel )
     Clock clock;
     auto performanceComparator = make_shared<OPL::ClKernelPerformanceComparator>(clock);
 
-    auto dataGenerator = make_shared<ClRandomFloatArrayGenerator>(10);
+    auto dataGenerator = make_shared<OPL::ClRandomFloatArrayGenerator>(10);
 
     performanceComparator->setDataGenerator( dataGenerator );
 
@@ -41,7 +41,7 @@ TEST_F( ClSelfCalibratingKernelTestSuite, saveAndLoad_selfCalibratingKernel )
     
     ASSERT_NO_THROW( sut.saveToFile( kernelFilename ) );
 
-    auto dataGeneratorReader = make_shared<ClDataGeneratorFromFileReader>();
+    auto dataGeneratorReader = make_shared<OPL::ClDataGeneratorFromFileReader>();
 
     auto kernelLoader = make_shared<ClKernelFromBinaryLoader>();
 

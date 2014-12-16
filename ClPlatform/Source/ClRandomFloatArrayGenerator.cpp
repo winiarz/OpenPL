@@ -2,12 +2,15 @@
 #include "ClArrayMemory.hpp"
 #include <cstdlib>
 
+namespace OPL
+{
+
 ClRandomFloatArrayGenerator::ClRandomFloatArrayGenerator(uint p_arraySize) :
     arraySize(p_arraySize)
 {
 }
 
-vector<shared_ptr<OPL::ClMemory> > ClRandomFloatArrayGenerator::getData()
+vector<shared_ptr<ClMemory> > ClRandomFloatArrayGenerator::getData()
 {
     srand48( time(NULL));
     float generatedArray[arraySize];
@@ -19,7 +22,7 @@ vector<shared_ptr<OPL::ClMemory> > ClRandomFloatArrayGenerator::getData()
 
     memory->copyIn(generatedArray, 0, arraySize);
 
-    std::vector<shared_ptr<OPL::ClMemory> > result;
+    std::vector<shared_ptr<ClMemory> > result;
     result.push_back( memory );
     return result;
 }
@@ -35,5 +38,7 @@ void ClRandomFloatArrayGenerator::saveToFile( FILE* file)
     writtenBytes = fwrite( &arraySize, sizeof(uint), 1, file);
     if ( writtenBytes < 1 )
         throw FILE_WRITE_ERROR;
+}
+
 }
 

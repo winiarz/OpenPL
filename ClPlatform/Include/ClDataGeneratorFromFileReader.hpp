@@ -3,6 +3,9 @@
 #include "boost.hpp"
 #include "IClDataGeneratorFromFileReader.hpp"
 
+namespace OPL
+{
+
 class ClDataGeneratorFromFileReader : public IClDataGeneratorFromFileReader
 {
 public:
@@ -11,4 +14,6 @@ private:
     shared_ptr<IClDataGenerator> readFloatArrayGenerator(FILE*);
     shared_ptr<IClDataGenerator> readComposizeOfGenerators(FILE*);
 };
+
+}
 

@@ -3,11 +3,11 @@
 #include "boost.hpp"
 #include "IClSingleImplementationKernel.hpp"
 
-class IClDataGenerator;
 class IClParameterizedKernel;
 
 namespace OPL
 {
+class IClDataGenerator;
 
 class IClKernelPerformanceComparator {
 public:

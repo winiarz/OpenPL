@@ -4,6 +4,9 @@
 #include <gtest/gtest.h>
 #include <cstdio>
 
+namespace OPL
+{
+
 using namespace ::testing;
 
 class ClDataGeneratorFileReadWriteTestSuite : public Test
@@ -62,5 +65,7 @@ TEST_F( ClDataGeneratorFileReadWriteTestSuite, writeAndreadCompositeGenerator )
     fclose(file);
 
     EXPECT_EQ(typeid(ClDataGeneratorComposite), typeid(*readGenerator));
+}
+
 }
 

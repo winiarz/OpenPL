@@ -5,9 +5,9 @@
 #include "logs.hpp"
 #include <cstdio>
 
-ClSelfCalibratingKernelFromFileReader::ClSelfCalibratingKernelFromFileReader( shared_ptr<IClDataGeneratorFromFileReader> p_dataGeneratorReader,
+ClSelfCalibratingKernelFromFileReader::ClSelfCalibratingKernelFromFileReader( shared_ptr<OPL::IClDataGeneratorFromFileReader> p_dataGeneratorReader,
                                                                               shared_ptr<ClKernelFromBinaryLoader> p_kernelLoader,
-																																							IClock& p_clock ) :
+																			  IClock& p_clock ) :
     dataGeneratorReader( p_dataGeneratorReader ),
     kernelLoader( p_kernelLoader ),
     clock( p_clock )
@@ -31,7 +31,7 @@ shared_ptr<ClSelfCalibratingKernel> ClSelfCalibratingKernelFromFileReader::read(
         throw INCORRECT_KERNEL_FILE;
     }
 
-    shared_ptr<IClDataGenerator> dataGenerator = dataGeneratorReader->read( file );
+    shared_ptr<OPL::IClDataGenerator> dataGenerator = dataGeneratorReader->read( file );
 
     uint kernelsCount;
     readElems = fread( &kernelsCount, sizeof(kernelsCount), 1, file);

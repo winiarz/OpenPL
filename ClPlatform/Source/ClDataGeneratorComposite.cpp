@@ -1,19 +1,22 @@
 #include "ClDataGeneratorComposite.hpp"
 #include "ClError.hpp"
 
+namespace OPL
+{
+
 ClDataGeneratorComposite::ClDataGeneratorComposite(std::vector<shared_ptr<IClDataGenerator> > p_dataGenerators) :
     dataGenerators(p_dataGenerators)
 {
 }
 
-vector<shared_ptr<OPL::ClMemory> > ClDataGeneratorComposite::getData()
+vector<shared_ptr<ClMemory> > ClDataGeneratorComposite::getData()
 {
-    vector<shared_ptr<OPL::ClMemory> > result;
+    vector<shared_ptr<ClMemory> > result;
 
     std::vector<shared_ptr<IClDataGenerator> >::iterator i;
     for ( i = dataGenerators.begin(); i != dataGenerators.end(); ++i)
     {
-        vector<shared_ptr<OPL::ClMemory> > data = (*i)->getData();
+        vector<shared_ptr<ClMemory> > data = (*i)->getData();
 
         result.insert( result.end(), data.begin(), data.end());
     }
@@ -37,5 +40,7 @@ void ClDataGeneratorComposite::saveToFile( FILE* file )
     {
         (*i)->saveToFile(file);
     }
+}
+
 }
 

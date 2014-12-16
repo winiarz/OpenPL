@@ -7,6 +7,9 @@
 #include <iostream>
 using namespace std;
 
+namespace OPL
+{
+
 class ClModuleTestSuite : public ::testing::Test {
 public:
   ClModuleTestSuite();
@@ -79,5 +82,7 @@ TEST_F(ClModuleTestSuite, multithread_addition_kernel)
   c.copyOut(C,0,100);
   for(int i=0;i<100;i++)
     ASSERT_EQ( C[i] , A[i] + B[i]);
+}
+
 }
 

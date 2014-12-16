@@ -7,10 +7,10 @@ public:
  ClKernelTestSuite(); 
 protected:
   shared_ptr<ClKernel> sut;
-  ClPlatform& platform;
+  OPL::ClPlatform& platform;
 };
 
-ClKernelTestSuite::ClKernelTestSuite() : platform(ClPlatform::getPlatform())
+ClKernelTestSuite::ClKernelTestSuite() : platform(OPL::ClPlatform::getPlatform())
 {
 }
 

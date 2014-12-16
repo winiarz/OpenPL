@@ -59,7 +59,7 @@ shared_ptr<ClKernel> ClKernelFromBinaryLoader::loadKernel( FILE* file )
     size_t binarySize = readBinarySize( file );
     unsigned char * binary = readBinary( file, binarySize );
 
-    ClPlatform& platform = ClPlatform::getPlatform();
+    OPL::ClPlatform& platform = OPL::ClPlatform::getPlatform();
     
     cl_context context = platform.getContext();
     cl_device_id device = platform.getDevice();

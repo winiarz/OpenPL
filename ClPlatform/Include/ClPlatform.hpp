@@ -7,9 +7,11 @@
 
 class ClKernelManager;
 
+namespace OPL
+{
+
 class ClPlatform {
 friend class ClMemory;
-friend class ClKernel;
 public:
   static ClPlatform& getPlatform();
   bool isSetUpSuccessfully();
@@ -17,6 +19,14 @@ public:
   cl_context getContext() const;
   cl_device_id getDevice() const;
   IClKernelManager& getKernelManager();
+  cl_command_queue getCommandQueue() const
+  {
+      return queue;
+  }
+  cl_context getOpenClContext() const
+  {
+      return context;
+  }
 
   ~ClPlatform();
   cl_uint max_work_group_size;
@@ -30,4 +40,6 @@ private:
   bool setUpSuccessfully;
   ClKernelManager kernelManager;
 };
+
+}
 

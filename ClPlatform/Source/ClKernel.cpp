@@ -6,7 +6,7 @@
 #include "logs.hpp"
 
 ClKernel::ClKernel( const char fileName[], const char p_kernelName[] ) :
-    platform(ClPlatform::getPlatform()),
+    platform(OPL::ClPlatform::getPlatform()),
     kernel(0),
     loaded(false),
     kernelName(p_kernelName),
@@ -35,7 +35,7 @@ ClKernel::ClKernel( const char fileName[], const char p_kernelName[] ) :
 }
 
 ClKernel::ClKernel( cl_program p_program, std::string p_kernelName) :
-    platform(ClPlatform::getPlatform()),
+    platform(OPL::ClPlatform::getPlatform()),
     program(p_program),
     kernel(0),
     globalSize(0),
@@ -180,7 +180,7 @@ void ClKernel::checkThreadCount()
 void ClKernel::executeKernel()
 {
     checkThreadCount();
-    cl_int error = clEnqueueNDRangeKernel( platform.queue, kernel, 1, NULL,  &globalSize, &localSize, 0, NULL, NULL);
+    cl_int error = clEnqueueNDRangeKernel( platform.getCommandQueue(), kernel, 1, NULL,  &globalSize, &localSize, 0, NULL, NULL);
     if( error != CL_SUCCESS )
     {
         ERROR << "error in kernel execution OpenCL error = " << OpenClError(error);

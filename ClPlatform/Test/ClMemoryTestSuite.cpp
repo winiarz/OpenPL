@@ -6,10 +6,10 @@ public:
   ClMemoryTestSuite();
 protected:
   shared_ptr<ClMemory> sut;
-  ClPlatform& platform;
+  OPL::ClPlatform& platform;
 };
 
-ClMemoryTestSuite::ClMemoryTestSuite() : platform(ClPlatform::getPlatform())
+ClMemoryTestSuite::ClMemoryTestSuite() : platform(OPL::ClPlatform::getPlatform())
 {
 }
 

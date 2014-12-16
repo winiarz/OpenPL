@@ -25,7 +25,7 @@ public:
   std::string getKernelName();
   ~ClKernel();
 private:
-  ClPlatform& platform;
+  OPL::ClPlatform& platform;
   cl_program program;
   cl_kernel kernel;
 

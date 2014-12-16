@@ -16,7 +16,7 @@ int main(int argc,char* argv[])
     cout << "no files to compile" << endl;
     exit(0);
   }
-  ClPlatform& platform = ClPlatform::getPlatform();
+  OPL::ClPlatform& platform = OPL::ClPlatform::getPlatform();
   if(!platform.isSetUpSuccessfully())
   {
     cerr << "Error in initialising OpenCL" << endl;

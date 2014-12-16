@@ -23,7 +23,7 @@ public:
   uint getSize();
   std::vector<cl_mem> getMemories();
 private:
-  const ClPlatform& platform;
+  const OPL::ClPlatform& platform;
   const uint size;
   cl_mem memory;
 };

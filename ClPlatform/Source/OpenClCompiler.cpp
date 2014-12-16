@@ -8,7 +8,7 @@ OpenClCompiler::OpenClCompiler()
 
 cl_program OpenClCompiler::compile(std::string& sourceCode) const
 {
-    ClPlatform& platform = ClPlatform::getPlatform();
+    OPL::ClPlatform& platform = OPL::ClPlatform::getPlatform();
 
     cl_int error;
 

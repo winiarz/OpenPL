@@ -88,7 +88,7 @@ void ClKernelSaver::deleteProgramBinaries( size_t deviceCount, unsigned char *pr
 
 size_t ClKernelSaver::getDeviceIdx( size_t deviceCount, cl_device_id devices[] )
 {
-    ClPlatform& platform = ClPlatform::getPlatform();
+    OPL::ClPlatform& platform = OPL::ClPlatform::getPlatform();
 
     for (size_t i=0; i<deviceCount; i++) 
     {

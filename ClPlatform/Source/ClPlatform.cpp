@@ -3,6 +3,9 @@
 #include <iostream>
 using namespace std;
 
+namespace OPL
+{
+
 ClPlatform& ClPlatform::getPlatform()
 {
   static ClPlatform onlyPlatform;
@@ -90,3 +93,6 @@ IClKernelManager& ClPlatform::getKernelManager()
 {
     return kernelManager;
 }
+
+}
+

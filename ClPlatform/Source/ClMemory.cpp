@@ -21,7 +21,7 @@ uint getSizeOfBuffer(uint p_size, ClMemoryCreation creationType)
 }
 
 ClMemory::ClMemory(uint p_size, ClMemoryCreation creationType) :
-	      platform(ClPlatform::getPlatform()),
+	      platform(OPL::ClPlatform::getPlatform()),
 	      size(getSizeOfBuffer(p_size, creationType))
 {
   cl_int error;
@@ -29,14 +29,14 @@ ClMemory::ClMemory(uint p_size, ClMemoryCreation creationType) :
   {
     case CL_MEMORY_ALLOC:
     {
-      memory = clCreateBuffer(platform.context, CL_MEM_READ_WRITE, size, NULL, &error);
+      memory = clCreateBuffer(platform.getOpenClContext(), CL_MEM_READ_WRITE, size, NULL, &error);
       break;
     }
     case CL_MEMORY_USE_GL_BUFFER:
     {
       GLuint glBuffer = p_size;
       DEBUG << "creating ClMemory from OpenGL buffer " << glBuffer;
-      memory = clCreateFromGLBuffer(platform.context, CL_MEM_READ_WRITE, glBuffer, NULL);
+      memory = clCreateFromGLBuffer(platform.getOpenClContext(), CL_MEM_READ_WRITE, glBuffer, NULL);
       break;
     }
   }
@@ -66,7 +66,7 @@ bool ClMemory::operator!()
 void ClMemory::copyIn(void* data, uint start, uint p_size)
 {
   cl_int error;
-  error = clEnqueueWriteBuffer( platform.queue, memory, CL_TRUE, start, p_size, data, 0, NULL, NULL);
+  error = clEnqueueWriteBuffer( platform.getCommandQueue(), memory, CL_TRUE, start, p_size, data, 0, NULL, NULL);
   if(error != CL_SUCCESS)
   {
       ERROR << "error in copying memory to device, OpenCL error = " << OpenClError(error);
@@ -77,7 +77,7 @@ void ClMemory::copyIn(void* data, uint start, uint p_size)
 void ClMemory::copyOut(void* data, uint start, uint p_size)
 {
   cl_int error;
-  error = clEnqueueReadBuffer( platform.queue, memory, CL_TRUE, start, p_size, data, 0, NULL, NULL);
+  error = clEnqueueReadBuffer( platform.getCommandQueue(), memory, CL_TRUE, start, p_size, data, 0, NULL, NULL);
   if(error != CL_SUCCESS)
   {
       ERROR << "error in copying memory to device, OpenCL error = " << OpenClError(error);

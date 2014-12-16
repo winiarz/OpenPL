@@ -4,6 +4,9 @@
 
 #include <gmock/gmock.h>
 
+namespace OPL
+{
+
 class ClKernelPerformanceComparatorMock : public IClKernelPerformanceComparator {
 public:
     MOCK_METHOD0( comparationStep, bool() );
@@ -13,4 +16,6 @@ public:
     MOCK_METHOD0( getBestKernel, optional<shared_ptr<IClSingleImplementationKernel> >() );
     MOCK_METHOD1( saveToFile, void( FILE* ) );
 };
+
+}
 

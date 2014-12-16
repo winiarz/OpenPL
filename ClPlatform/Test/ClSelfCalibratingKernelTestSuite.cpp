@@ -31,7 +31,7 @@ void ClSelfCalibratingKernelTestSuite::TearDown()
 TEST_F( ClSelfCalibratingKernelTestSuite, saveAndLoad_selfCalibratingKernel )
 {
     Clock clock;
-    auto performanceComparator = make_shared<ClKernelPerformanceComparator>(clock);
+    auto performanceComparator = make_shared<OPL::ClKernelPerformanceComparator>(clock);
 
     auto dataGenerator = make_shared<ClRandomFloatArrayGenerator>(10);
 

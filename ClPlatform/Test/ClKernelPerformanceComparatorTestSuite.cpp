@@ -6,6 +6,9 @@
 #include<gtest/gtest.h>
 #include<gmock/gmock.h>
 
+namespace OPL
+{
+
 using namespace ::testing;
 
 class ClKernelPerformanceComparatorTestSuite : public Test {
@@ -126,5 +129,7 @@ TEST_F( ClKernelPerformanceComparatorTestSuite, addParametrizedKernelAddsKernelF
     shared_ptr<ClSingleImplementationKernelMock> secondKernel = expectGetKernel( paramKernelMock, 2 );
 
     sut->addParameterizedKernel(paramKernelMock);
+}
+
 }
 

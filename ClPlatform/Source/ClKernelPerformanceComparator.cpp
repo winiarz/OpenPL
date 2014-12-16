@@ -3,6 +3,9 @@
 #include "ClError.hpp"
 #include "logs.hpp"
 
+namespace OPL
+{
+
 ClKernelPerformanceComparator::ClKernelPerformanceComparator(IClock& p_clock) :
     clock(p_clock),
     bestKernel(none)
@@ -99,3 +102,6 @@ void ClKernelPerformanceComparator::saveToFile( FILE* file )
         kernelSaver.saveKernel( (*i), file );
     }
 }
+
+}
+

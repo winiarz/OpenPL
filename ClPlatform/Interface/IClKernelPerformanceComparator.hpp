@@ -6,6 +6,9 @@
 class IClDataGenerator;
 class IClParameterizedKernel;
 
+namespace OPL
+{
+
 class IClKernelPerformanceComparator {
 public:
     virtual bool comparationStep()=0;
@@ -15,4 +18,6 @@ public:
     virtual optional<shared_ptr<IClSingleImplementationKernel> > getBestKernel()=0;
     virtual void saveToFile( FILE* file ) = 0;
 };
+
+}
 

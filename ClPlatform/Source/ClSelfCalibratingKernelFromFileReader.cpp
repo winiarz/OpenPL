@@ -38,7 +38,7 @@ shared_ptr<ClSelfCalibratingKernel> ClSelfCalibratingKernelFromFileReader::read(
     if( readElems < 1 )
         throw FILE_READ_ERROR;
 
-    auto performanceComparator = make_shared<ClKernelPerformanceComparator>(clock);
+    auto performanceComparator = make_shared<OPL::ClKernelPerformanceComparator>(clock);
 
     performanceComparator->setDataGenerator( dataGenerator );
 

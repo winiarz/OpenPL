@@ -1,5 +1,7 @@
 #pragma once
 
+namespace OPL
+{
 class IClKernelPerformanceComparator;
 
 class IClCalibrator {
@@ -8,4 +10,6 @@ public:
     virtual bool isCalibrationFinished() = 0;
     virtual bool calibrate() = 0;
 };
+
+}
 

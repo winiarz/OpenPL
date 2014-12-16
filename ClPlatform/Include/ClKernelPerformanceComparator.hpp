@@ -5,6 +5,9 @@
 #include "IClParameterizedKernel.hpp"
 #include "IClock.hpp"
 
+namespace OPL
+{
+
 class ClKernelPerformanceComparator : public IClKernelPerformanceComparator {
 public:
     ClKernelPerformanceComparator(IClock&);
@@ -21,4 +24,6 @@ private:
     uint bestTime;
     optional<shared_ptr<IClSingleImplementationKernel> > bestKernel;
 };
+
+}
 

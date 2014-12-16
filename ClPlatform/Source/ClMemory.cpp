@@ -1,6 +1,9 @@
 #include "ClMemory.hpp"
 #include "logs.hpp"
 
+namespace OPL
+{
+
 uint getSizeOfBuffer(uint p_size, ClMemoryCreation creationType)
 {
   switch( creationType )
@@ -102,3 +105,6 @@ uint calculateSize(uint n, ClMemoryCreation clMemoryCreation, size_t sizeOfType)
       return 0;
   }
 }
+
+}
+

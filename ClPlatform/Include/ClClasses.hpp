@@ -2,8 +2,8 @@
 namespace OPL
 {
 class ClPlatform;
+class ClMemory;
 }
 
-class ClMemory;
 class ClKernel;
 

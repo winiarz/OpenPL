@@ -10,6 +10,9 @@ enum ClMemoryCreation {
   CL_MEMORY_USE_GL_BUFFER
 };
 
+namespace OPL
+{
+
 uint calculateSize(uint, ClMemoryCreation, size_t);
 
 class ClMemory : public IClMemory
@@ -27,4 +30,6 @@ private:
   const uint size;
   cl_mem memory;
 };
+
+}
 

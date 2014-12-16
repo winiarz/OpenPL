@@ -11,7 +11,6 @@ namespace OPL
 {
 
 class ClPlatform {
-friend class ClMemory;
 public:
   static ClPlatform& getPlatform();
   bool isSetUpSuccessfully();

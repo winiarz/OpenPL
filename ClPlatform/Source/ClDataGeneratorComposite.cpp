@@ -6,14 +6,14 @@ ClDataGeneratorComposite::ClDataGeneratorComposite(std::vector<shared_ptr<IClDat
 {
 }
 
-vector<shared_ptr<ClMemory> > ClDataGeneratorComposite::getData()
+vector<shared_ptr<OPL::ClMemory> > ClDataGeneratorComposite::getData()
 {
-    vector<shared_ptr<ClMemory> > result;
+    vector<shared_ptr<OPL::ClMemory> > result;
 
     std::vector<shared_ptr<IClDataGenerator> >::iterator i;
     for ( i = dataGenerators.begin(); i != dataGenerators.end(); ++i)
     {
-        vector<shared_ptr<ClMemory> > data = (*i)->getData();
+        vector<shared_ptr<OPL::ClMemory> > data = (*i)->getData();
 
         result.insert( result.end(), data.begin(), data.end());
     }

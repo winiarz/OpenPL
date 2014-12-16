@@ -1,6 +1,9 @@
 #include <gtest/gtest.h>
 #include "ClMemory.hpp"
 
+namespace OPL
+{
+
 class ClMemoryTestSuite : public ::testing::Test {
 public:
   ClMemoryTestSuite();
@@ -41,5 +44,7 @@ TEST_F(ClMemoryTestSuite, correct_memory_size )
   sut = make_shared<ClMemory>(memorySize);
 
   ASSERT_EQ( sut->getSize(), memorySize );
+}
+
 }
 

@@ -42,7 +42,7 @@ bool ClKernelPerformanceComparator::comparationStep()
 {
     if ( dataGenerator && !remainingKernels.empty() ) 
     {
-        vector<shared_ptr<ClMemory> > l_randomData = (*dataGenerator)->getData();
+        vector<shared_ptr<OPL::ClMemory> > l_randomData = (*dataGenerator)->getData();
 
         set<shared_ptr<IClSingleImplementationKernel> >::iterator testedKernel = remainingKernels.begin();
 

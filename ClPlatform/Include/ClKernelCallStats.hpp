@@ -4,6 +4,9 @@
 #include "IClock.hpp"
 #include "stl.hpp"
 
+namespace OPL
+{
+
 class ClKernelCallStats : public IClKernelCallStats
 {
 public:
@@ -16,4 +19,6 @@ private:
     uint lastCallTime;
     const float forgetParameter;
 };
+
+}
 

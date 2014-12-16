@@ -148,7 +148,7 @@ cl_program ClKernel::getProgram()
     return program;
 }
 
-IClKernelCallStats& ClKernel::getStats()
+OPL::IClKernelCallStats& ClKernel::getStats()
 {
     return stats;
 }

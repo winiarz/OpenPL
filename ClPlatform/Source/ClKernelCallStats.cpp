@@ -1,5 +1,8 @@
 #include "ClKernelCallStats.hpp"
 
+namespace OPL
+{
+
 ClKernelCallStats::ClKernelCallStats(shared_ptr<IClock> p_clock,
                                      float p_forgetParameter) :
             clock(p_clock),
@@ -20,3 +23,6 @@ void ClKernelCallStats::registerCall()
     score = forgetParameter * score + 1000000.0 / float(newLastCallTime - lastCallTime);
     lastCallTime = newLastCallTime;
 }
+
+}
+

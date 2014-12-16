@@ -5,10 +5,9 @@
 
 typedef unsigned int uint;
 
-class IClKernelCallStats;
-
 namespace OPL
 {
+class IClKernelCallStats;
 class IClMemory;
 }
 

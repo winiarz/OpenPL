@@ -39,6 +39,6 @@ public:
   }
 
   MOCK_METHOD0(getProgram, cl_program());
-  MOCK_METHOD0(getStats, IClKernelCallStats&() );
+  MOCK_METHOD0(getStats, OPL::IClKernelCallStats&() );
 };
 

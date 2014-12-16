@@ -21,7 +21,7 @@ public:
   virtual cl_program getProgram();
   virtual void load();
   virtual void unload();
-  IClKernelCallStats& getStats();
+  OPL::IClKernelCallStats& getStats();
   std::string getKernelName();
   ~ClKernel();
 private:
@@ -34,7 +34,7 @@ private:
 
   bool loaded;
   std::string kernelName;
-  ClKernelCallStats stats;
+  OPL::ClKernelCallStats stats;
   void setKernelArg(uint&, OPL::IClMemory*);
   void checkThreadCount();
   void executeKernel();

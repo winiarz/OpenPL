@@ -3,7 +3,7 @@
 #include "ClArrayMemory.hpp"
 
 template<typename T>
-class ClArrayMemoryWithSize : public IClMemory
+class ClArrayMemoryWithSize : public OPL::IClMemory
 {
 public:
     ClArrayMemoryWithSize(uint n) :

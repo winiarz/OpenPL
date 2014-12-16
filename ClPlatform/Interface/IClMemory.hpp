@@ -2,6 +2,9 @@
 #include <vector>
 #include <CL/cl_gl.h>
 
+namespace OPL
+{
+
 class IClMemory
 {
 public:
@@ -11,4 +14,6 @@ public:
   virtual uint getSize() = 0;
   virtual std::vector<cl_mem> getMemories() = 0;
 };
+
+}
 

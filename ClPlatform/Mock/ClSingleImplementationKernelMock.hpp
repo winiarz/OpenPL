@@ -29,11 +29,11 @@ public:
   {
     return *this;
   }
-  virtual IClKernel& operator()(std::vector<IClMemory*> )
+  virtual IClKernel& operator()(std::vector<OPL::IClMemory*> )
   {
       return *this;
   }
-  virtual IClKernel& operator()(std::vector<shared_ptr<IClMemory>> )
+  virtual IClKernel& operator()(std::vector<shared_ptr<OPL::IClMemory>> )
   {
       return *this;
   }

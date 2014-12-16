@@ -134,7 +134,7 @@ IClKernel& ClKernel::operator()(uint argumentNb, ...  )
     uint argIdx=0;
     for(uint i=0; i < argumentNb; i++)
     {
-        IClMemory* memory = va_arg(li, IClMemory*);
+        OPL::IClMemory* memory = va_arg(li, OPL::IClMemory*);
         setKernelArg(argIdx, memory);
     }
     va_end(li);
@@ -153,7 +153,7 @@ IClKernelCallStats& ClKernel::getStats()
     return stats;
 }
 
-void ClKernel::setKernelArg(uint& idx, IClMemory* arg)
+void ClKernel::setKernelArg(uint& idx, OPL::IClMemory* arg)
 {
     auto memories = arg->getMemories();
     for (cl_mem memory : memories) 
@@ -192,7 +192,7 @@ void ClKernel::executeKernel()
     DEBUG << "Kernel " << kernelName << "successfully executed!";
 }
 
-IClKernel& ClKernel::operator()(std::vector<IClMemory*> args)
+IClKernel& ClKernel::operator()(std::vector<OPL::IClMemory*> args)
 {
     if ( !loaded ) 
     {
@@ -209,7 +209,7 @@ IClKernel& ClKernel::operator()(std::vector<IClMemory*> args)
     return *this;
 }
 
-IClKernel& ClKernel::operator()(std::vector<shared_ptr<IClMemory>> args)
+IClKernel& ClKernel::operator()(std::vector<shared_ptr<OPL::IClMemory>> args)
 {
     if ( !loaded ) 
     {

@@ -16,7 +16,7 @@
     { \
         if ( !SIMSTEP_NAME(simstepName) ) \
             SIMSTEP_NAME(simstepName) = className :: SIMSTEP_CREATOR_NAME(simstepName) ->create(); \
-        std::vector<IClMemory*> args; \
+        std::vector<OPL::IClMemory*> args; \
         SIMSTEP_NAME(simstepName)->execute(args); \
     }
 
@@ -26,7 +26,7 @@
     { \
         if ( !SIMSTEP_NAME(simstepName) ) \
             SIMSTEP_NAME(simstepName) = className :: SIMSTEP_CREATOR_NAME(simstepName) ->create(); \
-        std::vector<IClMemory*> args; \
+        std::vector<OPL::IClMemory*> args; \
         args.push_back(& p_ ## arg1Name); \
         SIMSTEP_NAME(simstepName)->execute(args); \
     }
@@ -37,7 +37,7 @@
     { \
         if ( !SIMSTEP_NAME(simstepName) ) \
             SIMSTEP_NAME(simstepName) = className :: SIMSTEP_CREATOR_NAME(simstepName) ->create(); \
-        std::vector<IClMemory*> args; \
+        std::vector<OPL::IClMemory*> args; \
         args.push_back(& p_ ## arg1Name); \
         args.push_back(& p_ ## arg2Name); \
         SIMSTEP_NAME(simstepName)->execute(args); \

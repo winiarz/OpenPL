@@ -45,6 +45,7 @@ filesToClean += $(libClPlatform)
 filesToClean += $(clcc)
 filesToClean += $(ClPlatform)/TestData/*.clbin
 filesToClean += $(ClPlatformObj)/*.o
+filesToClean += $(ClPlatformTestKernels)
 
 $(clcc): $(ClPlatformLibObj) $(ClccObj) $(libLogs)
 	@echo "\tLD\t"clcc

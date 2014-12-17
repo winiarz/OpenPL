@@ -5,13 +5,14 @@
 #include <GL/glew.h>
 #include <CL/cl_gl.h>
 
+namespace OPL
+{
+
 enum ClMemoryCreation {
   CL_MEMORY_ALLOC,
   CL_MEMORY_USE_GL_BUFFER
 };
 
-namespace OPL
-{
 
 uint calculateSize(uint, ClMemoryCreation, size_t);
 

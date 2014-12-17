@@ -11,7 +11,7 @@ public:
     ClSelfCalibratingKernelFromFileReader( shared_ptr<OPL::IClDataGeneratorFromFileReader>,
                                            shared_ptr<ClKernelFromBinaryLoader>,
                                            IClock& );
-    virtual shared_ptr<ClSelfCalibratingKernel> read(std::string filename);
+    virtual shared_ptr<OPL::ClSelfCalibratingKernel> read(std::string filename);
 
 private:
     shared_ptr<OPL::IClDataGeneratorFromFileReader> dataGeneratorReader;

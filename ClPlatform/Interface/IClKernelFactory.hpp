@@ -5,6 +5,6 @@
 
 class IClKernelFactory {
 public:
-  virtual IClKernel* buildClKernel( std::string, std::string )=0;
+  virtual OPL::IClKernel* buildClKernel( std::string, std::string )=0;
 };
 

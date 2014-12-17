@@ -9,7 +9,6 @@ namespace OPL
 {
 class IClKernelCallStats;
 class IClMemory;
-}
 
 class IClKernel {
 public:
@@ -22,4 +21,6 @@ public:
   
     virtual ~IClKernel(){}
 };
+
+}
 

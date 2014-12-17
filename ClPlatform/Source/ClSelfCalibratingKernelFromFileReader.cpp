@@ -14,7 +14,7 @@ ClSelfCalibratingKernelFromFileReader::ClSelfCalibratingKernelFromFileReader( sh
 {
 }
 
-shared_ptr<ClSelfCalibratingKernel> ClSelfCalibratingKernelFromFileReader::read(std::string filename)
+shared_ptr<OPL::ClSelfCalibratingKernel> ClSelfCalibratingKernelFromFileReader::read(std::string filename)
 {
     FILE* file = fopen( filename.c_str(), "rb" );
 		if( file == NULL )
@@ -47,6 +47,6 @@ shared_ptr<ClSelfCalibratingKernel> ClSelfCalibratingKernelFromFileReader::read(
         performanceComparator->addKernel( kernelLoader->loadKernel(file) );	
     }
 
-    return make_shared<ClSelfCalibratingKernel>( performanceComparator );
+    return make_shared<OPL::ClSelfCalibratingKernel>( performanceComparator );
 }
 

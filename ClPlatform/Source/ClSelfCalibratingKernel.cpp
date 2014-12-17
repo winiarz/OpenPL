@@ -5,6 +5,9 @@
 #include "logs.hpp"
 #include <stdarg.h>
 
+namespace OPL
+{
+
 ClSelfCalibratingKernel::ClSelfCalibratingKernel(shared_ptr<OPL::IClKernelPerformanceComparator> p_performanceComparator) :
         performanceComparator(p_performanceComparator)
 {
@@ -114,5 +117,7 @@ void ClSelfCalibratingKernel::saveToFile( std::string filename )
     performanceComparator->saveToFile( file );
 
     fclose(file);
+}
+
 }
 

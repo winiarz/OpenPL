@@ -99,7 +99,7 @@ bool ClKernel::operator!()
   return !isSetUpSuccessfully();
 }
 
-IClKernel& ClKernel::operator[](uint size)
+OPL::IClKernel& ClKernel::operator[](uint size)
 {
   if( size <= 0 )
     return *this;
@@ -120,7 +120,7 @@ IClKernel& ClKernel::operator[](uint size)
   return *this;
 }
 
-IClKernel& ClKernel::operator()(uint argumentNb, ...  )
+OPL::IClKernel& ClKernel::operator()(uint argumentNb, ...  )
 {
     va_list li;
   
@@ -192,7 +192,7 @@ void ClKernel::executeKernel()
     DEBUG << "Kernel " << kernelName << "successfully executed!";
 }
 
-IClKernel& ClKernel::operator()(std::vector<OPL::IClMemory*> args)
+OPL::IClKernel& ClKernel::operator()(std::vector<OPL::IClMemory*> args)
 {
     if ( !loaded ) 
     {
@@ -209,7 +209,7 @@ IClKernel& ClKernel::operator()(std::vector<OPL::IClMemory*> args)
     return *this;
 }
 
-IClKernel& ClKernel::operator()(std::vector<shared_ptr<OPL::IClMemory>> args)
+OPL::IClKernel& ClKernel::operator()(std::vector<shared_ptr<OPL::IClMemory>> args)
 {
     if ( !loaded ) 
     {

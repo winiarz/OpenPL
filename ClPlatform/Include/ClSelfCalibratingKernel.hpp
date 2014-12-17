@@ -4,6 +4,9 @@
 #include "IClKernel.hpp"
 #include "IClKernelPerformanceComparator.hpp"
 
+namespace OPL
+{
+
 class ClSelfCalibratingKernel : public IClKernel
 {
 public:
@@ -23,4 +26,6 @@ public:
 private:
     shared_ptr<OPL::IClKernelPerformanceComparator> performanceComparator;
 };
+
+}
 

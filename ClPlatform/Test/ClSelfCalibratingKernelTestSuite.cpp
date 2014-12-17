@@ -7,6 +7,9 @@
 #include "ClKernelFromBinaryLoader.hpp"
 #include "Clock.hpp"
 
+namespace OPL
+{
+
 using namespace ::testing;
 
 class ClSelfCalibratingKernelTestSuite : public Test
@@ -47,5 +50,7 @@ TEST_F( ClSelfCalibratingKernelTestSuite, saveAndLoad_selfCalibratingKernel )
 
     ClSelfCalibratingKernelFromFileReader reader( dataGeneratorReader, kernelLoader, clock );
     ASSERT_NO_THROW( reader.read(kernelFilename) );
+}
+
 }
 

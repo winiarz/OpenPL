@@ -21,8 +21,10 @@ std::ostream& operator<<(std::ostream& sstream, LogLevel logLevel)
     return sstream;
 }
 
-std::ostream& operator<<(std::ostream& sstream, OpenClError openClError)
+std::ostream& operator<<(std::ostream& sstream, OPL::OpenClError openClError)
 {
+    using namespace OPL;
+
     switch (openClError) 
     {
         case  OPENCL_SUCCESS:

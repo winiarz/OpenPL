@@ -10,7 +10,7 @@ enum LogLevel
 };
 
 std::ostream& operator<<(std::ostream& sstream, LogLevel logLevel);
-std::ostream& operator<<(std::ostream&, OpenClError);
+std::ostream& operator<<(std::ostream&, OPL::OpenClError);
 
 class LogStream : public std::ostringstream{
 public:

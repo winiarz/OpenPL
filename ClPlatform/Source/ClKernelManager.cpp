@@ -17,10 +17,10 @@ void ClKernelManager::loadKernel( OPL::ClKernel* kernel)
             loadedKernels.insert(kernel);
             return;
         }
-        catch ( ClError error ) 
+        catch ( OPL::ClError error ) 
         {
             
-            if ( error == OUT_OF_RESOURCES ) 
+            if ( error == OPL::OUT_OF_RESOURCES ) 
             {
                 DEBUG << "load kernel throwed OUT_OF_RESOURCES - try to unload one of kernels";
                 unloadOneKernel(isPossibleToLoad);

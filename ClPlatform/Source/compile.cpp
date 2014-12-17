@@ -15,9 +15,9 @@ int compile(const char input_file[],vector<string>  includeDirectories,const cha
         shared_ptr<OPL::ClKernel> kernel = 
             kernelLoader.loadKernel(std::string(input_file));
 
-        ClKernelSaver().saveKernel( kernel, std::string(output_file) );
+        OPL::ClKernelSaver().saveKernel( kernel, std::string(output_file) );
     }
-    catch ( ClError )
+    catch ( OPL::ClError )
     {
         return 1;
     }

@@ -1,5 +1,8 @@
 #pragma once
 
+namespace OPL
+{
+
 enum ClError {
     UNDEFINED,
     OPEN_CL_ERROR,
@@ -66,3 +69,6 @@ enum OpenClError {
  OPENCL_CL_INVALID_MIP_LEVEL = -62,
  OPENCL_CL_INVALID_GLOBAL_WORK_SIZE = -63
 };
+
+}
+

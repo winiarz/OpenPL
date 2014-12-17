@@ -3,6 +3,9 @@
 #include <CL/cl.h>
 #include "IClKernelSaver.hpp"
 
+namespace OPL
+{
+
 class ClKernelSaver : public IClKernelSaver
 {
 public:
@@ -23,4 +26,6 @@ private:
     void saveBinaryToFile( size_t binarySize, unsigned char *programBinary, FILE* file);
     FILE* openFile( std::string );
 };
+
+}
 

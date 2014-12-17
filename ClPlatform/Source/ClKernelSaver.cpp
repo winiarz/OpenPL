@@ -2,6 +2,9 @@
 #include "ClKernel.hpp"
 #include "logs.hpp"
 
+namespace OPL
+{
+
 cl_int ClKernelSaver::getDeviceCount( shared_ptr<OPL::IClSingleImplementationKernel> kernel)
 {
     cl_int error;
@@ -156,5 +159,7 @@ void ClKernelSaver::saveKernel( shared_ptr<OPL::IClSingleImplementationKernel> k
     size_t deviceIdx = getDeviceIdx( deviceCount, devices );
     saveBinaryToFile( binarySizes[deviceIdx], programBinaries[deviceIdx], file );
     deleteProgramBinaries( deviceCount, programBinaries );
+}
+
 }
 

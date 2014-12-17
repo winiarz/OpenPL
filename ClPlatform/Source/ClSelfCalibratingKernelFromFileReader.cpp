@@ -5,6 +5,9 @@
 #include "logs.hpp"
 #include <cstdio>
 
+namespace OPL
+{
+
 ClSelfCalibratingKernelFromFileReader::ClSelfCalibratingKernelFromFileReader( shared_ptr<OPL::IClDataGeneratorFromFileReader> p_dataGeneratorReader,
                                                                               shared_ptr<OPL::ClKernelFromBinaryLoader> p_kernelLoader,
 																			  IClock& p_clock ) :
@@ -48,5 +51,7 @@ shared_ptr<OPL::ClSelfCalibratingKernel> ClSelfCalibratingKernelFromFileReader::
     }
 
     return make_shared<OPL::ClSelfCalibratingKernel>( performanceComparator );
+}
+
 }
 

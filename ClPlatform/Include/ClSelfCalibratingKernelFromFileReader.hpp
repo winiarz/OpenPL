@@ -5,17 +5,22 @@
 #include "ClKernelFromBinaryLoader.hpp"
 #include "IClock.hpp"
 
+namespace OPL
+{
+
 class ClSelfCalibratingKernelFromFileReader : public IClSelfCalibratingKernelFromFileReader
 {
 public:
-    ClSelfCalibratingKernelFromFileReader( shared_ptr<OPL::IClDataGeneratorFromFileReader>,
-                                           shared_ptr<OPL::ClKernelFromBinaryLoader>,
+    ClSelfCalibratingKernelFromFileReader( shared_ptr<IClDataGeneratorFromFileReader>,
+                                           shared_ptr<ClKernelFromBinaryLoader>,
                                            IClock& );
     virtual shared_ptr<OPL::ClSelfCalibratingKernel> read(std::string filename);
 
 private:
-    shared_ptr<OPL::IClDataGeneratorFromFileReader> dataGeneratorReader;
-    shared_ptr<OPL::ClKernelFromBinaryLoader> kernelLoader;
+    shared_ptr<IClDataGeneratorFromFileReader> dataGeneratorReader;
+    shared_ptr<ClKernelFromBinaryLoader> kernelLoader;
     IClock& clock;
 };
+
+}
 

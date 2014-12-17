@@ -47,7 +47,7 @@ TEST_F(ClParameterizedKernelFromSourceTestSuite, returnsNoneWhenParameterIsInval
 
     isParamCorrectExpectations();
 
-    optional<shared_ptr<OPL::IClSingleImplementationKernel> > kernel = m_sut->getKernel(invalidParameter);
+    optional<shared_ptr<IClSingleImplementationKernel> > kernel = m_sut->getKernel(invalidParameter);
     ASSERT_EQ( none, kernel );
 }
 
@@ -57,7 +57,7 @@ TEST_F(ClParameterizedKernelFromSourceTestSuite, returnsKernelWhenParameterIsVal
 
     isParamCorrectExpectations();
     
-    optional<shared_ptr<OPL::IClSingleImplementationKernel> > kernel = m_sut->getKernel(validParameter);
+    optional<shared_ptr<IClSingleImplementationKernel> > kernel = m_sut->getKernel(validParameter);
     ASSERT_TRUE( kernel );
 }
 
@@ -67,10 +67,10 @@ TEST_F(ClParameterizedKernelFromSourceTestSuite, returnsNoneWhenKernelIsRejected
 
     isParamCorrectExpectations();
 
-    optional<shared_ptr<OPL::IClSingleImplementationKernel> > kernel = m_sut->getKernel(validParameter);
+    optional<shared_ptr<IClSingleImplementationKernel> > kernel = m_sut->getKernel(validParameter);
 
     m_sut->rejectKernel(*kernel);
-    optional<shared_ptr<OPL::IClSingleImplementationKernel> > kernel2 = m_sut->getKernel(validParameter);
+    optional<shared_ptr<IClSingleImplementationKernel> > kernel2 = m_sut->getKernel(validParameter);
 
     ASSERT_EQ( none, kernel2 );
 }

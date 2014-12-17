@@ -8,8 +8,8 @@
 namespace OPL
 {
 
-ClSelfCalibratingKernelFromFileReader::ClSelfCalibratingKernelFromFileReader( shared_ptr<OPL::IClDataGeneratorFromFileReader> p_dataGeneratorReader,
-                                                                              shared_ptr<OPL::ClKernelFromBinaryLoader> p_kernelLoader,
+ClSelfCalibratingKernelFromFileReader::ClSelfCalibratingKernelFromFileReader( shared_ptr<IClDataGeneratorFromFileReader> p_dataGeneratorReader,
+                                                                              shared_ptr<ClKernelFromBinaryLoader> p_kernelLoader,
 																			  IClock& p_clock ) :
     dataGeneratorReader( p_dataGeneratorReader ),
     kernelLoader( p_kernelLoader ),
@@ -17,7 +17,7 @@ ClSelfCalibratingKernelFromFileReader::ClSelfCalibratingKernelFromFileReader( sh
 {
 }
 
-shared_ptr<OPL::ClSelfCalibratingKernel> ClSelfCalibratingKernelFromFileReader::read(std::string filename)
+shared_ptr<ClSelfCalibratingKernel> ClSelfCalibratingKernelFromFileReader::read(std::string filename)
 {
     FILE* file = fopen( filename.c_str(), "rb" );
 		if( file == NULL )
@@ -34,14 +34,14 @@ shared_ptr<OPL::ClSelfCalibratingKernel> ClSelfCalibratingKernelFromFileReader::
         throw INCORRECT_KERNEL_FILE;
     }
 
-    shared_ptr<OPL::IClDataGenerator> dataGenerator = dataGeneratorReader->read( file );
+    shared_ptr<IClDataGenerator> dataGenerator = dataGeneratorReader->read( file );
 
     uint kernelsCount;
     readElems = fread( &kernelsCount, sizeof(kernelsCount), 1, file);
     if( readElems < 1 )
         throw FILE_READ_ERROR;
 
-    auto performanceComparator = make_shared<OPL::ClKernelPerformanceComparator>(clock);
+    auto performanceComparator = make_shared<ClKernelPerformanceComparator>(clock);
 
     performanceComparator->setDataGenerator( dataGenerator );
 
@@ -50,7 +50,7 @@ shared_ptr<OPL::ClSelfCalibratingKernel> ClSelfCalibratingKernelFromFileReader::
         performanceComparator->addKernel( kernelLoader->loadKernel(file) );	
     }
 
-    return make_shared<OPL::ClSelfCalibratingKernel>( performanceComparator );
+    return make_shared<ClSelfCalibratingKernel>( performanceComparator );
 }
 
 }

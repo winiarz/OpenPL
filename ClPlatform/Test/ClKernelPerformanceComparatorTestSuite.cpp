@@ -44,7 +44,7 @@ shared_ptr<ClSingleImplementationKernelMock> ClKernelPerformanceComparatorTestSu
 void ClKernelPerformanceComparatorTestSuite::setDataGenerator()
 {
     sut->setDataGenerator(dataGeneratorMock);
-    vector<shared_ptr<OPL::ClMemory> > data;
+    vector<shared_ptr<ClMemory> > data;
     EXPECT_CALL( *dataGeneratorMock, getData() ).WillRepeatedly(Return(data));
 }
 

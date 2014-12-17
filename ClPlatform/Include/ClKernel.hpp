@@ -19,16 +19,16 @@ public:
   bool operator!();
   IClKernel& operator[](uint);
   IClKernel& operator()(uint, ... );
-  virtual IClKernel& operator()(std::vector<OPL::IClMemory*>);
-  virtual IClKernel& operator()(std::vector<shared_ptr<OPL::IClMemory>>);
+  virtual IClKernel& operator()(std::vector<IClMemory*>);
+  virtual IClKernel& operator()(std::vector<shared_ptr<IClMemory>>);
   virtual cl_program getProgram();
   virtual void load();
   virtual void unload();
-  OPL::IClKernelCallStats& getStats();
+  IClKernelCallStats& getStats();
   std::string getKernelName();
   ~ClKernel();
 private:
-  OPL::ClPlatform& platform;
+  ClPlatform& platform;
   cl_program program;
   cl_kernel kernel;
 
@@ -37,8 +37,8 @@ private:
 
   bool loaded;
   std::string kernelName;
-  OPL::ClKernelCallStats stats;
-  void setKernelArg(uint&, OPL::IClMemory*);
+  ClKernelCallStats stats;
+  void setKernelArg(uint&, IClMemory*);
   void checkThreadCount();
   void executeKernel();
 };

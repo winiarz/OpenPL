@@ -5,22 +5,28 @@
 #include "ClKernelFromSourceLoader.hpp"
 #include "ClKernel.hpp"
 
+namespace OPL
+{
+
 int compile(const char input_file[],vector<string>  includeDirectories,const char output_file[])
 {
     DEBUG << "compiling file: " << input_file;
-    OPL::ClKernelFromSourceLoader kernelLoader(includeDirectories);
+    ClKernelFromSourceLoader kernelLoader(includeDirectories);
   
     try
     {
-        shared_ptr<OPL::ClKernel> kernel = 
+        shared_ptr<ClKernel> kernel = 
             kernelLoader.loadKernel(std::string(input_file));
 
-        OPL::ClKernelSaver().saveKernel( kernel, std::string(output_file) );
+        ClKernelSaver().saveKernel( kernel, std::string(output_file) );
     }
-    catch ( OPL::ClError )
+    catch ( ClError )
     {
         return 1;
     }
 
     return 0;
 }
+
+}
+

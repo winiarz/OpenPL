@@ -10,21 +10,21 @@ namespace OPL
 class ClSelfCalibratingKernel : public IClKernel
 {
 public:
-    ClSelfCalibratingKernel(shared_ptr<OPL::IClKernelPerformanceComparator> p_performanceComparator);
+    ClSelfCalibratingKernel(shared_ptr<IClKernelPerformanceComparator> p_performanceComparator);
 
     virtual bool isSetUpSuccessfully();
     virtual bool operator!();
     virtual IClKernel& operator[](uint n);
     virtual IClKernel& operator()(uint, ... );
-    virtual IClKernel& operator()(std::vector<OPL::IClMemory*>);
-    virtual IClKernel& operator()(std::vector<shared_ptr<OPL::IClMemory>>);
+    virtual IClKernel& operator()(std::vector<IClMemory*>);
+    virtual IClKernel& operator()(std::vector<shared_ptr<IClMemory>>);
       
     virtual ~ClSelfCalibratingKernel();
     bool calibrate(uint timeLimit);
 
     void saveToFile( std::string filename );
 private:
-    shared_ptr<OPL::IClKernelPerformanceComparator> performanceComparator;
+    shared_ptr<IClKernelPerformanceComparator> performanceComparator;
 };
 
 }

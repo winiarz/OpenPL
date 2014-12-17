@@ -32,17 +32,17 @@ public:
   {
     return *this;
   }
-  virtual IClKernel& operator()(std::vector<OPL::IClMemory*> )
+  virtual IClKernel& operator()(std::vector<IClMemory*> )
   {
       return *this;
   }
-  virtual IClKernel& operator()(std::vector<shared_ptr<OPL::IClMemory>> )
+  virtual IClKernel& operator()(std::vector<shared_ptr<IClMemory>> )
   {
       return *this;
   }
 
   MOCK_METHOD0(getProgram, cl_program());
-  MOCK_METHOD0(getStats, OPL::IClKernelCallStats&() );
+  MOCK_METHOD0(getStats, IClKernelCallStats&() );
 };
 
 }

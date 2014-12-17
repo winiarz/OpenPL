@@ -8,7 +8,7 @@ namespace OPL
 
 class IClKernelFactory {
 public:
-  virtual OPL::IClKernel* buildClKernel( std::string, std::string )=0;
+  virtual IClKernel* buildClKernel( std::string, std::string )=0;
 };
 
 }

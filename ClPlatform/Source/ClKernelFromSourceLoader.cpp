@@ -9,17 +9,17 @@ namespace OPL
 {
 
 ClKernelFromSourceLoader::ClKernelFromSourceLoader(std::vector<std::string>& p_includeDirectories) :
-    compilerWithPreprocessor(std::make_shared<OPL::OpenClCompiler>(),
-                             std::make_shared<OPL::ClIncludePreprocessor>(p_includeDirectories))
+    compilerWithPreprocessor(std::make_shared<OpenClCompiler>(),
+                             std::make_shared<ClIncludePreprocessor>(p_includeDirectories))
 {
 }
 
-shared_ptr<OPL::ClKernel> ClKernelFromSourceLoader::loadKernel(std::string filename)
+shared_ptr<ClKernel> ClKernelFromSourceLoader::loadKernel(std::string filename)
 {
     shared_ptr<std::string> source = readFile(filename);
 
     cl_program program = compilerWithPreprocessor.compile(*source);
-    return make_shared<OPL::ClKernel>(program);
+    return make_shared<ClKernel>(program);
 }
 
 shared_ptr<std::string> ClKernelFromSourceLoader::readFile(std::string& filename)

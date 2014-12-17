@@ -6,7 +6,7 @@ namespace OPL
 {
 
 template<typename T>
-class ClArrayMemory : public OPL::ClMemory {
+class ClArrayMemory : public ClMemory {
 public:
   ClArrayMemory(uint n,ClMemoryCreation clMemoryCreation = CL_MEMORY_ALLOC ) :
 	ClMemory(calculateSize(n,clMemoryCreation,sizeof(T)), clMemoryCreation)

@@ -8,9 +8,9 @@ ClKernelFactory::ClKernelFactory()
 { 
 }
 
-OPL::IClKernel* ClKernelFactory::buildClKernel( std::string fileName, std::string kernelName )
+IClKernel* ClKernelFactory::buildClKernel( std::string fileName, std::string kernelName )
 {
-  return new OPL::ClKernel( fileName.c_str(), kernelName.c_str() );
+  return new ClKernel( fileName.c_str(), kernelName.c_str() );
 }
 
 }

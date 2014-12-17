@@ -7,7 +7,7 @@
 namespace OPL
 {
 
-void ClKernelManager::loadKernel( OPL::ClKernel* kernel)
+void ClKernelManager::loadKernel( ClKernel* kernel)
 {
     bool isPossibleToLoad = true;
 
@@ -20,10 +20,10 @@ void ClKernelManager::loadKernel( OPL::ClKernel* kernel)
             loadedKernels.insert(kernel);
             return;
         }
-        catch ( OPL::ClError error ) 
+        catch ( ClError error ) 
         {
             
-            if ( error == OPL::OUT_OF_RESOURCES ) 
+            if ( error == OUT_OF_RESOURCES ) 
             {
                 DEBUG << "load kernel throwed OUT_OF_RESOURCES - try to unload one of kernels";
                 unloadOneKernel(isPossibleToLoad);

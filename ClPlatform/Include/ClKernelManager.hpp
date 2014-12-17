@@ -8,12 +8,12 @@ namespace OPL
 {
 class ClKernel;
 
-typedef std::set<OPL::ClKernel*> KernelPtrSet;
+typedef std::set<ClKernel*> KernelPtrSet;
 
 class ClKernelManager : public IClKernelManager
 {
 public:
-    virtual void loadKernel( OPL::ClKernel* kernel);
+    virtual void loadKernel( ClKernel* kernel);
     ~ClKernelManager();
 private:
      KernelPtrSet loadedKernels;

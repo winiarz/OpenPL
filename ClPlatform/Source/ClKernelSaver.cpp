@@ -5,7 +5,7 @@
 namespace OPL
 {
 
-cl_int ClKernelSaver::getDeviceCount( shared_ptr<OPL::IClSingleImplementationKernel> kernel)
+cl_int ClKernelSaver::getDeviceCount( shared_ptr<IClSingleImplementationKernel> kernel)
 {
     cl_int error;
     cl_uint deviceCount = 0;
@@ -24,7 +24,7 @@ cl_int ClKernelSaver::getDeviceCount( shared_ptr<OPL::IClSingleImplementationKer
     return deviceCount;
 }
 
-void ClKernelSaver::getDevices( cl_device_id devices[], shared_ptr<OPL::IClSingleImplementationKernel> kernel )
+void ClKernelSaver::getDevices( cl_device_id devices[], shared_ptr<IClSingleImplementationKernel> kernel )
 {
     cl_int error;
     error = clGetProgramInfo(kernel->getProgram(),
@@ -39,7 +39,7 @@ void ClKernelSaver::getDevices( cl_device_id devices[], shared_ptr<OPL::IClSingl
     }
 }
 
-void ClKernelSaver::getBinarySizes( size_t binarySizes[], shared_ptr<OPL::IClSingleImplementationKernel> kernel )
+void ClKernelSaver::getBinarySizes( size_t binarySizes[], shared_ptr<IClSingleImplementationKernel> kernel )
 {
     cl_int error;
     size_t sizeOfReturnedParam;
@@ -59,7 +59,7 @@ void ClKernelSaver::getBinarySizes( size_t binarySizes[], shared_ptr<OPL::IClSin
 void ClKernelSaver::getProgramBinaries( size_t deviceCount,
                                         size_t binarySizes[],
                                         unsigned char *programBinaries[],
-                                        shared_ptr<OPL::IClSingleImplementationKernel> kernel)
+                                        shared_ptr<IClSingleImplementationKernel> kernel)
 {
     cl_int error;
     for (size_t i=0; i<deviceCount; i++) 
@@ -91,7 +91,7 @@ void ClKernelSaver::deleteProgramBinaries( size_t deviceCount, unsigned char *pr
 
 size_t ClKernelSaver::getDeviceIdx( size_t deviceCount, cl_device_id devices[] )
 {
-    OPL::ClPlatform& platform = OPL::ClPlatform::getPlatform();
+    ClPlatform& platform = ClPlatform::getPlatform();
 
     for (size_t i=0; i<deviceCount; i++) 
     {
@@ -122,7 +122,7 @@ void ClKernelSaver::saveBinaryToFile( size_t binarySize, unsigned char *programB
     fclose(file);
 }
 
-void ClKernelSaver::saveKernel( shared_ptr<OPL::IClSingleImplementationKernel> kernel, std::string filename )
+void ClKernelSaver::saveKernel( shared_ptr<IClSingleImplementationKernel> kernel, std::string filename )
 {
     DEBUG << "Saving kernel to file " << filename;
 
@@ -144,7 +144,7 @@ FILE* ClKernelSaver::openFile( std::string filename )
     return file;
 }
 
-void ClKernelSaver::saveKernel( shared_ptr<OPL::IClSingleImplementationKernel> kernel, FILE* file )
+void ClKernelSaver::saveKernel( shared_ptr<IClSingleImplementationKernel> kernel, FILE* file )
 {
     cl_uint deviceCount = getDeviceCount(kernel);
     cl_device_id devices[deviceCount];

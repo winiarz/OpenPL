@@ -24,7 +24,7 @@ uint getSizeOfBuffer(uint p_size, ClMemoryCreation creationType)
 }
 
 ClMemory::ClMemory(uint p_size, ClMemoryCreation creationType) :
-	      platform(OPL::ClPlatform::getPlatform()),
+	      platform(ClPlatform::getPlatform()),
 	      size(getSizeOfBuffer(p_size, creationType))
 {
   cl_int error;

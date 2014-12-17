@@ -10,10 +10,10 @@ public:
  ClKernelTestSuite(); 
 protected:
   shared_ptr<ClKernel> sut;
-  OPL::ClPlatform& platform;
+  ClPlatform& platform;
 };
 
-ClKernelTestSuite::ClKernelTestSuite() : platform(OPL::ClPlatform::getPlatform())
+ClKernelTestSuite::ClKernelTestSuite() : platform(ClPlatform::getPlatform())
 {
 }
 

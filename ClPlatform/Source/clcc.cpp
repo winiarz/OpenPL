@@ -11,12 +11,13 @@ using namespace std;
 
 int main(int argc,char* argv[])
 {
+    using namespace OPL;
   if(argc <= 1)
   {
     cout << "no files to compile" << endl;
     exit(0);
   }
-  OPL::ClPlatform& platform = OPL::ClPlatform::getPlatform();
+  ClPlatform& platform = ClPlatform::getPlatform();
   if(!platform.isSetUpSuccessfully())
   {
     cerr << "Error in initialising OpenCL" << endl;

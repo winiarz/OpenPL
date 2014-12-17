@@ -4,7 +4,7 @@
 #include "logs.hpp"
 #include "stl.hpp"
 
-void ClKernelManager::loadKernel( ClKernel* kernel)
+void ClKernelManager::loadKernel( OPL::ClKernel* kernel)
 {
     bool isPossibleToLoad = true;
 

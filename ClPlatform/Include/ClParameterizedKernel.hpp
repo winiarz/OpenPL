@@ -5,8 +5,8 @@
 class ClParameterizedKernel : public IClParameterizedKernel {
 public:
     ClParameterizedKernel(shared_ptr<IClParameter>);
-    virtual optional<shared_ptr<IClSingleImplementationKernel> > getKernel(int);
-    virtual void rejectKernel(shared_ptr<IClSingleImplementationKernel>);
+    virtual optional<shared_ptr<OPL::IClSingleImplementationKernel> > getKernel(int);
+    virtual void rejectKernel(shared_ptr<OPL::IClSingleImplementationKernel>);
     virtual shared_ptr<IClParameter> getParameter();
     virtual shared_ptr<set<int> > getNotRejectedParameters();
 
@@ -15,6 +15,6 @@ public:
 private:
     shared_ptr<IClParameter> parameter;
     set<int> rejectedKernels;
-    map<int,shared_ptr<IClSingleImplementationKernel> > builtKernels;
+    map<int,shared_ptr<OPL::IClSingleImplementationKernel> > builtKernels;
 };
 

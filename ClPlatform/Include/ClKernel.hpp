@@ -7,6 +7,9 @@
 #include "ClKernelCallStats.hpp"
 #include "stl.hpp"
 
+namespace OPL
+{
+
 class ClKernel : public IClSingleImplementationKernel {
 public:
   ClKernel( const char[], const char[]);
@@ -39,4 +42,6 @@ private:
   void checkThreadCount();
   void executeKernel();
 };
+
+}
 

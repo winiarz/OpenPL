@@ -5,6 +5,9 @@
 #include "Clock.hpp"
 #include "logs.hpp"
 
+namespace OPL
+{
+
 ClKernel::ClKernel( const char fileName[], const char p_kernelName[] ) :
     platform(OPL::ClPlatform::getPlatform()),
     kernel(0),
@@ -229,5 +232,7 @@ OPL::IClKernel& ClKernel::operator()(std::vector<shared_ptr<OPL::IClMemory>> arg
 std::string ClKernel::getKernelName()
 {
     return kernelName;
+}
+
 }
 

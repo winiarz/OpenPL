@@ -7,15 +7,15 @@
 #include "clcc.hpp"
 #include "logs.hpp"
 
-boost::optional<shared_ptr<IClSingleImplementationKernel> > ClParameterizedKernel::getKernel(int paramValue)
+boost::optional<shared_ptr<OPL::IClSingleImplementationKernel> > ClParameterizedKernel::getKernel(int paramValue)
 {
     if( !parameter->isCorrect(paramValue) )
         return none;
 
     try
     {
-        shared_ptr<IClSingleImplementationKernel> l_result = builtKernels.at(paramValue);
-        return boost::optional<shared_ptr<IClSingleImplementationKernel> > (l_result);
+        shared_ptr<OPL::IClSingleImplementationKernel> l_result = builtKernels.at(paramValue);
+        return boost::optional<shared_ptr<OPL::IClSingleImplementationKernel> > (l_result);
     }
     catch( out_of_range )
     {
@@ -30,12 +30,12 @@ boost::optional<shared_ptr<IClSingleImplementationKernel> > ClParameterizedKerne
 
         auto program = compiler.compile(kernelSource);
 
-        shared_ptr<IClSingleImplementationKernel> kernel = std::make_shared<ClKernel>(program, this->getKernelName());
+        shared_ptr<OPL::IClSingleImplementationKernel> kernel = std::make_shared<OPL::ClKernel>(program, this->getKernelName());
 
         if( kernel->isSetUpSuccessfully() )
         {
             builtKernels[paramValue] = kernel;
-            return optional<shared_ptr<IClSingleImplementationKernel> >(kernel);
+            return optional<shared_ptr<OPL::IClSingleImplementationKernel> >(kernel);
         }
         else
         {
@@ -44,15 +44,15 @@ boost::optional<shared_ptr<IClSingleImplementationKernel> > ClParameterizedKerne
     }
 }
 
-bool isKernelEqual( const std::pair<int, shared_ptr<IClSingleImplementationKernel> >& kernelWithParameter,
-                    shared_ptr<IClSingleImplementationKernel> kernel)
+bool isKernelEqual( const std::pair<int, shared_ptr<OPL::IClSingleImplementationKernel> >& kernelWithParameter,
+                    shared_ptr<OPL::IClSingleImplementationKernel> kernel)
 {
     return kernelWithParameter.second == kernel;
 }
 
-void ClParameterizedKernel::rejectKernel(shared_ptr<IClSingleImplementationKernel> kernel)
+void ClParameterizedKernel::rejectKernel(shared_ptr<OPL::IClSingleImplementationKernel> kernel)
 {
-   map<int,shared_ptr<IClSingleImplementationKernel> > :: iterator it =
+   map<int,shared_ptr<OPL::IClSingleImplementationKernel> > :: iterator it =
                         std::find_if(builtKernels.begin(),
                                      builtKernels.end(),
                                      boost::bind( isKernelEqual, _1, kernel) );

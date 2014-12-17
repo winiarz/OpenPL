@@ -2,6 +2,9 @@
 #include "stl.hpp"
 #include "ClKernel.hpp"
 
+namespace OPL
+{
+
 class ClKernelTestSuite : public ::testing::Test {
 public:
  ClKernelTestSuite(); 
@@ -44,5 +47,7 @@ TEST_F(ClKernelTestSuite, no_kernel_size_exception)
   ASSERT_TRUE( sut->isSetUpSuccessfully() ); 
 
   ASSERT_THROW( (*sut)(0),ClError ); 
+}
+
 }
 

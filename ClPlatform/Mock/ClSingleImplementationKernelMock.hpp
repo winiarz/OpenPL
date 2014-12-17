@@ -5,6 +5,9 @@
 #include "IClSingleImplementationKernel.hpp"
 #include "IClKernelCallStats.hpp"
 
+namespace OPL
+{
+
 class ClSingleImplementationKernelMock : public IClSingleImplementationKernel {
 public:
   MOCK_METHOD0( isLoaded, bool() );
@@ -41,4 +44,6 @@ public:
   MOCK_METHOD0(getProgram, cl_program());
   MOCK_METHOD0(getStats, OPL::IClKernelCallStats&() );
 };
+
+}
 

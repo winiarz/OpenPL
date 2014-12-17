@@ -1,10 +1,13 @@
 #pragma once
 
+namespace OPL
+{
 class ClKernel;
+}
 
 class IClKernelManager
 {
 public:
-    virtual void loadKernel( ClKernel* kernel) = 0;
+    virtual void loadKernel( OPL::ClKernel* kernel) = 0;
 };
 

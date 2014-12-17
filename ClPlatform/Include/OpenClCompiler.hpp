@@ -1,6 +1,9 @@
 #pragma once
 #include "IOpenClCompiler.hpp"
 
+namespace OPL
+{
+
 class OpenClCompiler : public IOpenClCompiler
 {
 public:
@@ -9,3 +12,6 @@ public:
 private:
     static const unsigned int MAX_BUILD_LOG_SIZE = 16384;
 };
+
+}
+

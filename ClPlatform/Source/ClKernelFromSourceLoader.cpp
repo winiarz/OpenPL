@@ -6,8 +6,8 @@
 #include "stl.hpp"
 
 ClKernelFromSourceLoader::ClKernelFromSourceLoader(std::vector<std::string>& p_includeDirectories) :
-    compilerWithPreprocessor(std::make_shared<OpenClCompiler>(),
-                             std::make_shared<ClIncludePreprocessor>(p_includeDirectories))
+    compilerWithPreprocessor(std::make_shared<OPL::OpenClCompiler>(),
+                             std::make_shared<OPL::ClIncludePreprocessor>(p_includeDirectories))
 {
 }
 

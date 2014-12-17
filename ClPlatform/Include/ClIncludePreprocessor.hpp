@@ -2,6 +2,9 @@
 
 #include "IClIncludePreprocessor.hpp"
 
+namespace OPL
+{
+
 class ClIncludePreprocessor : public IClIncludePreprocessor
 {
 public:
@@ -17,4 +20,6 @@ private:
     shared_ptr<std::string> readFile(std::string& filename);
     std::string getIncludeFilePath(std::string&);
 };
+
+}
 

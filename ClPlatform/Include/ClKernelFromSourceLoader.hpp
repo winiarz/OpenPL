@@ -14,6 +14,6 @@ public:
 private:
     shared_ptr<std::string> readFile(std::string& filename);
 
-    OpenClCompilerWithPreprocessor compilerWithPreprocessor;
+    OPL::OpenClCompilerWithPreprocessor compilerWithPreprocessor;
 };
 

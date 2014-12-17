@@ -2,6 +2,9 @@
 #include "ClError.hpp"
 #include "logs.hpp"
 
+namespace OPL
+{
+
 ClIncludePreprocessor::ClIncludePreprocessor(std::vector<std::string>& p_includeDirs) :
     includeDirs(p_includeDirs)
 {
@@ -95,5 +98,7 @@ shared_ptr<std::string> ClIncludePreprocessor::readFile(std::string& filename)
                   std::istreambuf_iterator<char>() );
 
     return text;
+}
+
 }
 

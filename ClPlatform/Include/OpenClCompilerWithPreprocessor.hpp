@@ -2,6 +2,9 @@
 #include "IOpenClCompiler.hpp"
 #include "IClIncludePreprocessor.hpp"
 
+namespace OPL
+{
+
 class OpenClCompilerWithPreprocessor : public IOpenClCompiler
 {
 public:
@@ -13,4 +16,6 @@ private:
     std::shared_ptr<IOpenClCompiler> baseCompiler;
     std::shared_ptr<IClIncludePreprocessor> includePreprocessor;
 };
+
+}
 

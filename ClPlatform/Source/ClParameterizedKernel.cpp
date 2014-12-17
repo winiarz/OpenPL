@@ -25,8 +25,8 @@ boost::optional<shared_ptr<IClSingleImplementationKernel> > ClParameterizedKerne
         string kernelSource = this->getSource(paramValue);
 
         vector<string> includeDirs = {"."};
-        OpenClCompilerWithPreprocessor compiler(std::make_shared<OpenClCompiler>(),
-                                                std::make_shared<ClIncludePreprocessor>(includeDirs));
+        OPL::OpenClCompilerWithPreprocessor compiler(std::make_shared<OPL::OpenClCompiler>(),
+                                                     std::make_shared<OPL::ClIncludePreprocessor>(includeDirs));
 
         auto program = compiler.compile(kernelSource);
 

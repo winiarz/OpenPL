@@ -2,6 +2,9 @@
 #include "ClPlatform.hpp"
 #include "logs.hpp"
 
+namespace OPL
+{
+
 OpenClCompiler::OpenClCompiler()
 {
 }
@@ -45,3 +48,6 @@ cl_program OpenClCompiler::compile(std::string& sourceCode) const
 
     return program;
 }
+
+}
+

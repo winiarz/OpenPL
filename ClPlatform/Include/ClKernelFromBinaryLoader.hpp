@@ -2,6 +2,9 @@
 
 #include "IClKernelFromFileLoader.hpp"
 
+namespace OPL
+{
+
 class ClKernelFromBinaryLoader : public IClKernelFromFileLoader
 {
 public:
@@ -12,4 +15,6 @@ private:
     size_t readBinarySize( FILE* );
     unsigned char* readBinary( FILE*, size_t binarySize );
 };
+
+}
 

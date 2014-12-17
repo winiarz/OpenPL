@@ -6,6 +6,9 @@
 #include "OpenClCompiler.hpp"
 #include "OpenClCompilerWithPreprocessor.hpp"
 
+namespace OPL
+{
+
 class ClKernelFromSourceLoader : public IClKernelFromFileLoader
 {
 public:
@@ -16,4 +19,6 @@ private:
 
     OPL::OpenClCompilerWithPreprocessor compilerWithPreprocessor;
 };
+
+}
 

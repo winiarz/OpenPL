@@ -8,7 +8,7 @@
 int compile(const char input_file[],vector<string>  includeDirectories,const char output_file[])
 {
     DEBUG << "compiling file: " << input_file;
-    ClKernelFromSourceLoader kernelLoader(includeDirectories);
+    OPL::ClKernelFromSourceLoader kernelLoader(includeDirectories);
   
     try
     {

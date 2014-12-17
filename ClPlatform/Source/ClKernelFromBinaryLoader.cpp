@@ -5,6 +5,9 @@
 #include "logs.hpp"
 #include "ClKernel.hpp"
 
+namespace OPL
+{
+
 const int MAX_BUILD_LOG_SIZE = 16384;
 
 FILE* ClKernelFromBinaryLoader::openFile(std::string& filename)
@@ -99,5 +102,7 @@ shared_ptr<OPL::ClKernel> ClKernelFromBinaryLoader::loadKernel( FILE* file )
     }
 
     return make_shared<OPL::ClKernel>(program);
+}
+
 }
 

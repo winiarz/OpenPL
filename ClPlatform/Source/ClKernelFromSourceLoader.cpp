@@ -5,6 +5,9 @@
 #include "logs.hpp"
 #include "stl.hpp"
 
+namespace OPL
+{
+
 ClKernelFromSourceLoader::ClKernelFromSourceLoader(std::vector<std::string>& p_includeDirectories) :
     compilerWithPreprocessor(std::make_shared<OPL::OpenClCompiler>(),
                              std::make_shared<OPL::ClIncludePreprocessor>(p_includeDirectories))
@@ -39,3 +42,6 @@ shared_ptr<std::string> ClKernelFromSourceLoader::readFile(std::string& filename
 
     return text;
 }
+
+}
+

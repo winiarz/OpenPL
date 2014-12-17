@@ -6,7 +6,7 @@
 #include <cstdio>
 
 ClSelfCalibratingKernelFromFileReader::ClSelfCalibratingKernelFromFileReader( shared_ptr<OPL::IClDataGeneratorFromFileReader> p_dataGeneratorReader,
-                                                                              shared_ptr<ClKernelFromBinaryLoader> p_kernelLoader,
+                                                                              shared_ptr<OPL::ClKernelFromBinaryLoader> p_kernelLoader,
 																			  IClock& p_clock ) :
     dataGeneratorReader( p_dataGeneratorReader ),
     kernelLoader( p_kernelLoader ),

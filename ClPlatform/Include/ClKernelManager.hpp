@@ -7,7 +7,6 @@
 namespace OPL
 {
 class ClKernel;
-}
 
 typedef std::set<OPL::ClKernel*> KernelPtrSet;
 
@@ -21,4 +20,6 @@ private:
 
      void unloadOneKernel(bool& isPossibleToLoad);
 };
+
+}
 

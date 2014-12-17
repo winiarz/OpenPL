@@ -4,6 +4,9 @@
 #include "logs.hpp"
 #include "stl.hpp"
 
+namespace OPL
+{
+
 void ClKernelManager::loadKernel( OPL::ClKernel* kernel)
 {
     bool isPossibleToLoad = true;
@@ -59,5 +62,7 @@ void ClKernelManager::unloadOneKernel(bool& isPossibleToLoad)
 
 ClKernelManager::~ClKernelManager()
 {
+}
+
 }
 

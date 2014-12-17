@@ -1,5 +1,8 @@
 #include "ClParameterizedKernelFromSource.hpp"
 
+namespace OPL
+{
+
 ClParameterizedKernelFromSource::ClParameterizedKernelFromSource(shared_ptr<IClParameter> p_parameter,
                                                                  string p_fileName,
                                                                  string p_kernelName,
@@ -57,3 +60,6 @@ string ClParameterizedKernelFromSource::getKernelName()
 {
     return kernelName;
 }
+
+}
+

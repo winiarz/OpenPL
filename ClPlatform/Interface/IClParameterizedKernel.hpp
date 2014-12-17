@@ -4,6 +4,9 @@
 #include "boost.hpp"
 #include "IClSingleImplementationKernel.hpp"
 
+namespace OPL
+{
+
 class IClParameter;
 
 class IClParameterizedKernel {
@@ -13,4 +16,6 @@ public:
     virtual shared_ptr<IClParameter> getParameter() = 0;
     virtual shared_ptr<set<int> > getNotRejectedParameters() = 0;
 };
+
+}
 

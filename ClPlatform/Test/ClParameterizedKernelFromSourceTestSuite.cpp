@@ -2,6 +2,9 @@
 #include <ClParameterizedKernelFromSource.hpp>
 #include <ClParameterMock.hpp>
 
+namespace OPL
+{
+
 using ::testing::StrictMock;
 using ::testing::Return;
 
@@ -70,4 +73,6 @@ TEST_F(ClParameterizedKernelFromSourceTestSuite, returnsNoneWhenKernelIsRejected
     optional<shared_ptr<OPL::IClSingleImplementationKernel> > kernel2 = m_sut->getKernel(validParameter);
 
     ASSERT_EQ( none, kernel2 );
+}
+
 }

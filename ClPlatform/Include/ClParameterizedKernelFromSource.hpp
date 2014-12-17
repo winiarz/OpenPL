@@ -1,7 +1,9 @@
-#ifndef CLPARAMETERIZEDKERNELFROMSOURCE_HPP
-#define CLPARAMETERIZEDKERNELFROMSOURCE_HPP
+#pragma once
 
 #include "ClParameterizedKernel.hpp"
+
+namespace OPL
+{
 
 class ClParameterizedKernelFromSource : public ClParameterizedKernel {
 public:
@@ -16,4 +18,5 @@ private:
     string paramName;
 };
 
-#endif // CLPARAMETERIZEDKERNELFROMSOURCE_HPP
+}
+

@@ -7,6 +7,9 @@
 #include "clcc.hpp"
 #include "logs.hpp"
 
+namespace OPL
+{
+
 boost::optional<shared_ptr<OPL::IClSingleImplementationKernel> > ClParameterizedKernel::getKernel(int paramValue)
 {
     if( !parameter->isCorrect(paramValue) )
@@ -83,3 +86,6 @@ ClParameterizedKernel::ClParameterizedKernel(shared_ptr<IClParameter> p_paramete
     parameter(p_parameter)
 {
 }
+
+}
+

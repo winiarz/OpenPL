@@ -2,6 +2,9 @@
 
 #include "IClParameterizedKernel.hpp"
 
+namespace OPL
+{
+
 class ClParameterizedKernel : public IClParameterizedKernel {
 public:
     ClParameterizedKernel(shared_ptr<IClParameter>);
@@ -17,4 +20,6 @@ private:
     set<int> rejectedKernels;
     map<int,shared_ptr<OPL::IClSingleImplementationKernel> > builtKernels;
 };
+
+}
 

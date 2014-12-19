@@ -2,7 +2,7 @@
 #include "Simulation.hpp"
 using namespace InsPr;
 
-class MySim : public Simulation {
+class SimpleAritmeticsSim : public Simulation {
 public:
   SIMSTEP_DEF1( add, IntArray );
   SIMSTEP_DEF1( sub, IntArray );

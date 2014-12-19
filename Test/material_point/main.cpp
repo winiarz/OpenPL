@@ -5,7 +5,7 @@ using namespace std;
 
 class MaterialPointTS : public ::testing::Test {
 protected:
-  MySim sim;
+  MaterialPointSim sim;
 };
 
 TEST_F(MaterialPointTS, size_of_material_point)
@@ -67,7 +67,7 @@ TEST_F(MaterialPointTS, escaping_point )
 TEST_F(MaterialPointTS, apply_froces )
 {
   LocalMaterialPoint loc_point;
-  LocalFloat3 forces[2];
+  LocalFloat4 forces[2];
   for(int i=0;i<3;i++)
   {
     loc_point.position[i] = 0;
@@ -77,6 +77,7 @@ TEST_F(MaterialPointTS, apply_froces )
     forces[1][i] = 0;
   }
   forces[0][0] = 1;
+  loc_point.mass = 1;
   sim.points.copyIn(&loc_point,0,1);
   sim.forces.copyIn(forces,0,2);
   sim.apply_force(sim.points, sim.forces );

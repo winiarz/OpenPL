@@ -1,7 +1,7 @@
 
 TestBinaries+=  Bin/Test/MaterialPoint
 
-MaterialPoint_Dir=Test/for_loop
+MaterialPoint_Dir=Test/material_point
 MaterialPoint_ObjDir=Obj/$(MaterialPoint_Dir)
 
 MaterialPoint_Obj+=$(MaterialPoint_ObjDir)/mysim.o

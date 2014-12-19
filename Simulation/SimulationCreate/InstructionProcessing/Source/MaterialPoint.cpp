@@ -56,7 +56,7 @@ void MaterialPoint::setForce(Float4 force)
 {
     IVariable::recorder->addInclude("material_point_move.cl");
     std::ostringstream sstream;
-    sstream << "material_point_apply_force ( " << getName() << ", " << 1 << ", " << force.getName() << ");\n";
+    sstream << "material_point_apply_force ( &" << getName() << ", " << 1 << ", " << force.getName() << ");\n";
     (*IVariable::recorder) << make_shared<SingleInstruction>(sstream.str());
 }
 

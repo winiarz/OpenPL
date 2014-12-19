@@ -6,7 +6,7 @@ using namespace std;
 
 class ForLoopTS : public ::testing::Test {
 public:
-  MySim sim;
+  WhileLoopSim sim;
 };
 
 TEST_F( ForLoopTS, if_test )

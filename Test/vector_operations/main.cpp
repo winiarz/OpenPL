@@ -5,7 +5,7 @@ using namespace std;
 
 class VectorOperationsTS : public ::testing::Test {
 protected:
-  MySim sim;
+  VectorOperationsSim sim;
 };
 
 TEST_F( VectorOperationsTS, vector_add )

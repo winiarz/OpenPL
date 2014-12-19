@@ -1,7 +1,7 @@
 #include "Simulation.hpp"
 using namespace OPL;
 
-class MySim : public Simulation {
+class VectorOperationsSim : public Simulation {
 public:
   SIMSTEP_DEF1( vec_add, Int3Array );
   SIMSTEP_DEF1( vec_sub, Int3Array );

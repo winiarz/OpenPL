@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-  MySim sim;
+  DeclareMemorySim sim;
   sim.empty();
   exit(0);
 }

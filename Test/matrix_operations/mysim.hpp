@@ -4,7 +4,7 @@ using namespace OPL;
 
 const float scalar = 0.5;
 
-class MySim : public Simulation {
+class MatrixOperationSim : public Simulation {
 public:
   MEMORY( MatrixFloat4x4Array, matrices, 3 );
   MEMORY( MatrixFloat3x3Array, matrices2, 3 );

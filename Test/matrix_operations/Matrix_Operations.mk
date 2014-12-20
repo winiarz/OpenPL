@@ -1,7 +1,7 @@
 
 TestBinaries+=  Bin/Test/MatrixOperations
 
-MatrixOperations_Dir=Test/for_loop
+MatrixOperations_Dir=Test/matrix_operations
 MatrixOperations_ObjDir=Obj/$(MatrixOperations_Dir)
 
 MatrixOperations_Obj+=$(MatrixOperations_ObjDir)/mysim.o

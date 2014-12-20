@@ -5,7 +5,7 @@ using namespace std;
 #include <math.h>
 class Matrix4x4TS : public ::testing::Test {
 public:
-  MySim sim;
+  MatrixOperationSim sim;
 };
 
 TEST_F(Matrix4x4TS, add_matrices)
@@ -76,7 +76,7 @@ TEST_F(Matrix4x4TS, determinant )
 
 class Matrix3x3TS : public ::testing::Test {
 public:
-  MySim sim;
+  MatrixOperationSim sim;
 };
 
 TEST_F(Matrix3x3TS, add_matrices)

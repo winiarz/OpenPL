@@ -1,7 +1,7 @@
 
 #include "mysim.hpp"
 
-SIMSTEP_IMP0( MySim, empty)
+SIMSTEP_IMP0( LocalVariablesSim, empty)
 {
   InsPr::Int local_variable1;
   InsPr::Int local_variable2;

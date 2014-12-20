@@ -1,7 +1,7 @@
 
 #include "mysim.hpp"
 
-SIMSTEP_IMP1( MySim, power, IntArray, numbers)
+SIMSTEP_IMP1( ForLoopSim, power, IntArray, numbers)
 {
   InsPr::Int a = numbers[1];
   InsPr::Int n = numbers[2];

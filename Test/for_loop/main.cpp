@@ -6,7 +6,7 @@ using namespace std;
 
 class ForLoopTS : public ::testing::Test {
 public:
-  MySim sim;
+  ForLoopSim sim;
 };
 
 TEST_F( ForLoopTS, calculate_power )

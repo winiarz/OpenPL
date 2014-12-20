@@ -5,7 +5,7 @@ using namespace std;
 
 class ConstantsTS : public ::testing::Test {
 protected:
-  MySim sim;
+  ConstantsSim sim;
 };
 
 TEST_F( ConstantsTS, integer_constant )

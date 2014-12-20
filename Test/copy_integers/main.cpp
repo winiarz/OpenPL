@@ -5,7 +5,7 @@ using namespace std;
 
 class CopyIntegersTS : public ::testing::Test {
 protected:
-  MySim sim;
+  CopyIntegersSim sim;
 };
 
 TEST_F(CopyIntegersTS, copy_integer)

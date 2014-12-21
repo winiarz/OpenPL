@@ -1,7 +1,10 @@
 #include "WhileLoop.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
+
 WhileLoop::WhileLoop(shared_ptr<SingleInstruction> p_condition) :
     condition(p_condition),
     instructions(make_shared<InstructionBlock>())
@@ -28,5 +31,6 @@ void WhileLoop::addInstruction(shared_ptr<IInstruction> instruction)
     instructions->addInstruction(instruction);
 }
 
+}
 }
 

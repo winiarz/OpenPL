@@ -3,6 +3,8 @@
 #include "NumericVariable.hpp"
 #include "scNameGenerator.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -55,3 +57,5 @@ Int operator>( TypedNumericVariable<type> left, TypedNumericVariable<type> right
 
 
 }
+}
+

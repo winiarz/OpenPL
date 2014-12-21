@@ -3,6 +3,8 @@
 #include "boost.hpp"
 #include "stl.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     class IKernel
@@ -11,5 +13,6 @@ namespace InsPr
         virtual uint getAlternativesCount() = 0;
         virtual std::string getAlternative(uint) = 0;
     };
+}
 }
 

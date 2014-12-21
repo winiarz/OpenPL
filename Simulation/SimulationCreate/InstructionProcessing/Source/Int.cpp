@@ -1,5 +1,7 @@
 #include "Int.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -24,5 +26,6 @@ Int operator/( Int left, Int right )
     return Int( sstream.str());
 }
 
+}
 }
 

@@ -1,5 +1,7 @@
 #include "MatrixVariable.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -15,5 +17,6 @@ uint getMatrixVariableSize(MatrixVariableSize size)
     return 0u;
 }
 
+}
 }
 

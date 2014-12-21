@@ -1,5 +1,7 @@
 #include "Function.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -36,5 +38,6 @@ std::string Function::getAlternative(uint alternativeNb)
     return sstream.str();
 }
 
+}
 }
 

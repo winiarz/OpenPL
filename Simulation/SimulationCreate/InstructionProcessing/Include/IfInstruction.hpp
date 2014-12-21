@@ -3,6 +3,8 @@
 #include "InstructionBlock.hpp"
 #include "SingleInstruction.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     class IfInstruction : public IInstructionBlock
@@ -20,5 +22,6 @@ namespace InsPr
         shared_ptr<InstructionBlock> instructionsForTrue;
         shared_ptr<InstructionBlock> instructionsForFalse;
     };
+}
 }
 

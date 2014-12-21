@@ -4,6 +4,8 @@
 #include "VectorVariable.hpp"
 #include "Float.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -25,5 +27,6 @@ protected:
         std::string name;
 };
 
+}
 }
 

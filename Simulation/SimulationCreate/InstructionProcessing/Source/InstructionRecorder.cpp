@@ -3,8 +3,11 @@
 #include "WhileLoop.hpp"
 #include "IfInstruction.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
+
 InstructionRecorder::InstructionRecorder() :
     instructionBlocks(),
     includes()
@@ -93,5 +96,6 @@ std::vector<std::string> InstructionRecorder::getIncludes()
     return result;
 }
 
+}
 }
 

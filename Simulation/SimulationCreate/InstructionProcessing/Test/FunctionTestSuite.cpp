@@ -6,8 +6,12 @@
 #include "SingleInstruction.hpp"
 #include "InstructionRecorderMock.hpp"
 
+namespace OPL
+{
+namespace InsPr
+{
+
 using namespace ::testing;
-using namespace InsPr;
 
 class FunctionTestSuite : public Test
 {
@@ -35,5 +39,8 @@ TEST_F(FunctionTestSuite, no_test)
 
     std::string expectedCode("void exampleFunction(int number, int number)\n{\na = b + c;\nb = a + c;\n}\n");
     ASSERT_TRUE( sut.getAlternative(0).compare(expectedCode) == 0);
+}
+
+}
 }
 

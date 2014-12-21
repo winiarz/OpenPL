@@ -2,6 +2,8 @@
 
 #include "NumericVariable.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -129,5 +131,6 @@ VectorVariable<VARIABLE_TYPE_FLOAT,VECTOR_VARIABLE_SIZE_3> // TODO: make it a te
     operator^ (VectorVariable<VARIABLE_TYPE_FLOAT,VECTOR_VARIABLE_SIZE_3> first,
                VectorVariable<VARIABLE_TYPE_FLOAT,VECTOR_VARIABLE_SIZE_3> second);
 
+}
 }
 

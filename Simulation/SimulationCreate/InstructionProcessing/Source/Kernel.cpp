@@ -1,5 +1,7 @@
 #include "Kernel.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -45,5 +47,6 @@ std::string Kernel::getAlternative(uint alternativeNb)
     return sstream.str();
 }
 
+}
 }
 

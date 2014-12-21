@@ -1,6 +1,8 @@
 #include "NumericVariable.hpp"
 #include "logs.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -19,5 +21,6 @@ std::string getNumericTypeName(NumericVariableTypes type)
     return "ERROR - type unknown!";
 }
 
+}
 }
 

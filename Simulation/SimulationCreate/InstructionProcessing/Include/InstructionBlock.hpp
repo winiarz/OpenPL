@@ -3,6 +3,8 @@
 #include "boost.hpp"
 #include "IInstructionBlock.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     class InstructionBlock : public IInstructionBlock
@@ -14,5 +16,6 @@ namespace InsPr
     private:
         std::vector<shared_ptr<IInstruction> > instructions;
     };
+}
 }
 

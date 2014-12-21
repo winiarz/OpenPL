@@ -3,6 +3,8 @@
 #include "InstructionBlock.hpp"
 #include "SingleInstruction.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     class WhileLoop : public IInstructionBlock
@@ -17,5 +19,6 @@ namespace InsPr
         shared_ptr<SingleInstruction> condition;
         shared_ptr<InstructionBlock> instructions;
     };
+}
 }
 

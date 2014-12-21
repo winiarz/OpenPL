@@ -2,6 +2,8 @@
 
 #include "IInstructionRecorder.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     class InstructionRecorder : public IInstructionRecorder
@@ -29,5 +31,6 @@ namespace InsPr
         std::vector<std::string> includes;
         bool shouldCloseBlock = false;
     };
+}
 }
 

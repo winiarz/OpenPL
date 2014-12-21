@@ -1,7 +1,10 @@
 #include "IfInstruction.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
+
 IfInstruction::IfInstruction(shared_ptr<SingleInstruction> p_condition) :
     condition(p_condition),
     instructionsForTrue(make_shared<InstructionBlock>()),
@@ -48,5 +51,6 @@ void IfInstruction::startElse()
     instructionsForFalse = make_shared<InstructionBlock>();
 }
 
+}
 }
 

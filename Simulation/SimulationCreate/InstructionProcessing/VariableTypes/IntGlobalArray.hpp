@@ -8,6 +8,8 @@
 #include "MaterialPoint.hpp"
 #include "GlobalArrayVariableWithSize.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     typedef GlobalArrayVariable<Int>  IntArrayGlobal;
@@ -22,5 +24,6 @@ namespace InsPr
 
     typedef GlobalArrayVariable<MatrixFloat3x3> MatrixFloat3x3ArrayGlobal;
     typedef GlobalArrayVariable<MatrixFloat4x4> MatrixFloat4x4ArrayGlobal;
+}
 }
 

@@ -3,6 +3,8 @@
 #include "IVariable.hpp"
 #include "scNameGenerator.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     class NumericVariable : public IVariable
@@ -85,5 +87,6 @@ namespace InsPr
         sstream << first.getName() << " - " << second.getName();
         return T( sstream.str());
     }
+}
 }
 

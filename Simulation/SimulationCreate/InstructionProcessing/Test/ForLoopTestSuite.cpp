@@ -2,12 +2,15 @@
 #include "ForLoop.hpp"
 #include "SingleInstruction.hpp"
 
+namespace OPL
+{
+namespace InsPr
+{
+
 using namespace ::testing;
-using namespace InsPr;
 
 class ForLoopTestSuite : public Test
 {
-
 };
 
 TEST_F( ForLoopTestSuite, creteFolLoop)
@@ -20,5 +23,8 @@ TEST_F( ForLoopTestSuite, creteFolLoop)
 
     std::string expectedCode("for(int i=0; i < 10; i++)\n{\ncout << i << ' ';\n}\n");
     ASSERT_TRUE(sut.getAlternative(0).compare(expectedCode) == 0 );
+}
+
+}
 }
 

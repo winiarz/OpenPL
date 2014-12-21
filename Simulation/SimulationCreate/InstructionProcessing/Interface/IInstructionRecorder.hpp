@@ -5,6 +5,8 @@
 #include "InstructionBlock.hpp"
 #include "SingleInstruction.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     class IInstructionRecorder
@@ -23,5 +25,6 @@ namespace InsPr
         virtual void addInclude(std::string) = 0;
         virtual std::vector<std::string> getIncludes() = 0;
     };
+}
 }
 

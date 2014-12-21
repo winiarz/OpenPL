@@ -1,5 +1,7 @@
 #include "IVariable.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -27,5 +29,6 @@ void IVariable::recordDeclaration()
     (*recorder) << make_shared<SingleInstruction>(getDeclaration());
 }
 
+}
 }
 

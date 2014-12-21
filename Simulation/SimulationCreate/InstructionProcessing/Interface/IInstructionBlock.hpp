@@ -4,6 +4,8 @@
 #include "boost.hpp"
 #include "IInstruction.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     class IInstructionBlock : public IInstruction
@@ -13,5 +15,6 @@ namespace InsPr
         {}
         virtual void addInstruction(shared_ptr<IInstruction>) = 0;
     };
+}
 }
 

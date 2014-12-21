@@ -1,7 +1,10 @@
 #include "ForLoop.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
+
 ForLoop::ForLoop(shared_ptr<SingleInstruction> p_startInstruction,
                  shared_ptr<SingleInstruction> p_continueCondition,
                  shared_ptr<SingleInstruction> p_afterCircuitInstruction) :
@@ -48,5 +51,6 @@ std::string ForLoop::getAlternative(uint alternativeNb)
     return sstream.str();
 }
 
+}
 }
 

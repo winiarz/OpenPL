@@ -5,6 +5,8 @@
 #include "SingleInstruction.hpp"
 #include "IVariable.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     enum VariableCreateType
@@ -37,5 +39,6 @@ namespace InsPr
             IVariable()
         {}
     };
+}
 }
 

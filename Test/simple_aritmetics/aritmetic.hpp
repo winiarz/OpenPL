@@ -1,6 +1,5 @@
 
 #include "Simulation.hpp"
-using namespace InsPr;
 
 class SimpleAritmeticsSim : public Simulation {
 public:

@@ -2,6 +2,8 @@
 
 #include "IInstruction.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     class SingleInstruction : public IInstruction
@@ -13,5 +15,6 @@ namespace InsPr
     private:
         std::string instruction;
     };
+}
 }
 

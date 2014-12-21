@@ -1,8 +1,12 @@
 #include <gtest/gtest.h>
 #include "IfInstruction.hpp"
 
+namespace OPL
+{
+namespace InsPr
+{
+
 using namespace ::testing;
-using namespace InsPr;
 
 class IfInstructionTestSuite : public Test
 {
@@ -27,5 +31,8 @@ TEST_F(IfInstructionTestSuite, createIfWithElse)
     sut.addInstruction(make_shared<SingleInstruction>(std::string("cout << a << '>' << b")));
     std::string expectedCode("if( a < b )\n{\ncout << a << '<' << b;\n}\nelse\n{\ncout << a << '>' << b;\n}\n");
     ASSERT_TRUE(sut.getAlternative(0).compare(expectedCode) == 0 );
+}
+
+}
 }
 

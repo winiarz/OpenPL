@@ -3,8 +3,12 @@
 #include "IntGlobalArray.hpp"
 #include "InstructionRecorder.hpp"
 
+namespace OPL
+{
+namespace InsPr
+{
+
 using namespace ::testing;
-using namespace InsPr;
 
 class GlobalArrayTestSuite : public Test
 {
@@ -69,5 +73,8 @@ TEST_F( GlobalArrayTestSuite, arrayAsIndexOfArray )
 
     std::string expectedInstruction("{\nnumber = intArray[intArray[0]];\n}\n");
     ASSERT_TRUE(recorder->getBlock()->getAlternative(0).compare(expectedInstruction) == 0 );
+}
+
+}
 }
 

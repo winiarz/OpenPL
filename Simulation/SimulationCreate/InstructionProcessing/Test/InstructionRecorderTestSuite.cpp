@@ -5,8 +5,12 @@
 #include "Int.hpp"
 #include "VectorVariable.hpp"
 
+namespace OPL
+{
+namespace InsPr
+{
+
 using namespace ::testing;
-using namespace InsPr;
 
 class InstructionRecorderTestSuite : public Test
 {
@@ -205,3 +209,7 @@ TEST_F( InstructionRecorderTestSuite, recordStoreInArray)
     std::string expectedBlock("{\narray[index] = number;\n}\n");
     ASSERT_TRUE(sut->getBlock()->getAlternative(0).compare(expectedBlock) == 0 );
 }
+
+}
+}
+

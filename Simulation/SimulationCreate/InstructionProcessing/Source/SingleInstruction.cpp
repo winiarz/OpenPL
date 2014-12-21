@@ -1,5 +1,7 @@
 #include "SingleInstruction.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -21,5 +23,6 @@ std::string SingleInstruction::getAlternative(uint alternativeNb)
     return instruction;
 }
 
+}
 }
 

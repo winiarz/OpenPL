@@ -3,6 +3,8 @@
 #include "InstructionBlock.hpp"
 #include "SingleInstruction.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     class ForLoop : public IInstructionBlock
@@ -25,5 +27,6 @@ namespace InsPr
 
         shared_ptr<InstructionBlock> instructions;
     };
+}
 }
 

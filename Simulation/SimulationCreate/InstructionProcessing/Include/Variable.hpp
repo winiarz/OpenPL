@@ -6,6 +6,8 @@
 #include "Int.hpp"
 #include "scNameGenerator.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     template<class T>
@@ -51,5 +53,6 @@ namespace InsPr
     private:
         std::string name;
     };
-}
 
+}
+}

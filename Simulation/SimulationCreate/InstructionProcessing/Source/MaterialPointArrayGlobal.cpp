@@ -1,5 +1,7 @@
 #include "MaterialPointArrayGlobal.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -34,5 +36,6 @@ void MaterialPointArrayGlobal::applyForcesOfGravity(Float gravityConstant)
     (*IVariable::recorder) << make_shared<SingleInstruction>(sstream.str());
 }
 
+}
 }
 

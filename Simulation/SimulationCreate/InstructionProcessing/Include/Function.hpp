@@ -5,6 +5,8 @@
 #include "IVariable.hpp"
 #include "InstructionBlock.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     class Function : public IFunction
@@ -20,5 +22,6 @@ namespace InsPr
         std::vector<shared_ptr<IVariable>> arguments;
         shared_ptr<InstructionBlock> instructions;
     };
+}
 }
 

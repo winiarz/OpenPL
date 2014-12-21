@@ -4,6 +4,8 @@
 #include "Variable.hpp"
 #include "InstructionBlock.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     class Kernel : public IKernel
@@ -21,5 +23,6 @@ namespace InsPr
         shared_ptr<IInstructionBlock> instructions;
         std::vector<std::string> includes;
     };
+}
 }
 

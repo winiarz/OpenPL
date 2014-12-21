@@ -9,5 +9,5 @@
     shared_ptr<ISimStepCreator> className :: SIMSTEP_CREATOR_NAME(simstepName) = \
     make_shared<SimStepCreator>( \
        &className :: RECORD_SIMSTEP_NOARG_NAME(simstepName), \
-       std::vector<shared_ptr<InsPr::IGlobalArrayVariable>>() ) ;
+       std::vector<shared_ptr<OPL::InsPr::IGlobalArrayVariable>>() ) ;
 

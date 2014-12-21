@@ -1,5 +1,7 @@
 #include "Uint.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -24,5 +26,6 @@ Uint operator/( Uint left, Uint right )
     return Uint( sstream.str());
 }
 
+}
 }
 

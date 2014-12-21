@@ -3,6 +3,8 @@
 #include <gmock/gmock.h>
 #include "IInstructionRecorder.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     class InstructionRecorderMock : public IInstructionRecorder
@@ -28,4 +30,4 @@ namespace InsPr
     };
 
 }
-
+}

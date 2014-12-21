@@ -3,6 +3,8 @@
 #include "Variable.hpp"
 #include "Uint.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
     template<typename T>
@@ -53,5 +55,6 @@ namespace InsPr
         GlobalArrayVariable<T> array;
         GlobalArrayVariable<Uint> size;
     };
+}
 }
 

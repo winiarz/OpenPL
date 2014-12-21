@@ -1,5 +1,7 @@
 #include "MaterialPoint.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -68,3 +70,5 @@ Float MaterialPoint::dist_sq(MaterialPoint secondPoint)
 }
 
 }
+}
+

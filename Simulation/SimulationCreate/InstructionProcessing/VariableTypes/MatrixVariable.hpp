@@ -3,6 +3,8 @@
 #include "NumericVariable.hpp"
 #include "Float.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -133,5 +135,6 @@ MatrixVariable<VARIABLE_TYPE_FLOAT,size> operator*( Float first, MatrixVariable<
 typedef MatrixVariable<VARIABLE_TYPE_FLOAT, MATRIX_VARIABLE_SIZE_3> MatrixFloat3x3;
 typedef MatrixVariable<VARIABLE_TYPE_FLOAT, MATRIX_VARIABLE_SIZE_4> MatrixFloat4x4;
 
+}
 }
 

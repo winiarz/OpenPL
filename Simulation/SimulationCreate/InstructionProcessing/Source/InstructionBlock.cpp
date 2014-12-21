@@ -1,5 +1,7 @@
 #include "InstructionBlock.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -37,5 +39,6 @@ std::string InstructionBlock::getAlternative(uint alternativeNb)
     return sstream.str();
 }
 
+}
 }
 

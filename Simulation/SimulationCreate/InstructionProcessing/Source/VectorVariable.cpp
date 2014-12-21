@@ -1,5 +1,7 @@
 #include "VectorVariable.hpp"
 
+namespace OPL
+{
 namespace InsPr
 {
 
@@ -27,5 +29,6 @@ VectorVariable<VARIABLE_TYPE_FLOAT,VECTOR_VARIABLE_SIZE_3> // TODO: make it a te
     return VectorVariable<VARIABLE_TYPE_FLOAT,VECTOR_VARIABLE_SIZE_3>( sstream.str());
 }
 
+}
 }
 

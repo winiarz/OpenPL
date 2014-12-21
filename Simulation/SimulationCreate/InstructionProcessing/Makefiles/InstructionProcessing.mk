@@ -22,6 +22,7 @@ InstructionProcessingObjs+=     $(InstructionProcessingObj)/MaterialPointArrayGl
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/NumericVariable.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/VectorVariable.o
 InstructionProcessingObjs+=     $(InstructionProcessingObj)/MatrixVariable.o
+InstructionProcessingObjs+=     $(InstructionProcessingObj)/AlternativeInstruction.o
 
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/FunctionTestSuite.o
 InstructionProcessingTestObjs+= $(InstructionProcessingObj)/KernelTestSuite.o

@@ -4,10 +4,10 @@ TestBinaries+=  Bin/Test/Empty_Simulation
 EmptySim_Dir=Test/empty_sim
 EmptySim_ObjDir=Obj/$(EmptySim_Dir)
 
-EmptySim_Obj+=$(EmptySim_ObjDir)/empty_sim.o
-EmptySim_Obj+=$(EmptySim_ObjDir)/main.o
+EmptySim_Obj+=$(EmptySim_ObjDir)/TestEmptySimSim.o
+EmptySim_Obj+=$(EmptySim_ObjDir)/TestEmptySimMain.o
 
-EmptySim_Includes+=$(EmptySim_Dir)/empty_sim.hpp
+EmptySim_Includes+=$(EmptySim_Dir)/TestEmptySimSim.hpp
 
 EmptySimulationTest: Bin/Test/Empty_Simulation
 	@echo "\tEXEC\tEmptySimulationTest"

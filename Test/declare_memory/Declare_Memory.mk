@@ -4,10 +4,10 @@ TestBinaries+=  Bin/Test/Declare_Memory
 DeclareMemory_Dir=Test/declare_memory
 DeclareMemory_ObjDir=Obj/$(DeclareMemory_Dir)
 
-DeclareMemory_Obj+=$(DeclareMemory_ObjDir)/declare_memory.o
-DeclareMemory_Obj+=$(DeclareMemory_ObjDir)/main.o
+DeclareMemory_Obj+=$(DeclareMemory_ObjDir)/TestDeclareMemorySim.o
+DeclareMemory_Obj+=$(DeclareMemory_ObjDir)/TestDeclareMemoryMain.o
 
-DeclareMemory_Includes+=$(DeclareMemory_Dir)/declare_memory.hpp
+DeclareMemory_Includes+=$(DeclareMemory_Dir)/TestDeclareMemorySim.hpp
 
 DeclareMemoryTest: Bin/Test/Declare_Memory
 	@echo "\tEXEC\tDeclareMemoryTest"

@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#include "empty_sim.hpp"
+#include "TestEmptySimSim.hpp"
 
 int main()
 {

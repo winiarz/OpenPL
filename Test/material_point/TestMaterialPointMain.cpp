@@ -29,7 +29,8 @@ TEST_F(MaterialPointTS, not_moving_point)
 {
   LocalMaterialPoint loc_points[1];
   for(int i=0;i<3;i++)
-    loc_points[0].position[i] = loc_points[0].speed[i] = loc_points[0].force[i] = 0;
+    loc_points[0].position[i] = loc_points[0].speed[i] = loc_points[0].force[i] = 0.0f;
+  loc_points[0].mass = 1.0f;
   
   sim.points.copyIn( loc_points, 0, 1 );
   sim.moving( sim.points );

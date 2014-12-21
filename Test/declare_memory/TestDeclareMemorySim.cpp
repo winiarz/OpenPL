@@ -1,5 +1,5 @@
 
-#include "declare_memory.hpp"
+#include "TestDeclareMemorySim.hpp"
 
 SIMSTEP_IMP0( DeclareMemorySim, empty)
 {

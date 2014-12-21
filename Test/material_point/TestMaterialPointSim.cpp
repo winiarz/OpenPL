@@ -17,7 +17,7 @@ SIMSTEP_IMP1( MaterialPointSim, moving, MaterialPointArray, points)
 
 SIMSTEP_IMP2( MaterialPointSim, apply_force, MaterialPointArray, points, Float4Array, forces)
 {
-  points[0].setForce(forces[0]);// + forces[1]);
+  points[0].setForce(forces[0]);
   points.move();
 }
 

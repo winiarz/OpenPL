@@ -4,10 +4,10 @@ TestBinaries+=  Bin/Test/Simple_Aritmetics
 SimpleAritmetics_Dir=Test/simple_aritmetics
 SimpleAritmetics_ObjDir=Obj/$(SimpleAritmetics_Dir)
 
-SimpleAritmetics_Obj+=$(SimpleAritmetics_ObjDir)/aritmetic.o
-SimpleAritmetics_Obj+=$(SimpleAritmetics_ObjDir)/main.o
+SimpleAritmetics_Obj+=$(SimpleAritmetics_ObjDir)/TestSimpleAritmeticsSim.o
+SimpleAritmetics_Obj+=$(SimpleAritmetics_ObjDir)/TestSimpleAritmeticsMain.o
 
-SimpleAritmetics_Includes+=$(SimpleAritmetics_Dir)/aritmetic.hpp
+SimpleAritmetics_Includes+=$(SimpleAritmetics_Dir)/TestSimpleAritmeticsSim.hpp
 
 SimpleAritmeticsTest: Bin/Test/Simple_Aritmetics
 	@echo "\tEXEC\tSimpleAritmeticsTest"

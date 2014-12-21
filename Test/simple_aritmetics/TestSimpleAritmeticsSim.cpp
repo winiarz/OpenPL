@@ -1,5 +1,5 @@
 
-#include "aritmetic.hpp"
+#include "TestSimpleAritmeticsSim.hpp"
 
 SIMSTEP_IMP1( SimpleAritmeticsSim, add, IntArray, liczby)
 {

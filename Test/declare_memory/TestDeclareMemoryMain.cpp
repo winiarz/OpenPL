@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#include "declare_memory.hpp"
+#include "TestDeclareMemorySim.hpp"
 
 int main()
 {

@@ -2,6 +2,9 @@
 #include "IOpenPlConfigurationFileReader.hpp"
 #include "IConfigParamReader.hpp"
 
+namespace OPL
+{
+
 class OpenPlConfigurationFileReader : public IOpenPlConfigurationFileReader
 {
 public:
@@ -12,3 +15,5 @@ private:
     std::shared_ptr<IOpenPlConfiguration> openPlConfiguration;
     std::vector<std::shared_ptr<IConfigParamReader>> paramReaders;
 };
+
+}

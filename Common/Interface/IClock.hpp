@@ -2,6 +2,9 @@
 
 typedef unsigned int uint;
 
+namespace OPL
+{
+
 class IClock {
 public:
     virtual uint getUsec()=0;
@@ -9,3 +12,4 @@ public:
     virtual uint getSec()=0;
 };
 
+}

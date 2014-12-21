@@ -6,6 +6,9 @@
 #include <sstream>
 #include "logs.hpp"
 
+namespace OPL
+{
+
 OpenPlConfigurationFileReader::OpenPlConfigurationFileReader()
 {
     openPlConfiguration = std::make_shared<OpenPlConfiguration>();
@@ -39,4 +42,6 @@ std::shared_ptr<IOpenPlConfiguration> OpenPlConfigurationFileReader::createConfi
         }
     }
     return openPlConfiguration;
+}
+
 }

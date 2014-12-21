@@ -2,6 +2,9 @@
 #include <sys/time.h>
 #include <stdio.h>
 
+namespace OPL
+{
+
 uint Clock::getUsec()
 {
     struct timeval tv;
@@ -19,3 +22,4 @@ uint Clock::getSec()
     return getUsec()/1000000;
 }
 
+}

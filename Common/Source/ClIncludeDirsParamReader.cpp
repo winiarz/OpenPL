@@ -1,5 +1,8 @@
 #include "ClIncludeDirsParamReader.hpp"
 
+namespace OPL
+{
+
 ClIncludeDirsParamReader::ClIncludeDirsParamReader(std::vector<std::string>& p_includeDirs) :
     includeDirs(p_includeDirs)
 {
@@ -16,4 +19,6 @@ void ClIncludeDirsParamReader::readParam(std::stringstream& stream)
     std::string directory;
     while( stream >> directory )
         includeDirs.push_back(directory);
+}
+
 }

@@ -1,6 +1,9 @@
 #include <gtest/gtest.h>
 #include "ClIncludeDirsParamReader.hpp"
 
+namespace OPL
+{
+
 using namespace testing;
 class ClIncludeDirsParamReaderTestSuite : public Test
 {
@@ -35,4 +38,6 @@ TEST_F(ClIncludeDirsParamReaderTestSuite, shouldAddDirsFromStread)
     ASSERT_EQ(2, fakeIncludeDirs.size());
     ASSERT_EQ("dir1", fakeIncludeDirs[0]);
     ASSERT_EQ("dir2", fakeIncludeDirs[1]);
+}
+
 }

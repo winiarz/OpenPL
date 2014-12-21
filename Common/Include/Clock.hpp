@@ -2,6 +2,9 @@
 
 #include "IClock.hpp"
 
+namespace OPL
+{
+
 class Clock : public IClock {
 public:
     virtual uint getUsec();
@@ -9,3 +12,4 @@ public:
     virtual uint getSec();
 };
 
+}

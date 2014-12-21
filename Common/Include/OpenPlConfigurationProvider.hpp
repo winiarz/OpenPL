@@ -4,6 +4,9 @@
 #include "IOpenPlConfigurationProvider.hpp"
 #include "IOpenPlConfiguration.hpp"
 
+namespace OPL
+{
+
 class OpenPlConfigurationProvider : public IOpenPlConfigurationProvider
 {
 public:
@@ -12,3 +15,5 @@ private:
     static bool isConfigLoaded;
     static std::shared_ptr<IOpenPlConfiguration> theOnlyConfiguration;
 };
+
+}

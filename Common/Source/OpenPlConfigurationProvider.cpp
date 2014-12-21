@@ -1,6 +1,9 @@
 #include "OpenPlConfigurationProvider.hpp"
 #include "OpenPlConfigurationFileReader.hpp"
 
+namespace OPL
+{
+
 bool OpenPlConfigurationProvider::isConfigLoaded;
 std::shared_ptr<IOpenPlConfiguration> OpenPlConfigurationProvider::theOnlyConfiguration;
 
@@ -12,4 +15,6 @@ IOpenPlConfiguration& OpenPlConfigurationProvider::getOpenPlConfiguration() cons
         isConfigLoaded = true;
     }
     return *theOnlyConfiguration;
+}
+
 }

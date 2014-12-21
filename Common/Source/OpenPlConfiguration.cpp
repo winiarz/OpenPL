@@ -1,5 +1,8 @@
 #include "OpenPlConfiguration.hpp"
 
+namespace OPL
+{
+
 OpenPlConfiguration::OpenPlConfiguration()
 {
 }
@@ -7,4 +10,6 @@ OpenPlConfiguration::OpenPlConfiguration()
 std::vector<std::string>& OpenPlConfiguration::getClIncludeDirs()
 {
     return clIncludeDirs;
+}
+
 }

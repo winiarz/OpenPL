@@ -3,6 +3,9 @@
 #include <string>
 #include <IConfigParamReader.hpp>
 
+namespace OPL
+{
+
 class ClIncludeDirsParamReader : public IConfigParamReader
 {
 public:
@@ -13,3 +16,5 @@ public:
 private:
     std::vector<std::string>& includeDirs;
 };
+
+}

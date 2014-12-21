@@ -1,6 +1,9 @@
 #pragma once
 #include "IOpenPlConfiguration.hpp"
 
+namespace OPL
+{
+
 class OpenPlConfiguration : public IOpenPlConfiguration
 {
 public:
@@ -10,3 +13,5 @@ public:
 private:
     std::vector<std::string> clIncludeDirs;
 };
+
+}

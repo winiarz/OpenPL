@@ -4,6 +4,9 @@
 #include<gtest/gtest.h>
 #include<gmock/gmock.h>
 
+namespace OPL
+{
+
 class ClockMock : public IClock {
 public:
     MOCK_METHOD0(getUsec, uint());
@@ -11,3 +14,4 @@ public:
     MOCK_METHOD0(getSec,  uint());
 };
 
+}

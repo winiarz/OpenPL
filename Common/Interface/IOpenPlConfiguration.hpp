@@ -2,6 +2,9 @@
 #include <vector>
 #include <string>
 
+namespace OPL
+{
+
 class IOpenPlConfiguration
 {
 public:
@@ -9,3 +12,5 @@ public:
 
     virtual ~IOpenPlConfiguration() {}
 };
+
+}

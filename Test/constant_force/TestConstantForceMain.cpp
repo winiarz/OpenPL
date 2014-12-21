@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 using namespace std;
-#include "ConstantForceSim.hpp"
+#include "TestConstantForceSim.hpp"
 
 class ConstantForceTS : public ::testing::Test {
 protected:

@@ -1,5 +1,5 @@
 
-#include "copy_integers.hpp"
+#include "TestCopyIntegersSim.hpp"
 using namespace OPL;
 
 SIMSTEP_IMP1( CopyIntegersSim, copy, IntArray, liczby)

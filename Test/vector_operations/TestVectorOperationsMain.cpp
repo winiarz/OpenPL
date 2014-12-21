@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 using namespace std;
-#include "vector_operations.hpp"
+#include "TestVectorOperationsSim.hpp"
 
 class VectorOperationsTS : public ::testing::Test {
 protected:

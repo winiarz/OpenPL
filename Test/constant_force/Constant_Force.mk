@@ -4,10 +4,10 @@ TestBinaries+=  Bin/Test/ConstantForce
 ConstantForce_Dir=Test/constant_force
 ConstantForce_ObjDir=Obj/$(ConstantForce_Dir)
 
-ConstantForce_Obj+= $(ConstantForce_ObjDir)/main.o
-ConstantForce_Obj+= $(ConstantForce_ObjDir)/ConstantForceSim.o
+ConstantForce_Obj+= $(ConstantForce_ObjDir)/TestConstantForceMain.o
+ConstantForce_Obj+= $(ConstantForce_ObjDir)/TestConstantForceSim.o
 
-ConstantForce_Includes+= $(ConstantForce_Dir)/ConstantForceSim.hpp
+ConstantForce_Includes+= $(ConstantForce_Dir)/TestConstantForceSim.hpp
 
 $(ConstantForce_ObjDir)/%.o: $(ConstantForce_Dir)/%.cpp $(ConstantForce_Includes) $(allLibs)
 	@echo "\tCXX\t"$*.o

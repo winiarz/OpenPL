@@ -1,4 +1,4 @@
-#include "ConstantForceSim.hpp"
+#include "TestConstantForceSim.hpp"
 
 void ConstantForceSim::setUp()
 {

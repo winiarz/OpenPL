@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 using namespace std;
-#include "copy_integers.hpp"
+#include "TestCopyIntegersSim.hpp"
 
 class CopyIntegersTS : public ::testing::Test {
 protected:

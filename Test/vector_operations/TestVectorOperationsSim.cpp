@@ -1,4 +1,4 @@
-#include "vector_operations.hpp"
+#include "TestVectorOperationsSim.hpp"
 
 SIMSTEP_IMP1( VectorOperationsSim, vec_add, Int3Array, vectors)
 {

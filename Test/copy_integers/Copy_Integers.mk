@@ -4,10 +4,10 @@ TestBinaries+=  Bin/Test/Copy_Integers
 CopyIntegers_Dir=Test/copy_integers
 CopyIntegers_ObjDir=Obj/$(CopyIntegers_Dir)
 
-CopyIntegers_Obj+=$(CopyIntegers_ObjDir)/copy_integers.o
-CopyIntegers_Obj+=$(CopyIntegers_ObjDir)/main.o
+CopyIntegers_Obj+=$(CopyIntegers_ObjDir)/TestCopyIntegersSim.o
+CopyIntegers_Obj+=$(CopyIntegers_ObjDir)/TestCopyIntegersMain.o
 
-CopyIntegers_Includes+=$(CopyIntegers_Dir)/copy_integers.hpp
+CopyIntegers_Includes+=$(CopyIntegers_Dir)/TestCopyIntegersSim.hpp
 
 CopyIntegersTest: Bin/Test/Copy_Integers
 	@echo "\tEXEC\tCopyIntegersTest"

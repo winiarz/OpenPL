@@ -4,10 +4,10 @@ TestBinaries+=  Bin/Test/VectorOperations
 VectorOperations_Dir=Test/vector_operations
 VectorOperations_ObjDir=Obj/$(VectorOperations_Dir)
 
-VectorOperations_Obj+=$(VectorOperations_ObjDir)/vector_operations.o
-VectorOperations_Obj+=$(VectorOperations_ObjDir)/main.o
+VectorOperations_Obj+=$(VectorOperations_ObjDir)/TestVectorOperationsSim.o
+VectorOperations_Obj+=$(VectorOperations_ObjDir)/TestVectorOperationsMain.o
 
-VectorOperations_Includes+=$(VectorOperations_Dir)/vector_operations.hpp
+VectorOperations_Includes+=$(VectorOperations_Dir)/TestVectorOperationsSim.hpp
 
 VectorOperationsTest: Bin/Test/VectorOperations
 	@echo "\tEXEC\tVectorOperationsTest"

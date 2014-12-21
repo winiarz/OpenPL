@@ -1,5 +1,5 @@
 
-#include "mysim.hpp"
+#include "TestLocalVariablesSim.hpp"
 
 SIMSTEP_IMP0( LocalVariablesSim, empty)
 {

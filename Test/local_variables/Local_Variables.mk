@@ -4,10 +4,10 @@ TestBinaries+=  Bin/Test/Local_Variables
 LocalVariables_Dir=Test/local_variables
 LocalVariables_ObjDir=Obj/$(LocalVariables_Dir)
 
-LocalVariables_Obj+=$(LocalVariables_ObjDir)/mysim.o
-LocalVariables_Obj+=$(LocalVariables_ObjDir)/main.o
+LocalVariables_Obj+=$(LocalVariables_ObjDir)/TestLocalVariablesSim.o
+LocalVariables_Obj+=$(LocalVariables_ObjDir)/TestLocalVariablesMain.o
 
-LocalVariables_Includes+=$(LocalVariables_Dir)/mysim.hpp
+LocalVariables_Includes+=$(LocalVariables_Dir)/TestLocalVariablesSim.hpp
 
 LocalVariablesTest: Bin/Test/Local_Variables
 	@echo "\tEXEC\tLocalVariablesTest"

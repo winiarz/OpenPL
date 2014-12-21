@@ -1,5 +1,5 @@
 
-#include "mysim.hpp"
+#include "TestConstantsSim.hpp"
 
 SIMSTEP_IMP1( ConstantsSim, constants, IntArray, numbers)
 {

@@ -1,13 +1,13 @@
 
 TestBinaries+=  Bin/Test/WhileLoop
 
-WhileLoop_Dir=Test/for_loop
+WhileLoop_Dir=Test/while_loop
 WhileLoop_ObjDir=Obj/$(WhileLoop_Dir)
 
-WhileLoop_Obj+=$(WhileLoop_ObjDir)/mysim.o
-WhileLoop_Obj+=$(WhileLoop_ObjDir)/main.o
+WhileLoop_Obj+=$(WhileLoop_ObjDir)/TestWhileLoopSim.o
+WhileLoop_Obj+=$(WhileLoop_ObjDir)/TestWhileLoopMain.o
 
-WhileLoop_Includes+=$(WhileLoop_Dir)/mysim.hpp
+WhileLoop_Includes+=$(WhileLoop_Dir)/TestWhileLoopSim.hpp
 
 WhileLoopTest: Bin/Test/WhileLoop
 	@echo "\tEXEC\tWhileLoopTest"

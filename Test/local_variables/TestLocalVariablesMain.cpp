@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#include "mysim.hpp"
+#include "TestLocalVariablesSim.hpp"
 
 int main()
 {

@@ -1,27 +1,22 @@
 #include <gtest/gtest.h>
 #include <iostream>
 using namespace std;
-#include "mysim.hpp"
+#include "TestWhileLoopSim.hpp"
 #include <math.h>
 
 class ForLoopTS : public ::testing::Test {
 public:
-  ForLoopSim sim;
+  WhileLoopSim sim;
 };
 
-TEST_F( ForLoopTS, calculate_power )
+TEST_F( ForLoopTS, if_test )
 {
-  int loc_numbers[3] = {1,2,3};
+  int loc_numbers[3] = {32,3,3};
   sim.numbers.copyIn(loc_numbers,0,3);
-  sim.power(sim.numbers);
+  sim.while_test(sim.numbers);
   int results[3];
   sim.numbers.copyOut(results,0,3);
-  ASSERT_EQ( results[0], pow(loc_numbers[1],loc_numbers[2]));
+  ASSERT_EQ( results[0], 2);
 }
 
-
-/*int main()
-{
-  
-}*/
  

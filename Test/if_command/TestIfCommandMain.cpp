@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 using namespace std;
-#include "mysim.hpp"
+#include "TestIfCommandSim.hpp"
 #include <math.h>
 
 class ForLoopTS : public ::testing::Test {

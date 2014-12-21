@@ -4,10 +4,10 @@ TestBinaries+=  Bin/Test/ForLoop
 ForLoop_Dir=Test/for_loop
 ForLoop_ObjDir=Obj/$(ForLoop_Dir)
 
-ForLoop_Obj+=$(ForLoop_ObjDir)/mysim.o
-ForLoop_Obj+=$(ForLoop_ObjDir)/main.o
+ForLoop_Obj+=$(ForLoop_ObjDir)/TestForLoopSim.o
+ForLoop_Obj+=$(ForLoop_ObjDir)/TestForLoopMain.o
 
-ForLoop_Includes+=$(ForLoop_Dir)/mysim.hpp
+ForLoop_Includes+=$(ForLoop_Dir)/TestForLoopSim.hpp
 
 ForLoopTest: Bin/Test/ForLoop
 	@echo "\tEXEC\tForLoopTest"

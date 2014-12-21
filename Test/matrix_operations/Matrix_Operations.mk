@@ -4,10 +4,10 @@ TestBinaries+=  Bin/Test/MatrixOperations
 MatrixOperations_Dir=Test/matrix_operations
 MatrixOperations_ObjDir=Obj/$(MatrixOperations_Dir)
 
-MatrixOperations_Obj+=$(MatrixOperations_ObjDir)/mysim.o
-MatrixOperations_Obj+=$(MatrixOperations_ObjDir)/main.o
+MatrixOperations_Obj+=$(MatrixOperations_ObjDir)/TestMatrixOperationsSim.o
+MatrixOperations_Obj+=$(MatrixOperations_ObjDir)/TestMatrixOperationsMain.o
 
-MatrixOperations_Includes+=$(MatrixOperations_Dir)/mysim.hpp
+MatrixOperations_Includes+=$(MatrixOperations_Dir)/TestMatrixOperationsSim.hpp
 
 MatrixOperationsTest: Bin/Test/MatrixOperations
 	@echo "\tEXEC\tMatrixOperationsTest"

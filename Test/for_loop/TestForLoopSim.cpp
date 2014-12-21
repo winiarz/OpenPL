@@ -1,5 +1,5 @@
 
-#include "mysim.hpp"
+#include "TestForLoopSim.hpp"
 
 SIMSTEP_IMP1( ForLoopSim, power, IntArray, numbers)
 {

@@ -1,5 +1,5 @@
 
-#include "mysim.hpp"
+#include "TestWhileLoopSim.hpp"
 
 SIMSTEP_IMP1( WhileLoopSim, while_test, IntArray, numbers)
 {

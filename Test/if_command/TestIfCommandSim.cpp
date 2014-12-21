@@ -1,5 +1,5 @@
 
-#include "mysim.hpp"
+#include "TestIfCommandSim.hpp"
 
 SIMSTEP_IMP1( IfCommandTestSim, if_test, IntArray, numbers)
 {

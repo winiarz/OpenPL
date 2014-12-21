@@ -1,4 +1,4 @@
-#include "mysim.hpp"
+#include "TestMatrixOperationsSim.hpp"
 
 SIMSTEP_IMP1( MatrixOperationSim, add, MatrixFloat4x4Array, matrices)
 {

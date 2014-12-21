@@ -4,10 +4,10 @@ TestBinaries+=  Bin/Test/MaterialPoint
 MaterialPoint_Dir=Test/material_point
 MaterialPoint_ObjDir=Obj/$(MaterialPoint_Dir)
 
-MaterialPoint_Obj+=$(MaterialPoint_ObjDir)/mysim.o
-MaterialPoint_Obj+=$(MaterialPoint_ObjDir)/main.o
+MaterialPoint_Obj+=$(MaterialPoint_ObjDir)/TestMaterialPointSim.o
+MaterialPoint_Obj+=$(MaterialPoint_ObjDir)/TestMaterialPointMain.o
 
-MaterialPoint_Includes+=$(MaterialPoint_Dir)/mysim.hpp
+MaterialPoint_Includes+=$(MaterialPoint_Dir)/TestMaterialPointSim.hpp
 
 MaterialPointTest: Bin/Test/MaterialPoint
 	@echo "\tEXEC\tMaterialPointTest"

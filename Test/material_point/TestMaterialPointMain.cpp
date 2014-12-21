@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 using namespace std;
-#include "mysim.hpp"
+#include "TestMaterialPointSim.hpp"
 
 class MaterialPointTS : public ::testing::Test {
 protected:

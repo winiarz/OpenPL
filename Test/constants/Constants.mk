@@ -4,10 +4,10 @@ TestBinaries+=  Bin/Test/Constants
 Constants_Dir=Test/constants
 Constants_ObjDir=Obj/$(Constants_Dir)
 
-Constants_Obj+=$(Constants_ObjDir)/mysim.o
-Constants_Obj+=$(Constants_ObjDir)/main.o
+Constants_Obj+=$(Constants_ObjDir)/TestConstantsSim.o
+Constants_Obj+=$(Constants_ObjDir)/TestConstantsMain.o
 
-Constants_Includes+=$(Constants_Dir)/mysim.hpp
+Constants_Includes+=$(Constants_Dir)/TestConstantsSim.hpp
 
 ConstantsTest: Bin/Test/Constants
 	@echo "\tEXEC\tConstantsTest"

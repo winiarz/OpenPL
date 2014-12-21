@@ -1,7 +1,7 @@
 #include <iostream>
 #include <gtest/gtest.h>
 using namespace std;
-#include "mysim.hpp"
+#include "TestMatrixOperationsSim.hpp"
 #include <math.h>
 class Matrix4x4TS : public ::testing::Test {
 public:

@@ -1,4 +1,4 @@
-#include "mysim.hpp"
+#include "TestMaterialPointSim.hpp"
 
 SIMSTEP_IMP1( MaterialPointSim, material_point_copy, MaterialPointArray, points)
 {

@@ -4,10 +4,10 @@ TestBinaries+=  Bin/Test/If_Command
 If_Command_Dir=Test/if_command
 If_Command_ObjDir=Obj/$(If_Command_Dir)
 
-If_Command_Obj+=$(If_Command_ObjDir)/mysim.o
-If_Command_Obj+=$(If_Command_ObjDir)/main.o
+If_Command_Obj+=$(If_Command_ObjDir)/TestIfCommandSim.o
+If_Command_Obj+=$(If_Command_ObjDir)/TestIfCommandMain.o
 
-If_Command_Includes+=$(If_Command_Dir)/mysim.hpp
+If_Command_Includes+=$(If_Command_Dir)/TestIfCommandSim.hpp
 
 IfCommandTest: Bin/Test/If_Command
 	@echo "\tEXEC\tIf_CommandTest"

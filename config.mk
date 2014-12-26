@@ -40,7 +40,6 @@ MAKEFLAGS += --no-builtin-rules
 Makefiles=$(ProjectRoot)/Makefiles
 
 include $(Makefiles)/IncludeDirectories.mk
-include $(Makefiles)/AutogenSource.mk
 
 # My library files
 libClPlatform=$(Lib)/ClPlatform.a

@@ -33,7 +33,7 @@ CompileTest: $(TestBinaries)
 test: ClPlatformTest InstructionProcessingTest CommonTest EmptySimulationTest DeclareMemoryTest CopyIntegersTest LocalVariablesTest SimpleAritmeticsTest ConstantsTest IfCommandTest WhileLoopTest ForLoopTest VectorOperationsTest MatrixOperationsTest MaterialPointTest
 
 clean:
-	@rm -f lib/*.a $(filesToClean)
+	@rm -Rf Obj/* lib/*.a $(filesToClean)
 
 cleanLogs:
 	@rm -Rf logs/*

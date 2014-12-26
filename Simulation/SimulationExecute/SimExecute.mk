@@ -1,6 +1,4 @@
 
-SimExecuteTypeGen=         $(SimExecuteScript)/seTypes.pl
-
 SimExecuteLibObj+=         $(SimExecuteObj)/seMaterialPointArray.o
 SimExecuteLibObj+=         $(SimExecuteObj)/seLocalMaterialPoint.o
 SimExecuteLibObj+=         $(SimExecuteObj)/seMatrix4x4Array.o
@@ -16,19 +14,16 @@ SimExecuteLibObj+=         $(SimExecuteObj)/VecTypes/seFloat4Array.o
 SimExecuteLibObj+=         $(SimExecuteObj)/VecTypes/seLocalFloat3.o
 SimExecuteLibObj+=         $(SimExecuteObj)/VecTypes/seLocalFloat4.o
 
-
-.PRECIOUS: $(SimExecuteAutogenIncludes) $(SimExecuteAutogenSources) $(SimExecuteObjFromAutogen)
-
-$(libSimExecute): $(SimExecuteLibObj) $(SimExecuteObjFromAutogen)
+$(libSimExecute): $(SimExecuteLibObj)
 	@echo "\tLD\t"SimulationExecute.a
 	@ar rvs $@ $^ 2> /dev/null > /dev/null
 
-filesToClean+=$(SimExecuteObjFromAutogen) $(SimExecuteObj)/*.o $(libSimExecute)
+filesToClean+=$(SimExecuteObj)/*.o $(libSimExecute)
 
-$(SimExecuteObj)/%.o: $(SimExecuteSource)/%.cpp $(SimExecuteAutogenIncludes)
+$(SimExecuteObj)/%.o: $(SimExecuteSource)/%.cpp
 	@echo "\tCXX\t"$*.o
 	@mkdir -p $(dir $@) && $(cpp) $< -o $@ $(AllInclude) $(cpp_flags)
 
-$(SimExecuteObj)/%.o: $(SimExecuteSource)/Structures/%.cpp $(AllAutogenIncludes)
+$(SimExecuteObj)/%.o: $(SimExecuteSource)/Structures/%.cpp
 	@echo "\tCXX\t"$*.o
 	@mkdir -p $(dir $@) && $(cpp) $< -o $@ $(AllInclude) $(cpp_flags)

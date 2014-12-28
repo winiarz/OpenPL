@@ -6,7 +6,6 @@ ClPlatformLibObj=    $(ClPlatformObj)/ClPlatform.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClKernel.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClKernelFactory.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClMemory.o
-ClPlatformLibObj+=   $(ClPlatformObj)/compile.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClParameterizedKernel.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClParameterizedKernelFromSource.o
 ClPlatformLibObj+=   $(ClPlatformObj)/ClKernelPerformanceComparator.o
@@ -46,10 +45,6 @@ filesToClean += $(clcc)
 filesToClean += $(ClPlatform)/TestData/*.clbin
 filesToClean += $(ClPlatformObj)/*.o
 filesToClean += $(ClPlatformTestKernels)
-
-$(clcc): $(ClPlatformLibObj) $(ClccObj) $(libLogs)
-	@echo "\tLD\t"clcc
-	@mkdir -p $(dir $@) && $(cpp) $^ -o $@ $(OpenClLib) $(OpenGL)
 
 ClPlatformTest: Bin/Test/TestPlatform $(ClPlatformTestKernels)
 	@echo "\tEXEC\tClPlatformTest"

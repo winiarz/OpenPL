@@ -6,6 +6,7 @@ all: compile test
 include config.mk
 
 include $(ClPlatform)/ClPlatform.mk
+include Clcc/Clcc.mk
 include $(Common)/Common.mk
 include $(SimCreate)/SimCreate.mk
 include $(InstructionProcessing)/Makefiles/InstructionProcessing.mk

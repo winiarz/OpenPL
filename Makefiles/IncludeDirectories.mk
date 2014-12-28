@@ -15,7 +15,7 @@ IncludesForSimulationExecute=-I $(Simulation)/Include $(SimulationExecuteInclude
 #Mock includes
 MockIncludes= -I$(ClPlatform)/Mock
 
-AllInclude=$(ClPlatformInclude) $(SimulationInclude) $(CommonInclude) $(KernelLoaderInclude) $(MockIncludes) $(InstructionProcessingInclude)
+AllInclude=$(ClPlatformInclude) $(SimulationInclude) $(CommonInclude) $(KernelLoaderInclude) $(MockIncludes) $(InstructionProcessingInclude) -I Clcc/Include
 
 
 

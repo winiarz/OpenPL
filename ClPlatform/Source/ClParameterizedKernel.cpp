@@ -4,7 +4,6 @@
 #include "OpenClCompilerWithPreprocessor.hpp"
 #include "ClIncludePreprocessor.hpp"
 #include "OpenClCompiler.hpp"
-#include "clcc.hpp"
 #include "logs.hpp"
 
 namespace OPL

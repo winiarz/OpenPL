@@ -1,14 +1,14 @@
 #pragma once
 
 #include "IClSingleImplementationKernel.hpp"
-#include "ClClasses.hpp"
-#include "ClPlatform.hpp"
+//#include "ClPlatform.hpp"
 #include "IClMemory.hpp"
 #include "ClKernelCallStats.hpp"
 #include "stl.hpp"
 
 namespace OPL
 {
+class ClPlatform;
 
 class ClKernel : public IClSingleImplementationKernel {
 public:

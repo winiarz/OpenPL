@@ -1,8 +1,6 @@
 #pragma once
-
+#include <set>
 #include "IClKernelManager.hpp"
-#include "ClError.hpp"
-#include "stl.hpp"
 
 namespace OPL
 {

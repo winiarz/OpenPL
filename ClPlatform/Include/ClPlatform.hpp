@@ -1,9 +1,7 @@
 #pragma once
 
 #include <CL/cl.h>
-#include "ClClasses.hpp"
 #include "ClKernelManager.hpp"
-#include "ClError.hpp"
 
 class ClKernelManager;
 

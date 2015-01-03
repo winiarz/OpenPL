@@ -1,4 +1,5 @@
 #include "ClKernelSaver.hpp"
+#include "ClPlatform.hpp"
 #include "ClKernel.hpp"
 #include "logs.hpp"
 

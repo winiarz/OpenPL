@@ -2,6 +2,7 @@
 #include "ClKernel.hpp"
 #include "IClMemory.hpp"
 #include "ClKernelFromBinaryLoader.hpp"
+#include "ClPlatform.hpp"
 #include "Clock.hpp"
 #include "logs.hpp"
 

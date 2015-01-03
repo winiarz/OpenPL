@@ -1,5 +1,6 @@
 #include "ClRandomFloatArrayGenerator.hpp"
 #include "ClArrayMemory.hpp"
+#include "ClError.hpp"
 #include <cstdlib>
 
 namespace OPL

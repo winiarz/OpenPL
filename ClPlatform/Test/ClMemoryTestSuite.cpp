@@ -1,5 +1,9 @@
 #include <gtest/gtest.h>
+#include <memory>
+using std::shared_ptr;
+using std::make_shared;
 #include "ClMemory.hpp"
+#include "ClPlatform.hpp"
 
 namespace OPL
 {

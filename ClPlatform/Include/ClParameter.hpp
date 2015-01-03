@@ -4,12 +4,13 @@
 
 namespace OPL
 {
+class ClDeviceInfo;
 
 class ClParameter {
 public:
     virtual void calculateValues(ClDeviceInfo&) = 0;
 protected:
-    set<int> values;
+    std::set<int> values;
 };
 
 }

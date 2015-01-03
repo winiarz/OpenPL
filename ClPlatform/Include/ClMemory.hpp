@@ -1,12 +1,12 @@
 #pragma once
 
-#include "ClPlatform.hpp"
 #include "IClMemory.hpp"
 #include <GL/glew.h>
 #include <CL/cl_gl.h>
 
 namespace OPL
 {
+class ClPlatform;
 
 enum ClMemoryCreation {
   CL_MEMORY_ALLOC,

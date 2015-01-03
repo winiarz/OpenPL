@@ -5,6 +5,7 @@
 #include "ClIncludePreprocessor.hpp"
 #include "OpenClCompiler.hpp"
 #include "logs.hpp"
+#include "IClKernelPerformanceComparator.hpp"
 
 namespace OPL
 {

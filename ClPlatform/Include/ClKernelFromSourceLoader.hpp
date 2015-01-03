@@ -1,9 +1,7 @@
 #pragma once
-
-#include <CL/cl.h>
+#include <vector>
+#include <string>
 #include "IClKernelFromFileLoader.hpp"
-#include "ClIncludePreprocessor.hpp"
-#include "OpenClCompiler.hpp"
 #include "OpenClCompilerWithPreprocessor.hpp"
 
 namespace OPL

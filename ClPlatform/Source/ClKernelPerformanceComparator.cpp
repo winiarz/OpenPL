@@ -1,6 +1,10 @@
 #include "ClKernelPerformanceComparator.hpp"
 #include "ClKernelSaver.hpp"
 #include "ClError.hpp"
+#include "IClock.hpp"
+#include "IClParameterizedKernel.hpp"
+#include "IClDataGenerator.hpp"
+#include "ClMemory.hpp"
 #include "logs.hpp"
 
 namespace OPL

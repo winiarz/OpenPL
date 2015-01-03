@@ -1,4 +1,5 @@
 #include "ClMemory.hpp"
+#include "ClPlatform.hpp"
 #include "logs.hpp"
 
 namespace OPL

@@ -1,12 +1,10 @@
 #pragma once
-
+#include <set>
 #include "IClKernelPerformanceComparator.hpp"
-#include "IClDataGenerator.hpp"
-#include "IClParameterizedKernel.hpp"
-#include "IClock.hpp"
 
 namespace OPL
 {
+class IClock;
 
 class ClKernelPerformanceComparator : public IClKernelPerformanceComparator {
 public:
@@ -20,7 +18,7 @@ public:
 private:
     IClock& clock;
     optional<shared_ptr<IClDataGenerator> > dataGenerator;
-    set<shared_ptr<IClSingleImplementationKernel> > remainingKernels;
+    std::set<shared_ptr<IClSingleImplementationKernel> > remainingKernels;
     uint bestTime;
     optional<shared_ptr<IClSingleImplementationKernel> > bestKernel;
 };

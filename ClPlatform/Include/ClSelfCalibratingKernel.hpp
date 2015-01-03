@@ -2,10 +2,10 @@
 
 #include "boost.hpp"
 #include "IClKernel.hpp"
-#include "IClKernelPerformanceComparator.hpp"
 
 namespace OPL
 {
+class IClKernelPerformanceComparator;
 
 class ClSelfCalibratingKernel : public IClKernel
 {

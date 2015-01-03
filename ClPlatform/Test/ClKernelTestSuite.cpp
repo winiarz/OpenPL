@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include "stl.hpp"
 #include "ClKernel.hpp"
+#include "ClPlatform.hpp"
+#include "ClError.hpp"
 
 namespace OPL
 {

@@ -1,9 +1,7 @@
 #pragma once
 #include <memory>
 using std::shared_ptr;
-
 #include "boost.hpp"
-//#include "IClSingleImplementationKernel.hpp"
 
 namespace OPL
 {

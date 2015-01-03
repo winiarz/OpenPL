@@ -4,6 +4,8 @@
 #include "ClError.hpp"
 #include "logs.hpp"
 #include "stl.hpp"
+#include "OpenClCompiler.hpp"
+#include "ClIncludePreprocessor.hpp"
 
 namespace OPL
 {

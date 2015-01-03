@@ -2,6 +2,7 @@
 #include "IClSingleImplementationKernel.hpp"
 #include "ClError.hpp"
 #include "Clock.hpp"
+#include "IClKernelPerformanceComparator.hpp"
 #include "logs.hpp"
 #include <stdarg.h>
 

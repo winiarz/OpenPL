@@ -1,0 +1,3 @@
+
+file(GLOB CommonSrc "Common/Source/*.cpp")
+add_library(Common ${CommonSrc})

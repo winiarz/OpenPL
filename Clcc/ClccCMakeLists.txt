@@ -1,0 +1,8 @@
+
+file(GLOB ClccSrc "Clcc/Source/*.cpp")
+
+add_executable(Bin/clcc ${ClccSrc})
+target_link_libraries(Bin/clcc ClPlatform
+			       Common
+			       -lpthread
+			       "/usr/lib/x86_64-linux-gnu/libOpenCL.so.1")

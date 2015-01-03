@@ -1,5 +1,5 @@
-Bin/Test/TestPlatform TestPlatform
-Bin/Test/InstructionProcessingTS InstructionProcessing_UT
+Bin/Test/TestClPlatform ClPlatform_UT
+Bin/Test/TestInstructionProcessing InstructionProcessing_UT
 Bin/Test/Empty_Simulation Empty_Simulation
 Bin/Test/Declare_Memory Declare_Memory
 Bin/Test/Copy_Integers Copy_Integers

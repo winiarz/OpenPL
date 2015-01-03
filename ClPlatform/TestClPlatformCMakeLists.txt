@@ -1,0 +1,17 @@
+
+file(GLOB ClPlatformTest "ClPlatform/Test/*.cpp")
+
+
+add_executable(Bin/Test/TestClPlatform ${ClPlatformTest})
+target_link_libraries (Bin/Test/TestClPlatform ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(Bin/Test/TestClPlatform ${OPENPL_ALL_LIBS} ${EXTERNAL_LIBS})
+
+add_dependencies(Bin/Test/TestClPlatform EmptyTestKernel)
+add_custom_target(EmptyTestKernel
+		  DEPENDS Bin/clcc ClPlatform/TestData/empty.cl
+		  COMMAND Bin/clcc ClPlatform/TestData/empty.cl -o ClPlatform/TestData/empty.clbin)
+
+add_dependencies(Bin/Test/TestClPlatform AdditionTestKernel)
+add_custom_target(AdditionTestKernel
+		  DEPENDS Bin/clcc ClPlatform/TestData/addition.cl
+		  COMMAND Bin/clcc ClPlatform/TestData/addition.cl -o ClPlatform/TestData/addition.clbin)

@@ -1,0 +1,15 @@
+
+file(GLOB TestCommonSrc "Common/Test/*.cpp")
+
+
+add_executable(Bin/Test/TestCommon ${TestCommonSrc})
+target_link_libraries (Bin/Test/TestCommon ${CMAKE_THREAD_LIBS_INIT})
+
+target_link_libraries(Bin/Test/TestCommon ${OPENPL_ALL_LIBS}
+				     "/usr/lib/x86_64-linux-gnu/libOpenCL.so.1"
+                                     "/usr/lib/libgtest.a"
+                                     "/usr/lib/libgtest_main.a"
+                                     "/usr/lib/libgmock.a"
+                                     "/usr/lib/libgmock_main.a"
+                                     "/usr/lib/x86_64-linux-gnu/libGLEW.so"
+                                     -pthread)

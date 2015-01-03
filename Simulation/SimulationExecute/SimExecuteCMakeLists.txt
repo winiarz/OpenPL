@@ -1,0 +1,6 @@
+
+file(GLOB SimExecuteSrc "Simulation/SimulationExecute/Source/*.cpp"
+			"Simulation/SimulationExecute/Source/Structures/*.cpp"
+			"Simulation/SimulationExecute/Source/Types/*.cpp"
+			"Simulation/SimulationExecute/Source/VecTypes/*.cpp")
+add_library(SimExecute ${SimExecuteSrc})

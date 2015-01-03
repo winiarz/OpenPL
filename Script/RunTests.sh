@@ -11,7 +11,7 @@ date=`date "+%H:%M_%d-%b-%Y"`
 logDir="$logMainDir/$date"
 mkdir -p $logDir
 
-make compile CompileTest -j6 > $logDir/compile 2> $logDir/compile.err
+Script/build.sh > $logDir/compile 2> $logDir/compile.err
 
 compileResult=$?
 if [ $compileResult != 0 ]; then

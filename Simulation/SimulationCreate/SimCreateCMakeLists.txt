@@ -1,0 +1,6 @@
+
+file(GLOB SimCreateSrc "Simulation/SimulationCreate/Source/*.cpp")
+add_library(SimCreate ${SimCreateSrc})
+
+file(GLOB InstructionProcessingSrc "Simulation/SimulationCreate/InstructionProcessing/Source/*.cpp")
+add_library(InstructionProcessing ${InstructionProcessingSrc})

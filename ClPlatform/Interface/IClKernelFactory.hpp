@@ -1,10 +1,9 @@
 #pragma once
-
 #include <string>
-#include "ClKernel.hpp"
 
 namespace OPL
 {
+class IClKernel;
 
 class IClKernelFactory {
 public:

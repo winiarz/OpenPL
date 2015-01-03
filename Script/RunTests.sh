@@ -25,7 +25,6 @@ passed=0
 failed=0
 
 function testcase {
-  #dir="$1"
   command="$1"
   testname="$2"
 

@@ -1,5 +1,5 @@
 #pragma once
-
+#include <CL/cl.h>
 #include "IClKernel.hpp"
 
 namespace OPL

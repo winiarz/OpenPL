@@ -1,6 +1,7 @@
 #pragma once
-
-#include "stl.hpp"
+#include <string>
+#include <memory>
+using std::shared_ptr;
 
 namespace OPL
 {

@@ -1,7 +1,7 @@
 #pragma once
-
-#include <CL/cl.h>
-#include <stl.hpp>
+#include <vector>
+#include <memory>
+using std::shared_ptr;
 
 typedef unsigned int uint;
 

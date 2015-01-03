@@ -1,4 +1,5 @@
 #include "ClSelfCalibratingKernelFromFileReader.hpp"
+#include "ClSelfCalibratingKernel.hpp"
 #include "ClKernelPerformanceComparator.hpp"
 #include "ClKernel.hpp"
 #include "ClError.hpp"

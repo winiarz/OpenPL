@@ -1,10 +1,10 @@
 #pragma once
 
 #include "stl.hpp"
-#include "ClSelfCalibratingKernel.hpp"
 
 namespace OPL
 {
+class ClSelfCalibratingKernel;
 
 class IClSelfCalibratingKernelFromFileReader
 {

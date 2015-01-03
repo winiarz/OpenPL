@@ -2,12 +2,12 @@
 
 #include "stl.hpp"
 #include "boost.hpp"
-#include "IClSingleImplementationKernel.hpp"
 
 namespace OPL
 {
 
 class IClParameter;
+class IClSingleImplementationKernel;
 
 class IClParameterizedKernel {
 public:

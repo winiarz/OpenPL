@@ -1,4 +1,5 @@
 #pragma once
+#include <set>
 
 namespace OPL
 {
@@ -6,7 +7,7 @@ namespace OPL
 class IClParameter {
 public:
     virtual bool isCorrect(int) = 0;
-    virtual set<int> getAllPosible() = 0;
+    virtual std::set<int> getAllPosible() = 0;
 };
 
 }

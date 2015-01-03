@@ -1,14 +1,15 @@
 #pragma once
-
-#include "IClDataGenerator.hpp"
+#include <memory>
+using std::shared_ptr;
 
 namespace OPL
 {
+class IClDataGenerator;
 
 class IClDataGeneratorFromFileReader
 {
 public:
-    virtual shared_ptr<IClDataGenerator> read(FILE*) = 0;
+    virtual std::shared_ptr<IClDataGenerator> read(FILE*) = 0;
 };
 
 }

@@ -1,5 +1,6 @@
 #include "ClKernelFactory.hpp"
-#include <iostream>
+#include "ClKernel.hpp"
+//#include <iostream>
 
 namespace OPL
 {

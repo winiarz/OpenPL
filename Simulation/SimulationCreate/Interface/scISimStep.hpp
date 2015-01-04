@@ -1,10 +1,12 @@
 #pragma once
 
 #include <memory>
-#include "IClMemory.hpp"
+#include <vector>
 
 namespace OPL
 {
+class IClMemory;
+
 namespace SimCreate
 {
     class ISimStep

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "InstructionBlock.hpp"
 #include "IInstructionRecorder.hpp"
 #include "scISimStepCreator.hpp"
 #include "IVariable.hpp"

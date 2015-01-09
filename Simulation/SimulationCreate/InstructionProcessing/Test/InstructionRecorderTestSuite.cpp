@@ -4,6 +4,7 @@
 #include "Variable.hpp"
 #include "Int.hpp"
 #include "VectorVariable.hpp"
+#include "IInstructionBlock.hpp"
 
 namespace OPL
 {

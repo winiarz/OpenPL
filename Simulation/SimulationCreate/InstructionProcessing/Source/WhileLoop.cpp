@@ -1,3 +1,4 @@
+#include <sstream>
 #include "WhileLoop.hpp"
 
 namespace OPL
@@ -7,7 +8,7 @@ namespace InsPr
 
 WhileLoop::WhileLoop(shared_ptr<SingleInstruction> p_condition) :
     condition(p_condition),
-    instructions(make_shared<InstructionBlock>())
+    instructions(std::make_shared<InstructionBlock>())
 {
 }
 

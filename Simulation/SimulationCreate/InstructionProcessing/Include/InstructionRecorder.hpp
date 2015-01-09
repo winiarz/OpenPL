@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stack>
 #include "IInstructionRecorder.hpp"
 
 namespace OPL

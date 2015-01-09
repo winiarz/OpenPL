@@ -1,9 +1,11 @@
+#include <sstream>
 #include "IfInstruction.hpp"
 
 namespace OPL
 {
 namespace InsPr
 {
+using std::make_shared;
 
 IfInstruction::IfInstruction(shared_ptr<SingleInstruction> p_condition) :
     condition(p_condition),

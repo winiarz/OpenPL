@@ -1,3 +1,4 @@
+#include <sstream>
 #include "IVariable.hpp"
 
 namespace OPL
@@ -14,7 +15,7 @@ void IVariable::recordAssigment( IVariable& rvalue)
 {
     std::ostringstream sstream;
     sstream << getName() << " = " << rvalue.getName();
-    (*recorder) << make_shared<SingleInstruction>(sstream.str());
+    (*recorder) << std::make_shared<SingleInstruction>(sstream.str());
 }
 
 std::string IVariable::getDeclaration()
@@ -26,7 +27,7 @@ std::string IVariable::getDeclaration()
 
 void IVariable::recordDeclaration()
 {
-    (*recorder) << make_shared<SingleInstruction>(getDeclaration());
+    (*recorder) << std::make_shared<SingleInstruction>(getDeclaration());
 }
 
 }

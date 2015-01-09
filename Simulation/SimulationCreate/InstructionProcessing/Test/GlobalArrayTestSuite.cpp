@@ -2,6 +2,8 @@
 #include<gtest/gtest.h>
 #include "IntGlobalArray.hpp"
 #include "InstructionRecorder.hpp"
+#include "IInstruction.hpp"
+#include "IInstructionBlock.hpp"
 
 namespace OPL
 {

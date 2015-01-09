@@ -10,6 +10,7 @@ namespace OPL
 {
 namespace SimCreate
 {
+using std::shared_ptr;
 
 class SimStepCreator : public ISimStepCreator
 {

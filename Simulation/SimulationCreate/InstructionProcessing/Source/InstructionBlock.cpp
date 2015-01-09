@@ -1,3 +1,4 @@
+#include <sstream>
 #include "InstructionBlock.hpp"
 
 namespace OPL

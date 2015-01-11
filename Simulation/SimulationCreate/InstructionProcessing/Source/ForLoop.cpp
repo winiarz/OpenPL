@@ -1,9 +1,11 @@
+#include <sstream>
 #include "ForLoop.hpp"
 
 namespace OPL
 {
 namespace InsPr
 {
+using std::make_shared;
 
 ForLoop::ForLoop(shared_ptr<SingleInstruction> p_startInstruction,
                  shared_ptr<SingleInstruction> p_continueCondition,

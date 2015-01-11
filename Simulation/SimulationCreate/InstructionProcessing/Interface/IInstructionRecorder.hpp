@@ -1,14 +1,18 @@
 #pragma once
 
-#include "boost.hpp"
+#include <memory>
+#include <vector>
 #include "IInstruction.hpp"
-#include "InstructionBlock.hpp"
-#include "SingleInstruction.hpp"
+
 
 namespace OPL
 {
 namespace InsPr
 {
+class IInstructionBlock;
+class SingleInstruction;
+using std::shared_ptr;
+
     class IInstructionRecorder
     {
     public:

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "boost.hpp"
+#include <memory>
 
 namespace OPL
 {
@@ -12,7 +12,7 @@ class ISimStep;
 class ISimStepCreator
 {
 public:
-    virtual shared_ptr<ISimStep> create() = 0;
+    virtual std::shared_ptr<ISimStep> create() = 0;
 };
 
 }

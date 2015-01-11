@@ -1,3 +1,4 @@
+#include <stack>
 #include "InstructionRecorder.hpp"
 #include "ForLoop.hpp"
 #include "WhileLoop.hpp"
@@ -7,6 +8,7 @@ namespace OPL
 {
 namespace InsPr
 {
+using std::make_shared;
 
 InstructionRecorder::InstructionRecorder() :
     instructionBlocks(),

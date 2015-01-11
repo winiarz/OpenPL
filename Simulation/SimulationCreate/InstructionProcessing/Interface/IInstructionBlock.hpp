@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "boost.hpp"
+#include <memory>
 #include "IInstruction.hpp"
 
 namespace OPL
@@ -13,7 +13,7 @@ namespace InsPr
     public:
         virtual void startElse()
         {}
-        virtual void addInstruction(shared_ptr<IInstruction>) = 0;
+        virtual void addInstruction(std::shared_ptr<IInstruction>) = 0;
     };
 }
 }

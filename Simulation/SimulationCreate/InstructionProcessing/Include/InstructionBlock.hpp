@@ -1,7 +1,8 @@
 #pragma once
 
-#include "boost.hpp"
+#include <vector>
 #include "IInstructionBlock.hpp"
+using std::shared_ptr;
 
 namespace OPL
 {

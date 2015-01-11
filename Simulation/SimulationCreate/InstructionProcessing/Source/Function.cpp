@@ -1,3 +1,4 @@
+#include <sstream>
 #include "Function.hpp"
 
 namespace OPL
